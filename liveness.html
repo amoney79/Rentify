@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rentify - Liveness</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-gray-100 min-h-screen">
+    <div id="app-container"
+        class="bg-white dark:bg-[#101622] shadow-xl min-h-screen max-w-[480px] mx-auto relative flex flex-col">
+        <header class="p-4 flex items-center justify-between">
+            <a class="material-symbols-outlined cursor-pointer" href="upload.html">arrow_back_ios</a>
+            <h2 class="font-bold">Face Liveness</h2>
+            <div class="text-primary font-bold text-sm">2/2</div>
+        </header>
+
+        <main class="p-8 flex-1 flex flex-col items-center text-center">
+            <h1 class="text-2xl font-bold mb-2">Almost there!</h1>
+            <p class="text-gray-400 text-sm mb-8 px-4">Slowly turn your head inside the frame to confirm identity.</p>
+            <div class="size-64 rounded-full border-4 border-primary relative overflow-hidden bg-gray-900 group">
+                <div class="absolute inset-0 bg-cover bg-center brightness-75 group-hover:brightness-100 transition-all"
+                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB5vsJ6mDBdboCFsh9JaBAyoUkJx_LTOgQI16joJ1Eg8C-KkjXHYeBitgDyv9fJshGXnmHuemv0TYeXp7Hyk0t_EQuNRtF6s3-W0ou8nAzD6Qp3J9XsDurYI-87NwE0-i6o8vQGoZb7ysi8-azKRHo17L56VMftPRh5HsqQTQKiPuRwyiAhkgxevgofim28NL4WtWYzWh3w_EQMomij4Aag9axtOZX3gQ4CpXD-gbT_Xw1EBBOZeowh-PCm60DDsyCysXhPNWWnOjc')">
+                </div>
+                <div class="absolute inset-0 border-[16px] border-[#101622]/80 rounded-full"></div>
+                <div class="absolute top-1/2 left-0 w-full h-1 bg-primary/60 animate-pulse shadow-[0_0_15px_#135bec]">
+                </div>
+            </div>
+            <div class="flex-1"></div>
+            <a href="success.html"
+                class="w-full bg-primary text-white h-14 rounded-2xl font-bold shadow-lg shadow-primary/30 flex items-center justify-center">Finish
+                Verification</a>
+        </main>
+    </div>
+</body>
+
+</html>

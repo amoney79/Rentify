@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rentify - Payment</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-gray-100 min-h-screen">
+    <div id="app-container"
+        class="bg-white dark:bg-[#101622] shadow-xl min-h-screen max-w-[480px] mx-auto relative flex flex-col">
+        <header class="p-4 border-b border-gray-100 dark:border-gray-800 flex items-center justify-between">
+            <a href="schedule.html"
+                class="size-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800">
+                <span class="material-symbols-outlined">arrow_back_ios_new</span>
+            </a>
+            <h2 class="text-lg font-bold">Secure Payment</h2>
+            <div class="w-10"></div>
+        </header>
+
+        <main class="p-4 space-y-6 flex flex-col items-center">
+            <div class="text-center mt-8">
+                <p class="text-gray-400 font-bold uppercase text-xs tracking-widest">Total Amount</p>
+                <h1 class="text-5xl font-bold mt-2">KSh 1,500</h1>
+            </div>
+            <div class="w-full space-y-3">
+                <div class="p-4 border-2 border-primary bg-primary/10 rounded-2xl flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <div class="size-12 bg-green-500 rounded-xl flex items-center justify-center text-white"><span
+                                class="material-symbols-outlined">smartphone</span></div>
+                        <div>
+                            <p class="font-bold">M-Pesa</p>
+                            <p class="text-xs text-gray-500">Fast & Secure</p>
+                        </div>
+                    </div>
+                    <div class="size-6 border-2 border-primary rounded-full flex items-center justify-center">
+                        <div class="size-3 bg-primary rounded-full"></div>
+                    </div>
+                </div>
+                <div
+                    class="p-4 border-2 border-gray-100 dark:border-gray-800 rounded-2xl flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <div class="size-12 bg-blue-500 rounded-xl flex items-center justify-center text-white"><span
+                                class="material-symbols-outlined">credit_card</span></div>
+                        <div>
+                            <p class="font-bold">Card</p>
+                            <p class="text-xs text-gray-500">Visa / Mastercard</p>
+                        </div>
+                    </div>
+                    <div class="size-6 border-2 border-gray-300 rounded-full"></div>
+                </div>
+            </div>
+            <div
+                class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[480px] p-4 bg-white dark:bg-[#101622] border-t border-gray-200 dark:border-gray-800">
+                <a href="success.html"
+                    class="w-full bg-primary text-white h-14 rounded-2xl font-bold flex items-center justify-center">Pay
+                    Now</a>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

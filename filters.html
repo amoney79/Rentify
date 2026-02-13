@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rentify - Filters</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-gray-100 min-h-screen">
+    <div id="app-container" class="bg-white dark:bg-[#101622] shadow-xl min-h-screen max-w-[480px] mx-auto relative">
+        <header class="sticky top-0 z-40 bg-white dark:bg-[#101622] border-b border-gray-200 dark:border-gray-800">
+            <div class="flex items-center p-4 pb-2 justify-between">
+                <a href="index.html"
+                    class="text-gray-900 dark:text-white flex size-12 shrink-0 items-center justify-start cursor-pointer">
+                    <span class="material-symbols-outlined">arrow_back_ios</span>
+                </a>
+                <h2 class="text-gray-900 dark:text-white text-lg font-bold flex-1 text-center">Search & Filters</h2>
+                <div class="w-12"></div>
+            </div>
+            <div class="px-4 py-3">
+                <div
+                    class="flex w-full items-stretch rounded-xl h-12 overflow-hidden shadow-sm bg-gray-100 dark:bg-[#1c2433]">
+                    <div class="text-gray-400 flex items-center justify-center pl-4">
+                        <span class="material-symbols-outlined">search</span>
+                    </div>
+                    <input class="w-full border-none bg-transparent focus:ring-0 h-full px-4 pl-2 text-base"
+                        placeholder="Search locations..." value="Nairobi, Westlands" />
+                    <div class="text-primary flex items-center justify-center pr-4">
+                        <span class="material-symbols-outlined">tune</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="pb-32 px-4 pt-4">
+            <section class="mb-6">
+                <h3 class="text-lg font-bold mb-4">Price Range</h3>
+                <div class="bg-gray-100 dark:bg-[#1c2433] p-6 rounded-2xl">
+                    <div class="h-1.5 w-full bg-gray-200 dark:bg-gray-700 rounded-full relative">
+                        <div class="absolute left-1/4 right-1/4 h-full bg-primary rounded-full"></div>
+                        <div
+                            class="absolute left-1/4 -top-2 size-5 bg-white border-2 border-primary rounded-full shadow-md">
+                        </div>
+                        <div
+                            class="absolute right-1/4 -top-2 size-5 bg-white border-2 border-primary rounded-full shadow-md">
+                        </div>
+                    </div>
+                    <div class="flex justify-between mt-4 text-sm font-semibold">
+                        <span>Ksh 15,000</span>
+                        <span>Ksh 85,000</span>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-6">
+                <h3 class="text-lg font-bold mb-3">Property Type</h3>
+                <div class="flex gap-2 overflow-x-auto no-scrollbar">
+                    <button
+                        class="px-5 py-2 rounded-full bg-primary text-white text-sm font-medium border border-primary">All
+                        Types</button>
+                    <button
+                        class="px-5 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-white text-sm font-medium border border-gray-200 dark:border-gray-700">Apartment</button>
+                </div>
+            </section>
+            <div
+                class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[480px] p-4 bg-gradient-to-t from-white dark:from-[#101622] pt-8">
+                <a href="index.html"
+                    class="w-full bg-primary text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/30 flex items-center justify-center">Show
+                    124 Results</a>
+            </div>
+        </main>
+
+        <nav
+            class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[480px] bg-white/90 dark:bg-[#101622]/90 backdrop-blur-lg border-t border-gray-200 dark:border-gray-800 px-6 py-3 flex justify-between items-center z-50">
+            <a href="index.html" class="flex flex-col items-center gap-1 text-gray-400">
+                <span class="material-symbols-outlined text-[28px]">home</span>
+                <span class="text-[10px] font-medium">Home</span>
+            </a>
+            <a href="filters.html" class="flex flex-col items-center gap-1 text-primary">
+                <span class="material-symbols-outlined text-[28px] font-variation-settings: 'FILL' 1">explore</span>
+                <span class="text-[10px] font-medium">Explore</span>
+            </a>
+            <a href="#" class="flex flex-col items-center gap-1 text-gray-400">
+                <span class="material-symbols-outlined text-[28px]">favorite</span>
+                <span class="text-[10px] font-medium">Saved</span>
+            </a>
+            <a href="chat.html" class="flex flex-col items-center gap-1 text-gray-400">
+                <span class="material-symbols-outlined text-[28px]">chat_bubble</span>
+                <span class="text-[10px] font-medium">Messages</span>
+            </a>
+            <a href="profile.html" class="flex flex-col items-center gap-1 text-gray-400">
+                <span class="material-symbols-outlined text-[28px]">person</span>
+                <span class="text-[10px] font-medium">Profile</span>
+            </a>
+        </nav>
+    </div>
+</body>
+
+</html>

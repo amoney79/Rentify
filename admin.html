@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rentify - Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-gray-100 min-h-screen">
+    <div id="app-container" class="bg-white dark:bg-[#101622] shadow-xl min-h-screen max-w-[480px] mx-auto relative flex flex-col">
+        <header class="p-6 flex items-center justify-between">
+            <div>
+                <h1 class="text-2xl font-bold">Admin Console</h1>
+                <p class="text-xs text-gray-500 font-bold uppercase tracking-widest mt-1">Platform Status: Active</p>
+            </div>
+            <div class="size-12 rounded-full overflow-hidden border-2 border-primary"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD68fJB-SrzHOyOdCdgNYcJm9qKNPc-0Qt9Z937_5eFZgwhXY8OUccaceUqVLxAn6pez9xeFx-G0gsM8jwbCzI3TaeyxD08-OgIGzyTxeg2R6zaMF_Zff1C50RxgfXiJOh90JTGn9qb-YZkoO0qwYRpvMVA5aufouOtXMKlko1N5W_GTyjdGjK7K04MD6Ha6V0Hb-tHtn8AbdeJDBfH2AvTYq1LuyQMuu0Zhg9ZqL8lQxcXXc11uVau3KTbYpo9fcdCgZbO-duwsdg" class="w-full h-full object-cover"></div>
+        </header>
+
+        <main class="p-6 space-y-4 pb-32">
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-amber-500/10 border border-amber-500/20 p-4 rounded-3xl"><h2 class="text-3xl font-bold text-amber-500">24</h2><p class="text-[10px] font-bold uppercase text-amber-500/80">Pending Verification</p></div>
+                <div class="bg-primary/10 border border-primary/20 p-4 rounded-3xl"><h2 class="text-3xl font-bold text-primary">1.2K</h2><p class="text-[10px] font-bold uppercase text-primary/80">Active Agents</p></div>
+            </div>
+            <h3 class="font-bold text-lg mt-8 mb-4">Verification Requests</h3>
+            <a href="review.html" class="bg-white dark:bg-gray-800 p-4 rounded-2xl border border-gray-100 dark:border-gray-700 flex items-center justify-between cursor-pointer">
+                <div class="flex items-center gap-4">
+                    <div class="size-12 rounded-xl bg-cover" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuClPl8FMaOEaa3Etq0qocSgHFbke21eSkXWWQVBeHPY9YgirFfWN41MhjBfOWWxmRrhmcspbnZOoaCEaIkHXELaZ6evJE64AbQKUzmlZctbJ95V3WjwviAb9o6Yzj9vpZ-Fvka9e5VhlKkyIBffHGVUtjuCvPD3LkWUtGkwBmVN1QSP7pdwNIFTA8ddfsvCZcANuP96yTbu8tL8EYk27hGT8ndp2D_Aqob77Kqgx-TQcEZH8CeJWzqeFgHbzw3ck2qbTn7xCR1VQkc')"></div>
+                    <div><p class="font-bold">Sarah Jenkins</p><p class="text-xs text-gray-400">Agent ID: #4492</p></div>
+                </div>
+                <span class="material-symbols-outlined text-gray-400">chevron_right</span>
+            </a>
+        </main>
+    </div>
+</body>
+</html>

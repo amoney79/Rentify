@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rentify - Profile</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-gray-100 min-h-screen">
+    <div id="app-container" class="bg-white dark:bg-[#101622] shadow-xl min-h-screen max-w-[480px] mx-auto relative">
+        <header class="p-4 flex items-center justify-between border-b border-gray-100 dark:border-gray-800">
+            <div class="flex items-center gap-3">
+                <div class="size-12 rounded-full border-2 border-primary overflow-hidden">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAU0WBI3Zsk8CoNujzvZLFNYa55VlCKsC-PgS8OykghBr2dIoDRpmDhsZZGFeCSAAljCS1SY3iYHPblE9nFHhSkLLjVlqzuw-VVNfJbQ62bjUurZFCCuDJGw4d-_awUQgCtLtOZ0eWc2x6LPe9epEt6dfhVCcOgJHrQmPUDVJ5MvXLDL1L8BNQJS3qIFgu9QOfUUZeZltgI1GzA_C5nmxpSoX8KKlrjWlw-9NT4KmbLXbYknDgsJSHziHJ6AwFGYPRj_VY6rwzJ0sM"
+                        class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <h2 class="font-bold text-lg">James Mwangi</h2>
+                    <p class="text-xs text-gray-500">Portfolio Manager</p>
+                </div>
+            </div>
+            <a href="onboarding.html"
+                class="text-xs font-bold text-primary border border-primary/20 px-3 py-1.5 rounded-full bg-primary/10">GO
+                AGENT</a>
+        </header>
+
+        <main class="p-4 space-y-4 pb-32">
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-white dark:bg-gray-800 p-4 rounded-2xl border border-gray-100 dark:border-gray-700">
+                    <p class="text-xs text-gray-400 font-bold uppercase">Views</p>
+                    <p class="text-2xl font-bold">12.4K</p>
+                    <p class="text-[10px] text-green-500 font-bold">+12% vs last month</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-4 rounded-2xl border border-gray-100 dark:border-gray-700">
+                    <p class="text-xs text-gray-400 font-bold uppercase">Bookings</p>
+                    <p class="text-2xl font-bold">28</p>
+                    <p class="text-[10px] text-green-500 font-bold">+5% vs last month</p>
+                </div>
+            </div>
+            <h3 class="font-bold text-lg mt-6">Recent Notifications</h3>
+            <div
+                class="bg-white dark:bg-gray-800 p-4 rounded-2xl border border-gray-100 dark:border-gray-700 flex gap-4">
+                <div class="size-10 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                    <span class="material-symbols-outlined">calendar_today</span>
+                </div>
+                <div>
+                    <p class="text-sm font-bold">New Viewing Request</p>
+                    <p class="text-xs text-gray-400 mt-1">Someone wants to see Unit 4B at Silver Towers tomorrow.</p>
+                    <div class="flex gap-2 mt-3">
+                        <button class="flex-1 bg-primary text-white text-xs py-2 rounded-lg font-bold">Accept</button>
+                        <button
+                            class="flex-1 bg-gray-100 dark:bg-gray-700 text-xs py-2 rounded-lg font-bold">Decline</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <nav
+            class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[480px] bg-white/90 dark:bg-[#101622]/90 backdrop-blur-lg border-t border-gray-200 dark:border-gray-800 px-6 py-3 flex justify-between items-center z-50">
+            <a href="index.html" class="flex flex-col items-center gap-1 text-gray-400">
+                <span class="material-symbols-outlined text-[28px]">home</span>
+                <span class="text-[10px] font-medium">Home</span>
+            </a>
+            <a href="filters.html" class="flex flex-col items-center gap-1 text-gray-400">
+                <span class="material-symbols-outlined text-[28px]">explore</span>
+                <span class="text-[10px] font-medium">Explore</span>
+            </a>
+            <a href="#" class="flex flex-col items-center gap-1 text-gray-400">
+                <span class="material-symbols-outlined text-[28px]">favorite</span>
+                <span class="text-[10px] font-medium">Saved</span>
+            </a>
+            <a href="chat.html" class="flex flex-col items-center gap-1 text-gray-400">
+                <span class="material-symbols-outlined text-[28px]">chat_bubble</span>
+                <span class="text-[10px] font-medium">Messages</span>
+            </a>
+            <a href="profile.html" class="flex flex-col items-center gap-1 text-primary">
+                <span class="material-symbols-outlined text-[28px] font-variation-settings: 'FILL' 1">person</span>
+                <span class="text-[10px] font-medium">Profile</span>
+            </a>
+        </nav>
+    </div>
+</body>
+
+</html>
