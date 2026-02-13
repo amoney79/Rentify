@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rentify - Find Your Home</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-gray-100 min-h-screen">
+    <div id="app-container" class="bg-white dark:bg-[#101622] shadow-xl min-h-screen">
+        <!-- Views will be injected here -->
+        <main id="view-container"></main>
+
+        <!-- Bottom Navigation (Common for Main Screens) -->
+        <nav id="main-nav" class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[480px] bg-white/90 dark:bg-[#101622]/90 backdrop-blur-lg border-t border-gray-200 dark:border-gray-800 px-6 py-3 flex justify-between items-center z-50">
+            <button onclick="router.navigate('home')" class="nav-item flex flex-col items-center gap-1 text-primary" data-view="home">
+                <span class="material-symbols-outlined text-[28px] font-variation-settings: 'FILL' 1">home</span>
+                <span class="text-[10px] font-medium">Home</span>
+            </button>
+            <button onclick="router.navigate('filters')" class="nav-item flex flex-col items-center gap-1 text-gray-400" data-view="filters">
+                <span class="material-symbols-outlined text-[28px]">explore</span>
+                <span class="text-[10px] font-medium">Explore</span>
+            </button>
+            <button class="flex flex-col items-center gap-1 text-gray-400">
+                <span class="material-symbols-outlined text-[28px]">favorite</span>
+                <span class="text-[10px] font-medium">Saved</span>
+            </button>
+            <button onclick="router.navigate('chat')" class="nav-item flex flex-col items-center gap-1 text-gray-400" data-view="chat">
+                <span class="material-symbols-outlined text-[28px]">chat_bubble</span>
+                <span class="text-[10px] font-medium">Messages</span>
+            </button>
+            <button onclick="router.navigate('landlord-dashboard')" class="nav-item flex flex-col items-center gap-1 text-gray-400" data-view="landlord-dashboard">
+                <span class="material-symbols-outlined text-[28px]">person</span>
+                <span class="text-[10px] font-medium">Role</span>
+            </button>
+        </nav>
+    </div>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>
