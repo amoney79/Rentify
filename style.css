@@ -43,12 +43,19 @@ body.dark {
 }
 
 #app-container {
-    max-width: 480px;
+    width: 100%;
+    max-width: 1280px;
     margin: 0 auto;
     min-height: 100vh;
     background-color: var(--surface-light);
     position: relative;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 640px) {
+    #app-container {
+        max-width: 100%;
+    }
 }
 
 body.dark #app-container {

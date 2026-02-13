@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rentify - Audit</title>
+    <title>Rentify - Audit Agent</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
@@ -15,72 +15,111 @@
             darkMode: "class",
             theme: {
                 extend: {
-                    colors: {
-                        "primary": "#135bec",
-                        "background-light": "#f6f6f8",
-                        "background-dark": "#101622",
-                    },
-                    fontFamily: {
-                        "display": ["Inter", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
+                    colors: { "primary": "#135bec" },
+                    fontFamily: { "display": ["Inter", "sans-serif"] }
                 },
             },
         }
     </script>
+    <script src="app.js" defer></script>
 </head>
 
 <body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-gray-100 min-h-screen">
-    <div id="app-container"
-        class="bg-white dark:bg-[#101622] shadow-xl min-h-screen max-w-[480px] mx-auto relative flex flex-col">
+    <div id="app-container" class="bg-white dark:bg-[#101622] min-h-screen relative flex flex-col">
+
         <header
-            class="p-4 border-b border-gray-100 dark:border-gray-800 flex items-center justify-between sticky top-0 bg-white/90 dark:bg-[#101622]/90 backdrop-blur-md z-50">
+            class="p-6 md:p-12 border-b border-gray-100 dark:border-gray-800 flex items-center justify-between sticky top-0 bg-white/90 dark:bg-[#101622]/90 backdrop-blur-xl z-50">
             <a href="admin.html"
-                class="size-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800"><span
-                    class="material-symbols-outlined">arrow_back_ios_new</span></a>
-            <h2 class="font-bold">Agent Audit</h2>
-            <div class="size-10 flex items-center justify-center rounded-full bg-primary/10 text-primary"><span
-                    class="material-symbols-outlined">verified_user</span></div>
+                class="size-12 flex items-center justify-center rounded-2xl bg-gray-100 dark:bg-gray-800 text-gray-500 hover:text-primary transition-all shadow-sm"><span
+                    class="material-symbols-outlined">arrow_back</span></a>
+            <div class="text-center">
+                <h2 class="text-xl font-black">Audit Case #4492</h2>
+                <div class="flex items-center gap-2 justify-center mt-1">
+                    <span class="size-2 bg-amber-500 rounded-full animate-pulse"></span>
+                    <span class="text-[10px] text-amber-500 font-black uppercase tracking-widest">Awaiting
+                        Decision</span>
+                </div>
+            </div>
+            <div class="size-12 flex items-center justify-center bg-primary/10 text-primary rounded-2xl"><span
+                    class="material-symbols-outlined !text-3xl">verified_user</span></div>
         </header>
 
-        <main class="p-6 space-y-8 pb-32">
-            <div>
-                <h1 class="text-3xl font-bold">Johnathan Doe</h1>
-                <p class="text-gray-400">Verified identity & professional license</p>
-            </div>
-            <div class="grid grid-cols-2 gap-4">
-                <div class="space-y-2">
-                    <p class="text-[10px] font-bold uppercase text-gray-400">National ID</p>
-                    <div class="aspect-[3/4] bg-gray-100 dark:bg-gray-800 rounded-2xl overflow-hidden"><img
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuC73-eHZQps8SWZp7qyeetPjE9GyosuXivOOUm9d0WaJ21fp6zMfL_vW-uk9pr5Bupmyaihb0i-codmiT85vnqUi92ddkiQgkpRDEBf7_2U7rE2k7ZsNG-VOAl-fqpZ7pymQ_TC1jNsLHrhBe5nFJvGfQw4tbOktC59qCo2wDtuZjIM682wpsR6ivswVGHSBvTr3GDOEh4HLY2yqypdkd7SaaOM59BXB-V2Nu9B2TSC7ouKibuK_RU2AGT3AFXDVU34s4lLVSaVoNE"
-                            class="w-full h-full object-cover"></div>
+        <main class="flex-1 max-w-5xl mx-auto w-full p-6 md:p-12 space-y-12">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+                <div>
+                    <h1 class="text-4xl md:text-6xl font-black italic tracking-tighter">Johnathan Doe</h1>
+                    <p class="text-gray-500 text-lg font-medium mt-2">Professional Real Estate Agent • <i>Nairobi,
+                            KE</i></p>
                 </div>
-                <div class="space-y-2">
-                    <p class="text-[10px] font-bold uppercase text-gray-400">License</p>
-                    <div class="aspect-[3/4] bg-gray-100 dark:bg-gray-800 rounded-2xl overflow-hidden"><img
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuArF610VSmf5o2Q6FZj28SmyuP4mlSMQYce6qBfbo4iAGg1ZsEkSlM42Z7Yd8soywdlUGSUKotZvDXCE4mXCTp8Oe0BKtN2Foqlb7e-fQ360n4ssoBQwymJPl280ccdIJ2L0R02vx5sCE9yHibPKR46cS0kxloyN3uz1XC6QP-o6XnUPZ3hIxI-QGP7ajBc9IAngm7WCGKHB-GoHVpEgBqSKvBZTo2AzzuqFrjJyGQRZrOYYBeAITNFwJ6fRT2cLmi03YAxJSYGnzI"
-                            class="w-full h-full object-cover"></div>
+                <div class="bg-primary/10 p-6 rounded-[32px] border border-primary/20 text-center">
+                    <p class="text-[10px] font-black uppercase tracking-widest text-primary mb-2">Biometric Score</p>
+                    <h4 class="text-4xl font-black text-primary">98% Match</h4>
                 </div>
             </div>
-            <div class="bg-primary/10 p-4 rounded-3xl border border-primary/20">
-                <div class="flex items-center justify-between mb-2">
-                    <h4 class="font-bold">Liveness Match</h4><span class="text-primary font-bold">98% Match</span>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Documents View -->
+                <div class="space-y-6">
+                    <div class="space-y-2">
+                        <p class="text-xs font-black uppercase tracking-widest text-gray-400 ml-2">National ID Document
+                        </p>
+                        <div
+                            class="aspect-[4/3] bg-gray-100 dark:bg-gray-800 rounded-[40px] overflow-hidden border-2 border-gray-200 dark:border-gray-700 shadow-inner group">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC73-eHZQps8SWZp7qyeetPjE9GyosuXivOOUm9d0WaJ21fp6zMfL_vW-uk9pr5Bupmyaihb0i-codmiT85vnqUi92ddkiQgkpRDEBf7_2U7rE2k7ZsNG-VOAl-fqpZ7pymQ_TC1jNsLHrhBe5nFJvGfQw4tbOktC59qCo2wDtuZjIM682wpsR6ivswVGHSBvTr3GDOEh4HLY2yqypdkd7SaaOM59BXB-V2Nu9B2TSC7ouKibuK_RU2AGT3AFXDVU34s4lLVSaVoNE"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <p class="text-xs font-black uppercase tracking-widest text-gray-400 ml-2">Agent Certification
+                        </p>
+                        <div
+                            class="aspect-[4/3] bg-gray-100 dark:bg-gray-800 rounded-[40px] overflow-hidden border-2 border-gray-200 dark:border-gray-700 shadow-inner group cursor-zoom-in">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuArF610VSmf5o2Q6FZj28SmyuP4mlSMQYce6qBfbo4iAGg1ZsEkSlM42Z7Yd8soywdlUGSUKotZvDXCE4mXCTp8Oe0BKtN2Foqlb7e-fQ360n4ssoBQwymJPl280ccdIJ2L0R02vx5sCE9yHibPKR46cS0kxloyN3uz1XC6QP-o6XnUPZ3hIxI-QGP7ajBc9IAngm7WCGKHB-GoHVpEgBqSKvBZTo2AzzuqFrjJyGQRZrOYYBeAITNFwJ6fRT2cLmi03YAxJSYGnzI"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                    </div>
                 </div>
-                <p class="text-xs text-primary/80">Selfie biometric data matches the national ID document. Verified at
-                    14:02 GMT+3</p>
+
+                <!-- AI Audit Analysis -->
+                <div class="space-y-8">
+                    <div
+                        class="bg-gray-50 dark:bg-gray-800/50 p-8 rounded-[40px] border border-gray-100 dark:border-gray-800 space-y-6">
+                        <h4 class="text-xl font-black">Audit Insights</h4>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-4">
+                                <span class="material-symbols-outlined text-green-500">check_circle</span>
+                                <p class="text-sm font-medium text-gray-400">Security hologram detected on National ID.
+                                </p>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <span class="material-symbols-outlined text-green-500">check_circle</span>
+                                <p class="text-sm font-medium text-gray-400">Liveness biometric matches ID photo with
+                                    98.4% confidence.</p>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <span class="material-symbols-outlined text-green-500">check_circle</span>
+                                <p class="text-sm font-medium text-gray-400">License number #220-B verified with
+                                    Government database.</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="p-8 bg-primary/5 rounded-[40px] border-2 border-primary/20">
+                        <p class="text-xs font-black uppercase tracking-widest text-primary mb-2">Recommendation</p>
+                        <p class="text-xl font-bold text-primary italic">"Low Risk: Fast-track approval recommended
+                            based on biometric consistency."</p>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <a href="admin.html"
+                            class="flex-1 bg-red-500 text-white font-black py-5 rounded-3xl text-center shadow-xl shadow-red-500/20 hover:bg-red-600 transition-all text-xl">Reject
+                            Case</a>
+                        <a href="admin.html"
+                            class="flex-1 bg-primary text-white font-black py-5 rounded-3xl text-center shadow-xl shadow-primary/30 hover:scale-[1.05] transition-all text-xl">Approve
+                            Agent</a>
+                    </div>
+                </div>
             </div>
-            <footer
-                class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[480px] p-4 bg-white dark:bg-[#101622] flex gap-4">
-                <a href="admin.html"
-                    class="flex-1 bg-red-500/10 text-red-500 h-14 rounded-2xl font-bold flex items-center justify-center">Reject</a>
-                <a href="admin.html"
-                    class="flex-1 bg-primary text-white h-14 rounded-2xl font-bold shadow-lg shadow-primary/30 flex items-center justify-center">Approve</a>
-            </footer>
         </main>
     </div>
 </body>

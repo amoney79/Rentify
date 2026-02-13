@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rentify - Onboarding</title>
+    <title>Rentify - Agent Onboarding</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
@@ -15,69 +15,94 @@
             darkMode: "class",
             theme: {
                 extend: {
-                    colors: {
-                        "primary": "#135bec",
-                        "background-light": "#f6f6f8",
-                        "background-dark": "#101622",
-                    },
-                    fontFamily: {
-                        "display": ["Inter", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
+                    colors: { "primary": "#135bec" },
+                    fontFamily: { "display": ["Inter", "sans-serif"] }
                 },
             },
         }
     </script>
+    <script src="app.js" defer></script>
 </head>
 
 <body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-gray-100 min-h-screen">
-    <div id="app-container"
-        class="bg-white dark:bg-[#101622] shadow-xl min-h-screen max-w-[480px] mx-auto relative flex flex-col">
-        <header class="p-4 flex justify-between items-center">
-            <a href="profile.html" class="material-symbols-outlined cursor-pointer">close</a>
-            <h2 class="font-bold">Agent Onboarding</h2>
-            <div class="w-6"></div>
+    <div id="app-container" class="bg-white dark:bg-[#101622] min-h-screen relative flex flex-col">
+
+        <!-- Desktop Header -->
+        <header
+            class="hidden md:flex sticky top-0 z-50 bg-white/90 dark:bg-[#101622]/90 backdrop-blur-xl border-b border-gray-100 dark:border-gray-800 px-8 py-4 items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <div class="bg-primary p-2 rounded-xl flex items-center justify-center"><span
+                        class="material-symbols-outlined text-white text-2xl">home_work</span></div>
+                <h1 class="text-2xl font-black tracking-tight">Rentify</h1>
+            </a>
+            <div class="flex items-center gap-4">
+                <a href="profile.html"
+                    class="text-gray-500 hover:text-primary transition-colors font-bold px-4 py-2">Back to Dashboard</a>
+            </div>
         </header>
 
-        <main class="p-8 flex-1 flex flex-col">
-            <div
-                class="bg-primary/20 aspect-video rounded-3xl flex items-center justify-center mb-8 relative overflow-hidden">
-                <div class="bg-primary p-4 rounded-full shadow-xl shadow-primary/40 relative z-10"><span
-                        class="material-symbols-outlined text-white text-4xl">verified</span></div>
-                <div class="absolute inset-0 bg-cover bg-center brightness-50"
-                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDi9ekfuyG4ZMCQQeywG81RdUaioqR49I3Oe-jSXonJfbkYEP4rlBLilU1BquVH8iknox01NNg220loYWdJR3tFf7Ux4SXFy5Tu8aXtb8S1OfryWa2aK5xRaI75MNkskDAXfEczVeaMuhYZ9-WX_7_AVYL9OetEmRn4CFHEtB292qkS7KVj-eUxm72vPz4E__rDO4dkU7opd-YwiqjNR8uw5mB8PcIBMTSCy-q-48IiiW8c-fr3gfm7hOEQQ1q-VSRK06atuPFgO6s')">
-                </div>
-            </div>
-            <h1 class="text-3xl font-bold mb-4 text-center">Boost Your Business</h1>
-            <p class="text-gray-400 text-center mb-8 leading-relaxed">Verified agents receive 3x more leads and gain
-                instant trust from potential tenants.</p>
-            <div class="space-y-6 flex-1">
-                <div class="flex gap-4">
-                    <div class="size-10 bg-primary/20 rounded-xl flex items-center justify-center text-primary"><span
-                            class="material-symbols-outlined">badge</span></div>
-                    <div>
-                        <p class="font-bold">Trust Badge</p>
-                        <p class="text-sm text-gray-500">Appear verified on all listings</p>
+        <main class="flex-1 max-w-5xl mx-auto w-full p-6 md:p-12">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <!-- Visual Section -->
+                <div class="flex-1 w-full">
+                    <div
+                        class="bg-primary/20 aspect-video md:aspect-square rounded-[48px] flex items-center justify-center relative overflow-hidden group shadow-2xl">
+                        <div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-1000 brightness-[0.4]"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDi9ekfuyG4ZMCQQeywG81RdUaioqR49I3Oe-jSXonJfbkYEP4rlBLilU1BquVH8iknox01NNg220loYWdJR3tFf7Ux4SXFy5Tu8aXtb8S1OfryWa2aK5xRaI75MNkskDAXfEczVeaMuhYZ9-WX_7_AVYL9OetEmRn4CFHEtB292qkS7KVj-eUxm72vPz4E__rDO4dkU7opd-YwiqjNR8uw5mB8PcIBMTSCy-q-48IiiW8c-fr3gfm7hOEQQ1q-VSRK06atuPFgO6s')">
+                        </div>
+                        <div
+                            class="bg-primary p-6 rounded-3xl shadow-2xl shadow-primary/40 relative z-10 animate-bounce">
+                            <span class="material-symbols-outlined text-white !text-6xl font-black">verified</span>
+                        </div>
                     </div>
                 </div>
-                <div class="flex gap-4">
-                    <div class="size-10 bg-primary/20 rounded-xl flex items-center justify-center text-primary"><span
-                            class="material-symbols-outlined">trending_up</span></div>
-                    <div>
-                        <p class="font-bold">Top Placement</p>
-                        <p class="text-sm text-gray-500">Your listings stay at the top</p>
+
+                <!-- Content Section -->
+                <div class="flex-1 space-y-8">
+                    <div class="space-y-4">
+                        <span
+                            class="bg-primary/10 text-primary px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest">Professional
+                            Growth</span>
+                        <h1 class="text-4xl md:text-6xl font-black leading-tight">Boost Your<br />Real Estate Business
+                        </h1>
+                        <p class="text-gray-500 text-lg md:text-xl font-medium leading-relaxed">Verified agents receive
+                            <b>3x more leads</b> and gain instant trust from potential tenants globally.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-6">
+                        <div
+                            class="bg-gray-50 dark:bg-gray-800/50 p-6 rounded-[32px] border border-gray-100 dark:border-gray-800 flex gap-6 items-center hover:border-primary transition-all">
+                            <div
+                                class="size-14 bg-primary/20 rounded-2xl flex items-center justify-center text-primary shrink-0">
+                                <span class="material-symbols-outlined text-3xl">badge</span></div>
+                            <div>
+                                <p class="text-lg font-bold">Exclusive Trust Badge</p>
+                                <p class="text-sm text-gray-500 font-medium">Appear verified on all your listings
+                                    instantly.</p>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-gray-50 dark:bg-gray-800/50 p-6 rounded-[32px] border border-gray-100 dark:border-gray-800 flex gap-6 items-center hover:border-primary transition-all">
+                            <div
+                                class="size-14 bg-primary/20 rounded-2xl flex items-center justify-center text-primary shrink-0">
+                                <span class="material-symbols-outlined text-3xl">trending_up</span></div>
+                            <div>
+                                <p class="text-lg font-bold">Priority Placement</p>
+                                <p class="text-sm text-gray-500 font-medium">Your listings stay at the top of search
+                                    results.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-8 flex flex-col sm:flex-row gap-4">
+                        <a href="upload.html"
+                            class="flex-1 bg-primary text-white font-black py-5 rounded-2xl text-center shadow-2xl shadow-primary/30 hover:scale-[1.05] transition-all text-lg">Get
+                            Started Now</a>
+                        <a href="profile.html"
+                            class="flex-1 bg-gray-100 dark:bg-gray-800 text-gray-500 font-bold py-5 rounded-2xl text-center hover:bg-gray-200 dark:hover:bg-gray-700 transition-all text-lg">Maybe
+                            Later</a>
                     </div>
                 </div>
-            </div>
-            <div class="pt-8">
-                <a href="upload.html"
-                    class="w-full bg-primary text-white h-14 rounded-2xl font-bold flex items-center justify-center">Get
-                    Started</a>
             </div>
         </main>
     </div>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rentify - Profile</title>
+    <title>Rentify - My Profile</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
@@ -22,89 +22,155 @@
                     },
                     fontFamily: {
                         "display": ["Inter", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
+                    }
                 },
             },
         }
     </script>
+    <script src="app.js" defer></script>
 </head>
 
 <body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-gray-100 min-h-screen">
-    <div id="app-container" class="bg-white dark:bg-[#101622] shadow-xl min-h-screen max-w-[480px] mx-auto relative">
-        <header class="p-4 flex items-center justify-between border-b border-gray-100 dark:border-gray-800">
-            <div class="flex items-center gap-3">
-                <div class="size-12 rounded-full border-2 border-primary overflow-hidden">
-                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAU0WBI3Zsk8CoNujzvZLFNYa55VlCKsC-PgS8OykghBr2dIoDRpmDhsZZGFeCSAAljCS1SY3iYHPblE9nFHhSkLLjVlqzuw-VVNfJbQ62bjUurZFCCuDJGw4d-_awUQgCtLtOZ0eWc2x6LPe9epEt6dfhVCcOgJHrQmPUDVJ5MvXLDL1L8BNQJS3qIFgu9QOfUUZeZltgI1GzA_C5nmxpSoX8KKlrjWlw-9NT4KmbLXbYknDgsJSHziHJ6AwFGYPRj_VY6rwzJ0sM"
-                        class="w-full h-full object-cover">
-                </div>
-                <div>
-                    <h2 class="font-bold text-lg">James Mwangi</h2>
-                    <p class="text-xs text-gray-500">Portfolio Manager</p>
-                </div>
+    <div id="app-container" class="bg-white dark:bg-[#101622] min-h-screen relative flex flex-col">
+
+        <!-- Desktop Navigation Header -->
+        <header
+            class="hidden md:flex sticky top-0 z-50 bg-white/90 dark:bg-[#101622]/90 backdrop-blur-xl border-b border-gray-100 dark:border-gray-800 px-8 py-4 items-center justify-between">
+            <div class="flex items-center gap-2">
+                <a href="index.html" class="flex items-center gap-2 group">
+                    <div
+                        class="bg-primary p-2 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-white text-2xl">home_work</span>
+                    </div>
+                    <h1 class="text-2xl font-bold tracking-tight">Rentify</h1>
+                </a>
             </div>
-            <a href="onboarding.html"
-                class="text-xs font-bold text-primary border border-primary/20 px-3 py-1.5 rounded-full bg-primary/10">GO
-                AGENT</a>
+
+            <nav class="flex items-center gap-8">
+                <a href="index.html"
+                    class="text-gray-500 hover:text-primary transition-colors font-medium">Marketplace</a>
+                <a href="filters.html"
+                    class="text-gray-500 hover:text-primary transition-colors font-medium">Explore</a>
+                <a href="#" class="text-gray-500 hover:text-primary transition-colors font-medium">Saved</a>
+                <a href="chat.html" class="text-gray-500 hover:text-primary transition-colors font-medium">Messages</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="profile.html"
+                    class="flex items-center gap-2 bg-primary/10 text-primary p-1 pr-4 rounded-full border border-primary/20">
+                    <div class="size-8 rounded-full overflow-hidden">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAU0WBI3Zsk8CoNujzvZLFNYa55VlCKsC-PgS8OykghBr2dIoDRpmDhsZZGFeCSAAljCS1SY3iYHPblE9nFHhSkLLjVlqzuw-VVNfJbQ62bjUurZFCCuDJGw4d-_awUQgCtLtOZ0eWc2x6LPe9epEt6dfhVCcOgJHrQmPUDVJ5MvXLDL1L8BNQJS3qIFgu9QOfUUZeZltgI1GzA_C5nmxpSoX8KKlrjWlw-9NT4KmbLXbYknDgsJSHziHJ6AwFGYPRj_VY6rwzJ0sM"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <span class="text-sm font-bold">James</span>
+                </a>
+            </div>
         </header>
 
-        <main class="p-4 space-y-4 pb-32">
-            <div class="grid grid-cols-2 gap-4">
-                <div class="bg-white dark:bg-gray-800 p-4 rounded-2xl border border-gray-100 dark:border-gray-700">
-                    <p class="text-xs text-gray-400 font-bold uppercase">Views</p>
-                    <p class="text-2xl font-bold">12.4K</p>
-                    <p class="text-[10px] text-green-500 font-bold">+12% vs last month</p>
-                </div>
-                <div class="bg-white dark:bg-gray-800 p-4 rounded-2xl border border-gray-100 dark:border-gray-700">
-                    <p class="text-xs text-gray-400 font-bold uppercase">Bookings</p>
-                    <p class="text-2xl font-bold">28</p>
-                    <p class="text-[10px] text-green-500 font-bold">+5% vs last month</p>
-                </div>
-            </div>
-            <h3 class="font-bold text-lg mt-6">Recent Notifications</h3>
-            <div
-                class="bg-white dark:bg-gray-800 p-4 rounded-2xl border border-gray-100 dark:border-gray-700 flex gap-4">
-                <div class="size-10 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
-                    <span class="material-symbols-outlined">calendar_today</span>
-                </div>
-                <div>
-                    <p class="text-sm font-bold">New Viewing Request</p>
-                    <p class="text-xs text-gray-400 mt-1">Someone wants to see Unit 4B at Silver Towers tomorrow.</p>
-                    <div class="flex gap-2 mt-3">
-                        <button class="flex-1 bg-primary text-white text-xs py-2 rounded-lg font-bold">Accept</button>
-                        <button
-                            class="flex-1 bg-gray-100 dark:bg-gray-700 text-xs py-2 rounded-lg font-bold">Decline</button>
+        <main class="flex-1 max-w-7xl mx-auto w-full p-4 md:p-8">
+            <div class="flex flex-col md:flex-row gap-8">
+                <!-- Sidebar -->
+                <aside class="w-full md:w-80 space-y-4">
+                    <div
+                        class="bg-white dark:bg-gray-800/50 p-8 rounded-3xl border border-gray-100 dark:border-gray-800 text-center">
+                        <div class="relative size-32 mx-auto mb-6">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAU0WBI3Zsk8CoNujzvZLFNYa55VlCKsC-PgS8OykghBr2dIoDRpmDhsZZGFeCSAAljCS1SY3iYHPblE9nFHhSkLLjVlqzuw-VVNfJbQ62bjUurZFCCuDJGw4d-_awUQgCtLtOZ0eWc2x6LPe9epEt6dfhVCcOgJHrQmPUDVJ5MvXLDL1L8BNQJS3qIFgu9QOfUUZeZltgI1GzA_C5nmxpSoX8KKlrjWlw-9NT4KmbLXbYknDgsJSHziHJ6AwFGYPRj_VY6rwzJ0sM"
+                                class="w-full h-full object-cover rounded-full ring-4 ring-primary/20">
+                            <div
+                                class="absolute bottom-1 right-1 bg-primary text-white p-1 rounded-full border-2 border-white dark:border-gray-800 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-sm">verified</span>
+                            </div>
+                        </div>
+                        <h2 class="text-2xl font-bold">James Mwangi</h2>
+                        <p class="text-gray-500 font-medium">Portfolio Manager</p>
+
+                        <div class="mt-8 pt-8 border-t border-gray-100 dark:border-gray-800 flex flex-col gap-3">
+                            <a href="onboarding.html"
+                                class="w-full bg-primary text-white font-bold py-4 rounded-2xl hover:scale-[1.02] transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+                                <span class="material-symbols-outlined text-xl">verified_user</span>
+                                Become an Agent
+                            </a>
+                            <a href="admin.html"
+                                class="w-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white font-bold py-4 rounded-2xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-all flex items-center justify-center gap-2">
+                                <span class="material-symbols-outlined text-xl">admin_panel_settings</span>
+                                Admin Console
+                            </a>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Content Area -->
+                <div class="flex-1 space-y-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="bg-primary text-white p-8 rounded-3xl relative overflow-hidden group">
+                            <div
+                                class="absolute -right-8 -bottom-8 opacity-10 group-hover:scale-110 transition-transform">
+                                <span class="material-symbols-outlined !text-9xl">visibility</span>
+                            </div>
+                            <p class="text-sm font-bold uppercase tracking-widest opacity-80">Total Views</p>
+                            <h3 class="text-4xl font-black mt-2">12,482</h3>
+                            <p class="text-xs font-bold mt-4 bg-white/20 w-fit px-2 py-1 rounded-full">+12% Since last
+                                month</p>
+                        </div>
+                        <div
+                            class="bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 group">
+                            <p class="text-sm text-gray-400 font-bold uppercase tracking-widest">Bookings</p>
+                            <h3 class="text-4xl font-black mt-2">28</h3>
+                            <p class="text-xs text-green-500 font-bold mt-4">Active Schedule</p>
+                        </div>
+                        <div
+                            class="bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 group">
+                            <p class="text-sm text-gray-400 font-bold uppercase tracking-widest">Revenue</p>
+                            <h3 class="text-4xl font-black mt-2">$2,450</h3>
+                            <p class="text-xs text-green-500 font-bold mt-4">Growth +8%</p>
+                        </div>
+                    </div>
+
+                    <h3 class="text-2xl font-bold">Recent Activity</h3>
+                    <div
+                        class="bg-white dark:bg-gray-800 rounded-3xl border border-gray-100 dark:border-gray-800 overflow-hidden">
+                        <div
+                            class="p-6 border-b border-gray-50 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors flex items-center gap-6">
+                            <div
+                                class="size-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center shrink-0">
+                                <span class="material-symbols-outlined text-3xl">calendar_month</span>
+                            </div>
+                            <div class="flex-1">
+                                <p class="font-bold text-lg">New Viewing Request</p>
+                                <p class="text-gray-500 text-sm mt-1">Tenant candidate for <b>Silver Towers Unit 4B</b>
+                                    tomorrow.</p>
+                            </div>
+                            <div class="flex gap-2">
+                                <button
+                                    class="bg-primary text-white font-bold px-6 py-3 rounded-xl hover:scale-105 transition-all">Accept</button>
+                                <button
+                                    class="bg-gray-100 dark:bg-gray-700 font-bold px-6 py-3 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition-all">Decline</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </main>
 
+        <!-- Mobile Bottom Nav -->
         <nav
-            class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[480px] bg-white/90 dark:bg-[#101622]/90 backdrop-blur-lg border-t border-gray-200 dark:border-gray-800 px-6 py-3 flex justify-between items-center z-50">
+            class="md:hidden fixed bottom-0 left-0 right-0 bg-white/95 dark:bg-[#101622]/95 backdrop-blur-xl border-t border-gray-200 dark:border-gray-800 px-8 py-3 flex justify-between items-center z-50">
             <a href="index.html" class="flex flex-col items-center gap-1 text-gray-400">
                 <span class="material-symbols-outlined text-[28px]">home</span>
-                <span class="text-[10px] font-medium">Home</span>
+                <span class="text-[10px] font-bold">Home</span>
             </a>
             <a href="filters.html" class="flex flex-col items-center gap-1 text-gray-400">
                 <span class="material-symbols-outlined text-[28px]">explore</span>
-                <span class="text-[10px] font-medium">Explore</span>
-            </a>
-            <a href="#" class="flex flex-col items-center gap-1 text-gray-400">
-                <span class="material-symbols-outlined text-[28px]">favorite</span>
-                <span class="text-[10px] font-medium">Saved</span>
+                <span class="text-[10px] font-bold">Explore</span>
             </a>
             <a href="chat.html" class="flex flex-col items-center gap-1 text-gray-400">
                 <span class="material-symbols-outlined text-[28px]">chat_bubble</span>
-                <span class="text-[10px] font-medium">Messages</span>
+                <span class="text-[10px] font-bold">Chat</span>
             </a>
             <a href="profile.html" class="flex flex-col items-center gap-1 text-primary">
-                <span class="material-symbols-outlined text-[28px] font-variation-settings: 'FILL' 1">person</span>
-                <span class="text-[10px] font-medium">Profile</span>
+                <span
+                    class="material-symbols-outlined text-[28px] font-variation-settings: 'FILL' 1">account_circle</span>
+                <span class="text-[10px] font-bold">Profile</span>
             </a>
         </nav>
     </div>

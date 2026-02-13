@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rentify - Find Your Home</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script>
         tailwind.config = {
@@ -20,136 +22,255 @@
                     },
                     fontFamily: {
                         "display": ["Inter", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
+                    }
                 },
             },
         }
     </script>
     <script src="app.js" defer></script>
 </head>
+
 <body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-gray-100 min-h-screen">
-    <div id="app-container" class="bg-white dark:bg-[#101622] shadow-xl min-h-screen max-w-[480px] mx-auto relative">
-        <header class="sticky top-0 z-40 bg-white/80 dark:bg-[#101622]/80 backdrop-blur-md px-4 pt-4 pb-2">
+    <div id="app-container" class="bg-white dark:bg-[#101622] min-h-screen relative flex flex-col">
+
+        <!-- Desktop Navigation Header -->
+        <header
+            class="hidden md:flex sticky top-0 z-50 bg-white/90 dark:bg-[#101622]/90 backdrop-blur-xl border-b border-gray-100 dark:border-gray-800 px-8 py-4 items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="bg-primary p-2 rounded-xl flex items-center justify-center">
+                    <span class="material-symbols-outlined text-white text-2xl">home_work</span>
+                </div>
+                <h1 class="text-2xl font-bold tracking-tight">Rentify</h1>
+            </div>
+
+            <nav class="flex items-center gap-8">
+                <a href="index.html" class="text-primary font-bold">Marketplace</a>
+                <a href="filters.html"
+                    class="text-gray-500 hover:text-primary transition-colors font-medium">Explore</a>
+                <a href="#" class="text-gray-500 hover:text-primary transition-colors font-medium">Saved</a>
+                <a href="chat.html" class="text-gray-500 hover:text-primary transition-colors font-medium">Messages</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <div class="relative">
+                    <span
+                        class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+                    <input
+                        class="bg-gray-100 dark:bg-[#1c2433] border-none rounded-full pl-10 pr-4 h-10 w-64 text-sm focus:ring-2 focus:ring-primary transition-all"
+                        placeholder="Search property..." type="text" />
+                </div>
+                <a href="profile.html"
+                    class="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 p-1 pr-4 rounded-full">
+                    <div class="size-8 rounded-full overflow-hidden">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAU0WBI3Zsk8CoNujzvZLFNYa55VlCKsC-PgS8OykghBr2dIoDRpmDhsZZGFeCSAAljCS1SY3iYHPblE9nFHhSkLLjVlqzuw-VVNfJbQ62bjUurZFCCuDJGw4d-_awUQgCtLtOZ0eWc2x6LPe9epEt6dfhVCcOgJHrQmPUDVJ5MvXLDL1L8BNQJS3qIFgu9QOfUUZeZltgI1GzA_C5nmxpSoX8KKlrjWlw-9NT4KmbLXbYknDgsJSHziHJ6AwFGYPRj_VY6rwzJ0sM"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <span class="text-sm font-semibold">James</span>
+                </a>
+            </div>
+        </header>
+
+        <!-- Mobile Header (Visible only on small screens) -->
+        <header class="md:hidden sticky top-0 z-40 bg-white/80 dark:bg-[#101622]/80 backdrop-blur-md px-4 pt-4 pb-2">
             <div class="flex items-center justify-between mb-3">
                 <div class="flex items-center gap-2">
                     <div class="bg-primary p-1.5 rounded-lg flex items-center justify-center">
                         <span class="material-symbols-outlined text-white text-xl">home_work</span>
                     </div>
-                    <h1 class="text-xl font-bold tracking-tight">FindaHome</h1>
+                    <h1 class="text-xl font-bold tracking-tight text-primary">Rentify</h1>
                 </div>
                 <div class="flex gap-3">
                     <button class="relative p-1">
                         <span class="material-symbols-outlined">notifications</span>
-                        <span class="absolute top-0 right-0 block h-2 w-2 rounded-full bg-red-500 ring-2 ring-white dark:ring-[#101622]"></span>
+                        <span
+                            class="absolute top-0 right-0 block h-2 w-2 rounded-full bg-red-500 ring-2 ring-white dark:ring-[#101622]"></span>
                     </button>
-                    <button class="p-1">
-                        <span class="material-symbols-outlined">shopping_cart</span>
-                    </button>
+                    <a href="profile.html" class="p-1">
+                        <span class="material-symbols-outlined">account_circle</span>
+                    </a>
                 </div>
             </div>
             <div class="flex gap-2 mb-2">
                 <div class="relative flex-1">
-                    <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
-                    <input class="w-full bg-gray-100 dark:bg-[#1c2433] border-none rounded-xl pl-10 pr-4 h-11 text-sm focus:ring-2 focus:ring-primary" placeholder="Search apartments, villas..." type="text"/>
+                    <span
+                        class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+                    <input
+                        class="w-full bg-gray-100 dark:bg-[#1c2433] border-none rounded-xl pl-10 pr-4 h-11 text-sm focus:ring-2 focus:ring-primary"
+                        placeholder="Search apartments, villas..." type="text" />
                 </div>
-                <a href="filters.html" class="bg-primary/10 text-primary w-11 h-11 rounded-xl flex items-center justify-center">
+                <a href="filters.html"
+                    class="bg-primary/10 text-primary w-11 h-11 rounded-xl flex items-center justify-center">
                     <span class="material-symbols-outlined">tune</span>
                 </a>
             </div>
         </header>
 
-        <main class="pb-24">
-            <section class="px-4 py-3">
-                <div class="overflow-x-auto flex gap-4 hide-scrollbar snap-x snap-mandatory">
-                    <div class="min-w-full snap-start relative aspect-[21/9] rounded-2xl overflow-hidden bg-primary/20">
-                        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBPRDGJXyz0FGhKnwAEopQHuCE73ByJplEc8CkGObIKDa7WH-FEgr82AKWpmycA97S86qhrgYAjVgQXQ0kmSJmNfu5qhH_JfuaPQav8gtfVVw51i06Zi9wfZQkIVtyAC8joSe7u_hxCjzoU7ttfxdWviivlPgT7oHeWzRCosqjFpmlBaAlXYhiwJwwCObP0d2kBfSW00a-R3bplDsZh9OwserqkoHwA6sm4nn7mJiorNCpzgDdJ0kD2ma0vjVVV_Zxit32JSbJznqA')"></div>
-                        <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent flex flex-col justify-center p-6">
-                            <span class="bg-primary text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded w-fit mb-2">Featured</span>
-                            <h2 class="text-white text-xl font-bold leading-tight">10% Off Your First<br/>Month's Rent</h2>
-                            <p class="text-white/80 text-sm mt-1">Limited time offer in Kilimani</p>
-                        </div>
+        <main class="flex-1 max-w-7xl mx-auto w-full pb-24 md:pb-12">
+            <!-- Hero Section -->
+            <section class="px-4 md:px-8 py-3 md:py-8">
+                <div class="relative h-[200px] md:h-[400px] rounded-2xl md:rounded-[32px] overflow-hidden group">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBPRDGJXyz0FGhKnwAEopQHuCE73ByJplEc8CkGObIKDa7WH-FEgr82AKWpmycA97S86qhrgYAjVgQXQ0kmSJmNfu5qhH_JfuaPQav8gtfVVw51i06Zi9wfZQkIVtyAC8joSe7u_hxCjzoU7ttfxdWviivlPgT7oHeWzRCosqjFpmlBaAlXYhiwJwwCObP0d2kBfSW00a-R3bplDsZh9OwserqkoHwA6sm4nn7mJiorNCpzgDdJ0kD2ma0vjVVV_Zxit32JSbJznqA')">
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent flex flex-col justify-center p-6 md:p-16">
+                        <span
+                            class="bg-primary text-white text-[10px] md:text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full w-fit mb-4">Limited
+                            Availability</span>
+                        <h2 class="text-white text-3xl md:text-6xl font-black leading-tight max-w-lg mb-4">Find Your
+                            Next<br />Dream Space.</h2>
+                        <p class="text-white/80 text-sm md:text-xl max-w-sm mb-8">Premium listings in the heart of the
+                            city with 10% off your first month.</p>
+                        <a href="filters.html"
+                            class="bg-white text-primary font-bold px-8 py-4 rounded-full w-fit hover:bg-primary hover:text-white transition-all shadow-xl">Explore
+                            Now</a>
                     </div>
                 </div>
             </section>
 
-            <section class="py-2">
-                <div class="flex overflow-x-auto gap-4 px-4 hide-scrollbar">
-                    <div class="flex flex-col items-center gap-1.5 shrink-0">
-                        <div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
-                            <span class="material-symbols-outlined text-2xl">apartment</span>
+            <!-- Categories -->
+            <section class="py-2 md:py-8 px-4 md:px-8">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-xl font-bold">Categories</h3>
+                </div>
+                <div class="flex gap-4 md:gap-8 overflow-x-auto hide-scrollbar">
+                    <div class="flex flex-col items-center gap-3 shrink-0 group cursor-pointer">
+                        <div
+                            class="w-16 h-16 md:w-24 md:h-24 rounded-3xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+                            <span class="material-symbols-outlined text-3xl md:text-5xl">apartment</span>
                         </div>
-                        <span class="text-xs font-medium">Apartment</span>
+                        <span class="text-xs md:text-sm font-bold">Apartments</span>
                     </div>
-                    <div class="flex flex-col items-center gap-1.5 shrink-0">
-                        <div class="w-14 h-14 rounded-2xl bg-orange-500/10 flex items-center justify-center text-orange-500">
-                            <span class="material-symbols-outlined text-2xl">bungalow</span>
+                    <div class="flex flex-col items-center gap-3 shrink-0 group cursor-pointer">
+                        <div
+                            class="w-16 h-16 md:w-24 md:h-24 rounded-3xl bg-orange-500/10 flex items-center justify-center text-orange-500 group-hover:bg-orange-500 group-hover:text-white transition-all">
+                            <span class="material-symbols-outlined text-3xl md:text-5xl">bungalow</span>
                         </div>
-                        <span class="text-xs font-medium">Villas</span>
+                        <span class="text-xs md:text-sm font-bold">Villas</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-3 shrink-0 group cursor-pointer">
+                        <div
+                            class="w-16 h-16 md:w-24 md:h-24 rounded-3xl bg-green-500/10 flex items-center justify-center text-green-500 group-hover:bg-green-500 group-hover:text-white transition-all">
+                            <span class="material-symbols-outlined text-3xl md:text-5xl">cottage</span>
+                        </div>
+                        <span class="text-xs md:text-sm font-bold">Resorts</span>
                     </div>
                 </div>
             </section>
 
-            <div class="flex items-center justify-between px-4 pt-6 pb-3">
-                <h2 class="text-lg font-bold">Recommended for You</h2>
-                <button class="text-primary text-sm font-semibold">View All</button>
+            <div class="flex items-center justify-between px-4 md:px-8 pt-6 pb-3 md:pb-8">
+                <h2 class="text-2xl font-bold">Recommended for You</h2>
+                <button class="text-primary text-sm font-bold hover:underline">View All Listings</button>
             </div>
 
-            <div class="grid grid-cols-2 gap-3 px-4">
-                <a href="property-details.html" class="bg-white dark:bg-[#1c2433] rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-800 cursor-pointer">
-                    <div class="relative aspect-square">
-                        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDislB9eDStdQfVeUXT-SyVYIktdYj4dn1rLs71l6k9U2PyNGYNNFrTSNc9vpmx-1nxZvV3C7xTOHKuL_z-JzyJlV_T9zSmkLpWqQELXWnwdeBWTC_gAwAsO4XuJ9XTTKaNGxd6KvkFkqfHdtlaykJTFfvzJjU7r5Dz5nFelagyTDehv6EwDvE3Dmm0Pv4IBvdDn6HaikyLJuu5BGtc6TRELsBd5pTZoYhKM13gtdCCDe07Kg4J7KzTaxaSxrK6staX7TwHfOMKMTQ')"></div>
-                        <button class="absolute top-2 right-2 w-8 h-8 rounded-full bg-black/20 backdrop-blur-md flex items-center justify-center text-white">
-                            <span class="material-symbols-outlined text-lg leading-none">favorite</span>
-                        </button>
-                        <div class="absolute bottom-2 left-2 bg-black/60 backdrop-blur-sm text-[10px] text-white px-1.5 py-0.5 rounded font-medium">Verified</div>
-                    </div>
-                    <div class="p-3">
-                        <div class="flex items-baseline gap-1">
-                            <span class="text-primary font-bold text-lg">$450</span>
-                            <span class="text-[10px] text-gray-500 dark:text-gray-400">/mo</span>
+            <!-- Property Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 px-4 md:px-8 mb-12">
+                <!-- Card 1 -->
+                <a href="property-details.html"
+                    class="bg-white dark:bg-[#1c2433] rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all group border border-gray-100 dark:border-gray-800">
+                    <div class="relative aspect-[4/5]">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDislB9eDStdQfVeUXT-SyVYIktdYj4dn1rLs71l6k9U2PyNGYNNFrTSNc9vpmx-1nxZvV3C7xTOHKuL_z-JzyJlV_T9zSmkLpWqQELXWnwdeBWTC_gAwAsO4XuJ9XTTKaNGxd6KvkFkqfHdtlaykJTFfvzJjU7r5Dz5nFelagyTDehv6EwDvE3Dmm0Pv4IBvdDn6HaikyLJuu5BGtc6TRELsBd5pTZoYhKM13gtdCCDe07Kg4J7KzTaxaSxrK6staX7TwHfOMKMTQ')">
                         </div>
-                        <h3 class="text-sm font-semibold truncate mt-1">Luxury Studio Unit</h3>
-                        <div class="flex items-center gap-1 text-gray-500 dark:text-gray-400 mt-1">
-                            <span class="material-symbols-outlined text-xs">location_on</span>
-                            <span class="text-[10px] truncate">Westlands, Nairobi</span>
+                        <button
+                            class="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition-colors">
+                            <span class="material-symbols-outlined text-xl">favorite</span>
+                        </button>
+                        <div
+                            class="absolute bottom-4 left-4 bg-primary text-white text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-widest">
+                            Verified</div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-primary font-bold text-xl md:text-2xl">$450</span>
+                            <span class="text-xs text-gray-500 dark:text-gray-400">/ month</span>
+                        </div>
+                        <h3
+                            class="text-base md:text-lg font-bold truncate mt-2 group-hover:text-primary transition-colors">
+                            Luxury Studio Unit</h3>
+                        <div class="flex items-center gap-2 text-gray-500 dark:text-gray-400 mt-2">
+                            <span class="material-symbols-outlined text-sm">location_on</span>
+                            <span class="text-xs truncate">Westlands, Nairobi</span>
                         </div>
                     </div>
                 </a>
             </div>
-            <button class="fixed bottom-24 right-4 bg-primary text-white flex items-center gap-2 px-4 py-2.5 rounded-full shadow-lg shadow-primary/30 z-40">
+
+            <!-- Floating Desktop Button -->
+            <button
+                class="hidden md:flex fixed bottom-8 right-8 bg-primary text-white items-center gap-3 px-8 py-4 rounded-full shadow-2xl shadow-primary/40 z-40 hover:scale-105 transition-all">
                 <span class="material-symbols-outlined">map</span>
-                <span class="text-sm font-bold">Map</span>
+                <span class="text-base font-bold">Interactive Map</span>
             </button>
         </main>
 
-        <nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[480px] bg-white/90 dark:bg-[#101622]/90 backdrop-blur-lg border-t border-gray-200 dark:border-gray-800 px-6 py-3 flex justify-between items-center z-50">
+        <!-- Mobile Bottom Nav -->
+        <nav
+            class="md:hidden fixed bottom-0 left-0 right-0 bg-white/95 dark:bg-[#101622]/95 backdrop-blur-xl border-t border-gray-200 dark:border-gray-800 px-8 py-3 flex justify-between items-center z-50">
             <a href="index.html" class="flex flex-col items-center gap-1 text-primary">
                 <span class="material-symbols-outlined text-[28px] font-variation-settings: 'FILL' 1">home</span>
-                <span class="text-[10px] font-medium">Home</span>
+                <span class="text-[10px] font-bold">Home</span>
             </a>
             <a href="filters.html" class="flex flex-col items-center gap-1 text-gray-400">
                 <span class="material-symbols-outlined text-[28px]">explore</span>
-                <span class="text-[10px] font-medium">Explore</span>
-            </a>
-            <a href="#" class="flex flex-col items-center gap-1 text-gray-400">
-                <span class="material-symbols-outlined text-[28px]">favorite</span>
-                <span class="text-[10px] font-medium">Saved</span>
+                <span class="text-[10px] font-bold">Explore</span>
             </a>
             <a href="chat.html" class="flex flex-col items-center gap-1 text-gray-400">
                 <span class="material-symbols-outlined text-[28px]">chat_bubble</span>
-                <span class="text-[10px] font-medium">Messages</span>
+                <span class="text-[10px] font-bold">Chat</span>
             </a>
             <a href="profile.html" class="flex flex-col items-center gap-1 text-gray-400">
-                <span class="material-symbols-outlined text-[28px]">person</span>
-                <span class="text-[10px] font-medium">Profile</span>
+                <span class="material-symbols-outlined text-[28px]">account_circle</span>
+                <span class="text-[10px] font-bold">Profile</span>
             </a>
         </nav>
+
+        <!-- Desktop Footer -->
+        <footer
+            class="hidden md:block bg-gray-50 dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 px-8 py-16">
+            <div class="max-w-7xl mx-auto grid grid-cols-4 gap-12">
+                <div class="col-span-1">
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="bg-primary p-2 rounded-xl flex items-center justify-center">
+                            <span class="material-symbols-outlined text-white text-2xl">home_work</span>
+                        </div>
+                        <h1 class="text-2xl font-bold tracking-tight">Rentify</h1>
+                    </div>
+                    <p class="text-gray-500 leading-relaxed">Finding the perfect home shouldn't be hard. Rentify makes
+                        it simple, secure, and fast.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6">Platform</h4>
+                    <ul class="space-y-4 text-gray-500">
+                        <li><a href="index.html" class="hover:text-primary transition-colors">Marketplace</a></li>
+                        <li><a href="filters.html" class="hover:text-primary transition-colors">Explore</a></li>
+                        <li><a href="admin.html" class="hover:text-primary transition-colors">Admin Console</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6">Support</h4>
+                    <ul class="space-y-4 text-gray-500">
+                        <li><a href="#" class="hover:text-primary transition-colors">Help Center</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6">Contact</h4>
+                    <ul class="space-y-4 text-gray-500 text-sm">
+                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">mail</span>
+                            hello@rentify.ke</li>
+                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">call</span>
+                            +254 700 000 000</li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                class="max-w-7xl mx-auto mt-16 pt-8 border-t border-gray-200 dark:border-gray-800 text-center text-gray-400 text-sm">
+                &copy; 2026 Rentify Technologies. All rights reserved.
+            </div>
+        </footer>
     </div>
 </body>
+
 </html>

@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rentify - Admin Dashboard</title>
+    <title>Rentify - Admin Console</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script>
         tailwind.config = {
@@ -20,42 +22,128 @@
                     },
                     fontFamily: {
                         "display": ["Inter", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
+                    }
                 },
             },
         }
     </script>
+    <script src="app.js" defer></script>
 </head>
+
 <body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-gray-100 min-h-screen">
-    <div id="app-container" class="bg-white dark:bg-[#101622] shadow-xl min-h-screen max-w-[480px] mx-auto relative flex flex-col">
-        <header class="p-6 flex items-center justify-between">
-            <div>
-                <h1 class="text-2xl font-bold">Admin Console</h1>
-                <p class="text-xs text-gray-500 font-bold uppercase tracking-widest mt-1">Platform Status: Active</p>
+    <div id="app-container" class="bg-white dark:bg-[#101622] min-h-screen relative flex flex-col">
+
+        <!-- Desktop Header -->
+        <header
+            class="hidden md:flex sticky top-0 z-50 bg-white/90 dark:bg-[#101622]/90 backdrop-blur-xl border-b border-gray-100 dark:border-gray-800 px-8 py-4 items-center justify-between">
+            <div class="flex items-center gap-2">
+                <a href="index.html" class="flex items-center gap-2 group">
+                    <div
+                        class="bg-primary p-2 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-white text-2xl">home_work</span>
+                    </div>
+                    <h1 class="text-2xl font-bold tracking-tight">Rentify <span
+                            class="text-xs bg-primary/20 text-primary px-2 py-0.5 rounded ml-2">ADMIN</span></h1>
+                </a>
             </div>
-            <div class="size-12 rounded-full overflow-hidden border-2 border-primary"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD68fJB-SrzHOyOdCdgNYcJm9qKNPc-0Qt9Z937_5eFZgwhXY8OUccaceUqVLxAn6pez9xeFx-G0gsM8jwbCzI3TaeyxD08-OgIGzyTxeg2R6zaMF_Zff1C50RxgfXiJOh90JTGn9qb-YZkoO0qwYRpvMVA5aufouOtXMKlko1N5W_GTyjdGjK7K04MD6Ha6V0Hb-tHtn8AbdeJDBfH2AvTYq1LuyQMuu0Zhg9ZqL8lQxcXXc11uVau3KTbYpo9fcdCgZbO-duwsdg" class="w-full h-full object-cover"></div>
+
+            <nav class="flex items-center gap-8">
+                <a href="index.html"
+                    class="text-gray-500 hover:text-primary transition-colors font-medium">Marketplace</a>
+                <a href="admin.html" class="text-primary font-bold">Admin Console</a>
+                <a href="#" class="text-gray-500 hover:text-primary transition-colors font-medium">Users</a>
+                <a href="#" class="text-gray-500 hover:text-primary transition-colors font-medium">System</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="profile.html"
+                    class="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 p-1 pr-4 rounded-full">
+                    <div class="size-8 rounded-full overflow-hidden">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD68fJB-SrzHOyOdCdgNYcJm9qKNPc-0Qt9Z937_5eFZgwhXY8OUccaceUqVLxAn6pez9xeFx-G0gsM8jwbCzI3TaeyxD08-OgIGzyTxeg2R6zaMF_Zff1C50RxgfXiJOh90JTGn9qb-YZkoO0qwYRpvMVA5aufouOtXMKlko1N5W_GTyjdGjK7K04MD6Ha6V0Hb-tHtn8AbdeJDBfH2AvTYq1LuyQMuu0Zhg9ZqL8lQxcXXc11uVau3KTbYpo9fcdCgZbO-duwsdg"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <span class="text-sm font-semibold text-gray-400">Back to Profile</span>
+                </a>
+            </div>
         </header>
 
-        <main class="p-6 space-y-4 pb-32">
-            <div class="grid grid-cols-2 gap-4">
-                <div class="bg-amber-500/10 border border-amber-500/20 p-4 rounded-3xl"><h2 class="text-3xl font-bold text-amber-500">24</h2><p class="text-[10px] font-bold uppercase text-amber-500/80">Pending Verification</p></div>
-                <div class="bg-primary/10 border border-primary/20 p-4 rounded-3xl"><h2 class="text-3xl font-bold text-primary">1.2K</h2><p class="text-[10px] font-bold uppercase text-primary/80">Active Agents</p></div>
-            </div>
-            <h3 class="font-bold text-lg mt-8 mb-4">Verification Requests</h3>
-            <a href="review.html" class="bg-white dark:bg-gray-800 p-4 rounded-2xl border border-gray-100 dark:border-gray-700 flex items-center justify-between cursor-pointer">
-                <div class="flex items-center gap-4">
-                    <div class="size-12 rounded-xl bg-cover" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuClPl8FMaOEaa3Etq0qocSgHFbke21eSkXWWQVBeHPY9YgirFfWN41MhjBfOWWxmRrhmcspbnZOoaCEaIkHXELaZ6evJE64AbQKUzmlZctbJ95V3WjwviAb9o6Yzj9vpZ-Fvka9e5VhlKkyIBffHGVUtjuCvPD3LkWUtGkwBmVN1QSP7pdwNIFTA8ddfsvCZcANuP96yTbu8tL8EYk27hGT8ndp2D_Aqob77Kqgx-TQcEZH8CeJWzqeFgHbzw3ck2qbTn7xCR1VQkc')"></div>
-                    <div><p class="font-bold">Sarah Jenkins</p><p class="text-xs text-gray-400">Agent ID: #4492</p></div>
-                </div>
-                <span class="material-symbols-outlined text-gray-400">chevron_right</span>
+        <!-- Mobile Header -->
+        <header class="md:hidden p-6 flex items-center justify-between">
+            <h1 class="text-2xl font-bold">Admin Console</h1>
+            <a href="profile.html" class="size-12 rounded-full overflow-hidden border-2 border-primary">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD68fJB-SrzHOyOdCdgNYcJm9qKNPc-0Qt9Z937_5eFZgwhXY8OUccaceUqVLxAn6pez9xeFx-G0gsM8jwbCzI3TaeyxD08-OgIGzyTxeg2R6zaMF_Zff1C50RxgfXiJOh90JTGn9qb-YZkoO0qwYRpvMVA5aufouOtXMKlko1N5W_GTyjdGjK7K04MD6Ha6V0Hb-tHtn8AbdeJDBfH2AvTYq1LuyQMuu0Zhg9ZqL8lQxcXXc11uVau3KTbYpo9fcdCgZbO-duwsdg"
+                    class="w-full h-full object-cover">
             </a>
+        </header>
+
+        <main class="flex-1 max-w-7xl mx-auto w-full p-6 md:p-8 space-y-8 pb-32">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-amber-500/10 border border-amber-500/20 p-8 rounded-[32px] group">
+                    <h2 class="text-5xl font-black text-amber-500">24</h2>
+                    <p class="text-sm font-bold uppercase tracking-widest text-amber-600 mt-2">Pending ID Verifications
+                    </p>
+                </div>
+                <div class="bg-primary/10 border border-primary/20 p-8 rounded-[32px] group">
+                    <h2 class="text-5xl font-black text-primary">1.2K</h2>
+                    <p class="text-sm font-bold uppercase tracking-widest text-primary/80 mt-2">Active Verified Agents
+                    </p>
+                </div>
+                <!-- Desktop Stats -->
+                <div class="hidden lg:block bg-green-500/10 border border-green-500/20 p-8 rounded-[32px] group">
+                    <h2 class="text-5xl font-black text-green-500">99%</h2>
+                    <p class="text-sm font-bold uppercase tracking-widest text-green-600 mt-2">Biometric Match Rate</p>
+                </div>
+                <div class="hidden lg:block bg-red-500/10 border border-red-500/20 p-8 rounded-[32px] group">
+                    <h2 class="text-5xl font-black text-red-500">12</h2>
+                    <p class="text-sm font-bold uppercase tracking-widest text-red-600 mt-2">Suspicious Activities</p>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-between">
+                <h3 class="text-2xl font-bold">Verification Queue</h3>
+                <button class="text-primary text-sm font-bold hover:underline">View All Requests</button>
+            </div>
+
+            <!-- Requests List -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <a href="review.html"
+                    class="bg-white dark:bg-gray-800 p-6 rounded-3xl border border-gray-100 dark:border-gray-800 flex items-center justify-between hover:border-primary transition-all group">
+                    <div class="flex items-center gap-4">
+                        <div class="size-16 rounded-2xl bg-cover ring-4 ring-transparent group-hover:ring-primary/20 transition-all"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuClPl8FMaOEaa3Etq0qocSgHFbke21eSkXWWQVBeHPY9YgirFfWN41MhjBfOWWxmRrhmcspbnZOoaCEaIkHXELaZ6evJE64AbQKUzmlZctbJ95V3WjwviAb9o6Yzj9vpZ-Fvka9e5VhlKkyIBffHGVUtjuCvPD3LkWUtGkwBmVN1QSP7pdwNIFTA8ddfsvCZcANuP96yTbu8tL8EYk27hGT8ndp2D_Aqob77Kqgx-TQcEZH8CeJWzqeFgHbzw3ck2qbTn7xCR1VQkc')">
+                        </div>
+                        <div>
+                            <p class="text-lg font-bold">Sarah Jenkins</p>
+                            <p class="text-sm text-gray-400 font-medium tracking-tight">Agent ID: #4492 • Registered 2h
+                                ago</p>
+                        </div>
+                    </div>
+                    <div
+                        class="size-12 rounded-full flex items-center justify-center bg-gray-50 dark:bg-gray-700 text-gray-400 group-hover:bg-primary group-hover:text-white transition-all">
+                        <span class="material-symbols-outlined">chevron_right</span>
+                    </div>
+                </a>
+            </div>
         </main>
+
+        <!-- Mobile Nav (Shared consistency) -->
+        <nav
+            class="md:hidden fixed bottom-0 left-0 right-0 bg-white/95 dark:bg-[#101622]/95 backdrop-blur-xl border-t border-gray-200 dark:border-gray-800 px-8 py-3 flex justify-between items-center z-50">
+            <a href="index.html" class="flex flex-col items-center gap-1 text-gray-400">
+                <span class="material-symbols-outlined text-[28px]">home</span>
+                <span class="text-[10px] font-bold">Home</span>
+            </a>
+            <a href="admin.html" class="flex flex-col items-center gap-1 text-primary">
+                <span
+                    class="material-symbols-outlined text-[28px] font-variation-settings: 'FILL' 1">admin_panel_settings</span>
+                <span class="text-[10px] font-bold">Admin</span>
+            </a>
+            <a href="profile.html" class="flex flex-col items-center gap-1 text-gray-400">
+                <span class="material-symbols-outlined text-[28px]">account_circle</span>
+                <span class="text-[10px] font-bold">Back</span>
+            </a>
+        </nav>
     </div>
 </body>
+
 </html>

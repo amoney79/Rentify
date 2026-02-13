@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rentify - Liveness</title>
+    <title>Rentify - Face Liveness</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
@@ -15,50 +15,77 @@
             darkMode: "class",
             theme: {
                 extend: {
-                    colors: {
-                        "primary": "#135bec",
-                        "background-light": "#f6f6f8",
-                        "background-dark": "#101622",
-                    },
-                    fontFamily: {
-                        "display": ["Inter", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
+                    colors: { "primary": "#135bec" },
+                    fontFamily: { "display": ["Inter", "sans-serif"] }
                 },
             },
         }
     </script>
+    <script src="app.js" defer></script>
 </head>
 
 <body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-gray-100 min-h-screen">
-    <div id="app-container"
-        class="bg-white dark:bg-[#101622] shadow-xl min-h-screen max-w-[480px] mx-auto relative flex flex-col">
-        <header class="p-4 flex items-center justify-between">
-            <a class="material-symbols-outlined cursor-pointer" href="upload.html">arrow_back_ios</a>
-            <h2 class="font-bold">Face Liveness</h2>
-            <div class="text-primary font-bold text-sm">2/2</div>
-        </header>
+    <div id="app-container" class="bg-white dark:bg-[#101622] min-h-screen relative flex flex-col">
 
-        <main class="p-8 flex-1 flex flex-col items-center text-center">
-            <h1 class="text-2xl font-bold mb-2">Almost there!</h1>
-            <p class="text-gray-400 text-sm mb-8 px-4">Slowly turn your head inside the frame to confirm identity.</p>
-            <div class="size-64 rounded-full border-4 border-primary relative overflow-hidden bg-gray-900 group">
-                <div class="absolute inset-0 bg-cover bg-center brightness-75 group-hover:brightness-100 transition-all"
-                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB5vsJ6mDBdboCFsh9JaBAyoUkJx_LTOgQI16joJ1Eg8C-KkjXHYeBitgDyv9fJshGXnmHuemv0TYeXp7Hyk0t_EQuNRtF6s3-W0ou8nAzD6Qp3J9XsDurYI-87NwE0-i6o8vQGoZb7ysi8-azKRHo17L56VMftPRh5HsqQTQKiPuRwyiAhkgxevgofim28NL4WtWYzWh3w_EQMomij4Aag9axtOZX3gQ4CpXD-gbT_Xw1EBBOZeowh-PCm60DDsyCysXhPNWWnOjc')">
-                </div>
-                <div class="absolute inset-0 border-[16px] border-[#101622]/80 rounded-full"></div>
-                <div class="absolute top-1/2 left-0 w-full h-1 bg-primary/60 animate-pulse shadow-[0_0_15px_#135bec]">
+        <header class="p-6 md:p-12 flex items-center justify-between">
+            <a href="upload.html"
+                class="size-12 flex items-center justify-center rounded-2xl bg-gray-100 dark:bg-gray-800 text-gray-500 hover:text-primary transition-all shadow-sm"><span
+                    class="material-symbols-outlined">arrow_back</span></a>
+            <div class="text-center">
+                <h2 class="text-xl font-black text-primary">Biometric Check</h2>
+                <div class="flex items-center gap-2 justify-center mt-2">
+                    <div class="h-1.5 w-12 bg-primary rounded-full"></div>
+                    <div class="h-1.5 w-12 bg-primary rounded-full"></div>
                 </div>
             </div>
+            <div class="text-primary font-black text-lg">Step 2</div>
+        </header>
+
+        <main class="flex-1 max-w-2xl mx-auto w-full p-6 md:p-8 flex flex-col items-center text-center space-y-8 pb-32">
+            <div class="space-y-4">
+                <h1 class="text-4xl md:text-5xl font-black leading-tight">Almost Verified</h1>
+                <p class="text-gray-500 font-medium px-4">Slowly turn your head inside the frame to confirm your
+                    biometric identity.</p>
+            </div>
+
+            <!-- Face Frame -->
+            <div class="relative group mt-8">
+                <div
+                    class="size-64 md:size-80 rounded-full border-8 border-primary relative overflow-hidden bg-gray-900 shadow-[0_0_80px_rgba(19,91,236,0.3)] ring-8 ring-primary/10">
+                    <div class="absolute inset-0 bg-cover bg-center brightness-75 transition-all duration-700 group-hover:brightness-100 group-hover:scale-110"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB5vsJ6mDBdboCFsh9JaBAyoUkJx_LTOgQI16joJ1Eg8C-KkjXHYeBitgDyv9fJshGXnmHuemv0TYeXp7Hyk0t_EQuNRtF6s3-W0ou8nAzD6Qp3J9XsDurYI-87NwE0-i6o8vQGoZb7ysi8-azKRHo17L56VMftPRh5HsqQTQKiPuRwyiAhkgxevgofim28NL4WtWYzWh3w_EQMomij4Aag9axtOZX3gQ4CpXD-gbT_Xw1EBBOZeowh-PCm60DDsyCysXhPNWWnOjc')">
+                    </div>
+
+                    <!-- Scanning Animation -->
+                    <div class="absolute inset-0 border-[24px] border-[#101622]/90 rounded-full z-10"></div>
+                    <div
+                        class="absolute top-1/2 left-0 w-full h-1.5 bg-primary/60 animate-pulse shadow-[0_0_30px_#135bec] z-20">
+                    </div>
+
+                    <!-- Overlay Grid -->
+                    <div class="absolute inset-0 opacity-10 pointer-events-none"
+                        style="background-image: radial-gradient(#135bec 1px, transparent 1px); background-size: 20px 20px;">
+                    </div>
+                </div>
+
+                <!-- Status Badge -->
+                <div
+                    class="absolute -bottom-4 bg-white dark:bg-gray-800 px-6 py-2 rounded-full border border-gray-100 dark:border-gray-700 shadow-xl flex items-center gap-2">
+                    <span class="size-2 bg-green-500 rounded-full animate-ping"></span>
+                    <span class="text-xs font-black uppercase tracking-widest text-primary">Biometric Sensor
+                        Active</span>
+                </div>
+            </div>
+
             <div class="flex-1"></div>
-            <a href="success.html"
-                class="w-full bg-primary text-white h-14 rounded-2xl font-bold shadow-lg shadow-primary/30 flex items-center justify-center">Finish
-                Verification</a>
+
+            <div class="w-full space-y-4">
+                <a href="success.html"
+                    class="w-full bg-primary text-white font-black py-5 rounded-[24px] shadow-2xl shadow-primary/40 flex items-center justify-center gap-2 hover:scale-[1.05] transition-all text-xl">Finish
+                    & Submit Application</a>
+                <p class="text-[10px] text-gray-500 font-bold uppercase tracking-widest">Encrypted SSL Secure
+                    Verification 🔒</p>
+            </div>
         </main>
     </div>
 </body>

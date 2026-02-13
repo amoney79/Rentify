@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rentify - Payment</title>
+    <title>Rentify - Secure Payment</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
@@ -15,75 +15,79 @@
             darkMode: "class",
             theme: {
                 extend: {
-                    colors: {
-                        "primary": "#135bec",
-                        "background-light": "#f6f6f8",
-                        "background-dark": "#101622",
-                    },
-                    fontFamily: {
-                        "display": ["Inter", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
+                    colors: { "primary": "#135bec" },
+                    fontFamily: { "display": ["Inter", "sans-serif"] }
                 },
             },
         }
     </script>
+    <script src="app.js" defer></script>
 </head>
 
 <body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-gray-100 min-h-screen">
-    <div id="app-container"
-        class="bg-white dark:bg-[#101622] shadow-xl min-h-screen max-w-[480px] mx-auto relative flex flex-col">
-        <header class="p-4 border-b border-gray-100 dark:border-gray-800 flex items-center justify-between">
+    <div id="app-container" class="bg-white dark:bg-[#101622] min-h-screen relative flex flex-col">
+
+        <header class="p-6 md:p-12 flex items-center justify-between">
             <a href="schedule.html"
-                class="size-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800">
-                <span class="material-symbols-outlined">arrow_back_ios_new</span>
-            </a>
-            <h2 class="text-lg font-bold">Secure Payment</h2>
-            <div class="w-10"></div>
+                class="size-12 flex items-center justify-center rounded-2xl bg-gray-100 dark:bg-gray-800 text-gray-500 hover:text-primary transition-all shadow-sm"><span
+                    class="material-symbols-outlined">arrow_back</span></a>
+            <h2 class="text-xl font-black">Secure Checkout</h2>
+            <div class="size-12 flex items-center justify-center text-primary"><span
+                    class="material-symbols-outlined !text-3xl">lock</span></div>
         </header>
 
-        <main class="p-4 space-y-6 flex flex-col items-center">
-            <div class="text-center mt-8">
-                <p class="text-gray-400 font-bold uppercase text-xs tracking-widest">Total Amount</p>
-                <h1 class="text-5xl font-bold mt-2">KSh 1,500</h1>
-            </div>
-            <div class="w-full space-y-3">
-                <div class="p-4 border-2 border-primary bg-primary/10 rounded-2xl flex items-center justify-between">
-                    <div class="flex items-center gap-4">
-                        <div class="size-12 bg-green-500 rounded-xl flex items-center justify-center text-white"><span
-                                class="material-symbols-outlined">smartphone</span></div>
-                        <div>
-                            <p class="font-bold">M-Pesa</p>
-                            <p class="text-xs text-gray-500">Fast & Secure</p>
-                        </div>
-                    </div>
-                    <div class="size-6 border-2 border-primary rounded-full flex items-center justify-center">
-                        <div class="size-3 bg-primary rounded-full"></div>
-                    </div>
-                </div>
-                <div
-                    class="p-4 border-2 border-gray-100 dark:border-gray-800 rounded-2xl flex items-center justify-between">
-                    <div class="flex items-center gap-4">
-                        <div class="size-12 bg-blue-500 rounded-xl flex items-center justify-center text-white"><span
-                                class="material-symbols-outlined">credit_card</span></div>
-                        <div>
-                            <p class="font-bold">Card</p>
-                            <p class="text-xs text-gray-500">Visa / Mastercard</p>
-                        </div>
-                    </div>
-                    <div class="size-6 border-2 border-gray-300 rounded-full"></div>
+        <main class="flex-1 max-w-2xl mx-auto w-full p-6 md:px-0 space-y-12 pb-32">
+            <!-- Amount Display -->
+            <div class="text-center space-y-4">
+                <p class="text-sm font-black uppercase tracking-[0.3em] text-gray-400">Viewing Fee Deposit</p>
+                <div class="relative inline-block px-12 py-8 bg-primary/5 rounded-[48px] border-2 border-primary/20">
+                    <h1 class="text-6xl md:text-8xl font-black text-primary italic leading-none">$15</h1>
+                    <p class="text-xs font-bold text-primary/60 mt-4 uppercase">Fully Refundable after viewing</p>
                 </div>
             </div>
+
+            <div class="space-y-6">
+                <h3 class="text-xl font-black px-2">Payment Methods</h3>
+                <div class="space-y-4">
+                    <button
+                        class="w-full p-6 border-4 border-primary bg-primary/5 rounded-[32px] flex items-center justify-between group transition-all shadow-2xl shadow-primary/10">
+                        <div class="flex items-center gap-6">
+                            <div
+                                class="size-16 bg-green-500 rounded-2xl flex items-center justify-center text-white shadow-lg">
+                                <span class="material-symbols-outlined !text-3xl">smartphone</span></div>
+                            <div class="text-left">
+                                <p class="text-xl font-black italic">M-Pesa Mobile Money</p>
+                                <p class="text-sm text-gray-500 font-medium tracking-tight">Instant Confirmation</p>
+                            </div>
+                        </div>
+                        <div class="size-8 border-4 border-primary rounded-full flex items-center justify-center">
+                            <div class="size-3 bg-primary rounded-full animate-pulse"></div>
+                        </div>
+                    </button>
+
+                    <button
+                        class="w-full p-6 border-2 border-gray-100 dark:border-gray-800 rounded-[32px] flex items-center justify-between hover:border-primary transition-all group">
+                        <div class="flex items-center gap-6">
+                            <div
+                                class="size-16 bg-blue-500 rounded-2xl flex items-center justify-center text-white opacity-50">
+                                <span class="material-symbols-outlined !text-3xl">credit_card</span></div>
+                            <div class="text-left text-gray-400">
+                                <p class="text-xl font-black italic">Credit / Debit Card</p>
+                                <p class="text-sm font-medium tracking-tight">Visa, Mastercard, Amex</p>
+                            </div>
+                        </div>
+                        <div class="size-8 border-2 border-gray-200 dark:border-gray-700 rounded-full"></div>
+                    </button>
+                </div>
+            </div>
+
             <div
-                class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[480px] p-4 bg-white dark:bg-[#101622] border-t border-gray-200 dark:border-gray-800">
+                class="fixed md:relative bottom-0 left-0 right-0 p-6 bg-white/90 dark:bg-[#101622]/90 backdrop-blur-xl md:bg-transparent md:p-0">
                 <a href="success.html"
-                    class="w-full bg-primary text-white h-14 rounded-2xl font-bold flex items-center justify-center">Pay
-                    Now</a>
+                    class="w-full bg-primary text-white font-black py-5 rounded-[24px] shadow-2xl shadow-primary/40 flex items-center justify-center gap-2 hover:scale-[1.02] transition-all text-xl">Pay
+                    now with M-Pesa</a>
+                <p class="text-center text-[10px] font-bold text-gray-400 uppercase mt-4 tracking-widest">PCI-DSS
+                    Compliant • 256-bit Encryption</p>
             </div>
         </main>
     </div>
