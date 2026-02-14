@@ -10,11 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Update Button states
                 tabButtons.forEach(b => {
-                    b.classList.remove('active', 'text-primary', 'border-primary');
-                    b.classList.add('text-gray-400', 'border-transparent');
+                    b.classList.remove('active', 'bg-primary', 'text-white', 'shadow-lg', 'shadow-primary/20');
+                    b.classList.add('bg-gray-50', 'dark:bg-gray-800/50', 'text-gray-400');
                 });
-                btn.classList.add('active', 'text-primary', 'border-primary');
-                btn.classList.remove('text-gray-400', 'border-transparent');
+                btn.classList.add('active', 'bg-primary', 'text-white', 'shadow-lg', 'shadow-primary/20');
+                btn.classList.remove('bg-gray-50', 'dark:bg-gray-800/50', 'text-gray-400');
 
                 // Update Content states
                 tabContents.forEach(content => {
