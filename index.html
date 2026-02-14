@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rentify - Find Your Home</title>
+    <title>Rentify - Affordable Home Finding</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
@@ -16,8 +16,8 @@
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#135bec",
-                        "background-light": "#f6f6f8",
+                        "primary": "#c40000",
+                        "background-light": "#f4f4f4",
                         "background-dark": "#101622",
                     },
                     fontFamily: {
@@ -30,244 +30,268 @@
     <script src="app.js" defer></script>
 </head>
 
-<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-gray-100 min-h-screen">
-    <div id="app-container" class="bg-white dark:bg-[#101622] min-h-screen relative flex flex-col">
+<body class="bg-[#f4f4f4] font-display text-gray-900 min-h-screen">
+    <div id="app-container" class="bg-white min-h-screen relative flex flex-col shadow-none">
 
-        <!-- Desktop Navigation Header -->
-        <header
-            class="hidden md:flex sticky top-0 z-50 bg-white/90 dark:bg-[#101622]/90 backdrop-blur-xl border-b border-gray-100 dark:border-gray-800 px-8 py-4 items-center justify-between">
-            <div class="flex items-center gap-2">
-                <div class="bg-primary p-2 rounded-xl flex items-center justify-center">
-                    <span class="material-symbols-outlined text-white text-2xl">home_work</span>
+        <!-- Utility Strip -->
+        <div class="utility-strip px-8 hidden md:block">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-primary transition-colors">Seller Center</a>
+                    <a href="#" class="hover:text-primary transition-colors flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">smartphone</span> Download App
+                    </a>
                 </div>
-                <h1 class="text-2xl font-bold tracking-tight">Rentify</h1>
-            </div>
-
-            <nav class="flex items-center gap-8">
-                <a href="index.html" class="text-primary font-bold">Marketplace</a>
-                <a href="filters.html"
-                    class="text-gray-500 hover:text-primary transition-colors font-medium">Explore</a>
-                <a href="#" class="text-gray-500 hover:text-primary transition-colors font-medium">Saved</a>
-                <a href="chat.html" class="text-gray-500 hover:text-primary transition-colors font-medium">Messages</a>
-            </nav>
-
-            <div class="flex items-center gap-4">
-                <div class="relative">
-                    <span
-                        class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
-                    <input
-                        class="bg-gray-100 dark:bg-[#1c2433] border-none rounded-full pl-10 pr-4 h-10 w-64 text-sm focus:ring-2 focus:ring-primary transition-all"
-                        placeholder="Search property..." type="text" />
-                </div>
-                <a href="profile.html"
-                    class="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 p-1 pr-4 rounded-full">
-                    <div class="size-8 rounded-full overflow-hidden">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAU0WBI3Zsk8CoNujzvZLFNYa55VlCKsC-PgS8OykghBr2dIoDRpmDhsZZGFeCSAAljCS1SY3iYHPblE9nFHhSkLLjVlqzuw-VVNfJbQ62bjUurZFCCuDJGw4d-_awUQgCtLtOZ0eWc2x6LPe9epEt6dfhVCcOgJHrQmPUDVJ5MvXLDL1L8BNQJS3qIFgu9QOfUUZeZltgI1GzA_C5nmxpSoX8KKlrjWlw-9NT4KmbLXbYknDgsJSHziHJ6AwFGYPRj_VY6rwzJ0sM"
-                            class="w-full h-full object-cover">
-                    </div>
-                    <span class="text-sm font-semibold">James</span>
-                </a>
-            </div>
-        </header>
-
-        <!-- Mobile Header (Visible only on small screens) -->
-        <header class="md:hidden sticky top-0 z-40 bg-white/80 dark:bg-[#101622]/80 backdrop-blur-md px-4 pt-4 pb-2">
-            <div class="flex items-center justify-between mb-3">
-                <div class="flex items-center gap-2">
-                    <div class="bg-primary p-1.5 rounded-lg flex items-center justify-center">
-                        <span class="material-symbols-outlined text-white text-xl">home_work</span>
-                    </div>
-                    <h1 class="text-xl font-bold tracking-tight text-primary">Rentify</h1>
-                </div>
-                <div class="flex gap-3">
-                    <button class="relative p-1">
-                        <span class="material-symbols-outlined">notifications</span>
+                <div class="flex gap-6 items-center">
+                    <a href="#" class="hover:text-primary transition-colors">Help Center</a>
+                    <div class="flex items-center gap-2 cursor-pointer group">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Kenya.svg"
+                            class="w-5 h-3 object-cover rounded-sm shadow-sm" alt="Kenya">
+                        <span class="font-bold">Kenya</span>
                         <span
-                            class="absolute top-0 right-0 block h-2 w-2 rounded-full bg-red-500 ring-2 ring-white dark:ring-[#101622]"></span>
-                    </button>
-                    <a href="profile.html" class="p-1">
-                        <span class="material-symbols-outlined">account_circle</span>
+                            class="material-symbols-outlined text-sm group-hover:rotate-180 transition-transform">expand_more</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Header -->
+        <header class="bg-white sticky top-0 z-50 px-8 py-6 border-b border-gray-100">
+            <div class="max-w-7xl mx-auto flex items-center justify-between gap-12">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center gap-2 shrink-0">
+                    <div class="bg-primary p-2 rounded-lg flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white text-3xl">home_work</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <h1 class="text-3xl font-black tracking-tighter text-gray-900 leading-none">Rentify</h1>
+                        <p class="text-[10px] uppercase tracking-tighter text-primary font-bold">Safe Home Finding</p>
+                    </div>
+                </a>
+
+                <!-- Search Area -->
+                <div class="flex-1 max-w-2xl">
+                    <div class="flex items-center">
+                        <input type="text" class="mega-search-input"
+                            placeholder="Search apartments, villas, locations...">
+                        <button class="mega-search-btn">
+                            <span class="material-symbols-outlined">search</span>
+                        </button>
+                    </div>
+                    <div class="flex gap-4 mt-2 text-[11px] text-gray-500 overflow-hidden whitespace-nowrap">
+                        <a href="#" class="hover:text-primary">Westlands</a>
+                        <a href="#" class="hover:text-primary">Studio Apartment</a>
+                        <a href="#" class="hover:text-primary">Kilimani</a>
+                        <a href="#" class="hover:text-primary">2 Bedroom</a>
+                        <a href="#" class="hover:text-primary">Furnished</a>
+                        <a href="#" class="hover:text-primary">Pets Allowed</a>
+                    </div>
+                </div>
+
+                <!-- Account Actions -->
+                <div class="flex items-center gap-8 shrink-0">
+                    <a href="chat.html"
+                        class="flex items-center gap-2 text-gray-700 hover:text-primary group transition-colors">
+                        <div class="relative">
+                            <span class="material-symbols-outlined text-3xl">chat_bubble</span>
+                            <span
+                                class="absolute -top-1 -right-1 bg-primary text-white text-[9px] w-4 h-4 flex items-center justify-center rounded-full font-bold">2</span>
+                        </div>
+                        <span class="font-bold text-sm">Messages</span>
+                    </a>
+                    <a href="profile.html"
+                        class="flex items-center gap-3 text-gray-700 hover:text-primary group transition-colors">
+                        <span class="material-symbols-outlined text-3xl">account_circle</span>
+                        <div class="flex flex-col">
+                            <span class="text-[10px] text-gray-400 font-bold uppercase leading-none">Account</span>
+                            <span class="font-bold text-sm">My Account</span>
+                        </div>
+                        <span class="material-symbols-outlined text-sm">expand_more</span>
                     </a>
                 </div>
             </div>
-            <div class="flex gap-2 mb-2">
-                <div class="relative flex-1">
-                    <span
-                        class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
-                    <input
-                        class="w-full bg-gray-100 dark:bg-[#1c2433] border-none rounded-xl pl-10 pr-4 h-11 text-sm focus:ring-2 focus:ring-primary"
-                        placeholder="Search apartments, villas..." type="text" />
-                </div>
-                <a href="filters.html"
-                    class="bg-primary/10 text-primary w-11 h-11 rounded-xl flex items-center justify-center">
-                    <span class="material-symbols-outlined">tune</span>
-                </a>
-            </div>
         </header>
 
-        <main class="flex-1 max-w-7xl mx-auto w-full pb-24 md:pb-12">
-            <!-- Hero Section -->
-            <section class="px-4 md:px-8 py-3 md:py-8">
-                <div class="relative h-[200px] md:h-[400px] rounded-2xl md:rounded-[32px] overflow-hidden group">
-                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBPRDGJXyz0FGhKnwAEopQHuCE73ByJplEc8CkGObIKDa7WH-FEgr82AKWpmycA97S86qhrgYAjVgQXQ0kmSJmNfu5qhH_JfuaPQav8gtfVVw51i06Zi9wfZQkIVtyAC8joSe7u_hxCjzoU7ttfxdWviivlPgT7oHeWzRCosqjFpmlBaAlXYhiwJwwCObP0d2kBfSW00a-R3bplDsZh9OwserqkoHwA6sm4nn7mJiorNCpzgDdJ0kD2ma0vjVVV_Zxit32JSbJznqA')">
-                    </div>
-                    <div
-                        class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent flex flex-col justify-center p-6 md:p-16">
-                        <span
-                            class="bg-primary text-white text-[10px] md:text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full w-fit mb-4">Limited
-                            Availability</span>
-                        <h2 class="text-white text-3xl md:text-6xl font-black leading-tight max-w-lg mb-4">Find Your
-                            Next<br />Dream Space.</h2>
-                        <p class="text-white/80 text-sm md:text-xl max-w-sm mb-8">Premium listings in the heart of the
-                            city with 10% off your first month.</p>
-                        <a href="filters.html"
-                            class="bg-white text-primary font-bold px-8 py-4 rounded-full w-fit hover:bg-primary hover:text-white transition-all shadow-xl">Explore
-                            Now</a>
-                    </div>
-                </div>
-            </section>
+        <!-- Main Marketplace Body -->
+        <main class="max-w-7xl mx-auto w-full px-8 pb-12 mt-4">
 
-            <!-- Categories -->
-            <section class="py-2 md:py-8 px-4 md:px-8">
-                <div class="flex items-center justify-between mb-6">
-                    <h3 class="text-xl font-bold">Categories</h3>
-                </div>
-                <div class="flex gap-4 md:gap-8 overflow-x-auto hide-scrollbar">
-                    <div class="flex flex-col items-center gap-3 shrink-0 group cursor-pointer">
-                        <div
-                            class="w-16 h-16 md:w-24 md:h-24 rounded-3xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
-                            <span class="material-symbols-outlined text-3xl md:text-5xl">apartment</span>
-                        </div>
-                        <span class="text-xs md:text-sm font-bold">Apartments</span>
-                    </div>
-                    <div class="flex flex-col items-center gap-3 shrink-0 group cursor-pointer">
-                        <div
-                            class="w-16 h-16 md:w-24 md:h-24 rounded-3xl bg-orange-500/10 flex items-center justify-center text-orange-500 group-hover:bg-orange-500 group-hover:text-white transition-all">
-                            <span class="material-symbols-outlined text-3xl md:text-5xl">bungalow</span>
-                        </div>
-                        <span class="text-xs md:text-sm font-bold">Villas</span>
-                    </div>
-                    <div class="flex flex-col items-center gap-3 shrink-0 group cursor-pointer">
-                        <div
-                            class="w-16 h-16 md:w-24 md:h-24 rounded-3xl bg-green-500/10 flex items-center justify-center text-green-500 group-hover:bg-green-500 group-hover:text-white transition-all">
-                            <span class="material-symbols-outlined text-3xl md:text-5xl">cottage</span>
-                        </div>
-                        <span class="text-xs md:text-sm font-bold">Resorts</span>
-                    </div>
-                </div>
-            </section>
-
-            <div class="flex items-center justify-between px-4 md:px-8 pt-6 pb-3 md:pb-8">
-                <h2 class="text-2xl font-bold">Recommended for You</h2>
-                <button class="text-primary text-sm font-bold hover:underline">View All Listings</button>
+            <!-- Top Nav Row -->
+            <div class="flex gap-12 mb-4 pl-72">
+                <a href="#" class="nav-link-top text-primary">What's New</a>
+                <a href="#" class="nav-link-top">Flash Sale</a>
+                <a href="#" class="nav-link-top">Hot Areas</a>
+                <a href="#" class="nav-link-top">Trusted Agents</a>
             </div>
 
-            <!-- Property Grid -->
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 px-4 md:px-8 mb-12">
-                <!-- Card 1 -->
-                <a href="property-details.html"
-                    class="bg-white dark:bg-[#1c2433] rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all group border border-gray-100 dark:border-gray-800">
-                    <div class="relative aspect-[4/5]">
-                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDislB9eDStdQfVeUXT-SyVYIktdYj4dn1rLs71l6k9U2PyNGYNNFrTSNc9vpmx-1nxZvV3C7xTOHKuL_z-JzyJlV_T9zSmkLpWqQELXWnwdeBWTC_gAwAsO4XuJ9XTTKaNGxd6KvkFkqfHdtlaykJTFfvzJjU7r5Dz5nFelagyTDehv6EwDvE3Dmm0Pv4IBvdDn6HaikyLJuu5BGtc6TRELsBd5pTZoYhKM13gtdCCDe07Kg4J7KzTaxaSxrK6staX7TwHfOMKMTQ')">
-                        </div>
-                        <button
-                            class="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition-colors">
-                            <span class="material-symbols-outlined text-xl">favorite</span>
-                        </button>
-                        <div
-                            class="absolute bottom-4 left-4 bg-primary text-white text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-widest">
-                            Verified</div>
+            <div class="flex gap-4">
+                <!-- Category Sidebar -->
+                <aside class="category-sidebar shrink-0 rounded-sm">
+                    <div class="bg-primary text-white p-3 font-black text-sm uppercase flex items-center gap-2">
+                        <span class="material-symbols-outlined">menu</span> Category
                     </div>
-                    <div class="p-4 md:p-6">
-                        <div class="flex items-baseline gap-1">
-                            <span class="text-primary font-bold text-xl md:text-2xl">$450</span>
-                            <span class="text-xs text-gray-500 dark:text-gray-400">/ month</span>
+                    <div class="flex flex-col py-2">
+                        <div class="category-item">
+                            <span class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-lg">apartment</span> Apartments</span>
+                            <span class="material-symbols-outlined text-xs">chevron_right</span>
                         </div>
-                        <h3
-                            class="text-base md:text-lg font-bold truncate mt-2 group-hover:text-primary transition-colors">
-                            Luxury Studio Unit</h3>
-                        <div class="flex items-center gap-2 text-gray-500 dark:text-gray-400 mt-2">
-                            <span class="material-symbols-outlined text-sm">location_on</span>
-                            <span class="text-xs truncate">Westlands, Nairobi</span>
+                        <div class="category-item">
+                            <span class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-lg">home</span> Houses & Villas</span>
+                            <span class="material-symbols-outlined text-xs">chevron_right</span>
+                        </div>
+                        <div class="category-item">
+                            <span class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-lg">bed</span> Shared Spaces</span>
+                            <span class="material-symbols-outlined text-xs">chevron_right</span>
+                        </div>
+                        <div class="category-item">
+                            <span class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-lg">meeting_room</span> Furnished
+                                Studios</span>
+                            <span class="material-symbols-outlined text-xs">chevron_right</span>
+                        </div>
+                        <div class="category-item">
+                            <span class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-lg">corporate_fare</span> Office Spaces</span>
+                            <span class="material-symbols-outlined text-xs">chevron_right</span>
+                        </div>
+                        <div class="category-item">
+                            <span class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-lg">landscape</span> Land & Plots</span>
+                            <span class="material-symbols-outlined text-xs">chevron_right</span>
+                        </div>
+                        <div class="category-item">
+                            <span class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-lg">diamond</span> Luxury Homes</span>
+                            <span class="material-symbols-outlined text-xs">chevron_right</span>
+                        </div>
+                        <div class="category-item border-t border-gray-50 mt-2">
+                            <span class="flex items-center gap-3 text-primary font-bold"><span
+                                    class="material-symbols-outlined text-lg">verified_user</span> Agent
+                                Verification</span>
+                            <span class="material-symbols-outlined text-xs">chevron_right</span>
                         </div>
                     </div>
-                </a>
+                </aside>
+
+                <!-- Hero Section with Kilimall Formatting -->
+                <section class="promo-banner shadow-sm">
+                    <div class="absolute inset-0 bg-[#6b21a8]">
+                        <!-- Background Shapes -->
+                        <div class="absolute top-0 right-0 w-96 h-full bg-pink-500/20 rounded-l-full blur-3xl"></div>
+
+                        <div class="relative h-full flex p-12">
+                            <div class="flex flex-col justify-center flex-1 max-w-md text-white z-10">
+                                <div
+                                    class="bg-white text-purple-900 px-4 py-1 rounded-sm w-fit font-black text-sm mb-6 shadow-xl">
+                                    FEB. 15-28
+                                </div>
+                                <h2 class="text-7xl font-black italic tracking-tighter leading-[0.9] mb-8">
+                                    Dream Home<br /><span class="text-pink-400">SALE</span>
+                                </h2>
+                                <p class="text-xl font-bold mb-8 opacity-90 leading-relaxed">
+                                    Secure your next space with <b>0% Service Fees</b> if you book before end of month.
+                                </p>
+                                <a href="filters.html"
+                                    class="bg-primary text-white px-10 py-5 font-black uppercase tracking-widest text-lg rounded-sm shadow-2xl hover:bg-white hover:text-primary transition-all self-start">
+                                    Explore Now
+                                </a>
+                            </div>
+
+                            <!-- Image Showcase within Banner -->
+                            <div class="flex gap-4 items-center pl-8 z-10">
+                                <div
+                                    class="bg-white p-6 rounded-md shadow-2xl w-56 h-[340px] flex flex-col transform hover:-translate-y-2 transition-all">
+                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDislB9eDStdQfVeUXT-SyVYIktdYj4dn1rLs71l6k9U2PyNGYNNFrTSNc9vpmx-1nxZvV3C7xTOHKuL_z-JzyJlV_T9zSmkLpWqQELXWnwdeBWTC_gAwAsO4XuJ9XTTKaNGxd6KvkFkqfHdtlaykJTFfvzJjU7r5Dz5nFelagyTDehv6EwDvE3Dmm0Pv4IBvdDn6HaikyLJuu5BGtc6TRELsBd5pTZoYhKM13gtdCCDe07Kg4J7KzTaxaSxrK6staX7TwHfOMKMTQ"
+                                        class="w-full h-40 object-cover rounded-sm mb-4">
+                                    <p class="text-xs font-bold text-gray-400 uppercase">Modern Studio</p>
+                                    <h4 class="font-bold text-gray-800 truncate mb-4">Silver Towers 4A</h4>
+                                    <div class="mt-auto">
+                                        <p class="text-primary font-black text-xl italic leading-none">$350</p>
+                                        <p class="text-[10px] text-gray-400 line-through">$450</p>
+                                    </div>
+                                </div>
+                                <div
+                                    class="bg-white p-6 rounded-md shadow-2xl w-56 h-[340px] flex flex-col transform hover:-translate-y-2 transition-all delay-75">
+                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpoYbf3ZNwA43NOJ5rHCiHb6f86MvEYWR-HxtCbpznVLOwRK7XFj2ekhEW3oNjeLb3mGVZAPbeEl_vHbKYWURtQpJudJeXV5yV756utzkYPqNut2wl3VL92MNYePYLc3qtkNM9QOfPbmueM_shr1j7FB72ln7BoiirzzaR5MV3iilxRGm-1hNW64sjItp0FNpQst1RORFzR4eEBu62i0PITnMdRgjNSMZRkLPgOYvqG1wZvdf4Xivg3mQGjjm2oSqq-cFusUPvz9s"
+                                        class="w-full h-40 object-cover rounded-sm mb-4">
+                                    <p class="text-xs font-bold text-gray-400 uppercase">Luxury Suite</p>
+                                    <h4 class="font-bold text-gray-800 truncate mb-4">Gold Crest Villa</h4>
+                                    <div class="mt-auto">
+                                        <p class="text-primary font-black text-xl italic leading-none">$550</p>
+                                        <p class="text-[10px] text-gray-400 line-through">$700</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
 
-            <!-- Floating Desktop Button -->
-            <button
-                class="hidden md:flex fixed bottom-8 right-8 bg-primary text-white items-center gap-3 px-8 py-4 rounded-full shadow-2xl shadow-primary/40 z-40 hover:scale-105 transition-all">
-                <span class="material-symbols-outlined">map</span>
-                <span class="text-base font-bold">Interactive Map</span>
-            </button>
+            <!-- Recommendation Section -->
+            <div class="mt-12">
+                <div class="flex items-center justify-between mb-8 border-b border-gray-100 pb-4">
+                    <h2 class="text-2xl font-black italic">Recommended for You</h2>
+                    <a href="filters.html" class="text-primary font-bold flex items-center gap-1 hover:underline">View
+                        All <span class="material-symbols-outlined text-sm">chevron_right</span></a>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                    <!-- Card 1 -->
+                    <a href="property-details.html"
+                        class="bg-white rounded-md overflow-hidden hover:shadow-xl transition-all border border-gray-100 group">
+                        <div class="aspect-square relative overflow-hidden bg-gray-50">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDislB9eDStdQfVeUXT-SyVYIktdYj4dn1rLs71l6k9U2PyNGYNNFrTSNc9vpmx-1nxZvV3C7xTOHKuL_z-JzyJlV_T9zSmkLpWqQELXWnwdeBWTC_gAwAsO4XuJ9XTTKaNGxd6KvkFkqfHdtlaykJTFfvzJjU7r5Dz5nFelagyTDehv6EwDvE3Dmm0Pv4IBvdDn6HaikyLJuu5BGtc6TRELsBd5pTZoYhKM13gtdCCDe07Kg4J7KzTaxaSxrK6staX7TwHfOMKMTQ"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div
+                                class="absolute top-2 left-2 bg-primary text-white text-[10px] px-2 py-0.5 font-bold italic">
+                                -20%</div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-sm text-gray-700 truncate mb-3">Modern 1BR Studio - Westlands Area Near Mall
+                            </h3>
+                            <div class="flex flex-col">
+                                <span class="text-primary font-black text-lg italic leading-none">$350</span>
+                                <span class="text-[10px] text-gray-400 line-through mt-1">$450</span>
+                            </div>
+                            <div class="mt-3 pt-3 border-t border-gray-50 flex items-center justify-between">
+                                <span class="text-[9px] font-bold text-gray-400 uppercase tracking-tighter">12
+                                    Bookings</span>
+                                <span class="bg-gray-100 p-1 rounded-full"><span
+                                        class="material-symbols-outlined !text-sm text-gray-500">favorite</span></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </main>
 
-        <!-- Mobile Bottom Nav -->
-        <nav
-            class="md:hidden fixed bottom-0 left-0 right-0 bg-white/95 dark:bg-[#101622]/95 backdrop-blur-xl border-t border-gray-200 dark:border-gray-800 px-8 py-3 flex justify-between items-center z-50">
-            <a href="index.html" class="flex flex-col items-center gap-1 text-primary">
-                <span class="material-symbols-outlined text-[28px] font-variation-settings: 'FILL' 1">home</span>
-                <span class="text-[10px] font-bold">Home</span>
-            </a>
-            <a href="filters.html" class="flex flex-col items-center gap-1 text-gray-400">
-                <span class="material-symbols-outlined text-[28px]">explore</span>
-                <span class="text-[10px] font-bold">Explore</span>
-            </a>
-            <a href="chat.html" class="flex flex-col items-center gap-1 text-gray-400">
-                <span class="material-symbols-outlined text-[28px]">chat_bubble</span>
-                <span class="text-[10px] font-bold">Chat</span>
-            </a>
-            <a href="profile.html" class="flex flex-col items-center gap-1 text-gray-400">
-                <span class="material-symbols-outlined text-[28px]">account_circle</span>
-                <span class="text-[10px] font-bold">Profile</span>
-            </a>
-        </nav>
+        <!-- Dynamic Floating Actions (Kilimall-style right side) -->
+        <div class="fixed right-4 top-1/2 -translate-y-1/2 flex flex-col gap-2 z-40 hidden lg:flex">
+            <button
+                class="w-10 h-10 bg-white shadow-lg rounded-sm border border-gray-100 flex items-center justify-center text-gray-500 hover:text-primary transition-colors">
+                <span class="material-symbols-outlined">qr_code_2</span>
+            </button>
+            <button
+                class="w-10 h-10 bg-white shadow-lg rounded-sm border border-gray-100 flex items-center justify-center text-gray-500 hover:text-primary transition-colors">
+                <span class="material-symbols-outlined">headset_mic</span>
+            </button>
+            <button
+                class="w-10 h-10 bg-white shadow-lg rounded-sm border border-gray-100 flex items-center justify-center text-gray-500 hover:text-primary transition-colors">
+                <span class="material-symbols-outlined">arrow_upward</span>
+            </button>
+        </div>
 
-        <!-- Desktop Footer -->
-        <footer
-            class="hidden md:block bg-gray-50 dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 px-8 py-16">
-            <div class="max-w-7xl mx-auto grid grid-cols-4 gap-12">
-                <div class="col-span-1">
-                    <div class="flex items-center gap-2 mb-6">
-                        <div class="bg-primary p-2 rounded-xl flex items-center justify-center">
-                            <span class="material-symbols-outlined text-white text-2xl">home_work</span>
-                        </div>
-                        <h1 class="text-2xl font-bold tracking-tight">Rentify</h1>
-                    </div>
-                    <p class="text-gray-500 leading-relaxed">Finding the perfect home shouldn't be hard. Rentify makes
-                        it simple, secure, and fast.</p>
+        <footer class="bg-white border-t border-gray-100 py-12">
+            <div class="max-w-7xl mx-auto px-8 text-center">
+                <p class="text-gray-400 text-xs font-bold uppercase tracking-[0.5em]">Rentify Marketplace Technologies
+                    &copy; 2026</p>
+                <div class="flex justify-center gap-8 mt-6">
+                    <a href="#" class="text-xs text-gray-500 hover:text-primary font-bold">Privacy Policy</a>
+                    <a href="#" class="text-xs text-gray-500 hover:text-primary font-bold">Terms of Service</a>
+                    <a href="#" class="text-xs text-gray-500 hover:text-primary font-bold">About Us</a>
                 </div>
-                <div>
-                    <h4 class="font-bold mb-6">Platform</h4>
-                    <ul class="space-y-4 text-gray-500">
-                        <li><a href="index.html" class="hover:text-primary transition-colors">Marketplace</a></li>
-                        <li><a href="filters.html" class="hover:text-primary transition-colors">Explore</a></li>
-                        <li><a href="admin.html" class="hover:text-primary transition-colors">Admin Console</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-6">Support</h4>
-                    <ul class="space-y-4 text-gray-500">
-                        <li><a href="#" class="hover:text-primary transition-colors">Help Center</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors">Terms of Service</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors">Privacy Policy</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-6">Contact</h4>
-                    <ul class="space-y-4 text-gray-500 text-sm">
-                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">mail</span>
-                            hello@rentify.ke</li>
-                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">call</span>
-                            +254 700 000 000</li>
-                    </ul>
-                </div>
-            </div>
-            <div
-                class="max-w-7xl mx-auto mt-16 pt-8 border-t border-gray-200 dark:border-gray-800 text-center text-gray-400 text-sm">
-                &copy; 2026 Rentify Technologies. All rights reserved.
             </div>
         </footer>
     </div>
