@@ -1,10 +1,40 @@
-// Rentify Global Logic
-// This file can be used for shared interactive components, 
-// form handling, or global state in the future.
-
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('Rentify initialized');
+    // Tab Logic for Property Details
+    const tabButtons = document.querySelectorAll('.nav-tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
 
-    // Add logic for dark mode toggle if needed
-    // Add logic for shared UI components
+    if (tabButtons.length > 0) {
+        tabButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetTab = btn.getAttribute('data-tab');
+
+                // Update Button states
+                tabButtons.forEach(b => {
+                    b.classList.remove('active', 'text-primary', 'border-primary');
+                    b.classList.add('text-gray-400', 'border-transparent');
+                });
+                btn.classList.add('active', 'text-primary', 'border-primary');
+                btn.classList.remove('text-gray-400', 'border-transparent');
+
+                // Update Content states
+                tabContents.forEach(content => {
+                    if (content.id === targetTab) {
+                        content.classList.remove('hidden');
+                    } else {
+                        content.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    }
+
+    // Scroll effect for header
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        if (window.scrollY > 20) {
+            header?.classList.add('shadow-lg');
+        } else {
+            header?.classList.remove('shadow-lg');
+        }
+    });
 });

@@ -68,7 +68,8 @@
                         <div
                             class="aspect-square rounded-2xl overflow-hidden grayscale hover:grayscale-0 cursor-pointer transition-all">
                             <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDislB9eDStdQfVeUXT-SyVYIktdYj4dn1rLs71l6k9U2PyNGYNNFrTSNc9vpmx-1nxZvV3C7xTOHKuL_z-JzyJlV_T9zSmkLpWqQELXWnwdeBWTC_gAwAsO4XuJ9XTTKaNGxd6KvkFkqfHdtlaykJTFfvzJjU7r5Dz5nFelagyTDehv6EwDvE3Dmm0Pv4IBvdDn6HaikyLJuu5BGtc6TRELsBd5pTZoYhKM13gtdCCDe07Kg4J7KzTaxaSxrK6staX7TwHfOMKMTQ"
-                                class="w-full h-full object-cover"></div>
+                                class="w-full h-full object-cover">
+                        </div>
                     </div>
                 </div>
 
@@ -122,14 +123,148 @@
                             class="size-16 rounded-full object-cover ring-2 ring-white">
                         <div class="flex-1">
                             <p class="font-black">Sarah Johnson</p>
-                            <p class="text-xs text-primary font-bold uppercase flex items-center gap-1"><span
-                                    class="material-symbols-outlined !text-[14px]">verified</span> Professional Agent
+                            <p class="text-xs text-primary font-bold uppercase flex items-center gap-1">
+                                <span class="material-symbols-outlined !text-[14px]">verified</span> Professional Agent
                             </p>
                         </div>
                         <a href="chat.html"
-                            class="bg-white dark:bg-gray-800 size-12 flex items-center justify-center rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 text-primary">
+                            class="bg-white dark:bg-gray-800 size-12 flex items-center justify-center rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 text-primary hover:scale-110 transition-all">
                             <span class="material-symbols-outlined">chat</span>
                         </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabs Section -->
+            <div class="px-4 md:px-12 pb-24">
+                <div
+                    class="border-b border-gray-100 dark:border-gray-800 flex gap-8 mb-8 sticky top-[80px] bg-white dark:bg-[#101622] z-40">
+                    <button data-tab="description"
+                        class="nav-tab-btn active border-b-4 border-primary py-4 px-2 font-black italic text-lg text-primary transition-all">Description</button>
+                    <button data-tab="reviews"
+                        class="nav-tab-btn border-b-4 border-transparent py-4 px-2 font-black italic text-lg text-gray-400 hover:text-primary transition-all">Reviews</button>
+                    <button data-tab="recommend"
+                        class="nav-tab-btn border-b-4 border-transparent py-4 px-2 font-black italic text-lg text-gray-400 hover:text-primary transition-all">Recommend</button>
+                </div>
+
+                <div class="space-y-12">
+                    <!-- Description Tab Content -->
+                    <div class="tab-content" id="description">
+                        <div class="max-w-4xl space-y-6">
+                            <h2 class="text-2xl font-black">Detailed Description</h2>
+                            <p class="text-gray-500 leading-relaxed text-lg">
+                                This Luxury 2BR Loft in the heart of Westlands offers an unparalleled living experience.
+                                Boasting premium finishes, a sun-drenched open-plan living area, and a private balcony
+                                with panoramic city views.
+                            </p>
+                            <div class="grid grid-cols-2 md:grid-cols-3 gap-8 pt-6">
+                                <div class="space-y-2">
+                                    <p class="text-[10px] font-black uppercase tracking-widest text-gray-400">Building
+                                        Year</p>
+                                    <p class="font-bold">2023 Modern Build</p>
+                                </div>
+                                <div class="space-y-2">
+                                    <p class="text-[10px] font-black uppercase tracking-widest text-gray-400">Total
+                                        Square Feet</p>
+                                    <p class="font-bold">1,450 sq ft</p>
+                                </div>
+                                <div class="space-y-2">
+                                    <p class="text-[10px] font-black uppercase tracking-widest text-gray-400">Floor
+                                        Number</p>
+                                    <p class="font-bold">14th Floor (Corner)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reviews Tab Content -->
+                    <div class="tab-content hidden" id="reviews">
+                        <div class="max-w-4xl space-y-8">
+                            <div class="flex items-center gap-6 p-8 bg-gray-50 dark:bg-gray-800/50 rounded-[32px]">
+                                <div class="text-center">
+                                    <h4 class="text-5xl font-black text-primary">4.8</h4>
+                                    <div class="flex text-orange-400 mt-2">
+                                        <span class="material-symbols-outlined fill-current">star</span>
+                                        <span class="material-symbols-outlined fill-current">star</span>
+                                        <span class="material-symbols-outlined fill-current">star</span>
+                                        <span class="material-symbols-outlined fill-current">star</span>
+                                        <span class="material-symbols-outlined">star_half</span>
+                                    </div>
+                                    <p class="text-[10px] font-bold text-gray-400 uppercase mt-2">124 Reviews</p>
+                                </div>
+                                <div class="flex-1 space-y-2">
+                                    <div class="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                                        <div class="h-full bg-primary w-[90%]"></div>
+                                    </div>
+                                    <div class="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                                        <div class="h-full bg-primary w-[70%]"></div>
+                                    </div>
+                                    <div class="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                                        <div class="h-full bg-primary w-[10%]"></div>
+                                    </div>
+                                    <div class="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                                        <div class="h-full bg-primary w-[5%]"></div>
+                                    </div>
+                                    <div class="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                                        <div class="h-full bg-primary w-[2%]"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recommend Tab Content -->
+                    <div class="tab-content space-y-8" id="recommend">
+                        <div class="flex items-center gap-3 mb-8 border-b border-gray-100 pb-4">
+                            <div class="bg-primary text-white p-1 rounded-full flex items-center justify-center">
+                                <span class="material-symbols-outlined !text-sm">thumb_up</span>
+                            </div>
+                            <h2 class="text-xl font-black text-gray-800 dark:text-gray-100">You May Also Like</h2>
+                        </div>
+                        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                            <!-- Recommended Card 1 -->
+                            <a href="#"
+                                class="bg-white dark:bg-gray-800 rounded-sm overflow-hidden hover:shadow-lg transition-all border border-gray-100 dark:border-gray-700 group flex flex-col">
+                                <div class="aspect-square relative overflow-hidden bg-gray-50">
+                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDislB9eDStdQfVeUXT-SyVYIktdYj4dn1rLs71l6k9U2PyNGYNNFrTSNc9vpmx-1nxZvV3C7xTOHKuL_z-JzyJlV_T9zSmkLpWqQELXWnwdeBWTC_gAwAsO4XuJ9XTTKaNGxd6KvkFkqfHdtlaykJTFfvzJjU7r5Dz5nFelagyTDehv6EwDvE3Dmm0Pv4IBvdDn6HaikyLJuu5BGtc6TRELsBd5pTZoYhKM13gtdCCDe07Kg4J7KzTaxaSxrK6staX7TwHfOMKMTQ"
+                                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                </div>
+                                <div class="p-3">
+                                    <h3 class="text-xs text-gray-700 dark:text-gray-300 line-clamp-2 mb-2 h-8">Modern
+                                        1BR Studio - Westlands</h3>
+                                    <p class="text-primary font-black text-sm mb-1 uppercase tracking-tighter italic">
+                                        KSh 35,000</p>
+                                    <div class="flex text-orange-400">
+                                        <span class="material-symbols-outlined !text-[10px] fill-current">star</span>
+                                        <span class="material-symbols-outlined !text-[10px] fill-current">star</span>
+                                        <span class="material-symbols-outlined !text-[10px] fill-current">star</span>
+                                        <span class="material-symbols-outlined !text-[10px] fill-current">star</span>
+                                        <span class="text-[9px] text-gray-400 font-bold ml-1">(1k+)</span>
+                                    </div>
+                                </div>
+                            </a>
+                            <!-- Card 2 -->
+                            <a href="#"
+                                class="bg-white dark:bg-gray-800 rounded-sm overflow-hidden hover:shadow-lg transition-all border border-gray-100 dark:border-gray-700 group flex flex-col">
+                                <div class="aspect-square relative overflow-hidden bg-gray-50">
+                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpoYbf3ZNwA43NOJ5rHCiHb6f86MvEYWR-HxtCbpznVLOwRK7XFj2ekhEW3oNjeLb3mGVZAPbeEl_vHbKYWURtQpJudJeXV5yV756utzkYPqNut2wl3VL92MNYePYLc3qtkNM9QOfPbmueM_shr1j7FB72ln7BoiirzzaR5MV3iilxRGm-1hNW64sjItp0FNpQst1RORFzR4eEBu62i0PITnMdRgjNSMZRkLPgOYvqG1wZvdf4Xivg3mQGjjm2oSqq-cFusUPvz9s"
+                                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                </div>
+                                <div class="p-3">
+                                    <h3 class="text-xs text-gray-700 dark:text-gray-300 line-clamp-2 mb-2 h-8">Executive
+                                        2BR Suite - Kileleshwa</h3>
+                                    <p class="text-primary font-black text-sm mb-1 uppercase tracking-tighter italic">
+                                        KSh 75,000</p>
+                                    <div class="flex text-orange-400">
+                                        <span class="material-symbols-outlined !text-[10px] fill-current">star</span>
+                                        <span class="material-symbols-outlined !text-[10px] fill-current">star</span>
+                                        <span class="material-symbols-outlined !text-[10px] fill-current">star</span>
+                                        <span class="material-symbols-outlined !text-[10px] fill-current">star</span>
+                                        <span class="text-[9px] text-gray-400 font-bold ml-1">(450)</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
