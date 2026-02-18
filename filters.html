@@ -75,8 +75,8 @@
                 <div class="space-y-8">
                     <section>
                         <h3 class="text-xl font-bold mb-6">Price Range</h3>
-                        <div
-                            class="bg-gray-100 dark:bg-gray-800/50 p-8 rounded-3xl border border-gray-100 dark:border-gray-800">
+                        <div id="price-range-slider"
+                            class="bg-gray-100 dark:bg-gray-800/50 p-8 rounded-3xl border border-gray-100 dark:border-gray-800 cursor-pointer hover:bg-gray-200/50 transition-all">
                             <div class="h-2 w-full bg-gray-200 dark:bg-gray-700 rounded-full relative">
                                 <div class="absolute left-1/4 right-1/4 h-full bg-primary rounded-full"></div>
                                 <div
@@ -103,6 +103,54 @@
                                 class="property-type-btn px-6 py-3 rounded-2xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 font-bold hover:border-primary transition-all text-gray-400 dark:text-gray-400">Apartment</button>
                             <button
                                 class="property-type-btn px-6 py-3 rounded-2xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 font-bold hover:border-primary transition-all text-gray-400 dark:text-gray-400">Villas</button>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3 class="text-xl font-bold mb-4">Bedrooms</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <button
+                                class="bedroom-filter-btn active px-6 py-3 rounded-2xl bg-primary text-white font-bold shadow-lg shadow-primary/20 transition-all">Any</button>
+                            <button
+                                class="bedroom-filter-btn px-6 py-3 rounded-2xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 font-bold hover:border-primary transition-all text-gray-400">1</button>
+                            <button
+                                class="bedroom-filter-btn px-6 py-3 rounded-2xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 font-bold hover:border-primary transition-all text-gray-400">2</button>
+                            <button
+                                class="bedroom-filter-btn px-6 py-3 rounded-2xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 font-bold hover:border-primary transition-all text-gray-400">3+</button>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3 class="text-xl font-bold mb-4">Amenities</h3>
+                        <div class="grid grid-cols-2 gap-3">
+                            <label
+                                class="flex items-center gap-3 p-4 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl cursor-pointer hover:border-primary transition-all group">
+                                <input type="checkbox"
+                                    class="amenity-checkbox rounded-full text-primary focus:ring-primary size-5 border-gray-300 dark:border-gray-600 dark:bg-gray-700">
+                                <span
+                                    class="text-sm font-bold text-gray-500 group-hover:text-primary transition-colors">WiFi</span>
+                            </label>
+                            <label
+                                class="flex items-center gap-3 p-4 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl cursor-pointer hover:border-primary transition-all group">
+                                <input type="checkbox"
+                                    class="amenity-checkbox rounded-full text-primary focus:ring-primary size-5 border-gray-300 dark:border-gray-600 dark:bg-gray-700">
+                                <span
+                                    class="text-sm font-bold text-gray-500 group-hover:text-primary transition-colors">Gym</span>
+                            </label>
+                            <label
+                                class="flex items-center gap-3 p-4 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl cursor-pointer hover:border-primary transition-all group">
+                                <input type="checkbox"
+                                    class="amenity-checkbox rounded-full text-primary focus:ring-primary size-5 border-gray-300 dark:border-gray-600 dark:bg-gray-700">
+                                <span
+                                    class="text-sm font-bold text-gray-500 group-hover:text-primary transition-colors">Pool</span>
+                            </label>
+                            <label
+                                class="flex items-center gap-3 p-4 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl cursor-pointer hover:border-primary transition-all group">
+                                <input type="checkbox"
+                                    class="amenity-checkbox rounded-full text-primary focus:ring-primary size-5 border-gray-300 dark:border-gray-600 dark:bg-gray-700">
+                                <span
+                                    class="text-sm font-bold text-gray-500 group-hover:text-primary transition-colors">Parking</span>
+                            </label>
                         </div>
                     </section>
 

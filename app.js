@@ -130,18 +130,40 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Property Type Buttons (filters.html)
-    const propertyTypeBtns = document.querySelectorAll('.property-type-btn');
-    propertyTypeBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            propertyTypeBtns.forEach(b => {
-                b.classList.remove('bg-primary', 'text-white', 'active', 'shadow-lg', 'shadow-primary/20');
-                b.classList.add('bg-white', 'dark:bg-gray-800', 'text-gray-400', 'dark:text-gray-400');
+    // Generic Group Button Selector (Property Type, Bedrooms, etc.)
+    const setupButtonGroup = (selector) => {
+        const buttons = document.querySelectorAll(selector);
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                buttons.forEach(b => {
+                    b.classList.remove('bg-primary', 'text-white', 'active', 'shadow-lg', 'shadow-primary/20');
+                    b.classList.add('bg-white', 'dark:bg-gray-800', 'text-gray-400', 'dark:text-gray-400', 'border-gray-100', 'dark:border-gray-700');
+                });
+                btn.classList.add('bg-primary', 'text-white', 'active', 'shadow-lg', 'shadow-primary/20');
+                btn.classList.remove('bg-white', 'dark:bg-gray-800', 'text-gray-400', 'dark:text-gray-400', 'border-gray-100', 'dark:border-gray-700', 'border-transparent');
+                toast(`${btn.innerText.trim()} selected`, 'primary');
             });
-            btn.classList.add('bg-primary', 'text-white', 'active', 'shadow-lg', 'shadow-primary/20');
-            btn.classList.remove('bg-white', 'dark:bg-gray-800', 'text-gray-400', 'dark:text-gray-400');
-            toast(`Viewing: ${btn.innerText.trim()}`, 'primary');
         });
+    };
+
+    setupButtonGroup('.property-type-btn');
+    setupButtonGroup('.bedroom-filter-btn');
+
+    // Amenity Checkboxes
+    document.querySelectorAll('.amenity-checkbox').forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+            const label = checkbox.nextElementSibling.innerText.trim();
+            if (checkbox.checked) {
+                toast(`Added: ${label}`, 'success');
+            } else {
+                toast(`Removed: ${label}`);
+            }
+        });
+    });
+
+    // Price Range Slider (Simulation)
+    document.getElementById('price-range-slider')?.addEventListener('click', (e) => {
+        toast('Adjusting price range filter...', 'primary');
     });
 
     // Apply All Filters (Desktop & Mobile)
