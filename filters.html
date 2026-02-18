@@ -97,18 +97,18 @@
                         <h3 class="text-xl font-bold mb-4">Property Type</h3>
                         <div class="flex flex-wrap gap-2">
                             <button
-                                class="px-6 py-3 rounded-2xl bg-primary text-white font-bold shadow-lg shadow-primary/20 transition-all">All
+                                class="property-type-btn active px-6 py-3 rounded-2xl bg-primary text-white font-bold shadow-lg shadow-primary/20 transition-all">All
                                 Housing</button>
                             <button
-                                class="px-6 py-3 rounded-2xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 font-bold hover:border-primary transition-all">Apartment</button>
+                                class="property-type-btn px-6 py-3 rounded-2xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 font-bold hover:border-primary transition-all text-gray-400 dark:text-gray-400">Apartment</button>
                             <button
-                                class="px-6 py-3 rounded-2xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 font-bold hover:border-primary transition-all">Villas</button>
+                                class="property-type-btn px-6 py-3 rounded-2xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 font-bold hover:border-primary transition-all text-gray-400 dark:text-gray-400">Villas</button>
                         </div>
                     </section>
 
                     <section class="hidden md:block">
-                        <button
-                            class="w-full bg-primary text-white font-black py-5 rounded-[24px] shadow-2xl shadow-primary/40 hover:scale-[1.02] transition-all">Apply
+                        <button id="apply-filters-desktop"
+                            class="w-full bg-primary text-white font-black py-5 rounded-[24px] shadow-2xl shadow-primary/40 hover:scale-[1.02] transition-all active:scale-95">Apply
                             All Filters</button>
                     </section>
                 </div>
@@ -167,7 +167,7 @@
             <!-- Mobile Action Button -->
             <div
                 class="md:hidden fixed bottom-0 left-0 right-0 p-4 bg-white/90 dark:bg-[#101622]/90 backdrop-blur-xl border-t border-gray-100 dark:border-gray-800 z-50">
-                <a href="index.html"
+                <a href="index.html" id="apply-filters-mobile"
                     class="w-full bg-primary text-white font-black py-4 rounded-2xl shadow-xl flex items-center justify-center">Show
                     124 Results</a>
             </div>

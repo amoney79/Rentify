@@ -113,6 +113,59 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Quick Filter Pills (index.html)
+    document.querySelectorAll('.quick-filter-pill').forEach(pill => {
+        pill.addEventListener('click', (e) => {
+            e.preventDefault();
+            const isActive = pill.classList.contains('text-primary');
+            if (isActive) {
+                pill.classList.remove('text-primary', 'font-bold');
+                pill.classList.add('text-gray-500');
+                toast(`Removed filter: ${pill.innerText.trim()}`);
+            } else {
+                pill.classList.add('text-primary', 'font-bold');
+                pill.classList.remove('text-gray-500');
+                toast(`Applied filter: ${pill.innerText.trim()}`, 'primary');
+            }
+        });
+    });
+
+    // Property Type Buttons (filters.html)
+    const propertyTypeBtns = document.querySelectorAll('.property-type-btn');
+    propertyTypeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            propertyTypeBtns.forEach(b => {
+                b.classList.remove('bg-primary', 'text-white', 'active', 'shadow-lg', 'shadow-primary/20');
+                b.classList.add('bg-white', 'dark:bg-gray-800', 'text-gray-400', 'dark:text-gray-400');
+            });
+            btn.classList.add('bg-primary', 'text-white', 'active', 'shadow-lg', 'shadow-primary/20');
+            btn.classList.remove('bg-white', 'dark:bg-gray-800', 'text-gray-400', 'dark:text-gray-400');
+            toast(`Viewing: ${btn.innerText.trim()}`, 'primary');
+        });
+    });
+
+    // Apply All Filters (Desktop & Mobile)
+    ['apply-filters-desktop', 'apply-filters-mobile'].forEach(id => {
+        document.getElementById(id)?.addEventListener('click', (e) => {
+            if (id === 'apply-filters-mobile') e.preventDefault();
+            toast('Updating results based on filters...', 'primary');
+            setTimeout(() => {
+                if (id === 'apply-filters-mobile') window.location.href = 'filters.html';
+                else window.location.href = 'filters.html';
+            }, 800);
+        });
+    });
+
+    // Search button on filters.html
+    document.querySelector('button.bg-primary.px-8.py-3.rounded-2xl')?.addEventListener('click', () => {
+        const input = document.querySelector('input.bg-transparent.border-none.focus:ring-0');
+        if (input?.value) {
+            toast(`Updating results for "${input.value}"...`, 'primary');
+        } else {
+            toast('Updating current results...', 'primary');
+        }
+    });
+
     document.querySelectorAll('.category-item').forEach(item => {
         item.addEventListener('click', () => {
             const name = item.innerText.trim();
