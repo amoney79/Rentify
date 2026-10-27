@@ -188,11 +188,90 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    document.querySelectorAll('.category-item').forEach(item => {
-        item.addEventListener('click', () => {
-            const name = item.innerText.trim();
-            toast(`Filtering by ${name}...`, 'primary');
+    const categoryButtons = document.querySelectorAll('.category-item[data-category]');
+    const marketplaceTitle = document.getElementById('marketplace-title');
+    const marketplaceFilters = document.getElementById('marketplace-filters');
+    const categorySidebar = document.getElementById('category-sidebar');
+    const filterSidebar = document.getElementById('marketplace-filter-sidebar');
+    const promoBanner = document.getElementById('property-grid');
+    const recommendationSection = document.getElementById('recommendation-section');
+    const listingSectionTitle = document.getElementById('listing-section-title');
+    const listingCount = document.getElementById('listing-count');
+    const propertyListings = document.getElementById('property-listings');
+    const noListingsMessage = document.getElementById('no-listings-message');
+    const loadMoreListings = document.getElementById('load-more-listings');
+    const categorySearch = document.getElementById('category-property-search');
+    const propertyCards = propertyListings?.querySelectorAll('[data-categories]') ?? [];
+
+    const updateCategoryListings = (category) => {
+        const searchTerm = categorySearch?.value.trim().toLowerCase() ?? '';
+        let visibleCount = 0;
+
+        propertyCards.forEach(card => {
+            const matchesCategory = card.dataset.categories.split(' ').includes(category);
+            const matchesSearch = card.querySelector('h3')?.textContent.toLowerCase().includes(searchTerm) ?? false;
+            const isVisible = matchesCategory && matchesSearch;
+            card.classList.toggle('hidden', !isVisible);
+            if (isVisible) visibleCount += 1;
         });
+
+        if (listingCount) {
+            listingCount.textContent = `${visibleCount} ${visibleCount === 1 ? 'listing' : 'listings'}`;
+        }
+        noListingsMessage?.classList.toggle('hidden', visibleCount > 0);
+        loadMoreListings?.classList.toggle('hidden', visibleCount === 0);
+    };
+
+    categoryButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const category = button.dataset.category;
+            if (!category || !marketplaceFilters || !recommendationSection) return;
+
+            if (listingSectionTitle) listingSectionTitle.textContent = button.dataset.label ?? 'Properties';
+            marketplaceTitle?.classList.add('hidden');
+            categorySidebar?.classList.add('hidden');
+            filterSidebar?.classList.remove('hidden');
+            promoBanner?.classList.add('hidden');
+            marketplaceFilters.classList.add('category-results-layout');
+            recommendationSection.classList.add('category-results-section');
+            propertyListings?.classList.add('category-listings');
+            marketplaceFilters.appendChild(recommendationSection);
+            updateCategoryListings(category);
+            recommendationSection.dataset.selectedCategory = category;
+            recommendationSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+
+    categorySearch?.addEventListener('input', () => {
+        const selectedCategory = recommendationSection?.dataset.selectedCategory;
+        if (selectedCategory) updateCategoryListings(selectedCategory);
+    });
+
+    document.getElementById('clear-category-search')?.addEventListener('click', () => {
+        if (categorySearch) categorySearch.value = '';
+        const selectedCategory = recommendationSection?.dataset.selectedCategory;
+        if (selectedCategory) updateCategoryListings(selectedCategory);
+        categorySearch?.focus();
+    });
+
+    document.getElementById('back-to-categories')?.addEventListener('click', () => {
+        if (!marketplaceFilters || !recommendationSection) return;
+
+        marketplaceTitle?.classList.remove('hidden');
+        categorySidebar?.classList.remove('hidden');
+        filterSidebar?.classList.add('hidden');
+        promoBanner?.classList.remove('hidden');
+        marketplaceFilters.classList.remove('category-results-layout');
+        recommendationSection.classList.remove('category-results-section');
+        recommendationSection.dataset.selectedCategory = '';
+        propertyListings?.classList.remove('category-listings');
+        propertyCards.forEach(card => card.classList.remove('hidden'));
+        noListingsMessage?.classList.add('hidden');
+        loadMoreListings?.classList.remove('hidden');
+        if (listingSectionTitle) listingSectionTitle.textContent = 'Recommended for You';
+        if (listingCount) listingCount.textContent = '';
+        if (categorySearch) categorySearch.value = '';
+        marketplaceFilters.parentElement?.insertBefore(recommendationSection, marketplaceFilters.nextSibling);
     });
 
     // Property Card Likes (Small heart icons on cards)
