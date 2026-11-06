@@ -29,12 +29,55 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // County to Sublocations mapping dataset
+// County to Sublocations mapping dataset
     const sublocationData = {
-        nairobi: ['Kilimani', 'Karen', 'Mlolongo', 'Westlands', 'Kileleshwa', 'Embakasi', 'Lavington'],
-        mombasa: ['Port Reitz', 'Kipevu', 'Airport', 'Changamwe', 'Mombasa CBD', 'Chaani', 'Jomvu', 'Miritini', 'Mikindani','Fort/Old Town','Mshomoroni','Bamburi','Mwakirunge','Mtopanga','Magogoni','Shanzu','Nyali','Bombolulu','mkomani','Kongewea','Kadzandani','Mtongwe','Shika Adabu','Bofu/Shelly','Likoni','Timbwani','Makadara','Tudor','Tononoka','Shimanzi/Ganjoni','Majengo'],
+        nairobi: ['Kitisuru', 'Parklands', 'Karura', 'Westlands', 'Kileleshwa', 'Embakasi', 'Lavington'],
+        mombasa: ['Port Reitz', 'Kipevu', 'Airport', 'Changamwe', 'Mombasa CBD', 'Chaani', 'Jomvu', 'Miritini', 'Mikindani', 'Fort/Old Town', 'Mshomoroni', 'Bamburi', 'Mwakirunge', 'Mtopanga', 'Magogoni', 'Shanzu', 'Nyali', 'Bombolulu', 'Mkomani', 'Kongowea', 'Kadzandani', 'Mtongwe', 'Shika Adabu', 'Bofu/Shelly', 'Likoni', 'Timbwani', 'Makadara', 'Tudor', 'Tononoka', 'Shimanzi/Ganjoni', 'Majengo'],
         kisumu: ['Milimani', 'Kondele', 'Riat', 'Kisumu CBD', 'Nyalenda'],
-        kilifi: ['Malindi', 'Kilifi Town', 'Watamu', 'Mtwapa', 'Kilifi Creek']
+        kilifi: ['Malindi', 'Kilifi Town', 'Watamu', 'Mtwapa', 'Kilifi Creek'],
+        kwale: ['Msambweni', 'Lunga Lunga', 'Matuga', 'Kinango', 'Diani', 'Ukunda'],
+        tanaRiver: ['Hola', 'Bura', 'Garsen'],
+        lamu: ['Lamu Town', 'Mpeketoni', 'Faza', 'Kiunga'],
+        taitaTaveta: ['Voi', 'Wundanyi', 'Taveta', 'Mwatate'],
+        kiambu: ['Thika', 'Kiambu Town', 'Ruiru', 'Kikuyu', 'Limuru', 'Juja', 'Gatundu'],
+        nakuru: ['Nakuru CBD', 'Naivasha', 'Gilgil', 'Molo', 'Njoro', 'Subukia'],
+        nyeri: ['Nyeri Town', 'Karthini', 'Othaya', 'Mukurweini', 'Naro Moru'],
+        nyandarua: ['Ol Kalou', 'Nyahururu', 'Engineer', 'Ruiru', 'Shamata'],
+        kirinyaga: ['Kerugoya', 'Kutus', 'Baricho', 'Sagana', 'Wanguru'],
+        muranga: ['Muranga Town', 'Kenol', 'Kangema', 'Maragua', 'Sabasaba'],
+        marsabit: ['Marsabit Town', 'Moyale', 'Laisamis', 'Sololo'],
+        isiolo: ['Isiolo Town', 'Garba Tulla', 'Merti'],
+        meru: ['Meru CBD', 'Maua', 'Nkubu', 'Timau', 'Chuka'],
+        tharakaNithi: ['Chuka', 'Kathwana', 'Marimanti', 'Mitheru'],
+        embu: ['Embu Town', 'Runyenjes', 'Siakago', 'Kiritiri'],
+        kitui: ['Kitui Town', 'Mwingi', 'Mutomo', 'Kyuso'],
+        machakos: ['Machakos Town', 'Athi River', 'Mlolongo', 'Kangundo', 'Matuu'],
+        makueni: ['Wote', 'Emali', 'Makindu', 'Sultan Hamud', 'Kibwezi'],
+        turkana: ['Lodwar', 'Kakuma', 'Lokichoggio', 'Kalokol'],
+        westPokot: ['Kapenguria', 'Sigor', 'Chepareria', 'Kacheliba'],
+        samburu: ['Maralal', 'Baragoi', 'Wamba'],
+        transNzoia: ['Kitale', 'Endebess', 'Kiminini', 'Cherangany'],
+        uasinGishu: ['Eldoret CBD', 'Turbo', 'Moiben', 'Kesses', 'Soy'],
+        elgeyoMarakwet: ['Iten', 'Kapsowar', 'Chebiemit'],
+        nandi: ['Kapsabet', 'Nandi Hills', 'Mosoriot', 'Chemelil'],
+        baringo: ['Kabarnet', 'Eldama Ravine', 'Marigat', 'Mogotio'],
+        laikipia: ['Nanyuki', 'Nyahururu', 'Rumuruti', 'Doldol'],
+        narok: ['Narok Town', 'Kilgoris', 'Ololulunga', 'Maara'],
+        kajiado: ['Kajiado Town', 'Kitengela', 'Ongata Rongai', 'Ngong', 'Loitokitok', 'Namanga'],
+        kericho: ['Kericho Town', 'Litein', 'Sotik', 'Kipkelion'],
+        bomet: ['Bomet Town', 'Sotik', 'Mulot', 'Longisa'],
+        kakamega: ['Kakamega Town', 'Mumias', 'Butere', 'Malava', 'Luandai'],
+        vihiga: ['Mbale', 'Chavakali', 'Luanda', 'Vihiga Town'],
+        bungoma: ['Bungoma Town', 'Webuye', 'Kimilili', 'Chwele', 'Kanduyi'],
+        busia: ['Busia Town', 'Malaba', 'Port Victoria', 'Nambale'],
+        siaya: ['Siaya Town', 'Bondo', 'Ugunja', 'Yala', 'Usenge'],
+        homaBay: ['Homa Bay Town', 'Mbita', 'Oyugis', 'Ndhiwa', 'Kendu Bay'],
+        migori: ['Migori Town', 'Rongo', 'Awendo', 'Isebania', 'Kehancha'],
+        kisii: ['Kisii Town', 'Ogembo', 'Keroka', 'Nyamache'],
+        nyamira: ['Nyamira Town', 'Keroka', 'Nyansiongo', 'Magombo'],
+        garissa: ['Garissa Town', 'Dadaab', 'Masalani', 'Hulugho'],
+        wajir: ['Wajir Town', 'Habaswein', 'Buna', 'Tarbaj'],
+        mandera: ['Mandera Town', 'El Wak', 'Rhamu', 'Takaba']
     };
 
     const countySelect = document.getElementById('county-select');
