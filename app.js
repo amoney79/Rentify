@@ -33,8 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const sublocationData = {
         nairobi: ['Kitisuru', 'Parklands', 'Karura', 'Kangemi', 'Mountain View', 'Kimani', 'Kawangware','Gatina','Kileleshwa','Kabiro','Mutu-lni','Ngando','Riruta','Uthiru','Waithaka','Karen','Nairobi West','Mugumo-lni','Southh C','Nyayo Highrise','Laini Saba','Lindi','Woodley','Sarangome','Githurai','Kahawa West','Zimmerman','Roysambu','Kahawa Sukari','Kahawa Wendani','Clay City','Mwiki','Kasarani','Ruai','Baba Dogo','Utalii','Mathare Nortth','Lucky Summer','Korogocho','Imara Daima','Kwa Njenga','Kwa Reuben','Pipeline','Kware','Kayole North','Kayole Central','Kayole South','Komarock','Matopeni','Upper Savanna','Lower Savanna','Embakasi','Utawala','Mihango','Umoja','Kariobangi South','Viwandani','Harambee','Makongeni','Pumwani','EastLeigh North','EastLeigh South','Airbase','Ngara','Kariokor','Pangani','Landimawe','Mabatini','Huuruma','Ngei','Mlango Kubwa','Kiamaiko'],
         mombasa: ['Port Reitz', 'Kipevu', 'Airport', 'Changamwe', 'Mombasa CBD', 'Chaani', 'Jomvu', 'Miritini', 'Mikindani', 'Fort/Old Town', 'Mshomoroni', 'Bamburi', 'Mwakirunge', 'Mtopanga', 'Magogoni', 'Shanzu', 'Nyali', 'Bombolulu', 'Mkomani', 'Kongowea', 'Kadzandani', 'Mtongwe', 'Shika Adabu', 'Bofu/Shelly', 'Likoni', 'Timbwani', 'Makadara', 'Tudor', 'Tononoka', 'Shimanzi/Ganjoni', 'Majengo'],
+        kilifi: ['Shella', 'Maweni', 'Watamu', 'Mtwapa', 'Kibaoni','Chera wa Mae','Misufini','Kwa Mike','Shingila','Uwanja Water','Kwa Mwango','Mtaani','Kavenya','Naivas','Kaya','Mephi','Kwa Mwango','Mkoroshoni',],
         kisumu: ['Milimani', 'Kondele', 'Riat', 'Kisumu CBD', 'Nyalenda'],
-        kilifi: ['Malindi', 'Kilifi Town', 'Watamu', 'Mtwapa', 'Kilifi Creek'],
         kwale: ['Msambweni', 'Lunga Lunga', 'Matuga', 'Kinango', 'Diani', 'Ukunda'],
         tanaRiver: ['Hola', 'Bura', 'Garsen'],
         lamu: ['Lamu Town', 'Mpeketoni', 'Faza', 'Kiunga'],
