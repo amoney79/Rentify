@@ -208,31 +208,52 @@
                     </div>
                 </aside>
 
-                <aside id="marketplace-filter-sidebar" class="marketplace-filter-sidebar shrink-0 rounded-sm hidden">
+   <!-- Filter Sidebar -->
+                <aside id="marketplace-filter-sidebar" class="marketplace-filter-sidebar w-full md:w-64 shrink-0 rounded-sm bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 shadow-sm hidden">
                     <div class="bg-primary text-white p-3 font-black text-sm uppercase flex items-center gap-2">
                         <span class="material-symbols-outlined">filter_list</span> Filter
                     </div>
-                    <div class="p-4">
-                        <label for="category-property-search" class="block text-xs font-bold text-gray-600 mb-2">
-                            Search listings
-                        </label>
-                        <input id="category-property-search" type="search" class="category-property-search"
-                            placeholder="Property or location">
-                        <button id="clear-category-search" type="button"
-                            class="mt-3 text-xs font-bold text-primary hover:underline">Clear search</button>
+                    <div class="p-4 flex flex-col gap-3">
+                        <div>
+                            <label for="category-property-search" class="block text-xs font-bold text-gray-600 dark:text-gray-300 mb-2">
+                                Search listings
+                            </label>
+                            <input id="category-property-search" type="search" class="category-property-search w-full rounded-lg border border-gray-200 dark:border-gray-700 px-3 py-2 text-sm bg-transparent focus:outline-none focus:ring-2 focus:ring-primary"
+                                placeholder="Property or location">
+                            <button id="clear-category-search" type="button"
+                                class="mt-2 text-xs font-bold text-primary hover:underline block">Clear search</button>
+                        </div>
 
-                            <!-- Location Button (Newly Added) -->
-                        <button id="filter-location-btn" type="button"
-                            class="mt-4 w-full flex items-center justify-between border border-gray-200 dark:border-gray-700 px-3 py-2.5 rounded-lg text-sm font-semibold text-gray-700 dark:text-gray-300 hover:border-primary hover:text-primary transition-colors bg-gray-50 dark:bg-gray-800/60">
-                            <span class="flex items-center gap-2">
-                                <span class="material-symbols-outlined text-base text-primary">location_on</span>
-                                <span>Select Location</span>
-                            </span>
-                            <span class="material-symbols-outlined text-xs text-gray-400">expand_more</span>
-                        </button>
-                        
+                        <!-- County & Sublocation Cascading Pickers -->
+                        <div class="border-t border-gray-100 dark:border-gray-700 pt-3 flex flex-col gap-2.5">
+                            <span class="text-xs font-bold uppercase tracking-wider text-gray-400">Location Filter</span>
+                            
+                            <!-- County Dropdown -->
+                            <div>
+                                <label for="county-select" class="block text-[11px] font-semibold text-gray-500 mb-1">County</label>
+                                <select id="county-select" class="w-full rounded-lg border border-gray-200 dark:border-gray-700 px-3 py-2 text-sm bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary">
+                                    <option value="">All Counties (47)</option>
+                                    <option value="nairobi">Nairobi</option>
+                                    <option value="mombasa">Mombasa</option>
+                                    <option value="kisumu">Kisumu</option>
+                                    <option value="kilifi">Kilifi</option>
+                                    <!-- Add other counties as needed -->
+                                </select>
+                            </div>
+
+                            <!-- Sublocation Dropdown (Dynamic based on county) -->
+                            <div>
+                                <label for="sublocation-select" class="block text-[11px] font-semibold text-gray-500 mb-1">Sublocation / Area</label>
+                                <select id="sublocation-select" class="w-full rounded-lg border border-gray-200 dark:border-gray-700 px-3 py-2 text-sm bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary">
+                                    <option value="">Select Area</option>
+                                    <!-- Options will dynamically populate via JS -->
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Browse Categories Button -->
                         <button id="back-to-categories" type="button"
-                            class="mt-6 w-full border border-gray-200 px-3 py-2 text-sm font-bold text-gray-700 hover:border-primary hover:text-primary transition-colors">
+                            class="mt-3 w-full border border-gray-200 dark:border-gray-700 px-3 py-2.5 text-sm font-bold text-gray-700 dark:text-gray-300 hover:border-primary hover:text-primary transition-colors rounded-lg">
                             Browse categories
                         </button>
                     </div>
