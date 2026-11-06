@@ -29,6 +29,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Location Filter Button Interaction
+    document.getElementById('filter-location-btn')?.addEventListener('click', () => {
+        toast('Opening location selector...', 'primary');
+    });
+
     // Mobile Menu Toggle Logic
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
