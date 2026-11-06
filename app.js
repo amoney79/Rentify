@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // County to Sublocations mapping dataset
     const sublocationData = {
         nairobi: ['Kilimani', 'Karen', 'Mlolongo', 'Westlands', 'Kileleshwa', 'Embakasi', 'Lavington'],
-        mombasa: ['Nyali', 'Bamburi', 'Diani', 'Tudor', 'Mombasa CBD', 'Nyali Beach'],
+        mombasa: ['Port Reitz', 'Kipevu', 'Airport', 'Changamwe', 'Mombasa CBD', 'Chaani', 'Jomvu', 'Miritini', 'Mikindani','Fort/Old Town','Mshomoroni','Bamburi','Mwakirunge','Mtopanga','Magogoni','Shanzu','Nyali','Bombolulu','mkomani','Kongewea','Kadzandani','Mtongwe','Shika Adabu','Bofu/Shelly','Likoni','Timbwani','Makadara','Tudor','Tononoka','Shimanzi/Ganjoni','Majengo'],
         kisumu: ['Milimani', 'Kondele', 'Riat', 'Kisumu CBD', 'Nyalenda'],
         kilifi: ['Malindi', 'Kilifi Town', 'Watamu', 'Mtwapa', 'Kilifi Creek']
     };
