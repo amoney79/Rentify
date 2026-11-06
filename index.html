@@ -48,8 +48,7 @@
                         <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Kenya.svg"
                             class="w-5 h-3 object-cover rounded-sm shadow-sm" alt="Kenya">
                         <span class="font-bold">Kenya</span>
-                        <span
-                            class="material-symbols-outlined text-sm group-hover:rotate-180 transition-transform">expand_more</span>
+                        <span class="material-symbols-outlined text-sm group-hover:rotate-180 transition-transform">expand_more</span>
                     </div>
                 </div>
             </div>
@@ -58,61 +57,88 @@
         <!-- Main Header -->
         <header class="bg-white sticky top-0 z-50 px-4 md:px-8 py-4 md:py-6 border-b border-gray-100">
             <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 md:gap-12">
+                
+                <!-- Top Row on Mobile: Logo & Toggle Button -->
                 <div class="flex items-center justify-between shrink-0">
-                <!-- Logo -->
-                <a href="index.html" class="flex items-center gap-2 shrink-0">
-                    <div class="bg-primary p-2 rounded-lg flex items-center justify-center">
-                        <span class="material-symbols-outlined text-white text-2xl md:text-3xl">home_work</span>
-                    </div>
-                    <div class="flex flex-col">
-                        <h1 class="text-2xl md:text-3xl font-black tracking-tighter text-gray-900 leading-none">Rentify</h1>
-                        <p class="text-[10px] uppercase tracking-tighter text-primary font-bold">Safe Home Finding</p>
-                    </div>
-                </a>
+                    <!-- Logo -->
+                    <a href="index.html" class="flex items-center gap-2 shrink-0">
+                        <div class="bg-primary p-2 rounded-lg flex items-center justify-center">
+                            <span class="material-symbols-outlined text-white text-2xl md:text-3xl">home_work</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <h1 class="text-2xl md:text-3xl font-black tracking-tighter text-gray-900 leading-none">Rentify</h1>
+                            <p class="text-[10px] uppercase tracking-tighter text-primary font-bold">Safe Home Finding</p>
+                        </div>
+                    </a>
 
-                <!-- Mobile Menu Toggle Button(Visible on mobile only) -->
-                <button id="mobile-menu-btn" class="md:hidden justify-center p-2 rounded-lg text-gray-700 hover:text-primary transition-colors focus:outline-none" aria-label="Toggle Navigation">
-                    <span class="material-symbols-outlined text-3xl">menu</span>
-                </button>
-            </div>
+                    <!-- Mobile Menu Toggle Button (Mobile only) -->
+                    <button id="mobile-menu-btn" class="md:hidden justify-center p-2 rounded-lg text-gray-700 hover:text-primary transition-colors focus:outline-none" aria-label="Toggle Navigation">
+                        <span id="menu-icon" class="material-symbols-outlined text-3xl">menu</span>
+                    </button>
+                </div>
 
                 <!-- Search Area -->
-                <div class="flex-1 max-w-2xl">
-                    <div class="flex items-center">
-                        <input type="text" class="mega-search-input"
+                <div class="flex-1 max-w-2xl w-full">
+                    <div class="flex items-center w-full">
+                        <input type="text" class="mega-search-input w-full rounded-l-sm border border-gray-200 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
                             placeholder="Search apartments, villas, locations...">
-                        <button class="mega-search-btn">
+                        <button class="mega-search-btn shrink-0">
                             <span class="material-symbols-outlined">search</span>
                         </button>
                     </div>
-                    <div class="flex gap-4 mt-2 text-[11px] text-gray-500 overflow-hidden whitespace-nowrap">
-                        <a href="#" class="quick-filter-pill hover:text-primary transition-all">Studio Apartment</a>
-                        <a href="#" class="quick-filter-pill hover:text-primary transition-all">Bedsitter</a>
-                        <a href="#" class="quick-filter-pill hover:text-primary transition-all">Single Room</a>
-                        <a href="#" class="quick-filter-pill hover:text-primary transition-all">2 Bedrooms</a>
-                        <a href="#" class="quick-filter-pill hover:text-primary transition-all"> Apartments</a>
+                    <div class="flex gap-4 mt-2 text-[11px] text-gray-500 overflow-x-auto whitespace-nowrap no-scrollbar py-1">
+                        <a href="#" class="quick-filter-pill hover:text-primary transition-all shrink-0">Studio Apartment</a>
+                        <a href="#" class="quick-filter-pill hover:text-primary transition-all shrink-0">Bedsitter</a>
+                        <a href="#" class="quick-filter-pill hover:text-primary transition-all shrink-0">Single Room</a>
+                        <a href="#" class="quick-filter-pill hover:text-primary transition-all shrink-0">2 Bedrooms</a>
+                        <a href="#" class="quick-filter-pill hover:text-primary transition-all shrink-0">Apartments</a>
                     </div>
                 </div>
 
-                <!-- Account Actions -->
-                <div class="flex items-center gap-8 shrink-0">
-                    <a href="chat.html"
-                        class="flex items-center gap-2 text-gray-700 hover:text-primary group transition-colors">
+                <!-- Desktop Account Actions (Hidden on Mobile) -->
+                <div class="hidden md:flex items-center gap-8 shrink-0">
+                    <a href="chat.html" class="flex items-center gap-2 text-gray-700 hover:text-primary group transition-colors">
                         <div class="relative">
                             <span class="material-symbols-outlined text-3xl">chat_bubble</span>
-                            <span
-                                class="absolute -top-1 -right-1 bg-primary text-white text-[9px] w-4 h-4 flex items-center justify-center rounded-full font-bold">2</span>
+                            <span class="absolute -top-1 -right-1 bg-primary text-white text-[9px] w-4 h-4 flex items-center justify-center rounded-full font-bold">2</span>
                         </div>
                         <span class="font-bold text-sm">Messages</span>
                     </a>
-                    <a href="profile.html"
-                        class="flex items-center gap-3 text-gray-700 hover:text-primary group transition-colors">
+                    <a href="profile.html" class="flex items-center gap-3 text-gray-700 hover:text-primary group transition-colors">
                         <span class="material-symbols-outlined text-3xl">account_circle</span>
                         <div class="flex flex-col">
                             <span class="text-[10px] text-gray-400 font-bold uppercase leading-none">Account</span>
                             <span class="font-bold text-sm">My Account</span>
                         </div>
                         <span class="material-symbols-outlined text-sm">expand_more</span>
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Mobile Dropdown Menu (Hidden on Desktop) -->
+            <div id="mobile-menu" class="hidden md:hidden pt-4 pb-2 border-t border-gray-100 mt-4">
+                <div class="flex flex-col gap-3">
+                    <a href="chat.html" class="flex items-center justify-between p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors">
+                        <div class="flex items-center gap-3">
+                            <div class="relative">
+                                <span class="material-symbols-outlined text-2xl text-gray-700">chat_bubble</span>
+                                <span class="absolute -top-1 -right-1 bg-primary text-white text-[9px] w-4 h-4 flex items-center justify-center rounded-full font-bold">2</span>
+                            </div>
+                            <span class="font-bold text-sm text-gray-800">Messages</span>
+                        </div>
+                        <span class="material-symbols-outlined text-gray-400">chevron_right</span>
+                    </a>
+
+                    <a href="profile.html" class="flex items-center justify-between p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors">
+                        <div class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-2xl text-gray-700">account_circle</span>
+                            <div class="flex flex-col">
+                                <span class="text-[10px] text-gray-400 font-bold uppercase leading-none">Account</span>
+                                <span class="font-bold text-sm text-gray-800">My Account</span>
+                            </div>
+                        </div>
+                        <span class="material-symbols-outlined text-gray-400">chevron_right</span>
                     </a>
                 </div>
             </div>

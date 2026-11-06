@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Tab Logic for Property Details
     const tabButtons = document.querySelectorAll('.nav-tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
+    
 
     if (tabButtons.length > 0) {
         tabButtons.forEach(btn => {
@@ -28,14 +29,33 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Mobile Menu Toggle Logic (FIXED typo in class name & null checks)
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const menuIcon = mobileMenuBtn ? mobileMenuBtn.querySelector('.material-symbols-outlined') : null;
+
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+
+            if (menuIcon) {
+                if (mobileMenu.classList.contains('hidden')) {
+                    menuIcon.textContent = 'menu';
+                } else {
+                    menuIcon.textContent = 'close';
+                }
+            }
+        });
+    }
+
     // Interaction logic for Marketplace Buttons
     const toast = (message, type = 'success') => {
-        const toastContainer = document.getElementById('toast-container');
+        let toastContainer = document.getElementById('toast-container');
         if (!toastContainer) {
-            const container = document.createElement('div');
-            container.id = 'toast-container';
-            container.className = 'fixed bottom-8 left-1/2 -translate-x-1/2 z-[100] flex flex-col gap-2';
-            document.body.appendChild(container);
+            toastContainer = document.createElement('div');
+            toastContainer.id = 'toast-container';
+            toastContainer.className = 'fixed bottom-8 left-1/2 -translate-x-1/2 z-[100] flex flex-col gap-2';
+            document.body.appendChild(toastContainer);
         }
 
         const el = document.createElement('div');
@@ -44,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="${type === 'success' ? 'bg-green-500' : 'bg-primary'} size-2 rounded-full"></div>
             <p class="text-sm font-bold">${message}</p>
         `;
-        document.getElementById('toast-container').appendChild(el);
+        toastContainer.appendChild(el);
 
         setTimeout(() => {
             el.classList.add('opacity-0', 'translate-y-4');
@@ -69,6 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const wishlistBtn = document.getElementById('wishlist-btn');
     wishlistBtn?.addEventListener('click', () => {
         const icon = wishlistBtn.querySelector('.material-symbols-outlined');
+        if (!icon) return;
         const isFilled = icon.classList.contains('fill-current');
 
         if (isFilled) {
@@ -152,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Amenity Checkboxes
     document.querySelectorAll('.amenity-checkbox').forEach(checkbox => {
         checkbox.addEventListener('change', () => {
-            const label = checkbox.nextElementSibling.innerText.trim();
+            const label = checkbox.nextElementSibling?.innerText.trim() || 'Amenity';
             if (checkbox.checked) {
                 toast(`Added: ${label}`, 'success');
             } else {
@@ -162,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Price Range Slider (Simulation)
-    document.getElementById('price-range-slider')?.addEventListener('click', (e) => {
+    document.getElementById('price-range-slider')?.addEventListener('click', () => {
         toast('Adjusting price range filter...', 'primary');
     });
 
@@ -172,8 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (id === 'apply-filters-mobile') e.preventDefault();
             toast('Updating results based on filters...', 'primary');
             setTimeout(() => {
-                if (id === 'apply-filters-mobile') window.location.href = 'filters.html';
-                else window.location.href = 'filters.html';
+                window.location.href = 'filters.html';
             }, 800);
         });
     });
@@ -276,7 +296,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Property Card Likes (Small heart icons on cards)
     document.querySelectorAll('.material-symbols-outlined').forEach(icon => {
-        if (icon.innerText === 'favorite' && icon.parentElement.classList.contains('cursor-pointer')) {
+        if (icon.innerText === 'favorite' && icon.parentElement?.classList.contains('cursor-pointer')) {
             icon.parentElement.addEventListener('click', (e) => {
                 e.preventDefault();
                 e.stopPropagation();
