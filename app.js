@@ -29,10 +29,42 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Location Filter Button Interaction
-    document.getElementById('filter-location-btn')?.addEventListener('click', () => {
-        toast('Opening location selector...', 'primary');
-    });
+    // County to Sublocations mapping dataset
+    const sublocationData = {
+        nairobi: ['Kilimani', 'Karen', 'Mlolongo', 'Westlands', 'Kileleshwa', 'Embakasi', 'Lavington'],
+        mombasa: ['Nyali', 'Bamburi', 'Diani', 'Tudor', 'Mombasa CBD', 'Nyali Beach'],
+        kisumu: ['Milimani', 'Kondele', 'Riat', 'Kisumu CBD', 'Nyalenda'],
+        kilifi: ['Malindi', 'Kilifi Town', 'Watamu', 'Mtwapa', 'Kilifi Creek']
+    };
+
+    const countySelect = document.getElementById('county-select');
+    const sublocationSelect = document.getElementById('sublocation-select');
+
+    if (countySelect && sublocationSelect) {
+        countySelect.addEventListener('change', (e) => {
+            const selectedCounty = e.target.value;
+            
+            // Clear current sublocations
+            sublocationSelect.innerHTML = '<option value="">Select Area</option>';
+
+            if (selectedCounty && sublocationData[selectedCounty]) {
+                sublocationData[selectedCounty].forEach(area => {
+                    const option = document.createElement('option');
+                    option.value = area.toLowerCase().replace(/\s+/g, '-');
+                    option.textContent = area;
+                    sublocationSelect.appendChild(option);
+                });
+                toast(`Loaded areas for ${countySelect.options[countySelect.selectedIndex].text}`, 'primary');
+            }
+        });
+
+        sublocationSelect.addEventListener('change', (e) => {
+            if (e.target.value) {
+                const areaName = sublocationSelect.options[sublocationSelect.selectedIndex].text;
+                toast(`Filtered by location: ${areaName}`, 'primary');
+            }
+        });
+    }
 
     // Mobile Menu Toggle Logic
     const mobileMenu = document.getElementById('mobile-menu');
