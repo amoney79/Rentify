@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rentify - Settings</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+    <script src="app.js" defer></script>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-gray-100 min-h-screen">
+    <div id="app-container" class="bg-white dark:bg-[#101622] min-h-screen relative flex flex-col">
+
+        <!-- Desktop Navigation Header -->
+        <header
+            class="hidden md:flex sticky top-0 z-50 bg-white/90 dark:bg-[#101622]/90 backdrop-blur-xl border-b border-gray-100 dark:border-gray-800 px-8 py-4 items-center justify-between">
+            <div class="flex items-center gap-2">
+                <a href="index.html" class="flex items-center gap-2 group">
+                    <div
+                        class="bg-primary p-2 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-white text-2xl">home_work</span>
+                    </div>
+                    <h1 class="text-2xl font-bold tracking-tight">Rentify</h1>
+                </a>
+            </div>
+
+            <nav class="flex items-center gap-8">
+                <a href="index.html"
+                    class="text-gray-500 hover:text-primary transition-colors font-medium">Marketplace</a>
+                <a href="filters.html"
+                    class="text-gray-500 hover:text-primary transition-colors font-medium">Explore</a>
+                <a href="#" class="text-gray-500 hover:text-primary transition-colors font-medium">Saved</a>
+                <a href="chat.html" class="text-gray-500 hover:text-primary transition-colors font-medium">Messages</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="profile.html"
+                    class="flex items-center gap-2 bg-primary/10 text-primary p-1 pr-4 rounded-full border border-primary/20">
+                    <div class="size-8 rounded-full overflow-hidden">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAU0WBI3Zsk8CoNujzvZLFNYa55VlCKsC-PgS8OykghBr2dIoDRpmDhsZZGFeCSAAljCS1SY3iYHPblE9nFHhSkLLjVlqzuw-VVNfJbQ62bjUurZFCCuDJGw4d-_awUQgCtLtOZ0eWc2x6LPe9epEt6dfhVCcOgJHrQmPUDVJ5MvXLDL1L8BNQJS3qIFgu9QOfUUZeZltgI1GzA_C5nmxpSoX8KKlrjWlw-9NT4KmbLXbYknDgsJSHziHJ6AwFGYPRj_VY6rwzJ0sM"
+                            class="w-full h-full object-cover" alt="User Avatar">
+                    </div>
+                    <span class="text-sm font-bold">James</span>
+                </a>
+            </div>
+        </header>
+
+        <!-- Main Body Content -->
+        <main class="flex-1 max-w-7xl mx-auto w-full p-4 md:p-8">
+            <div class="flex flex-col md:flex-row gap-8">
+
+                <!-- Left Sidebar Navigation -->
+                <aside class="w-full md:w-80 space-y-4 shrink-0">
+                    <div class="bg-white dark:bg-gray-800/50 p-6 rounded-3xl border border-gray-100 dark:border-gray-800">
+                        <div class="flex items-center gap-4 mb-6 pb-6 border-b border-gray-100 dark:border-gray-800">
+                            <a href="profile.html" class="p-2 rounded-xl bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:text-primary transition-colors">
+                                <span class="material-symbols-outlined text-xl">arrow_back</span>
+                            </a>
+                            <div>
+                                <h2 class="text-xl font-bold">Settings</h2>
+                                <p class="text-xs text-gray-500">Manage account preferences</p>
+                            </div>
+                        </div>
+
+                        <!-- Mode Selection Buttons -->
+                        <nav class="flex flex-col gap-1" id="settings-nav">
+                            <button onclick="switchTab('profile')" id="tab-btn-profile" class="tab-btn active flex items-center justify-between p-3.5 rounded-2xl font-bold text-sm text-left transition-all bg-primary text-white shadow-md shadow-primary/20">
+                                <span class="flex items-center gap-3">
+                                    <span class="material-symbols-outlined text-xl">manage_accounts</span> Profile Editing
+                                </span>
+                                <span class="material-symbols-outlined text-sm">chevron_right</span>
+                            </button>
+
+                            <button onclick="switchTab('theme')" id="tab-btn-theme" class="tab-btn flex items-center justify-between p-3.5 rounded-2xl font-bold text-sm text-left text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-all">
+                                <span class="flex items-center gap-3">
+                                    <span class="material-symbols-outlined text-xl">dark_mode</span> Dark / Light Mode
+                                </span>
+                                <span class="material-symbols-outlined text-sm">chevron_right</span>
+                            </button>
+
+                            <button onclick="switchTab('security')" id="tab-btn-security" class="tab-btn flex items-center justify-between p-3.5 rounded-2xl font-bold text-sm text-left text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-all">
+                                <span class="flex items-center gap-3">
+                                    <span class="material-symbols-outlined text-xl">shield</span> Security Settings
+                                </span>
+                                <span class="material-symbols-outlined text-sm">chevron_right</span>
+                            </button>
+
+                            <button onclick="switchTab('country')" id="tab-btn-country" class="tab-btn flex items-center justify-between p-3.5 rounded-2xl font-bold text-sm text-left text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-all">
+                                <span class="flex items-center gap-3">
+                                    <span class="material-symbols-outlined text-xl">public</span> Country Settings
+                                </span>
+                                <span class="material-symbols-outlined text-sm">chevron_right</span>
+                            </button>
+
+                            <button onclick="switchTab('about')" id="tab-btn-about" class="tab-btn flex items-center justify-between p-3.5 rounded-2xl font-bold text-sm text-left text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-all">
+                                <span class="flex items-center gap-3">
+                                    <span class="material-symbols-outlined text-xl">info</span> About Us
+                                </span>
+                                <span class="material-symbols-outlined text-sm">chevron_right</span>
+                            </button>
+
+                            <button onclick="switchTab('policies')" id="tab-btn-policies" class="tab-btn flex items-center justify-between p-3.5 rounded-2xl font-bold text-sm text-left text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-all">
+                                <span class="flex items-center gap-3">
+                                    <span class="material-symbols-outlined text-xl">gavel</span> Policies & Agreement
+                                </span>
+                                <span class="material-symbols-outlined text-sm">chevron_right</span>
+                            </button>
+
+                            <button onclick="switchTab('version')" id="tab-btn-version" class="tab-btn flex items-center justify-between p-3.5 rounded-2xl font-bold text-sm text-left text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-all">
+                                <span class="flex items-center gap-3">
+                                    <span class="material-symbols-outlined text-xl">verified</span> App Version
+                                </span>
+                                <span class="material-symbols-outlined text-sm">chevron_right</span>
+                            </button>
+
+                            <button onclick="switchTab('faq')" id="tab-btn-faq" class="tab-btn flex items-center justify-between p-3.5 rounded-2xl font-bold text-sm text-left text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-all">
+                                <span class="flex items-center gap-3">
+                                    <span class="material-symbols-outlined text-xl">quiz</span> FAQ & Help
+                                </span>
+                                <span class="material-symbols-outlined text-sm">chevron_right</span>
+                            </button>
+                        </nav>
+                    </div>
+                </aside>
+
+                <!-- Right Settings Display Panels -->
+                <div class="flex-1">
+
+                    <!-- SECTION 1: Profile Editing -->
+                    <section id="panel-profile" class="setting-panel bg-white dark:bg-gray-800 p-6 md:p-8 rounded-3xl border border-gray-100 dark:border-gray-800 space-y-6">
+                        <div class="border-b border-gray-100 dark:border-gray-700 pb-4">
+                            <h3 class="text-2xl font-bold flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary">manage_accounts</span> Profile Editing
+                            </h3>
+                            <p class="text-sm text-gray-500 mt-1">Update your personal account information.</p>
+                        </div>
+
+                        <form class="space-y-4" onsubmit="event.preventDefault(); font-bold">
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-gray-500 mb-1">Full Name</label>
+                                <input type="text" value="James Mwangi" class="w-full px-4 py-3 rounded-2xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-primary text-sm font-semibold">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-gray-500 mb-1">Bio</label>
+                                <textarea rows="3" class="w-full px-4 py-3 rounded-2xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-primary text-sm font-semibold" placeholder="Tell us about yourself...">Property investor & tenant based in Nairobi, Kenya.</textarea>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1">Gender</label>
+                                    <select class="w-full px-4 py-3 rounded-2xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-primary text-sm font-semibold">
+                                        <option value="male" selected>Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other / Prefer not to say</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1">Birthday</label>
+                                    <input type="date" value="1995-06-15" class="w-full px-4 py-3 rounded-2xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-primary text-sm font-semibold">
+                                </div>
+                            </div>
+
+                            <button type="button" class="mt-4 px-6 py-3 bg-primary text-white font-bold text-sm rounded-2xl hover:bg-blue-700 transition-colors shadow-md shadow-primary/20">
+                                Save Profile Changes
+                            </button>
+                        </form>
+                    </section>
+
+                    <!-- SECTION 2: Dark / Light Mode -->
+                    <section id="panel-theme" class="setting-panel hidden bg-white dark:bg-gray-800 p-6 md:p-8 rounded-3xl border border-gray-100 dark:border-gray-800 space-y-6">
+                        <div class="border-b border-gray-100 dark:border-gray-700 pb-4">
+                            <h3 class="text-2xl font-bold flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary">dark_mode</span> Appearance Mode
+                            </h3>
+                            <p class="text-sm text-gray-500 mt-1">Select your preferred color scheme for Rentify.</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Light Option -->
+                            <div onclick="setTheme('light')" class="p-6 rounded-2xl border-2 border-gray-200 dark:border-gray-700 hover:border-primary cursor-pointer flex flex-col items-center text-center gap-3 transition-all">
+                                <span class="material-symbols-outlined text-4xl text-amber-500">light_mode</span>
+                                <div>
+                                    <h4 class="font-bold text-base">Light Mode</h4>
+                                    <p class="text-xs text-gray-500">Clean high-contrast daytime layout</p>
+                                </div>
+                            </div>
+
+                            <!-- Dark Option -->
+                            <div onclick="setTheme('dark')" class="p-6 rounded-2xl border-2 border-gray-200 dark:border-gray-700 hover:border-primary cursor-pointer flex flex-col items-center text-center gap-3 transition-all">
+                                <span class="material-symbols-outlined text-4xl text-indigo-400">dark_mode</span>
+                                <div>
+                                    <h4 class="font-bold text-base">Dark Mode</h4>
+                                    <p class="text-xs text-gray-500">Easier on the eyes in low light</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- SECTION 3: Security Settings -->
+                    <section id="panel-security" class="setting-panel hidden bg-white dark:bg-gray-800 p-6 md:p-8 rounded-3xl border border-gray-100 dark:border-gray-800 space-y-6">
+                        <div class="border-b border-gray-100 dark:border-gray-700 pb-4">
+                            <h3 class="text-2xl font-bold flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary">shield</span> Security Settings
+                            </h3>
+                            <p class="text-sm text-gray-500 mt-1">Manage contact methods, credentials, and account status.</p>
+                        </div>
+
+                        <form class="space-y-6" onsubmit="event.preventDefault()">
+                            <!-- Phone & Email -->
+                            <div class="space-y-4">
+                                <h4 class="font-bold text-sm text-gray-700 dark:text-gray-300 uppercase tracking-wider">Contact Credentials</h4>
+                                <div>
+                                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1">Phone Number Edit</label>
+                                    <input type="tel" value="+254 712 345 678" class="w-full px-4 py-3 rounded-2xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-primary text-sm font-semibold">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1">Email Edit</label>
+                                    <input type="email" value="james.mwangi@example.com" class="w-full px-4 py-3 rounded-2xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-primary text-sm font-semibold">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1">WhatsApp Number Edit</label>
+                                    <input type="tel" value="+254 712 345 678" class="w-full px-4 py-3 rounded-2xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-primary text-sm font-semibold">
+                                </div>
+                            </div>
+
+                            <!-- Password Update -->
+                            <div class="space-y-4 pt-4 border-t border-gray-100 dark:border-gray-700">
+                                <h4 class="font-bold text-sm text-gray-700 dark:text-gray-300 uppercase tracking-wider">Setting Password</h4>
+                                <div>
+                                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1">Current Password</label>
+                                    <input type="password" placeholder="••••••••" class="w-full px-4 py-3 rounded-2xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-primary text-sm font-semibold">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1">New Password</label>
+                                    <input type="password" placeholder="••••••••" class="w-full px-4 py-3 rounded-2xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-primary text-sm font-semibold">
+                                </div>
+                                <button type="button" class="px-6 py-2.5 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-bold text-xs rounded-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+                                    Update Password
+                                </button>
+                            </div>
+
+                            <!-- Account Deletion Zone -->
+                            <div class="pt-6 border-t border-red-100 dark:border-red-900/30">
+                                <div class="p-4 rounded-2xl bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800/40 flex items-center justify-between gap-4">
+                                    <div>
+                                        <h5 class="font-bold text-sm text-red-600 dark:text-red-400">Account Deletion</h5>
+                                        <p class="text-xs text-red-500/80">Permanently delete your profile and all saved properties.</p>
+                                    </div>
+                                    <button type="button" class="px-4 py-2 bg-red-600 text-white font-bold text-xs rounded-xl hover:bg-red-700 transition-colors shrink-0">
+                                        Delete Account
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+
+                    <!-- SECTION 4: Country Settings -->
+                    <section id="panel-country" class="setting-panel hidden bg-white dark:bg-gray-800 p-6 md:p-8 rounded-3xl border border-gray-100 dark:border-gray-800 space-y-6">
+                        <div class="border-b border-gray-100 dark:border-gray-700 pb-4">
+                            <h3 class="text-2xl font-bold flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary">public</span> Country Settings
+                            </h3>
+                            <p class="text-sm text-gray-500 mt-1">Select your primary country location and currency.</p>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-gray-500 mb-2">Select a Country</label>
+                            <select class="w-full px-4 py-3 rounded-2xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-primary text-sm font-semibold">
+                                <option value="KE" selected>Kenya (KES - KSh)</option>
+                                <option value="UG">Uganda (UGX)</option>
+                                <option value="TZ">Tanzania (TZS)</option>
+                                <option value="RW">Rwanda (RWF)</option>
+                                <option value="UK">United Kingdom (GBP)</option>
+                            </select>
+                        </div>
+                    </section>
+
+                    <!-- SECTION 5: About Us -->
+                    <section id="panel-about" class="setting-panel hidden bg-white dark:bg-gray-800 p-6 md:p-8 rounded-3xl border border-gray-100 dark:border-gray-800 space-y-6">
+                        <div class="border-b border-gray-100 dark:border-gray-700 pb-4">
+                            <h3 class="text-2xl font-bold flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary">info</span> About Rentify
+                            </h3>
+                            <p class="text-sm text-gray-500 mt-1">Connecting tenants and property owners safely across East Africa.</p>
+                        </div>
+
+                        <div class="space-y-4 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                            <p><strong>Rentify</strong> is a modern property marketplace designed to make home finding transparent, reliable, and accessible. Whether searching for a studio, apartment, villa, or office space across Kenya's 47 counties down to the ward level, Rentify connects you directly with verified landlords and property managers.</p>
+                            <p>Our mission is to eliminate rental fraud, simplify lease agreements, and provide a seamless digital platform for both tenants and real estate managers.</p>
+                        </div>
+                    </section>
+
+                    <!-- SECTION 6: Policies & Agreement -->
+                    <section id="panel-policies" class="setting-panel hidden bg-white dark:bg-gray-800 p-6 md:p-8 rounded-3xl border border-gray-100 dark:border-gray-800 space-y-6">
+                        <div class="border-b border-gray-100 dark:border-gray-700 pb-4">
+                            <h3 class="text-2xl font-bold flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary">gavel</span> Policies & Client Agreement
+                            </h3>
+                            <p class="text-sm text-gray-500 mt-1">Review guidelines, terms of service, and client agreements.</p>
+                        </div>
+
+                        <div class="space-y-4 text-sm text-gray-600 dark:text-gray-300">
+                            <div class="p-4 bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-700">
+                                <h4 class="font-bold text-gray-900 dark:text-white mb-1">1. Client Privacy Policy</h4>
+                                <p class="text-xs">Your personal data, contact details, and viewing activity are protected under Kenya's Data Protection Act and will never be shared without authorization.</p>
+                            </div>
+                            <div class="p-4 bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-700">
+                                <h4 class="font-bold text-gray-900 dark:text-white mb-1">2. Tenancy Agreement Terms</h4>
+                                <p class="text-xs">All rental deposits, monthly payments, and landlord-tenant disputes are subject to standard tenancy regulation and registered lease contracts.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- SECTION 7: Version -->
+                    <section id="panel-version" class="setting-panel hidden bg-white dark:bg-gray-800 p-6 md:p-8 rounded-3xl border border-gray-100 dark:border-gray-800 space-y-6">
+                        <div class="border-b border-gray-100 dark:border-gray-700 pb-4">
+                            <h3 class="text-2xl font-bold flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary">verified</span> Application Version
+                            </h3>
+                            <p class="text-sm text-gray-500 mt-1">Build specifications & updates.</p>
+                        </div>
+
+                        <div class="p-6 bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-700 space-y-2">
+                            <div class="flex justify-between items-center text-sm font-bold">
+                                <span>Rentify Mobile & Web App</span>
+                                <span class="text-primary font-mono">v2.4.0</span>
+                            </div>
+                            <p class="text-xs text-gray-500">Build Number: 2026.11.08-prod</p>
+                            <p class="text-xs text-green-600 font-bold mt-2">✓ All security patches & location data engines are up to date.</p>
+                        </div>
+                    </section>
+
+                    <!-- SECTION 8: FAQ & Customer Service -->
+                    <section id="panel-faq" class="setting-panel hidden bg-white dark:bg-gray-800 p-6 md:p-8 rounded-3xl border border-gray-100 dark:border-gray-800 space-y-6">
+                        <div class="border-b border-gray-100 dark:border-gray-700 pb-4">
+                            <h3 class="text-2xl font-bold flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary">quiz</span> Frequently Asked Questions (FAQ)
+                            </h3>
+                            <p class="text-sm text-gray-500 mt-1">Get instant answers to common platform inquiries.</p>
+                        </div>
+
+                        <div class="space-y-3">
+                            <details class="group bg-gray-50 dark:bg-gray-900 p-4 rounded-2xl border border-gray-100 dark:border-gray-700">
+                                <summary class="font-bold text-sm cursor-pointer list-none flex justify-between items-center">
+                                    How do I book a physical house viewing?
+                                    <span class="material-symbols-outlined text-sm group-open:rotate-180 transition-transform">expand_more</span>
+                                </summary>
+                                <p class="text-xs text-gray-500 mt-2">Click on any property card, select "Request Viewing", choose your preferred date, and the landlord or agent will confirm your appointment.</p>
+                            </details>
+
+                            <details class="group bg-gray-50 dark:bg-gray-900 p-4 rounded-2xl border border-gray-100 dark:border-gray-700">
+                                <summary class="font-bold text-sm cursor-pointer list-none flex justify-between items-center">
+                                    Are property listings verified?
+                                    <span class="material-symbols-outlined text-sm group-open:rotate-180 transition-transform">expand_more</span>
+                                </summary>
+                                <p class="text-xs text-gray-500 mt-2">Yes. Listings displaying the green or blue verified badge have undergone field inspection by our agents.</p>
+                            </details>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </main>
+
+        <!-- Mobile Bottom Nav -->
+        <nav
+            class="md:hidden fixed bottom-0 left-0 right-0 bg-white/95 dark:bg-[#101622]/95 backdrop-blur-xl border-t border-gray-200 dark:border-gray-800 px-8 py-3 flex justify-between items-center z-50">
+            <a href="index.html" class="flex flex-col items-center gap-1 text-gray-400">
+                <span class="material-symbols-outlined text-[28px]">home</span>
+                <span class="text-[10px] font-bold">Home</span>
+            </a>
+            <a href="filters.html" class="flex flex-col items-center gap-1 text-gray-400">
+                <span class="material-symbols-outlined text-[28px]">explore</span>
+                <span class="text-[10px] font-bold">Explore</span>
+            </a>
+            <a href="chat.html" class="flex flex-col items-center gap-1 text-gray-400">
+                <span class="material-symbols-outlined text-[28px]">chat_bubble</span>
+                <span class="text-[10px] font-bold">Chat</span>
+            </a>
+            <a href="profile.html" class="flex flex-col items-center gap-1 text-primary">
+                <span
+                    class="material-symbols-outlined text-[28px] font-variation-settings: 'FILL' 1">account_circle</span>
+                <span class="text-[10px] font-bold">Profile</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Mode Switching JavaScript logic -->
+    <script>
+        function switchTab(tabId) {
+            // Hide all panels
+            document.querySelectorAll('.setting-panel').forEach(panel => {
+                panel.classList.add('hidden');
+            });
+
+            // Remove active styles from all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.className = "tab-btn flex items-center justify-between p-3.5 rounded-2xl font-bold text-sm text-left text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-all";
+            });
+
+            // Show target panel
+            const selectedPanel = document.getElementById('panel-' + tabId);
+            if (selectedPanel) {
+                selectedPanel.classList.remove('hidden');
+            }
+
+            // Highlight target button
+            const selectedBtn = document.getElementById('tab-btn-' + tabId);
+            if (selectedBtn) {
+                selectedBtn.className = "tab-btn active flex items-center justify-between p-3.5 rounded-2xl font-bold text-sm text-left transition-all bg-primary text-white shadow-md shadow-primary/20";
+            }
+        }
+
+        // Theme Switcher Functionality
+        function setTheme(mode) {
+            if (mode === 'dark') {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+    </script>
+</body>
+
+</html>
