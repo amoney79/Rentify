@@ -7,8 +7,7 @@
     <title>Rentify - Affordable Home Finding</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script>
         tailwind.config = {
@@ -22,6 +21,15 @@
                     },
                     fontFamily: {
                         "display": ["Inter", "sans-serif"]
+                    },
+                    keyframes: {
+                        swipeLeft: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-50%)' }
+                        }
+                    },
+                    animation: {
+                        'swipe-left': 'swipeLeft 20s linear infinite'
                     }
                 },
             },
@@ -34,7 +42,7 @@
     <div id="app-container" class="bg-white dark:bg-[#101622] min-h-screen relative flex flex-col w-full max-w-7xl mx-auto shadow-none md:shadow-sm duration-200">
 
         <!-- Utility Strip -->
-        <div class="utility-strip px-4 md:px-8 py-4 md:py-6 hidden md:block">
+        <div class="utility-strip px-4 md:px-8 py-4 md:py-6">
             <div class="max-w-7xl mx-auto flex justify-between items-center">
                 <div class="flex gap-6">
                     <a href="#" class="hover:text-primary transition-colors">LandLord Center</a>
@@ -152,6 +160,114 @@
                 <a href="#" class="nav-link-top text-primary font-bold shrink-0">What's New</a>
                 <a href="#" class="nav-link-top text-gray-600 hover:text-primary transition-colors shrink-0">Flash Deals</a>
                 <a href="#" class="nav-link-top text-gray-600 hover:text-primary transition-colors shrink-0">Hot Areas</a>
+            </div>
+
+            <!-- What's New Deals Banner (Swiping Right to Left Infinite Animation) -->
+            <div class="whats-new-deals-banner mb-6 bg-gradient-to-r from-blue-900 via-primary to-blue-700 rounded-xl p-4 text-white shadow-lg overflow-hidden relative">
+                <div class="flex items-center justify-between mb-3 px-2">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-yellow-400 text-xl animate-bounce">local_fire_department</span>
+                        <h3 class="font-black text-base md:text-lg uppercase tracking-wide">What's New & Flash Deals</h3>
+                    </div>
+                    <span class="text-xs bg-yellow-400 text-gray-900 font-extrabold px-2.5 py-1 rounded-full uppercase tracking-wider">Hot Units</span>
+                </div>
+
+                <!-- Infinite Auto-Scrolling Track -->
+                <div class="overflow-hidden w-full relative group">
+                    <div class="flex gap-4 w-max animate-swipe-left group-hover:[animation-play-state:paused]">
+                        
+                        <!-- Original Set -->
+                        <div class="flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 p-2.5 rounded-lg shrink-0 w-64 hover:bg-white/20 transition-all cursor-pointer">
+                            <div class="w-16 h-16 rounded-md bg-gray-200 overflow-hidden shrink-0">
+                                <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=300" class="w-full h-full object-cover" alt="Kilimani Studio">
+                            </div>
+                            <div class="flex flex-col min-w-0">
+                                <span class="bg-red-500 text-white text-[9px] font-bold px-1.5 py-0.5 rounded w-max mb-1">15% OFF</span>
+                                <h4 class="text-xs font-bold truncate">Modern Studio - Kilimani</h4>
+                                <p class="text-xs text-yellow-300 font-extrabold mt-0.5">KES 22,000<span class="text-[10px] text-gray-200 font-normal">/mo</span></p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 p-2.5 rounded-lg shrink-0 w-64 hover:bg-white/20 transition-all cursor-pointer">
+                            <div class="w-16 h-16 rounded-md bg-gray-200 overflow-hidden shrink-0">
+                                <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=300" class="w-full h-full object-cover" alt="Westlands 1 Bed">
+                            </div>
+                            <div class="flex flex-col min-w-0">
+                                <span class="bg-emerald-500 text-white text-[9px] font-bold px-1.5 py-0.5 rounded w-max mb-1">NEW LISTING</span>
+                                <h4 class="text-xs font-bold truncate">1 Bedroom - Westlands</h4>
+                                <p class="text-xs text-yellow-300 font-extrabold mt-0.5">KES 35,000<span class="text-[10px] text-gray-200 font-normal">/mo</span></p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 p-2.5 rounded-lg shrink-0 w-64 hover:bg-white/20 transition-all cursor-pointer">
+                            <div class="w-16 h-16 rounded-md bg-gray-200 overflow-hidden shrink-0">
+                                <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=300" class="w-full h-full object-cover" alt="Roysambu Bedsitter">
+                            </div>
+                            <div class="flex flex-col min-w-0">
+                                <span class="bg-red-500 text-white text-[9px] font-bold px-1.5 py-0.5 rounded w-max mb-1">DEAL OF DAY</span>
+                                <h4 class="text-xs font-bold truncate">Executive Bedsitter - Roysambu</h4>
+                                <p class="text-xs text-yellow-300 font-extrabold mt-0.5">KES 14,000<span class="text-[10px] text-gray-200 font-normal">/mo</span></p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 p-2.5 rounded-lg shrink-0 w-64 hover:bg-white/20 transition-all cursor-pointer">
+                            <div class="w-16 h-16 rounded-md bg-gray-200 overflow-hidden shrink-0">
+                                <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=300" class="w-full h-full object-cover" alt="Ruaka 2 Bed">
+                            </div>
+                            <div class="flex flex-col min-w-0">
+                                <span class="bg-blue-400 text-white text-[9px] font-bold px-1.5 py-0.5 rounded w-max mb-1">VERIFIED</span>
+                                <h4 class="text-xs font-bold truncate">Spacious 2 Bed - Ruaka</h4>
+                                <p class="text-xs text-yellow-300 font-extrabold mt-0.5">KES 28,000<span class="text-[10px] text-gray-200 font-normal">/mo</span></p>
+                            </div>
+                        </div>
+
+                        <!-- Duplicate Set for Seamless Loop -->
+                        <div class="flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 p-2.5 rounded-lg shrink-0 w-64 hover:bg-white/20 transition-all cursor-pointer">
+                            <div class="w-16 h-16 rounded-md bg-gray-200 overflow-hidden shrink-0">
+                                <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=300" class="w-full h-full object-cover" alt="Kilimani Studio">
+                            </div>
+                            <div class="flex flex-col min-w-0">
+                                <span class="bg-red-500 text-white text-[9px] font-bold px-1.5 py-0.5 rounded w-max mb-1">15% OFF</span>
+                                <h4 class="text-xs font-bold truncate">Modern Studio - Kilimani</h4>
+                                <p class="text-xs text-yellow-300 font-extrabold mt-0.5">KES 22,000<span class="text-[10px] text-gray-200 font-normal">/mo</span></p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 p-2.5 rounded-lg shrink-0 w-64 hover:bg-white/20 transition-all cursor-pointer">
+                            <div class="w-16 h-16 rounded-md bg-gray-200 overflow-hidden shrink-0">
+                                <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=300" class="w-full h-full object-cover" alt="Westlands 1 Bed">
+                            </div>
+                            <div class="flex flex-col min-w-0">
+                                <span class="bg-emerald-500 text-white text-[9px] font-bold px-1.5 py-0.5 rounded w-max mb-1">NEW LISTING</span>
+                                <h4 class="text-xs font-bold truncate">1 Bedroom - Westlands</h4>
+                                <p class="text-xs text-yellow-300 font-extrabold mt-0.5">KES 35,000<span class="text-[10px] text-gray-200 font-normal">/mo</span></p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 p-2.5 rounded-lg shrink-0 w-64 hover:bg-white/20 transition-all cursor-pointer">
+                            <div class="w-16 h-16 rounded-md bg-gray-200 overflow-hidden shrink-0">
+                                <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=300" class="w-full h-full object-cover" alt="Roysambu Bedsitter">
+                            </div>
+                            <div class="flex flex-col min-w-0">
+                                <span class="bg-red-500 text-white text-[9px] font-bold px-1.5 py-0.5 rounded w-max mb-1">DEAL OF DAY</span>
+                                <h4 class="text-xs font-bold truncate">Executive Bedsitter - Roysambu</h4>
+                                <p class="text-xs text-yellow-300 font-extrabold mt-0.5">KES 14,000<span class="text-[10px] text-gray-200 font-normal">/mo</span></p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 p-2.5 rounded-lg shrink-0 w-64 hover:bg-white/20 transition-all cursor-pointer">
+                            <div class="w-16 h-16 rounded-md bg-gray-200 overflow-hidden shrink-0">
+                                <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=300" class="w-full h-full object-cover" alt="Ruaka 2 Bed">
+                            </div>
+                            <div class="flex flex-col min-w-0">
+                                <span class="bg-blue-400 text-white text-[9px] font-bold px-1.5 py-0.5 rounded w-max mb-1">VERIFIED</span>
+                                <h4 class="text-xs font-bold truncate">Spacious 2 Bed - Ruaka</h4>
+                                <p class="text-xs text-yellow-300 font-extrabold mt-0.5">KES 28,000<span class="text-[10px] text-gray-200 font-normal">/mo</span></p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
 
             <div id="marketplace-filters" class="flex flex-col md:flex-row gap-4">
