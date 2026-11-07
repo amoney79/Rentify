@@ -381,7 +381,4 @@ body:not(.dark) {
         display: none !important;
     }
 
-    .desktop-account-actions {
-        display: none !important;
-    }
 }
