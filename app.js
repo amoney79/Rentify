@@ -3,13 +3,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
     if (appContainer && currentPage.toLowerCase() !== 'index.html') {
+        Array.from(appContainer.children)
+            .filter((element) => element.tagName === 'HEADER' && element.querySelector('nav'))
+            .forEach((header) => {
+                header.classList.add('site-navigation-header');
+                header.querySelector(':scope > nav')?.remove();
+
+                Array.from(header.children).forEach((child) => {
+                    if (child.matches('a[href="profile.html"]') || child.querySelector('a[href="profile.html"]')) {
+                        child.remove();
+                    }
+                });
+            });
+
         const backIcons = ['arrow_back', 'arrow_back_ios', 'arrow_back_ios_new'];
         const backLink = Array.from(document.querySelectorAll('a')).find((link) => {
             const icon = link.querySelector('.material-symbols-outlined');
             return icon && backIcons.includes(icon.textContent.trim());
         });
         const toolbar = document.createElement('div');
-        toolbar.className = 'mobile-page-toolbar';
+        toolbar.className = 'page-toolbar';
 
         const backButton = backLink || document.createElement('a');
         backButton.href = backLink?.getAttribute('href') || 'index.html';
@@ -31,11 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        const brand = document.createElement('a');
-        brand.className = 'mobile-page-brand';
-        brand.href = 'index.html';
-        brand.innerHTML = '<span class="material-symbols-outlined" aria-hidden="true">home_work</span><span>Rentify</span>';
-        toolbar.append(backButton, brand);
+        toolbar.append(backButton);
         appContainer.prepend(toolbar);
     }
 
@@ -346,17 +355,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Search button on filters.html
-    document.querySelector('button.bg-primary.px-8.py-3.rounded-2xl')?.addEventListener('click', () => {
-        const input = document.querySelector('input.bg-transparent.border-none.focus:ring-0');
-        if (input?.value) {
-            toast(`Updating results for "${input.value}"...`, 'primary');
-        } else {
-            toast('Updating current results...', 'primary');
-        }
-    });
-
     const categoryButtons = document.querySelectorAll('.category-item[data-category]');
+    const categoryToggle = document.getElementById('category-toggle');
+    const categoryList = document.getElementById('category-list');
+    const categoryToggleIcon = document.getElementById('category-toggle-icon');
+    const marketplaceSearch = document.querySelector('.mega-search-input');
     const marketplaceTitle = document.getElementById('marketplace-title');
     const marketplaceFilters = document.getElementById('marketplace-filters');
     const categorySidebar = document.getElementById('category-sidebar');
@@ -371,23 +374,70 @@ document.addEventListener('DOMContentLoaded', () => {
     const categorySearch = document.getElementById('category-property-search');
     const propertyCards = propertyListings?.querySelectorAll('[data-categories]') ?? [];
 
-    const updateCategoryListings = (category) => {
-        const searchTerm = categorySearch?.value.trim().toLowerCase() ?? '';
-        let visibleCount = 0;
+    categoryToggle?.addEventListener('click', () => {
+        const isExpanded = categoryToggle.getAttribute('aria-expanded') === 'true';
+        categoryToggle.setAttribute('aria-expanded', String(!isExpanded));
+        categoryList?.classList.toggle('hidden', isExpanded);
+        categorySidebar?.classList.toggle('is-collapsed', isExpanded);
+        if (categoryToggleIcon) categoryToggleIcon.textContent = isExpanded ? 'expand_more' : 'expand_less';
+    });
 
-        propertyCards.forEach(card => {
-            const matchesCategory = card.dataset.categories.split(' ').includes(category);
-            const matchesSearch = card.querySelector('h3')?.textContent.toLowerCase().includes(searchTerm) ?? false;
-            const isVisible = matchesCategory && matchesSearch;
-            card.classList.toggle('hidden', !isVisible);
-            if (isVisible) visibleCount += 1;
+    const rankAndFilter = (items, query, getTerms) => {
+        const searchTerm = query.trim().toLocaleLowerCase();
+        const rankedItems = Array.from(items).map((item, index) => {
+            const terms = getTerms(item)
+                .filter(Boolean)
+                .map((term) => term.trim().toLocaleLowerCase());
+            const matches = !searchTerm || terms.some((term) => term.includes(searchTerm));
+            const startsWithSearch = searchTerm && terms.some((term) =>
+                term.startsWith(searchTerm) || term.split(/\s+/).some((word) => word.startsWith(searchTerm))
+            );
+
+            item.classList.toggle('hidden', !matches);
+            return { item, index, matches, startsWithSearch };
         });
 
+        rankedItems.sort((a, b) => {
+            if (a.matches !== b.matches) return a.matches ? -1 : 1;
+            if (a.startsWithSearch !== b.startsWithSearch) return a.startsWithSearch ? -1 : 1;
+            return a.index - b.index;
+        });
+        rankedItems.forEach(({ item }) => item.parentElement?.appendChild(item));
+
+        return rankedItems.filter(({ matches }) => matches).length;
+    };
+
+    const cardSearchTerms = (card) => [
+        card.querySelector('h1, h2, h3, h4')?.textContent,
+        card.dataset.categories?.replace(/\s+/g, ' '),
+        card.textContent,
+    ];
+
+    const updateCategoryListings = (category = '') => {
+        const searchTerm = categorySearch?.value.trim() || marketplaceSearch?.value.trim() || '';
+        const visibleCount = rankAndFilter(propertyCards, searchTerm, cardSearchTerms);
+
+        propertyCards.forEach((card) => {
+            if (category && !card.dataset.categories.split(/\s+/).includes(category)) {
+                card.classList.add('hidden');
+            }
+        });
+
+        const categoryCount = category
+            ? Array.from(propertyCards).filter((card) => !card.classList.contains('hidden')).length
+            : visibleCount;
+        const hasSearch = Boolean(searchTerm);
         if (listingCount) {
-            listingCount.textContent = `${visibleCount} ${visibleCount === 1 ? 'listing' : 'listings'}`;
+            listingCount.textContent = category || hasSearch
+                ? `${categoryCount} ${categoryCount === 1 ? 'listing' : 'listings'}`
+                : '';
         }
-        noListingsMessage?.classList.toggle('hidden', visibleCount > 0);
-        loadMoreListings?.classList.toggle('hidden', visibleCount === 0);
+        if (noListingsMessage) noListingsMessage.classList.toggle('hidden', !category && !hasSearch || categoryCount > 0);
+        loadMoreListings?.classList.toggle('hidden', categoryCount === 0);
+
+        if (listingSectionTitle && !category) {
+            listingSectionTitle.textContent = hasSearch ? 'Search Results' : 'Recommended for You';
+        }
     };
 
     categoryButtons.forEach(button => {
@@ -404,21 +454,23 @@ document.addEventListener('DOMContentLoaded', () => {
             recommendationSection.classList.add('category-results-section');
             propertyListings?.classList.add('category-listings');
             marketplaceFilters.appendChild(recommendationSection);
-            updateCategoryListings(category);
             recommendationSection.dataset.selectedCategory = category;
+            updateCategoryListings(category);
             recommendationSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
     });
 
+    marketplaceSearch?.addEventListener('input', () => {
+        updateCategoryListings(recommendationSection?.dataset.selectedCategory || '');
+    });
+
     categorySearch?.addEventListener('input', () => {
-        const selectedCategory = recommendationSection?.dataset.selectedCategory;
-        if (selectedCategory) updateCategoryListings(selectedCategory);
+        updateCategoryListings(recommendationSection?.dataset.selectedCategory || '');
     });
 
     document.getElementById('clear-category-search')?.addEventListener('click', () => {
         if (categorySearch) categorySearch.value = '';
-        const selectedCategory = recommendationSection?.dataset.selectedCategory;
-        if (selectedCategory) updateCategoryListings(selectedCategory);
+        updateCategoryListings(recommendationSection?.dataset.selectedCategory || '');
         categorySearch?.focus();
     });
 
@@ -433,13 +485,39 @@ document.addEventListener('DOMContentLoaded', () => {
         recommendationSection.classList.remove('category-results-section');
         recommendationSection.dataset.selectedCategory = '';
         propertyListings?.classList.remove('category-listings');
-        propertyCards.forEach(card => card.classList.remove('hidden'));
-        noListingsMessage?.classList.add('hidden');
-        loadMoreListings?.classList.remove('hidden');
-        if (listingSectionTitle) listingSectionTitle.textContent = 'Recommended for You';
-        if (listingCount) listingCount.textContent = '';
         if (categorySearch) categorySearch.value = '';
+        updateCategoryListings();
         marketplaceFilters.parentElement?.insertBefore(recommendationSection, marketplaceFilters.nextSibling);
+    });
+
+    const locationSearch = document.getElementById('location-search');
+    const locationResults = document.querySelectorAll('#location-search-results [data-search-result]');
+    const locationResultCount = document.getElementById('location-result-count');
+    const locationNoResults = document.getElementById('location-no-results');
+    const updateLocationResults = () => {
+        const resultCount = rankAndFilter(locationResults, locationSearch?.value || '', (card) => [card.textContent]);
+        if (locationResultCount) {
+            locationResultCount.textContent = `${resultCount} ${resultCount === 1 ? 'Result' : 'Results'}`;
+        }
+        locationNoResults?.classList.toggle('hidden', resultCount > 0);
+    };
+
+    locationSearch?.addEventListener('input', updateLocationResults);
+    document.getElementById('location-search-button')?.addEventListener('click', () => {
+        updateLocationResults();
+        toast(locationSearch?.value.trim()
+            ? `Updating results for "${locationSearch.value.trim()}"...`
+            : 'Updating current results...', 'primary');
+    });
+
+    document.querySelector('.mega-search-btn')?.addEventListener('click', () => {
+        updateCategoryListings(recommendationSection?.dataset.selectedCategory || '');
+        if (marketplaceSearch?.value.trim()) {
+            toast(`Searching for "${marketplaceSearch.value.trim()}"...`, 'primary');
+            recommendationSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+            toast('Please enter a location or property type', 'primary');
+        }
     });
 
     // Property Card Likes (Small heart icons on cards)

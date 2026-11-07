@@ -45,7 +45,7 @@
         <div class="utility-strip px-4 md:px-8 py-4 md:py-6">
             <div class="max-w-7xl mx-auto flex justify-between items-center">
                 <div class="flex gap-6">
-                    <a href="#" class="hover:text-primary transition-colors">LandLord Center</a>
+                    <a href="admin.html" class="hover:text-primary transition-colors">LandLord Center</a>
                     <a href="#" class="hover:text-primary transition-colors flex items-center gap-1">
                         <span class="material-symbols-outlined text-sm">smartphone</span> Download App
                     </a>
@@ -104,7 +104,7 @@
                 </div>
 
                 <!-- Desktop Account Actions (Hidden on Mobile) -->
-                <div class="hidden md:flex items-center gap-8 shrink-0">
+                <div class="desktop-account-actions hidden md:flex items-center gap-8 shrink-0">
                     <a href="chat.html" class="flex items-center gap-2 text-gray-700 hover:text-primary group transition-colors">
                         <div class="relative">
                             <span class="material-symbols-outlined text-3xl">chat_bubble</span>
@@ -247,12 +247,14 @@
             <div id="marketplace-filters" class="flex flex-col md:flex-row gap-4">
                 <!-- Category Sidebar -->
                 <aside id="category-sidebar" class="category-sidebar w-full md:w-64 shrink-0 rounded-sm bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 shadow-sm">
-                    <div class="bg-primary text-white p-3 font-black text-sm uppercase flex items-center gap-2">
-                        <span class="material-symbols-outlined">menu</span> Category
-                    </div>
+                    <button id="category-toggle" type="button" aria-expanded="true" aria-controls="category-list"
+                        class="w-full bg-primary text-white p-3 font-black text-sm uppercase flex items-center justify-between gap-2">
+                        <span class="flex items-center gap-2"><span class="material-symbols-outlined">menu</span> Category</span>
+                        <span id="category-toggle-icon" class="material-symbols-outlined transition-transform">expand_less</span>
+                    </button>
 
                     <!--On Mobile, category is scrollable-->
-                    <div class="flex flex-col py-2">
+                    <div id="category-list" class="flex flex-col py-2">
                         <button type="button" class="category-item flex items-center justify-between px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors text-sm" data-category="apartments" data-label="Apartments">
                             <span class="flex items-center gap-3"><span
                                     class="material-symbols-outlined text-lg text-primary">apartment</span> Apartments</span>

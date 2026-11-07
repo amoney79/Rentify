@@ -79,7 +79,15 @@ body:not(.dark) {
     color: #1f2937;
 }
 
-.mobile-page-toolbar,
+.page-toolbar {
+    display: flex;
+    align-items: center;
+    min-height: 64px;
+    padding: 0.625rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    background: #fff;
+}
+
 .mobile-site-nav {
     display: none;
 }
@@ -103,29 +111,6 @@ body:not(.dark) {
     color: var(--primary);
     border-color: #bfdbfe;
     background: #eff6ff;
-}
-
-.mobile-page-brand {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: #111827;
-    font-size: 1.125rem;
-    font-weight: 800;
-    letter-spacing: -0.04em;
-    text-decoration: none;
-}
-
-.mobile-page-brand .material-symbols-outlined {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
-    background: var(--primary);
-    color: #fff;
-    font-size: 22px;
 }
 
 .view {
@@ -170,6 +155,10 @@ body:not(.dark) {
     height: 440px;
 }
 
+.category-sidebar.is-collapsed {
+    height: auto;
+}
+
 .marketplace-filter-sidebar {
     width: 240px;
     background: white;
@@ -198,6 +187,18 @@ body:not(.dark) {
     background: #fdf2f2;
     color: var(--primary);
     padding-left: 20px;
+}
+
+#category-toggle {
+    border: 0;
+    text-align: left;
+    cursor: pointer;
+}
+
+#category-toggle:focus-visible,
+.page-back-button:focus-visible {
+    outline: 3px solid rgba(19, 91, 236, 0.35);
+    outline-offset: 2px;
 }
 
 .category-property-search {
@@ -316,16 +317,15 @@ body:not(.dark) {
         bottom: calc(4.5rem + env(safe-area-inset-bottom));
     }
 
-    .mobile-page-toolbar {
+    .page-toolbar {
         position: relative;
         z-index: 60;
-        display: flex;
         align-items: center;
-        justify-content: space-between;
         min-height: 64px;
-        padding: 0.625rem 1rem;
-        border-bottom: 1px solid #e5e7eb;
-        background: #fff;
+    }
+
+    .site-navigation-header nav {
+        display: none !important;
     }
 
     .mobile-site-nav {
@@ -367,6 +367,21 @@ body:not(.dark) {
     }
 
     #mobile-menu {
+        display: none !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .page-toolbar {
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
+
+    .site-navigation-header {
+        display: none !important;
+    }
+
+    .desktop-account-actions {
         display: none !important;
     }
 }
