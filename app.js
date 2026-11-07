@@ -1,4 +1,72 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const appContainer = document.getElementById('app-container');
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+    if (appContainer && currentPage.toLowerCase() !== 'index.html') {
+        const backIcons = ['arrow_back', 'arrow_back_ios', 'arrow_back_ios_new'];
+        const backLink = Array.from(document.querySelectorAll('a')).find((link) => {
+            const icon = link.querySelector('.material-symbols-outlined');
+            return icon && backIcons.includes(icon.textContent.trim());
+        });
+        const toolbar = document.createElement('div');
+        toolbar.className = 'mobile-page-toolbar';
+
+        const backButton = backLink || document.createElement('a');
+        backButton.href = backLink?.getAttribute('href') || 'index.html';
+        backButton.className = 'page-back-button';
+        backButton.setAttribute('aria-label', 'Go back to the previous page');
+        backButton.innerHTML = '<span class="material-symbols-outlined" aria-hidden="true">arrow_back</span>';
+
+        backButton.addEventListener('click', (event) => {
+            if (window.history.length < 2 || !document.referrer) return;
+
+            try {
+                const referrer = new URL(document.referrer);
+                if (referrer.protocol === window.location.protocol && referrer.host === window.location.host) {
+                    event.preventDefault();
+                    window.history.back();
+                }
+            } catch {
+                return;
+            }
+        });
+
+        const brand = document.createElement('a');
+        brand.className = 'mobile-page-brand';
+        brand.href = 'index.html';
+        brand.innerHTML = '<span class="material-symbols-outlined" aria-hidden="true">home_work</span><span>Rentify</span>';
+        toolbar.append(backButton, brand);
+        appContainer.prepend(toolbar);
+    }
+
+    document.querySelectorAll('nav.fixed.bottom-0').forEach((nav) => nav.remove());
+
+    if (appContainer) {
+        const mobileNav = document.createElement('nav');
+        mobileNav.className = 'mobile-site-nav';
+        mobileNav.setAttribute('aria-label', 'Main navigation');
+
+        const pageRoutes = [
+            { href: 'index.html', label: 'Marketplace', icon: 'home', pages: ['index.html'] },
+            { href: 'filters.html', label: 'Explore', icon: 'explore', pages: ['filters.html'] },
+            { href: 'chat.html', label: 'Messages', icon: 'chat_bubble', pages: ['chat.html'] },
+            { href: 'profile.html', label: 'Profile', icon: 'account_circle', pages: ['profile.html', 'admin.html', 'review.html', 'onboarding.html', 'upload.html', 'liveness.html'] },
+        ];
+        const activePage = pageRoutes.find((route) => route.pages.includes(currentPage.toLowerCase()))
+            || pageRoutes[0];
+
+        pageRoutes.forEach((route) => {
+            const link = document.createElement('a');
+            link.href = route.href;
+            link.className = `mobile-site-nav-link${route === activePage ? ' is-active' : ''}`;
+            if (route === activePage) link.setAttribute('aria-current', 'page');
+            link.innerHTML = `<span class="material-symbols-outlined" aria-hidden="true">${route.icon}</span><span>${route.label}</span>`;
+            mobileNav.appendChild(link);
+        });
+
+        appContainer.appendChild(mobileNav);
+    }
+
     // Tab Logic for Property Details
     const tabButtons = document.querySelectorAll('.nav-tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
