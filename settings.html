@@ -432,6 +432,19 @@
             if (selectedBtn) {
                 selectedBtn.className = "tab-btn active flex items-center justify-between p-3.5 rounded-2xl font-bold text-sm text-left transition-all bg-primary text-white shadow-md shadow-primary/20";
             }
+
+            const url = new URL(window.location.href);
+            url.searchParams.set('tab', tabId);
+            window.history.replaceState(null, '', url);
+        }
+
+        const availableTabs = new Set(
+            Array.from(document.querySelectorAll('.setting-panel'))
+                .map(panel => panel.id.replace('panel-', ''))
+        );
+        const requestedTab = new URLSearchParams(window.location.search).get('tab');
+        if (requestedTab && availableTabs.has(requestedTab)) {
+            switchTab(requestedTab);
         }
 
         // Theme Switcher Functionality

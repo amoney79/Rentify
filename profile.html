@@ -241,22 +241,19 @@
                             <div class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 divide-y divide-gray-100 dark:divide-gray-700 shadow-sm">
                                 
                                 <!-- Dark Mode Toggle -->
-                                <div class="p-4 flex items-center justify-between">
+                                <a href="settings.html?tab=theme" class="p-4 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
                                     <div class="flex items-center gap-3">
                                         <span class="material-symbols-outlined text-gray-600 dark:text-gray-300">dark_mode</span>
                                         <div>
                                             <p class="text-sm font-bold text-gray-800 dark:text-gray-200">Dark Mode</p>
-                                            <p class="text-xs text-gray-400">Switch theme appearance</p>
+                                            <p class="text-xs text-gray-400">Choose your preferred appearance</p>
                                         </div>
                                     </div>
-                                    <label class="relative inline-flex items-center cursor-pointer">
-                                        <input type="checkbox" id="dark-mode-toggle" class="sr-only peer">
-                                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
-                                    </label>
-                                </div>
+                                    <span class="material-symbols-outlined text-gray-400">chevron_right</span>
+                                </a>
 
                                 <!-- Profile Editing -->
-                                <a href="#" class="p-4 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+                                <a href="settings.html?tab=profile" class="p-4 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
                                     <div class="flex items-center gap-3">
                                         <span class="material-symbols-outlined text-gray-600 dark:text-gray-300">manage_accounts</span>
                                         <div>
@@ -268,7 +265,7 @@
                                 </a>
 
                                 <!-- Security Setting -->
-                                <a href="#" class="p-4 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+                                <a href="settings.html?tab=security" class="p-4 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
                                     <div class="flex items-center gap-3">
                                         <span class="material-symbols-outlined text-gray-600 dark:text-gray-300">shield</span>
                                         <div>
@@ -280,7 +277,7 @@
                                 </a>
 
                                 <!-- Country Settings -->
-                                <a href="#" class="p-4 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+                                <a href="settings.html?tab=country" class="p-4 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
                                     <div class="flex items-center gap-3">
                                         <span class="material-symbols-outlined text-gray-600 dark:text-gray-300">public</span>
                                         <div>
@@ -292,7 +289,7 @@
                                 </a>
 
                                 <!-- About Us -->
-                                <a href="#" class="p-4 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+                                <a href="settings.html?tab=about" class="p-4 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
                                     <div class="flex items-center gap-3">
                                         <span class="material-symbols-outlined text-gray-600 dark:text-gray-300">info</span>
                                         <div>
@@ -304,7 +301,7 @@
                                 </a>
 
                                 <!-- Policies -->
-                                <a href="#" class="p-4 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+                                <a href="settings.html?tab=policies" class="p-4 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
                                     <div class="flex items-center gap-3">
                                         <span class="material-symbols-outlined text-gray-600 dark:text-gray-300">gavel</span>
                                         <div>
@@ -316,7 +313,7 @@
                                 </a>
 
                                 <!-- Version -->
-                                <div class="p-4 flex items-center justify-between">
+                                <a href="settings.html?tab=version" class="p-4 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
                                     <div class="flex items-center gap-3">
                                         <span class="material-symbols-outlined text-gray-600 dark:text-gray-300">verified</span>
                                         <div>
@@ -324,8 +321,11 @@
                                             <p class="text-xs text-gray-400">v2.4.0 (Latest)</p>
                                         </div>
                                     </div>
-                                    <span class="text-xs font-bold bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-2.5 py-1 rounded-md">Up to date</span>
-                                </div>
+                                    <span class="flex items-center gap-2">
+                                        <span class="text-xs font-bold bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-2.5 py-1 rounded-md">Up to date</span>
+                                        <span class="material-symbols-outlined text-gray-400">chevron_right</span>
+                                    </span>
+                                </a>
 
                             </div>
                         </section>
