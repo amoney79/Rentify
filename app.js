@@ -696,8 +696,60 @@ btnInc?.addEventListener("click",() => {
 
     //Search Inputs
     searchInput?.addEventListener('input', (e) => {
-        filterSate.searchQuery = e.target.value.toLowerCase().trim();
+        filterState.searchQuery = e.target.value.toLowerCase().trim();
         applyFilters();
 
     });
-    
+    searchBtn?.addEventListener('click', applyFilters);
+
+    //core filter and autoscroll rendering Engine
+    function applyFilters() {
+        if(!resultsContainer) return;
+
+        const filtered = propertiesData.filter(item => {
+            if (item.price < filterState.minPrice || item.price > filterState.maxPrice) return false;
+            if (filterState.propertyType !== "All" && item.type.toLowerCase() !== filterState.propertyType.toLowerCase()) return false;
+            if (filterState.bedrooms > 0 && item.bedrooms < filterState.bedrooms) return false;
+            if (filterState.amenities.length > 0) {
+                const hasAll = filterState.amenities.every(am => item.amenities.includes(am));
+                if (!hasAll) return false;
+            }
+            if (filterState.searchQuery) {
+                const matchTitle = item.title.toLowerCase().includes(filterState.searchQuery);
+                const matchLoc = item.location.toLowerCase().includes(filterState.searchQuery);
+                if (!matchTitle && !matchLoc) return false;
+            }
+            return true;
+
+        });
+
+        if (resultCount) resultCount.innerText = `${filtered.length} Results`;
+        resultsContainer.innerHTML = '';
+
+        if (filtered.length === 0) {
+            noResultsMsg?.classList.remove('hidden');
+        } else {
+            noResultsMsg?.classList.add('hidden');
+            filtered.forEach(item => {
+                const card = document.createElement('a');
+                card.href = 'property-details.html';
+                card.className = 'flex flex-col bg-white dark:bg-gray-800 rounded-3xl overflow-hidden border border-gray-100 dark:border-gray-800 group hover:shadow-xl transition-all';
+                card.innerHTML = `
+                    <div class="aspect-[16/10] relative overflow-hidden">
+                        <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-primary">${item.tag}</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold group-hover:text-primary transition-colors">${item.title}</h3>
+                            <p class="text-primary font-black text-xl">KES ${item.price.toLocaleString()}</p>
+                        </div>
+                        <div class="flex items-center gap-4 text-gray-400 text-sm mt-3">
+                            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">bed</span> ${item.bedrooms} Bed</span>
+                            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">location_on</span> ${item.location}</span>
+                        </div>
+                    </div>
+                `;
+                resultsContainer.appendChild(card);
+            });
+        }
