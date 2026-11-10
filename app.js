@@ -602,3 +602,9 @@ const minThumb = document.querySelectorAll("minThumb");
 const maxThumb = document.querySelectorAll("maxThumb");
 const minLabel = document.getElementById('minPriceLabel');
 const maxLabel = document.getElementById('maxPriceLabel');
+
+const typeButtons = document.querySelectorAll('.property-type-btn');
+const btnDec = document.getElementById('btn-bedroom-dec');
+const btnInc = document.getElementById('btn-bedroom-inc');
+const bedroomDisplay = document.getElementById('bedroom-count-display');
+const amenitiesCheckboxes = document.querySelectorAll('.amenity-checkbox');
