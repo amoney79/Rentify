@@ -639,5 +639,10 @@ function updateSlider() {
     if(minThumb) minThumb.style.left = minPercent + "%";
     if(maxThumb) maxThumb.style.left = maxPercent + "%";
 
-    
+    if(minLabel) minLabel.textContent = "Ksh " + minValue.toLocaleString();
+    if(maxLabel) maxLabel.textContent = "Ksh " + maxValue.toLocaleString();
+
+    filterState.minPrice = minValue;
+    filterState.maxPrice = maxValue;
+    applyFilters();
 }
