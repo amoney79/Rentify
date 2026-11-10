@@ -636,5 +636,8 @@ function updateSlider() {
         rangeFill.style.left = minPercent + "%";
         rangeFill.style.right = (100 - maxPercent) + "%";
     }
+    if(minThumb) minThumb.style.left = minPercent + "%";
+    if(maxThumb) maxThumb.style.left = maxPercent + "%";
+
     
 }
