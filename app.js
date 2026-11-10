@@ -646,3 +646,18 @@ function updateSlider() {
     filterState.maxPrice = maxValue;
     applyFilters();
 }
+
+//Bedroom controller
+function updateBedroomDisplay() {
+    if(!bedroomDisplay) {
+    bedroomDisplay.inerText = filterState.bedrooms == 1 ? "Any" : filterState.bedrooms + " +";
+    }
+    if(btnDec) bttnDec.disable = filterState.bedrooms == 0;
+    applyFilters();
+}
+
+btnInc?.addEventListener("click",() => {
+    filterState.bedrooms += 1;
+    updateBedroomDisplay();
+    });
+    
