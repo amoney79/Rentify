@@ -608,3 +608,10 @@ const btnDec = document.getElementById('btn-bedroom-dec');
 const btnInc = document.getElementById('btn-bedroom-inc');
 const bedroomDisplay = document.getElementById('bedroom-count-display');
 const amenitiesCheckboxes = document.querySelectorAll('.amenity-checkbox');
+
+const searchInput = document.getElementById('location-search');
+const searchBtn = document.getElementById('location-search-button');
+const resultsContainer = document.getElementById('location-search-results');
+const resultCount = document.getElementById('location-result-count');
+const noResultsMsg = document.getElementById('location-no-results');
+const scrollContainer = document.getElementById('results-scroll-container');
