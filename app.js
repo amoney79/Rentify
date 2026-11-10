@@ -547,3 +547,41 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+// To be connected to database(Filter and search functionality) and other features in the future.
+const propertiesData = [
+    {
+        id: 1,
+        title: 'Luxury 2BR Loft in Downtown Nairobi',
+        type: 'Apartment',
+        price: 3500,
+        bedrooms: 2,
+        location: "WestLands, Kenya",
+        amenities: ['WiFi', 'Gym'],
+        tag: "New Listing",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDislB9eDStdQfVeUXT-SyVYIktdYj4dn1rLs71l6k9U2PyNGYNNFrTSNc9vpmx-1nxZvV3C7xTOHKuL_z-JzyJlV_T9zSmkLpWqQELXWnwdeBWTC_gAwAsO4XuJ9XTTKaNGxd6KvkFkqfHdtlaykJTFfvzJjU7r5Dz5nFelagyTDehv6EwDvE3Dmm0Pv4IBvdDn6HaikyLJuu5BGtc6TRELsBd5pTZoYhKM13gtdCCDe07Kg4J7KzTaxaSxrK6staX7TwHfOMKMTQ"
+    },
+    {
+        id: 2,
+        title: 'Modern 3BR House with Garden in Karen',
+        type: 'Villas',
+        price: 8500,
+        bedrooms: 4,
+        location: "Karen, Kenya",
+        amenities: ['WiFi', 'Gym', 'Pool'],
+        tag: "Featured",
+        image: "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        id:3,
+        title:"Urban Heights Studio",
+        type:"Apartments",
+        price:3000,
+        bedrooms:1,
+        location:"Kilimani,Nairobi",
+        amenitiess:["WiFi","Parking"],
+        tag:"Popular",
+        image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80"
+    }
+];
+
