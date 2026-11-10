@@ -759,4 +759,10 @@ btnInc?.addEventListener("click",() => {
             scrollContainer.scrollTop = 0;
         }
     }
-    
+     //initializers
+     if(minSlider && maxSlider) {
+        minSlider.addEventListener('input', updateSlider);
+        maxSlider.addEventListener('input', updateSlider);
+        updateSlider();
+     }
+     updateBedroomDisplay();
