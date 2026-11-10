@@ -93,7 +93,7 @@
                                     class="absolute w-full h-full opacity-0 cursor-pointer pointer-events-auto z-20" />
                             </div>
                             <div class="flex justify-between mt-6 text-base font-black">
-                                <span id="minPriceLabel" class="text-primary">KES 1,500</span>
+                                <span id="minPriceLabel" class="text-primary">KES 3,000</span>
                                 <span id="maxPriceLabel" class="text-primary">KES 12,000+</span>
                             </div>
                         </div>
@@ -102,7 +102,7 @@
                     <!-- Property Type -->
                     <section>
                         <h3 class="text-xl font-bold mb-4">Property Type</h3>
-                        <div class="flex flex-wrap gap-2" id="property-type-group">
+                        <div class="flex flex-wrap gap-2">
                             <button data-type="All"
                                 class="property-type-btn active px-6 py-3 rounded-2xl bg-primary text-white font-bold shadow-lg shadow-primary/20 transition-all">All Housing</button>
                             <button data-type="Apartment"
@@ -112,7 +112,7 @@
                         </div>
                     </section>
 
-                    <!-- Bedrooms (Increment / Decrement Controller) -->
+                    <!-- Bedrooms Counter -->
                     <section>
                         <h3 class="text-xl font-bold mb-4">Bedrooms</h3>
                         <div class="flex items-center justify-between bg-gray-100 dark:bg-gray-800/50 p-4 rounded-2xl border border-gray-100 dark:border-gray-800">
@@ -122,7 +122,7 @@
                                     class="size-10 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 font-black text-xl hover:border-primary hover:text-primary transition-all flex items-center justify-center active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed">
                                     -
                                 </button>
-                                <span id="bedroom-count-display" class="font-black text-lg w-8 text-center text-primary">1</span>
+                                <span id="bedroom-count-display" class="font-black text-lg w-8 text-center text-primary">Any</span>
                                 <button type="button" id="btn-bedroom-inc"
                                     class="size-10 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 font-black text-xl hover:border-primary hover:text-primary transition-all flex items-center justify-center active:scale-95">
                                     +
@@ -193,10 +193,10 @@
                             class="bg-primary text-white px-8 py-3 rounded-2xl font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-opacity">Search</button>
                     </div>
 
-                    <!-- Auto-scroll Container for Infinite Result Items -->
+                    <!-- Auto-scroll Results Container -->
                     <div id="results-scroll-container" class="max-h-[75vh] overflow-y-auto pr-2 space-y-6 rounded-3xl scroll-smooth">
                         <div id="location-search-results" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <!-- Dynamic Cards populated via JS -->
+                            <!-- Dynamic Results Populated via JavaScript -->
                         </div>
                         <p id="location-no-results" class="hidden col-span-full rounded-3xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-800 p-8 text-center text-sm font-semibold text-gray-500">
                             No homes match your search criteria. Try adjusting your filters.

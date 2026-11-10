@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // --- Navigation & Header Setup ---
     const appContainer = document.getElementById('app-container');
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
@@ -76,17 +77,15 @@ document.addEventListener('DOMContentLoaded', () => {
         appContainer.appendChild(mobileNav);
     }
 
-    // Tab Logic for Property Details
+    // --- Tab Logic for Property Details ---
     const tabButtons = document.querySelectorAll('.nav-tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
-    
 
     if (tabButtons.length > 0) {
         tabButtons.forEach(btn => {
             btn.addEventListener('click', () => {
                 const targetTab = btn.getAttribute('data-tab');
 
-                // Update Button states
                 tabButtons.forEach(b => {
                     b.classList.remove('active', 'bg-primary', 'text-white', 'shadow-lg', 'shadow-primary/20');
                     b.classList.add('bg-gray-50', 'dark:bg-gray-800/50', 'text-gray-400');
@@ -94,7 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 btn.classList.add('active', 'bg-primary', 'text-white', 'shadow-lg', 'shadow-primary/20');
                 btn.classList.remove('bg-gray-50', 'dark:bg-gray-800/50', 'text-gray-400');
 
-                // Update Content states
                 tabContents.forEach(content => {
                     if (content.id === targetTab) {
                         content.classList.remove('hidden');
@@ -106,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-// County to Sublocations mapping dataset
+    // --- County to Sublocations Dataset ---
     const sublocationData = {
         nairobi: ['Kitisuru', 'Parklands', 'Karura', 'Kangemi', 'Mountain View', 'Kilimani', 'Kawangware','Gatina','Kileleshwa','Kabiro','Mutu-lni','Ngando','Riruta','Uthiru','Waithaka','Karen','Nairobi West','Mugumo-lni','Southh C','Nyayo Highrise','Laini Saba','Lindi','Woodley','Sarangome','Githurai','Kahawa West','Zimmerman','Roysambu','Kahawa Sukari','Kahawa Wendani','Clay City','Mwiki','Kasarani','Ruai','Baba Dogo','Utalii','Mathare Nortth','Lucky Summer','Korogocho','Imara Daima','Kwa Njenga','Kwa Reuben','Pipeline','Kware','Kayole North','Kayole Central','Kayole South','Komarock','Matopeni','Upper Savanna','Lower Savanna','Embakasi','Utawala','Mihango','Umoja','Kariobangi South','Viwandani','Harambee','Makongeni','Pumwani','EastLeigh North','EastLeigh South','Airbase','Ngara','Kariokor','Pangani','Landimawe','Mabatini','Huuruma','Ngei','Mlango Kubwa','Kiamaiko'],
         mombasa: ['Port Reitz', 'Kipevu', 'Airport', 'Changamwe', 'Mombasa CBD', 'Chaani', 'Jomvu', 'Miritini', 'Mikindani', 'Fort/Old Town', 'Mshomoroni', 'Bamburi', 'Mwakirunge', 'Mtopanga', 'Magogoni', 'Shanzu', 'Nyali', 'Bombolulu', 'Mkomani', 'Kongowea', 'Kadzandani', 'Mtongwe', 'Shika Adabu', 'Bofu/Shelly', 'Likoni', 'Timbwani', 'Makadara', 'Tudor', 'Tononoka', 'Shimanzi/Ganjoni', 'Majengo'],
@@ -163,8 +161,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (countySelect && sublocationSelect) {
         countySelect.addEventListener('change', (e) => {
             const selectedCounty = e.target.value;
-            
-            // Clear current sublocations
             sublocationSelect.innerHTML = '<option value="">Select Area</option>';
 
             if (selectedCounty && sublocationData[selectedCounty]) {
@@ -186,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Mobile Menu Toggle Logic
+    // --- Mobile Menu Toggle Logic ---
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const menuIcon = mobileMenuBtn ? mobileMenuBtn.querySelector('.material-symbols-outlined') : null;
@@ -194,18 +190,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (mobileMenuBtn && mobileMenu) {
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
-
             if (menuIcon) {
-                if (mobileMenu.classList.contains('hidden')) {
-                    menuIcon.textContent = 'menu';
-                } else {
-                    menuIcon.textContent = 'close';
-                }
+                menuIcon.textContent = mobileMenu.classList.contains('hidden') ? 'menu' : 'close';
             }
         });
     }
 
-    // Interaction logic for Marketplace Buttons
+    // --- Toast Notification Helper ---
     const toast = (message, type = 'success') => {
         let toastContainer = document.getElementById('toast-container');
         if (!toastContainer) {
@@ -229,12 +220,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 3000);
     };
 
-    // Add to Cart
+    // --- Action Button Listeners ---
     document.getElementById('add-to-cart')?.addEventListener('click', () => {
         toast('Property added to your cart!');
     });
 
-    // Rent Now
     document.getElementById('rent-now')?.addEventListener('click', () => {
         toast('Redirecting to secure rental agreement...', 'primary');
         setTimeout(() => {
@@ -242,7 +232,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1500);
     });
 
-    // Wishlist Toggle
     const wishlistBtn = document.getElementById('wishlist-btn');
     wishlistBtn?.addEventListener('click', () => {
         const icon = wishlistBtn.querySelector('.material-symbols-outlined');
@@ -258,7 +247,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Share logic
     document.getElementById('share-btn')?.addEventListener('click', async () => {
         if (navigator.share) {
             try {
@@ -276,85 +264,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Live Viewing
     document.getElementById('live-viewing-btn')?.addEventListener('click', () => {
         toast('Joining Live Viewing stream...', 'primary');
     });
 
-    // General Marketplace Interactions (Categories, Search, etc.)
-    document.querySelector('.mega-search-btn')?.addEventListener('click', () => {
-        const input = document.querySelector('.mega-search-input');
-        if (input?.value) {
-            toast(`Searching for "${input.value}"...`, 'primary');
-        } else {
-            toast('Please enter a location or property type', 'primary');
-        }
-    });
-
-    // Quick Filter Pills (index.html)
-    document.querySelectorAll('.quick-filter-pill').forEach(pill => {
-        pill.addEventListener('click', (e) => {
-            e.preventDefault();
-            const isActive = pill.classList.contains('text-primary');
-            if (isActive) {
-                pill.classList.remove('text-primary', 'font-bold');
-                pill.classList.add('text-gray-500');
-                toast(`Removed filter: ${pill.innerText.trim()}`);
-            } else {
-                pill.classList.add('text-primary', 'font-bold');
-                pill.classList.remove('text-gray-500');
-                toast(`Applied filter: ${pill.innerText.trim()}`, 'primary');
-            }
-        });
-    });
-
-    // Generic Group Button Selector (Property Type, Bedrooms, etc.)
-    const setupButtonGroup = (selector) => {
-        const buttons = document.querySelectorAll(selector);
-        buttons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                buttons.forEach(b => {
-                    b.classList.remove('bg-primary', 'text-white', 'active', 'shadow-lg', 'shadow-primary/20');
-                    b.classList.add('bg-white', 'dark:bg-gray-800', 'text-gray-400', 'dark:text-gray-400', 'border-gray-100', 'dark:border-gray-700');
-                });
-                btn.classList.add('bg-primary', 'text-white', 'active', 'shadow-lg', 'shadow-primary/20');
-                btn.classList.remove('bg-white', 'dark:bg-gray-800', 'text-gray-400', 'dark:text-gray-400', 'border-gray-100', 'dark:border-gray-700', 'border-transparent');
-                toast(`${btn.innerText.trim()} selected`, 'primary');
-            });
-        });
-    };
-
-    setupButtonGroup('.property-type-btn');
-    setupButtonGroup('.bedroom-filter-btn');
-
-    // Amenity Checkboxes
-    document.querySelectorAll('.amenity-checkbox').forEach(checkbox => {
-        checkbox.addEventListener('change', () => {
-            const label = checkbox.nextElementSibling?.innerText.trim() || 'Amenity';
-            if (checkbox.checked) {
-                toast(`Added: ${label}`, 'success');
-            } else {
-                toast(`Removed: ${label}`);
-            }
-        });
-    });
-
-    // Price Range Slider (Simulation)
-    document.getElementById('price-range-slider')?.addEventListener('click', () => {
-        toast('Adjusting price range filter...', 'primary');
-    });
-
-    // Apply All Filters (Desktop & Mobile)
-    ['apply-filters-desktop', 'apply-filters-mobile'].forEach(id => {
-        document.getElementById(id)?.addEventListener('click', (e) => {
-            if (id === 'apply-filters-mobile') e.preventDefault();
-            toast('Updating results based on filters...', 'primary');
-            setTimeout(() => {
-                window.location.href = 'filters.html';
-            }, 800);
-        });
-    });
-
+    // --- Category Search & Navigation ---
     const categoryButtons = document.querySelectorAll('.category-item[data-category]');
     const categoryToggle = document.getElementById('category-toggle');
     const categoryList = document.getElementById('category-list');
@@ -490,54 +404,7 @@ document.addEventListener('DOMContentLoaded', () => {
         marketplaceFilters.parentElement?.insertBefore(recommendationSection, marketplaceFilters.nextSibling);
     });
 
-    const locationSearch = document.getElementById('location-search');
-    const locationResults = document.querySelectorAll('#location-search-results [data-search-result]');
-    const locationResultCount = document.getElementById('location-result-count');
-    const locationNoResults = document.getElementById('location-no-results');
-    const updateLocationResults = () => {
-        const resultCount = rankAndFilter(locationResults, locationSearch?.value || '', (card) => [card.textContent]);
-        if (locationResultCount) {
-            locationResultCount.textContent = `${resultCount} ${resultCount === 1 ? 'Result' : 'Results'}`;
-        }
-        locationNoResults?.classList.toggle('hidden', resultCount > 0);
-    };
-
-    locationSearch?.addEventListener('input', updateLocationResults);
-    document.getElementById('location-search-button')?.addEventListener('click', () => {
-        updateLocationResults();
-        toast(locationSearch?.value.trim()
-            ? `Updating results for "${locationSearch.value.trim()}"...`
-            : 'Updating current results...', 'primary');
-    });
-
-    document.querySelector('.mega-search-btn')?.addEventListener('click', () => {
-        updateCategoryListings(recommendationSection?.dataset.selectedCategory || '');
-        if (marketplaceSearch?.value.trim()) {
-            toast(`Searching for "${marketplaceSearch.value.trim()}"...`, 'primary');
-            recommendationSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        } else {
-            toast('Please enter a location or property type', 'primary');
-        }
-    });
-
-    // Property Card Likes (Small heart icons on cards)
-    document.querySelectorAll('.material-symbols-outlined').forEach(icon => {
-        if (icon.innerText === 'favorite' && icon.parentElement?.classList.contains('cursor-pointer')) {
-            icon.parentElement.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                if (icon.classList.contains('fill-current')) {
-                    icon.classList.remove('fill-current');
-                    toast('Removed from saved properties');
-                } else {
-                    icon.classList.add('fill-current');
-                    toast('Saved to your collection!');
-                }
-            });
-        }
-    });
-
-    // Scroll effect for header
+    // --- Header Scroll Shadow ---
     window.addEventListener('scroll', () => {
         const header = document.querySelector('header');
         if (window.scrollY > 20) {
@@ -546,165 +413,169 @@ document.addEventListener('DOMContentLoaded', () => {
             header?.classList.remove('shadow-lg');
         }
     });
-});
 
-// To be connected to database(Filter and search functionality) and other features in the future.
-const propertiesData = [
-    {
-        id: 1,
-        title: 'Luxury 2BR Loft in Downtown Nairobi',
-        type: 'Apartment',
-        price: 3500,
-        bedrooms: 2,
-        location: "WestLands, Kenya",
-        amenities: ['WiFi', 'Gym'],
-        tag: "New Listing",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDislB9eDStdQfVeUXT-SyVYIktdYj4dn1rLs71l6k9U2PyNGYNNFrTSNc9vpmx-1nxZvV3C7xTOHKuL_z-JzyJlV_T9zSmkLpWqQELXWnwdeBWTC_gAwAsO4XuJ9XTTKaNGxd6KvkFkqfHdtlaykJTFfvzJjU7r5Dz5nFelagyTDehv6EwDvE3Dmm0Pv4IBvdDn6HaikyLJuu5BGtc6TRELsBd5pTZoYhKM13gtdCCDe07Kg4J7KzTaxaSxrK6staX7TwHfOMKMTQ"
-    },
-    {
-        id: 2,
-        title: 'Modern 3BR House with Garden in Karen',
-        type: 'Villas',
-        price: 8500,
-        bedrooms: 4,
-        location: "Karen, Kenya",
-        amenities: ['WiFi', 'Gym', 'Pool'],
-        tag: "Featured",
-        image: "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800&q=80"
-    },
-    {
-        id:3,
-        title:"Urban Heights Studio",
-        type:"Apartments",
-        price:3000,
-        bedrooms:1,
-        location:"Kilimani,Nairobi",
-        amenitiess:["WiFi","Parking"],
-        tag:"Popular",
-        image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80"
+    // ==========================================
+    // --- EXPLORE & FILTER SIDEBAR ENGINE ---
+    // ==========================================
+
+    const propertiesData = [
+        {
+            id: 1,
+            title: 'Luxury 2BR Loft in Downtown Nairobi',
+            type: 'Apartment',
+            price: 3500,
+            bedrooms: 2,
+            location: "Westlands, Nairobi",
+            amenities: ['WiFi', 'Gym'],
+            tag: "New Listing",
+            image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDislB9eDStdQfVeUXT-SyVYIktdYj4dn1rLs71l6k9U2PyNGYNNFrTSNc9vpmx-1nxZvV3C7xTOHKuL_z-JzyJlV_T9zSmkLpWqQELXWnwdeBWTC_gAwAsO4XuJ9XTTKaNGxd6KvkFkqfHdtlaykJTFfvzJjU7r5Dz5nFelagyTDehv6EwDvE3Dmm0Pv4IBvdDn6HaikyLJuu5BGtc6TRELsBd5pTZoYhKM13gtdCCDe07Kg4J7KzTaxaSxrK6staX7TwHfOMKMTQ"
+        },
+        {
+            id: 2,
+            title: 'Modern 3BR House with Garden in Karen',
+            type: 'Villas',
+            price: 8500,
+            bedrooms: 4,
+            location: "Karen, Nairobi",
+            amenities: ['WiFi', 'Gym', 'Pool'],
+            tag: "Featured",
+            image: "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800&q=80"
+        },
+        {
+            id: 3,
+            title: "Urban Heights Studio",
+            type: "Apartment",
+            price: 3000,
+            bedrooms: 1,
+            location: "Kilimani, Nairobi",
+            amenities: ["WiFi", "Parking"],
+            tag: "Popular",
+            image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80"
+        }
+    ];
+
+    const filterState = {
+        minPrice: 3000,
+        maxPrice: 12000,
+        propertyType: "All",
+        bedrooms: 0,
+        amenities: [],
+        searchQuery: ""
+    };
+
+    const minSlider = document.getElementById("priceRangeMin");
+    const maxSlider = document.getElementById("priceRangeMax");
+    const rangeFill = document.getElementById("rangeFill");
+    const minThumb = document.getElementById("minThumb");
+    const maxThumb = document.getElementById("maxThumb");
+    const minLabel = document.getElementById('minPriceLabel');
+    const maxLabel = document.getElementById('maxPriceLabel');
+
+    const typeButtons = document.querySelectorAll('.property-type-btn');
+    const btnDec = document.getElementById('btn-bedroom-dec');
+    const btnInc = document.getElementById('btn-bedroom-inc');
+    const bedroomDisplay = document.getElementById('bedroom-count-display');
+    const amenitiesCheckboxes = document.querySelectorAll('.amenity-checkbox');
+
+    const searchInput = document.getElementById('location-search');
+    const searchBtn = document.getElementById('location-search-button');
+    const resultsContainer = document.getElementById('location-search-results');
+    const resultCount = document.getElementById('location-result-count');
+    const noResultsMsg = document.getElementById('location-no-results');
+    const scrollContainer = document.getElementById('results-scroll-container');
+    const resetBtn = document.getElementById('reset-filters-btn');
+
+    const minLimit = 1500;
+    const maxLimit = 12000;
+
+    // Price Slider Updates
+    function updateSlider() {
+        if (!minSlider || !maxSlider) return;
+
+        let minValue = parseInt(minSlider.value);
+        let maxValue = parseInt(maxSlider.value);
+
+        if (minValue > maxValue - 500) {
+            minSlider.value = maxValue - 500;
+            minValue = parseInt(minSlider.value);
+        }
+
+        const minPercent = ((minValue - minLimit) / (maxLimit - minLimit)) * 100;
+        const maxPercent = ((maxValue - minLimit) / (maxLimit - minLimit)) * 100;
+
+        if (rangeFill) {
+            rangeFill.style.left = minPercent + "%";
+            rangeFill.style.right = (100 - maxPercent) + "%";
+        }
+        if (minThumb) minThumb.style.left = minPercent + "%";
+        if (maxThumb) maxThumb.style.left = maxPercent + "%";
+
+        if (minLabel) minLabel.textContent = "KES " + minValue.toLocaleString();
+        if (maxLabel) maxLabel.textContent = maxValue === maxLimit ? "KES " + maxValue.toLocaleString() + "+" : "KES " + maxValue.toLocaleString();
+
+        filterState.minPrice = minValue;
+        filterState.maxPrice = maxValue;
+        applyFilters();
     }
-];
 
-//Filter State Object
-const filterState = {
-    minPrice:1500,
-    maxPrice:10000000,
-    propertType:"All",
-    bedrooms:1,
-    amenities:[],
-    searchQuery:"",
-};
-// Element Bindings
-const minSlider = document.getElementById("priceRangeMin");
-const maxSlider = document.getElementById("priceRangeMax");
-const rangeFill = document.getElementById("rangeFill");
-const minThumb = document.querySelectorAll("minThumb");
-const maxThumb = document.querySelectorAll("maxThumb");
-const minLabel = document.getElementById('minPriceLabel');
-const maxLabel = document.getElementById('maxPriceLabel');
-
-const typeButtons = document.querySelectorAll('.property-type-btn');
-const btnDec = document.getElementById('btn-bedroom-dec');
-const btnInc = document.getElementById('btn-bedroom-inc');
-const bedroomDisplay = document.getElementById('bedroom-count-display');
-const amenitiesCheckboxes = document.querySelectorAll('.amenity-checkbox');
-
-const searchInput = document.getElementById('location-search');
-const searchBtn = document.getElementById('location-search-button');
-const resultsContainer = document.getElementById('location-search-results');
-const resultCount = document.getElementById('location-result-count');
-const noResultsMsg = document.getElementById('location-no-results');
-const scrollContainer = document.getElementById('results-scroll-container');
-
-const minLimit = 1500;
-const maxLimit = 10000000;
-
-//Interactive Price slider
-function updateSlider() {
-    if((!minSlider || !maxSlider)) return;
-    const minValue = parseInt(minSlider.value);
-    const maxValue = parseInt(maxSlider.value);
-
-    if(minValue > maxValue - 500) {
-        minSlider.value = maxValue - 500;
-        minValue = parseInt(minSlider.Value);
+    // Bedroom Controller
+    function updateBedroomDisplay() {
+        if (bedroomDisplay) {
+            bedroomDisplay.innerText = filterState.bedrooms === 0 ? "Any" : filterState.bedrooms + "+";
+        }
+        if (btnDec) btnDec.disabled = filterState.bedrooms === 0;
+        applyFilters();
     }
-    const minPercent = ((minValue - minLimit) / (maxLimit - minLimit)) * 100;
-    const maxPercent = ((maxValue - minLimit) / (maxLimit - minLimit)) * 100;
 
-    if(rangeFill) {
-        rangeFill.style.left = minPercent + "%";
-        rangeFill.style.right = (100 - maxPercent) + "%";
-    }
-    if(minThumb) minThumb.style.left = minPercent + "%";
-    if(maxThumb) maxThumb.style.left = maxPercent + "%";
-
-    if(minLabel) minLabel.textContent = "Ksh " + minValue.toLocaleString();
-    if(maxLabel) maxLabel.textContent = "Ksh " + maxValue.toLocaleString();
-
-    filterState.minPrice = minValue;
-    filterState.maxPrice = maxValue;
-    applyFilters();
-}
-
-//Bedroom controller
-function updateBedroomDisplay() {
-    if(!bedroomDisplay) {
-    bedroomDisplay.inerText = filterState.bedrooms == 1 ? "Any" : filterState.bedrooms + " +";
-    }
-    if(btnDec) bttnDec.disable = filterState.bedrooms == 0;
-    applyFilters();
-}
-
-btnInc?.addEventListener("click",() => {
-    filterState.bedrooms += 1;
-    updateBedroomDisplay();
+    btnInc?.addEventListener("click", () => {
+        filterState.bedrooms += 1;
+        updateBedroomDisplay();
     });
 
-    btnDec?.addEventListener("click",() => {
-        if(filterState.bedrooms > 0) {
+    btnDec?.addEventListener("click", () => {
+        if (filterState.bedrooms > 0) {
             filterState.bedrooms -= 1;
             updateBedroomDisplay();
         }
     });
 
-    //Property Type switter(Apartmenrs,Villas,All)
+    // Property Type Switcher
     typeButtons.forEach(btn => {
         btn.addEventListener("click", () => {
             typeButtons.forEach(b => {
-            b.classList.remove('active','bg-primary', 'text-whitte', 'shadow-lg', 'shadow-primary/20');
-            b.classList.add('bg-white', 'dark:bg-gray-800', 'text-gray-400');
+                b.classList.remove('active', 'bg-primary', 'text-white', 'shadow-lg', 'shadow-primary/20');
+                b.classList.add('bg-white', 'dark:bg-gray-800', 'text-gray-400');
+            });
 
-        });
-        btn.classList.add('active','bg-primary', 'text-white', 'shadow-lg', 'shadow-primary/20');
-        btn.classList.remove('bg-white', 'dark:bg-gray-800', 'text-gray-400', 'dark:text-gray-400', 'border-gray-100', 'dark:border-gray-700', 'border-transparent');
+            btn.classList.add('active', 'bg-primary', 'text-white', 'shadow-lg', 'shadow-primary/20');
+            btn.classList.remove('bg-white', 'dark:bg-gray-800', 'text-gray-400');
 
-            filterState.propertType = btn.dataset.type;
+            filterState.propertyType = btn.getAttribute('data-type') || 'All';
             applyFilters();
         });
     });
 
-    //Amenilities checkbox Filtering
+    // Amenity Checkbox Filtering
     amenitiesCheckboxes.forEach(checkbox => {
-        cb.addEventListener('change', () => {
+        checkbox.addEventListener('change', () => {
             filterState.amenities = Array.from(amenitiesCheckboxes)
-            .filter(c => c.checked)
-            .map(c => c.value);
-        applyFilters();
+                .filter(c => c.checked)
+                .map(c => c.value);
+            applyFilters();
         });
     });
 
-    //Search Inputs
+    // Search Input listeners
     searchInput?.addEventListener('input', (e) => {
         filterState.searchQuery = e.target.value.toLowerCase().trim();
         applyFilters();
-
     });
+
     searchBtn?.addEventListener('click', applyFilters);
 
-    //core filter and autoscroll rendering Engine
+    // Filter & Auto-scroll Renderer
     function applyFilters() {
-        if(!resultsContainer) return;
+        if (!resultsContainer) return;
 
         const filtered = propertiesData.filter(item => {
             if (item.price < filterState.minPrice || item.price > filterState.maxPrice) return false;
@@ -720,7 +591,6 @@ btnInc?.addEventListener("click",() => {
                 if (!matchTitle && !matchLoc) return false;
             }
             return true;
-
         });
 
         if (resultCount) resultCount.innerText = `${filtered.length} Results`;
@@ -754,15 +624,37 @@ btnInc?.addEventListener("click",() => {
             });
         }
 
-        // Auto-scroll results container if user is scrolled down
         if (scrollContainer) {
             scrollContainer.scrollTop = 0;
         }
     }
-     //initializers
-     if(minSlider && maxSlider) {
+
+    // Reset Action
+    resetBtn?.addEventListener('click', () => {
+        if (minSlider) minSlider.value = 3000;
+        if (maxSlider) maxSlider.value = 12000;
+        filterState.propertyType = "All";
+        filterState.bedrooms = 0;
+        filterState.amenities = [];
+        filterState.searchQuery = "";
+        if (searchInput) searchInput.value = "";
+        amenitiesCheckboxes.forEach(cb => cb.checked = false);
+
+        typeButtons.forEach(b => {
+            b.classList.remove('active', 'bg-primary', 'text-white', 'shadow-lg', 'shadow-primary/20');
+            b.classList.add('bg-white', 'dark:bg-gray-800', 'text-gray-400');
+        });
+        typeButtons[0]?.classList.add('active', 'bg-primary', 'text-white', 'shadow-lg', 'shadow-primary/20');
+
+        updateSlider();
+        updateBedroomDisplay();
+    });
+
+    // Initialize Explore components if present
+    if (minSlider && maxSlider) {
         minSlider.addEventListener('input', updateSlider);
         maxSlider.addEventListener('input', updateSlider);
         updateSlider();
-     }
-     updateBedroomDisplay();
+    }
+    updateBedroomDisplay();
+});
