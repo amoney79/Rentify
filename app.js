@@ -694,4 +694,10 @@ btnInc?.addEventListener("click",() => {
         });
     });
 
+    //Search Inputs
+    searchInput?.addEventListener('input', (e) => {
+        filterSate.searchQuery = e.target.value.toLowerCase().trim();
+        applyFilters();
+
+    });
     
