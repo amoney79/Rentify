@@ -616,5 +616,21 @@ const resultCount = document.getElementById('location-result-count');
 const noResultsMsg = document.getElementById('location-no-results');
 const scrollContainer = document.getElementById('results-scroll-container');
 
-const minLimit = 15000;
+const minLimit = 1500;
 const maxLimit = 10000000;
+
+//Interactive Price slider
+function updateSlider() {
+    if((!minSlider || !maxSlider)) return;
+    const minValue = parseInt(minSlider.value);
+    const maxValue = parseInt(maxSlider.value);
+
+    if(minValue > maxValue - 500) {
+        minSlider.value = maxValue - 500;
+        minValue = parseInt(minSlider.Value);
+    }
+    const minPercent = ((minValue - minLimit) / (maxLimit - minLimit)) * 100;
+    const maxPercent = ((maxValue - minLimit) / (maxLimit - minLimit)) * 100;
+
+    
+}
