@@ -660,4 +660,27 @@ btnInc?.addEventListener("click",() => {
     filterState.bedrooms += 1;
     updateBedroomDisplay();
     });
+
+    btnDec?.addEventListener("click",() => {
+        if(filterState.bedrooms > 0) {
+            filterState.bedrooms -= 1;
+            updateBedroomDisplay();
+        }
+    });
+
+    //Property Type switter(Apartmenrs,Villas,All)
+    typeButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            typeButtons.forEach(b => {
+            b.classList.remove('active','bg-primary', 'text-whitte', 'shadow-lg', 'shadow-primary/20');
+            b.classList.add('bg-white', 'dark:bg-gray-800', 'text-gray-400');
+
+        });
+        btn.classList.add('active','bg-primary', 'text-white', 'shadow-lg', 'shadow-primary/20');
+        btn.classList.remove('bg-white', 'dark:bg-gray-800', 'text-gray-400', 'dark:text-gray-400', 'border-gray-100', 'dark:border-gray-700', 'border-transparent');
+
+            filterState.propertType = btn.dataset.type;
+            applyFilters();
+        });
+    });
     
