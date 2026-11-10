@@ -753,3 +753,10 @@ btnInc?.addEventListener("click",() => {
                 resultsContainer.appendChild(card);
             });
         }
+
+        // Auto-scroll results container if user is scrolled down
+        if (scrollContainer) {
+            scrollContainer.scrollTop = 0;
+        }
+    }
+    
