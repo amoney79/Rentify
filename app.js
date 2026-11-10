@@ -615,3 +615,6 @@ const resultsContainer = document.getElementById('location-search-results');
 const resultCount = document.getElementById('location-result-count');
 const noResultsMsg = document.getElementById('location-no-results');
 const scrollContainer = document.getElementById('results-scroll-container');
+
+const minLimit = 15000;
+const maxLimit = 10000000;
