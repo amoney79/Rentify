@@ -632,5 +632,9 @@ function updateSlider() {
     const minPercent = ((minValue - minLimit) / (maxLimit - minLimit)) * 100;
     const maxPercent = ((maxValue - minLimit) / (maxLimit - minLimit)) * 100;
 
+    if(rangeFill) {
+        rangeFill.style.left = minPercent + "%";
+        rangeFill.style.right = (100 - maxPercent) + "%";
+    }
     
 }
