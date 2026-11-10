@@ -683,4 +683,15 @@ btnInc?.addEventListener("click",() => {
             applyFilters();
         });
     });
+
+    //Amenilities checkbox Filtering
+    amenitiesCheckboxes.forEach(checkbox => {
+        cb.addEventListener('change', () => {
+            filterState.amenities = Array.from(amenitiesCheckboxes)
+            .filter(c => c.checked)
+            .map(c => c.value);
+        applyFilters();
+        });
+    });
+
     
