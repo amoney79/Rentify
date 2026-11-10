@@ -585,3 +585,20 @@ const propertiesData = [
     }
 ];
 
+//Filter State Object
+const filterState = {
+    minPrice:1500,
+    maxPrice:10000000,
+    propertType:"All",
+    bedrooms:1,
+    amenities:[],
+    searchQuery:"",
+};
+// Element Bindings
+const minSlider = document.getElementById("priceRangeMin");
+const maxSlider = document.getElementById("priceRangeMax");
+const rangeFill = document.getElementById("rangeFill");
+const minThumb = document.querySelectorAll("minThumb");
+const maxThumb = document.querySelectorAll("maxThumb");
+const minLabel = document.getElementById('minPriceLabel');
+const maxLabel = document.getElementById('maxPriceLabel');
