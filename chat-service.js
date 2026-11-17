@@ -47,5 +47,13 @@ class RentifyChatEngine {
             this.partnerAvatarEl.src = this.partnerUser.avatar;
         }
     }
-    
+
+    async loadMessages () {
+        if (!this.partnerUser) return;
+        try{
+            const messages = await RentifyAPI.getChatHistory(this.partnerUser.id);
+
+            
+        }
+    }
 }
