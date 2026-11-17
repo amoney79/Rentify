@@ -169,6 +169,10 @@ class RentifyChatEngine {
                 }
             });
 
+            //video call trigger button
+            const videoCallBtn = doocument.getElementId('chat-video-call-btn');
+            videoCallBtn?.addEventListener('click',() => this.startVideoCall());
+
             
         }
     }
