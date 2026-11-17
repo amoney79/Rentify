@@ -62,6 +62,11 @@ class RentifyChatEngine {
             console.error('Error Loading Chat History:', err);
         }
 
-        
+        renderMessages(messages) {
+            if(!this.messagesContainer) return;
+            this.messagesContainer.innerHTML= '';
+
+            messages
+        }
     }
 }
