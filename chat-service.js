@@ -154,5 +154,13 @@ class RentifyChatEngine {
                 this.pollingInterval = null
             }
         }
+
+        bindEvents() {
+            //send button
+            const sendBtn = document.getElementById('chat-send-btn');
+            sendBtn?.addEventListener('click', () =>  this.sendMessage());
+
+            
+        }
     }
 }
