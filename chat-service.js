@@ -31,6 +31,10 @@ class RentifyChatEngine {
             this.bindEvents();
 
             //Fetch initial messages and start polling for updates
+            await this.loadMessages();
+            this.startPolling();
+        } catch(err) {
+            console.error('Failed to initialize RentifyChatEngine:',err);
         }
     }
 }
