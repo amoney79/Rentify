@@ -58,6 +58,10 @@ class RentifyChatEngine {
                 this.lastMessageCount = messages.length;
                 this.renderMessages(messages);
             }
+        } catch (err) {
+            console.error('Error Loading Chat History:', err);
         }
+
+        
     }
 }
