@@ -37,4 +37,15 @@ class RentifyChatEngine {
             console.error('Failed to initialize RentifyChatEngine:',err);
         }
     }
+
+    updatePartnerHeader() {
+        if(!this.partnerUser) return;
+        if(this.partnerNameEl) {
+            this.partnerNameEl.textContent = this.partnerUser.name || 'User #${this.partnerUser.id}';
+        }
+        if(this.partnerAvatarEl && this.partnerUser.avatar) {
+            this.partnerAvatarEl.src = this.partnerUser.avatar;
+        }
+    }
+    
 }
