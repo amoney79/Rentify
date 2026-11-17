@@ -83,6 +83,14 @@ class RentifyChatEngine {
                     img.onclick = () => window.open(msg.attachmentUrl, '_blank');
                     bubble.appendChild(img);
 
+                }else is (msg.type === 'Document' && msg.attachmentUrl) {
+                    const link = document.createElement('a');
+                    link.href = msg.attachmentUrl;
+                    link.target = '_blank';
+                    link.rel = 'nooper noreferrer';
+                    link.className = 'chat-atttachemnt-doc';
+                    link.textContent = ' ${msg.content || "Download Document" }';
+                    bubble.appendChild(link);
                 }
             }
         }
