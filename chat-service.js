@@ -178,7 +178,22 @@ class RentifyChatEngine {
             const fileInput = document.getElementById('chat-file-input');
             attachBtn?.addEventListener('click', () => fileInput?.click());
 
-            
+            fileInput?.addEventListener('change',async(e) => {
+                if(e.target.files && e.target.files) {
+                    const file = e.target.files;
+                    try{
+                        const uploaded = await RentifyAPI.uploadChatAttachment(file);
+                        const recipientId = this.partnerUser? this.partnerUser.id : 2;
+                        await RentifyAPI.sendChatMessage (
+                            recipientId,
+                            file.name,
+                            file.type.startsWith('image/') ? "IMAGE" : "DOCUMENT" ,
+                            uploaded.url
+                        );
+                        
+                    }
+                }
+            })
         }
     }
 }
