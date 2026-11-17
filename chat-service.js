@@ -200,6 +200,13 @@ class RentifyChatEngine {
             });
 
 
+            //schedule viewiing trigger inside chat
+            const scheduleBtn = document.getElementById('chat-schedule-viewing-btn');
+            scheduleBBtn?.addEventListener('click',() => {
+                const recipientId = this.partnerUser ? this.partnerUser.id : 2;
+                window.location.href = 'schedule.html?partnerId=${recipientId}';
+            });
+
             
         }
     }
