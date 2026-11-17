@@ -71,7 +71,19 @@ class RentifyChatEngine {
                 const wrapper = document.createElement('div');
                 wrapper.className = 'chat-message-row ${isMine ? "mine" : "theirs"}';
 
-                
+
+                const bubble = document.createElement('div');
+                bubble.className = 'chat bubble ${isMine ? "mine" : "received"}';
+
+                if(msg.type === 'IMAGE' && msg.attachmentUrl) {
+                    const img = document.createElement('img');
+                    img.src = msg.attachmentUrl;
+                    img.alt = msg.content ||  'Image attachment';
+                    img.className = 'chatt-attachment-img';
+                    img.onclick = () => window.open(msg.attachmentUrl, '_blank');
+                    bubble.appendChild(img);
+
+                }
             }
         }
     }
