@@ -144,6 +144,15 @@ class RentifyChatEngine {
             window.location.href = 'Viideo-call.html ? partnerId=${recipientId}'; 
         }
 
-        startPolling
+        startPolling (){
+            this.startPolling();
+            this.pollingInterval = setInterval(() => this.loadMessages(),3000);
+        }
+        stopPolling() {
+            if(this.pollingInterval) {
+                clearInterval(this.pollingInternval);
+                this.pollingInterval = null
+            }
+        }
     }
 }
