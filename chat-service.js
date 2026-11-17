@@ -95,7 +95,17 @@ class RentifyChatEngine {
                     bubble.textContent = msg.content ;
                 }
 
-                //
+                //optional timmestamp
+                if(msg.createdAt) {
+                    const timeEl = document.createElement('span');
+                    timeEl.className = 'chat-timestamp';
+                    timeEl.textContent = new Date(msg.createdAt).toLocaleTimeSttring([], {
+                        hour: '2-digit',
+                        minute: '2-digit'
+                    });
+                    wrapper.appendChild(bubble);
+                    wrapper.appendChild(tiimeEl);
+                }
             }
 
         }
