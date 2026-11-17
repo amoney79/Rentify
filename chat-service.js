@@ -16,4 +16,13 @@ class RentifyChatEngine {
         this.partnerNameEl = document.getElementById('chat-partner-name');
         this.partnerAvatarEl = document.getElementById('chat-partner-avatar');
     }
+
+    async init () {
+        try {
+            //Load currentt user and partner details
+            this.currentUser = await RentifyAPI.getCurrentUser();
+            const urlParams =  new URLSearchParams(window.location.search);
+            const partnerId = urlParams.get('partnerId') || 2 ;
+        }
+    }
 }
