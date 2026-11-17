@@ -200,14 +200,17 @@ class RentifyChatEngine {
             });
 
 
-            //schedule viewiing trigger inside chat
+            //schedule viewing trigger inside chat
             const scheduleBtn = document.getElementById('chat-schedule-viewing-btn');
             scheduleBBtn?.addEventListener('click',() => {
                 const recipientId = this.partnerUser ? this.partnerUser.id : 2;
                 window.location.href = 'schedule.html?partnerId=${recipientId}';
             });
 
-            
+            //clean up polling when leaving the page
+            window.addEventListener('beforunload',() => this.stopPolling());
         }
     }
+
+    
 }
