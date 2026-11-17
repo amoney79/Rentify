@@ -190,10 +190,17 @@ class RentifyChatEngine {
                             file.type.startsWith('image/') ? "IMAGE" : "DOCUMENT" ,
                             uploaded.url
                         );
-                        
+                        await this.loadMessages();
+                    } catch(err) {
+                        console.error('File upload failed:;',err);
+                    } finally {
+                        fileInput.value = '';
                     }
                 }
-            })
+            });
+
+
+            
         }
     }
 }
