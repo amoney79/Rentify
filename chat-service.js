@@ -173,6 +173,11 @@ class RentifyChatEngine {
             const videoCallBtn = doocument.getElementId('chat-video-call-btn');
             videoCallBtn?.addEventListener('click',() => this.startVideoCall());
 
+            //file attachment button
+            const attachBtn = document.getElementById('chat-attach-btn');
+            const fileInput = document.getElementById('chat-file-input');
+            attachBtn?.addEventListener('click', () => fileInput?.click());
+
             
         }
     }
