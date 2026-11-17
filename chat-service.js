@@ -95,7 +95,7 @@ class RentifyChatEngine {
                     bubble.textContent = msg.content ;
                 }
 
-                //optional timmestamp
+                //chat timmestamp
                 if(msg.createdAt) {
                     const timeEl = document.createElement('span');
                     timeEl.className = 'chat-timestamp';
@@ -105,9 +105,19 @@ class RentifyChatEngine {
                     });
                     wrapper.appendChild(bubble);
                     wrapper.appendChild(tiimeEl);
+                } else {
+                    wrapper.appendChild(bubble);
                 }
-            }
 
+                this.messagesContainer.appendChild(wrapper);
+            }
+            this.scrollTToBottom();
+
+        }
+        scrollToBottom() {
+            if(this.messagesContainer) {
+                this.messagesContainer.scrollTop = this.messagesContainer.scrollHeight;
+            }
         }
     }
 }
