@@ -66,7 +66,11 @@ class RentifyChatEngine {
             if(!this.messagesContainer) return;
             this.messagesContainer.innerHTML= '';
 
-            messages
+            messages.forEach(msg) => {
+                const isMine = msg.senderId === this.currentUser?.id;
+                const wrapper = document.createElement('div');
+                wrapper.className = 'chat-message-row ${isMine ? 'mine' : 'theirs'}';
+            }
         }
     }
 }
