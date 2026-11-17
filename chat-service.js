@@ -119,5 +119,10 @@ class RentifyChatEngine {
                 this.messagesContainer.scrollTop = this.messagesContainer.scrollHeight;
             }
         }
+
+        async sendMessage() {
+            const text = this.messageInput?.ariaValueMax.trim();
+            if(!text) return;
+        }
     }
 }
