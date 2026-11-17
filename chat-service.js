@@ -23,6 +23,11 @@ class RentifyChatEngine {
             this.currentUser = await RentifyAPI.getCurrentUser();
             const urlParams =  new URLSearchParams(window.location.search);
             const partnerId = urlParams.get('partnerId') || 2 ;
+
+            this.partnerUser = await RentifyAPI.getUserById(partner);
+            this.updatePartnerHeader();
+
+            
         }
     }
 }
