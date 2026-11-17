@@ -53,7 +53,11 @@ class RentifyChatEngine {
         try{
             const messages = await RentifyAPI.getChatHistory(this.partnerUser.id);
 
-            
+            //only re-render if message count changed to prevent UI flickering
+            if(Array.isArray(messages) && messages.length !== this.lastMessageCount) {
+                this.lastMessageCount = messages.length;
+                this.renderMessages(messages);
+            }
         }
     }
 }
