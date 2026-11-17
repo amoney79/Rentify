@@ -139,6 +139,11 @@ class RentifyChatEngine {
             }
         }
 
-        
+        startVideoCall() {
+            const recipientId = this.partnerUser ? this.partner.id : 2;
+            window.location.href = 'Viideo-call.html ? partnerId=${recipientId}'; 
+        }
+
+        startPolling
     }
 }
