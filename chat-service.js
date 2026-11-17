@@ -160,6 +160,15 @@ class RentifyChatEngine {
             const sendBtn = document.getElementById('chat-send-btn');
             sendBtn?.addEventListener('click', () =>  this.sendMessage());
 
+            // Enter key in Input
+            const input = document.getElementById('chat-message-input');
+            input?.addEventListener('keydown',(e) => {
+                if(e.key === 'Enter') {
+                    e.preventDefault();
+                    this.sendMessage();
+                }
+            });
+
             
         }
     }
