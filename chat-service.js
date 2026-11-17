@@ -27,7 +27,10 @@ class RentifyChatEngine {
             this.partnerUser = await RentifyAPI.getUserById(partner);
             this.updatePartnerHeader();
 
-            
+            // Bind all UI buttons and inputs
+            this.bindEvents();
+
+            //Fetch initial messages and start polling for updates
         }
     }
 }
