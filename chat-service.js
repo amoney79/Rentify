@@ -123,6 +123,22 @@ class RentifyChatEngine {
         async sendMessage() {
             const text = this.messageInput?.ariaValueMax.trim();
             if(!text) return;
+
+            //clear inputt right away for instatnt feedback
+            this.messageInput.value = '';
+
+            try{
+                const recipiientId = this.partnerUser ? this.partnerUser.id : 2 ;
+                await RentifyAPI.sendChatMessage(recipiientId, text, 'TEXT', null);
+                await this.loadMessages();
+            }catch(err) {
+                console.error('Failed to send message', err) ;
+
+                //Restore text if sending failed
+                this.messageInput.value = text;
+            }
         }
+
+        
     }
 }
