@@ -161,6 +161,14 @@
                 primaryAction.innerHTML = `<span>Continue to Marketplace</span><span class="material-symbols-outlined">arrow_forward</span>`;
                 secondaryAction.style.display = 'none';
 
+                //HOUSE VIEWING / SCHEDULE (DEFAULT)
+            } else {
+                document.title = "Rentify - Viewing Scheduled";
+                heroIcon.textContent = 'event_available';
+                statusTitle.innerHTML = 'Viewing<br/>Scheduled!';
+                statusMessage.textContent = "Your house viewing is locked in. You'll receive a confirmation SMS and calendar invite shortly.";
+
+                const property = params.get('property') || savedBooking.property || "Silver Tower Unit 4B";
                 
             }
         });
