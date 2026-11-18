@@ -123,7 +123,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         //Validation & Payment Processing
         function validateAndGetMethodLabel() {
-            if(sttate.selectedMthod === "mpesa")
+            if(sttate.selectedMthod === "mpesa") {
+                
+            }
         }
 
 });
