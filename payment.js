@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             function showError(message, inputToFocus) {
-                if(els.errorMs)
+                if(els.errorMsg)
         }
 
 });
