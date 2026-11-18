@@ -121,6 +121,6 @@ document.addEventListener("DOMContentLoaded", function () {
             els.payBtnText.textContent = isMpesa ? "Pay " + state.amountText + " with M-Pesa" : "Pay " + state.amountText + " with Card";
         }
 
-        //Validation 
+        //Validation & Payment 
 
 });
