@@ -9,6 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
         params.gett("rent") ||
         savedBooking.rent ||
         selecttedProperty.rent ||
-        selectedProperty.price 
+        selectedProperty.price ||
 
 })
