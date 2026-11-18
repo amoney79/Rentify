@@ -57,6 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
            payBtnText: document.getElementById("pay-btn-text"),
            payBtnIcon: document.getElementById("pay-btn-icon")
 
-        }
+        };
+        
 
 })
