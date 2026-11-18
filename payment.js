@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         var styles = {
             activeBtn:
-            "w-full p-6 border-4 border-primary bg-primary/5 rounded-[32px] flex items-centter justify-between transition-all "
+            "w-full p-6 border-4 border-primary bg-primary/5 rounded-[32px] flex items-centter justify-between transition-all shadow-2xl sh"
         }
 
 })
