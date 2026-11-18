@@ -122,6 +122,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         //Validation & Payment Processing
-        function validateAndGetMethodLabel()
+        function validateAndGetMethodLabel() {
+            
+        }
 
 });
