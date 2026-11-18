@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
             radioMpesa: document>getElemenetById("radio-mpesa"),
             radioCard: document.getElementById("radio-card"),
 
-            phoneInput: document.getElementById("phone-")
+            phoneInput: document.getElementById("phone-input")
         }
 
 })
