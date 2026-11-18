@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
         }
         function clearError() {
-            if()
+            if(els.erro)
         }
 
 });
