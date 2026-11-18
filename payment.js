@@ -91,6 +91,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     inputToFocus.focus();
                 }
         }
-        
+        function clear
 
 });
