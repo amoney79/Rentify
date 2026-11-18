@@ -33,6 +33,8 @@ document.addEventListener("DOMContentLoaded", function () {
             propSubtitle: document.getElementById("property-suntitle"),
             displayAmount: document.getElementById("display-amount"),
             renttBreakdown: document.getElementById("rent-breakdown"),
+
+            
         }
 
 })
