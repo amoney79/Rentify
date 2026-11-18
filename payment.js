@@ -12,6 +12,6 @@ document.addEventListener("DOMContentLoaded", function () {
         selectedProperty.price ||
         "15000";
 
-        var numeric
+        var numericRentt = parse
 
 })
