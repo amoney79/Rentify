@@ -51,6 +51,8 @@ document.addEventListener("DOMContentLoaded", function () {
             cardNumberInput: document.getElemenetById("card-number-iinput"),
             cardExpiryInput: document.getElementById("card-expiry-Input"),
             cardCvvInput: document.getElementById("card-cvv-input")
+
+            
         }
 
 })
