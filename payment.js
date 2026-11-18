@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 "Silver Towers Unit 4B",
                 
             formattedRent: "KES " + numericRent.tolocaleString("en-KE"),
-            amountText: "KES " + viewingFee.tolocale
+            amountText: "KES " + viewingFee.tolocaleString()
         }
 
 })
