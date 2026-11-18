@@ -110,6 +110,13 @@
                     {label: 'Payment Method', value: method },
                     {label: 'Date', value: datePaid }
                 ]);
+
+                primaryAction.href = 'index.html';
+                primaryAction.innerHTML = '<span>Back to Marketplace</span><span class="material-symbols-outlined">home</span>';
+                secondaryAction.href = '#';
+                secondaryAction.textContent = 'Download PDF Receipt';
+                secondaryAction.onclick = (e) => {e.preventDefault(); window.print(); };
+                
             }
         })
     </script>
