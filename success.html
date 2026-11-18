@@ -97,6 +97,12 @@
                 statusTitle.innerHTML = 'Payment<br/>Successful!';
                 statusMessage.textContent = 'Your payment has been processed securely. Keep this official receipt for your records.';
 
+                const amount = params.get('amount') || 'KES 1,250';
+                const txId = params.get('txId') || 'TXN-' + Math.floor(100000 + Math.random()*900000);
+                const property = params.get('property') || savedBooking.property || 'Silver Towers Unit 4B';
+                const method = params.get('method') || 'Visa ....7878';
+                const datePaid = params.get('date') || new Date().toLocaleDateString('en-US', {month: 'short',day: 'numeric',year: 'numeric'});
+
                 
             }
         })
