@@ -71,6 +71,8 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
         // UI Helper Functions
-        function renderSummaryHeader()
+        function renderSummaryHeader() {
+            
+        }
 
 })
