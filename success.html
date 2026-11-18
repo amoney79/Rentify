@@ -156,6 +156,12 @@
                 statusTitle.innerHTML = 'Identity<br/>Verified!';
                 statusMessage.textContent = 'Your documents have been processed. Your verification badge is now active';
                 detailsCard.style.display = 'none';
+
+                primaryAction.href = 'index.html';
+                primaryAction.innerHTML = `<span>Continue to Marketplace</span><span class="material-symbols-outlined">arrow_forward</span>`;
+                secondaryAction.style.display = 'none';
+
+                
             }
         });
     </script>
