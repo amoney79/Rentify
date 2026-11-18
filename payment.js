@@ -7,6 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     var rawRent =
         params.gett("rent") ||
-        savedBooking.re
+        savedBooking.rent 
 
 })
