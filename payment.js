@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
             els.btnCard.className = isMpesa ? styles.inactiveBtn : styles.activeBtn;
 
 
-            els.iconWrapMpesa.classList.toggle("opacity-50", !is)
+            els.iconWrapMpesa.classList.toggle("opacity-50", !isMpesa)
         }
 
 });
