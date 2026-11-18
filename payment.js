@@ -12,6 +12,6 @@ document.addEventListener("DOMContentLoaded", function () {
         selectedProperty.price ||
         "15000";
 
-        var numericRentt = parseFloat(String())
+        var numericRentt = parseFloat(String(rawRent).replace)
 
 })
