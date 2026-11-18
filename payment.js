@@ -99,6 +99,8 @@ document.addEventListener("DOMContentLoaded", function () {
         function selectMetthod(method) {
             state.selectdMethod = method ;
             clearError();
+
+            var isMpesa = meth
         }
 
 });
