@@ -5,6 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
     var savedBooking =JSON.parse(localStorage.getItem("rentifyBooking") || "{}");
     var selectedProperty = JSON.parse(localStorage.getItem("selectedProperty") || "{}");
 
-    var 
+    var raw
 
 })
