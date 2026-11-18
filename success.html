@@ -143,7 +143,11 @@
                     },
                     {lable: 'Est. Review Time', value: '24 - 48 Hours'}
                 ]);
-                
+
+                primaryAction.href = 'index.html';
+                primaryAction.innerHTML = '<span>Return to Dashboard</span><span class="material-symbols-outlined">dashboard</span>';
+                secondaryAction.href = 'chat.html';
+                secondaryAction.textContent = 'Contact Onboarding Support';
             }
         });
     </script>
