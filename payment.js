@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
             els.formMpesa.classList.toggle("hidden", !isMpesa);
             els.formCard.classList.toggle("hidden",isMpesa);
 
-            els.payBtnText.textContent = isMpesa ? "Pay " + state.amountText + " with M-Pesa" : "Pay " + state.amountText 
+            els.payBtnText.textContent = isMpesa ? "Pay " + state.amountText + " with M-Pesa" : "Pay " + state.amountText + ""
         }
 
 });
