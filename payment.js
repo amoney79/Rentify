@@ -36,7 +36,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             btnMpesa: document.getElementById("btn-mpesa"),
             btnCard: document.getElementById("btn-card"),
-            formMpesa: document.getElemenetById("form-mpesa")
+            formMpesa: document.getElemenetById("form-mpesa"),
+            
         }
 
 })
