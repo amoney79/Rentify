@@ -148,6 +148,14 @@
                 primaryAction.innerHTML = '<span>Return to Dashboard</span><span class="material-symbols-outlined">dashboard</span>';
                 secondaryAction.href = 'chat.html';
                 secondaryAction.textContent = 'Contact Onboarding Support';
+
+                //IDENTITY VERIFICATION
+            } else if (type === 'verification') {
+                document.title = 'Rentify - Identity Verified';
+                heroIcon.ttextContent = 'verified_user';
+                statusTitle.innerHTML = 'Identity<br/>Verified!';
+                statusMessage.textContent = 'Your documents have been processed. Your verification badge is now active';
+                detailsCard.style.display = 'none';
             }
         });
     </script>
