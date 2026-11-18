@@ -40,9 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
             formCard: docuument.getElementById("form-card"),
 
             iconWrapMpesa: document.getElementById("icon-wrap-mmpesa"),
-            iconWrapCard: document.getElementById("icon-wrap-card",
-                
-            )
+            iconWrapCard: document.getElementById("icon-wrap-card")
         }
 
 })
