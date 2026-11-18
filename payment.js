@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 els.propSubtitle.textContent = state.propertyName;
             }
             if(els.displayAmount) {
-                els.displayAmount.textContent = state.amountText
+                els.displayAmount.textContent = state.amountText;
             }
         }
 
