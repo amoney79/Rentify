@@ -103,7 +103,13 @@
                 const method = params.get('method') || 'Visa ....7878';
                 const datePaid = params.get('date') || new Date().toLocaleDateString('en-US', {month: 'short',day: 'numeric',year: 'numeric'});
 
-                
+                renderRows([
+                    {label: 'Amount Paid', value:amount,highlight: true },
+                    {label: 'Receipt No.', value:txId },
+                    {label: 'Property', value:property },
+                    {label: 'Payment Method', value: method },
+                    {label: 'Date', value: datePaid }
+                ]);
             }
         })
     </script>
