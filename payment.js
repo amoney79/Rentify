@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
             displayAmount: document.getElementById("display-amount"),
             renttBreakdown: document.getElementById("rent-breakdown"),
 
-            btnMpesa: document.getElementById("")
+            btnMpesa: document.getElementById("btn-mpesa")
         }
 
 })
