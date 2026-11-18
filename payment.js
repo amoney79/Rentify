@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
            payBtn: document.getElementById("pay-submit-btn"),
            payBtnText: document.getElementById("pay-btn-text"),
            payBtnIcon: document.getElementById("pay-btn-icon")
-    };
+    
         }
 
 })
