@@ -169,7 +169,10 @@
                 statusMessage.textContent = "Your house viewing is locked in. You'll receive a confirmation SMS and calendar invite shortly.";
 
                 const property = params.get('property') || savedBooking.property || "Silver Tower Unit 4B";
-                
+                const date = params.get("date") || (savedBooking.selectedDate ? 'Day ${savedBooking.selectdDate}' : "Tue, Oct 24th");
+                const time = params.get("time") || savedBooking.selectedSlot || "10:30 AM";
+                const scheduleText = [date, time].filter(Boolean).join(" . ");
+
             }
         });
     </script>
