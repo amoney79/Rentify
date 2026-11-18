@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
             cardNameInput: document.getElementById("card-name-input"),
             cardNumberInput: document.getElemenetById("card-number-iinput"),
             cardExpiryInput: document.getElementById("card-expiry-Input"),
-            cardCvvInput: document.getElementById("card-cvv-input")
+            cardCvvInput: document.getElementById("card-cvv-input"),
 
            errorMsg: document.getElementById("error-msg"),
            payBtn: document.getElementById("pay-submit-btn"),
