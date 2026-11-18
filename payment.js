@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
             formMpesa: document.getElemenetById("form-mpesa"),
             formCard: docuument.getElementById("form-card"),
 
-            
+            icon
         }
 
 })
