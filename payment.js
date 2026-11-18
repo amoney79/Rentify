@@ -52,7 +52,11 @@ document.addEventListener("DOMContentLoaded", function () {
             cardExpiryInput: document.getElementById("card-expiry-Input"),
             cardCvvInput: document.getElementById("card-cvv-input")
 
-            
+            errorMsg: document.getElementById("error-msg"),
+        payBtn: document.getElementById("pay-submit-btn"),
+        payBtnText: document.getElementById("pay-btn-text"),
+        payBtnIcon: document.getElementById("pay-btn-icon")
+    };
         }
 
 })
