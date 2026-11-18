@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -366,6 +366,109 @@
             </a>
         </nav>
     </div>
+    <script src="rentify-api.js"></script>
+    <script>
+        (function () {
+            // --- Profile Page Backend Wiring ---
+            const AVATAR_PLACEHOLDER = 'https://ui-avatars.com/api/?name=User&background=135bec&color=fff&size=200';
+
+            function applyUserData(user) {
+                if (!user) return;
+
+                // Update all avatar <img> tags that have the hardcoded Google URL
+                document.querySelectorAll('img[src*="lh3.googleusercontent.com"]').forEach(img => {
+                    img.src = user.avatarUrl || AVATAR_PLACEHOLDER;
+                });
+
+                // Update the name span in the header (shows "James")
+                const headerNameSpan = document.querySelector('header span.text-sm.font-bold');
+                if (headerNameSpan) headerNameSpan.textContent = (user.fullName || '').split(' ')[0] || user.fullName;
+
+                // Update the sidebar h2 showing "James Mwangi"
+                const profileH2 = document.querySelector('aside h2');
+                if (profileH2) profileH2.textContent = user.fullName || 'User';
+
+                // --- Verification badge ---
+                const verificationBadgeContainer = document.querySelector('aside .mt-8.pt-8');
+                if (verificationBadgeContainer) {
+                    // Remove existing verification badge if any
+                    const existingBadge = document.getElementById('identity-badge');
+                    if (existingBadge) existingBadge.remove();
+
+                    const badge = document.createElement('div');
+                    badge.id = 'identity-badge';
+                    badge.className = 'flex items-center justify-center gap-2 py-2 px-4 rounded-full text-xs font-bold mb-3';
+
+                    if (user.identityStatus === 'VERIFIED_IDENTITY') {
+                        badge.className += ' bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-400';
+                        badge.innerHTML = '<span class="material-symbols-outlined text-sm">verified_user</span> Identity Verified';
+                    } else {
+                        badge.className += ' bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-400 cursor-pointer';
+                        badge.innerHTML = '<span class="material-symbols-outlined text-sm">pending</span> <a href="upload.html" class="underline">Pending Verification</a>';
+                    }
+                    verificationBadgeContainer.insertBefore(badge, verificationBadgeContainer.firstChild);
+                }
+
+                // --- Agent status badge ---
+                if (user.agentStatus === 'VERIFIED_AGENT') {
+                    const existingAgentBadge = document.getElementById('agent-badge');
+                    if (!existingAgentBadge) {
+                        const agentBadge = document.createElement('div');
+                        agentBadge.id = 'agent-badge';
+                        agentBadge.className = 'flex items-center justify-center gap-2 py-2 px-4 rounded-full text-xs font-bold bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-400 mt-2';
+                        agentBadge.innerHTML = '<span class="material-symbols-outlined text-sm">real_estate_agent</span> Verified Agent';
+                        const h2 = document.querySelector('aside h2');
+                        if (h2) h2.insertAdjacentElement('afterend', agentBadge);
+                    }
+                }
+            }
+
+            async function loadUserProfile() {
+                // 1. Try loading from localStorage first for immediate render
+                const cached = typeof RentifyAPI !== 'undefined' ? RentifyAPI.getCurrentUser() : null;
+                if (cached) applyUserData(cached);
+
+                // 2. Fetch live from backend
+                try {
+                    const token = localStorage.getItem('rentify_token');
+                    const headers = token ? { 'Authorization': 'Bearer ' + token } : {};
+                    const res = await fetch('http://localhost:8080/api/auth/me', { headers });
+                    if (res.ok) {
+                        const user = await res.json();
+                        applyUserData(user);
+                        // Update cache
+                        try { localStorage.setItem('rentify_user', JSON.stringify(user)); } catch (e) {}
+                    }
+                } catch (e) {
+                    // Backend unreachable - already applied cached data above
+                }
+            }
+
+            // --- Logout button wiring ---
+            const logoutBtn = document.querySelector('button span.material-symbols-outlined');
+            const logoutBtnEl = logoutBtn ? logoutBtn.closest('button') : null;
+            if (logoutBtnEl && logoutBtnEl.textContent.includes('Log Out')) {
+                logoutBtnEl.addEventListener('click', () => {
+                    localStorage.removeItem('rentify_user');
+                    localStorage.removeItem('rentify_token');
+                    window.location.href = 'index.html';
+                });
+            } else {
+                // Fallback: wire any button with "Log Out" text
+                document.querySelectorAll('button').forEach(btn => {
+                    if (btn.textContent.trim().includes('Log Out')) {
+                        btn.addEventListener('click', () => {
+                            localStorage.removeItem('rentify_user');
+                            localStorage.removeItem('rentify_token');
+                            window.location.href = 'index.html';
+                        });
+                    }
+                });
+            }
+
+            loadUserProfile();
+        })();
+    </script>
 </body>
 
 </html>

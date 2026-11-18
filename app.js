@@ -104,6 +104,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --Schedule--
+    let bookingState = {
+        property: 'Silver Towers Unit 4B',
+        selectedDate:'29',
+        selectedSlot: "09:00 AM"
+
+    };
+    //DOM Elements
+    const dataCells = document.querySelectorAll("grid-colors-7> div.cursor-pointer");
+    const 
+    });
+
     // --- County to Sublocations Dataset ---
     const sublocationData = {
         nairobi: ['Kitisuru', 'Parklands', 'Karura', 'Kangemi', 'Mountain View', 'Kilimani', 'Kawangware','Gatina','Kileleshwa','Kabiro','Mutu-lni','Ngando','Riruta','Uthiru','Waithaka','Karen','Nairobi West','Mugumo-lni','Southh C','Nyayo Highrise','Laini Saba','Lindi','Woodley','Sarangome','Githurai','Kahawa West','Zimmerman','Roysambu','Kahawa Sukari','Kahawa Wendani','Clay City','Mwiki','Kasarani','Ruai','Baba Dogo','Utalii','Mathare Nortth','Lucky Summer','Korogocho','Imara Daima','Kwa Njenga','Kwa Reuben','Pipeline','Kware','Kayole North','Kayole Central','Kayole South','Komarock','Matopeni','Upper Savanna','Lower Savanna','Embakasi','Utawala','Mihango','Umoja','Kariobangi South','Viwandani','Harambee','Makongeni','Pumwani','EastLeigh North','EastLeigh South','Airbase','Ngara','Kariokor','Pangani','Landimawe','Mabatini','Huuruma','Ngei','Mlango Kubwa','Kiamaiko'],

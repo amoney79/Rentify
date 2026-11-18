@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -25,36 +25,24 @@
     <div id="app-container" class="bg-white dark:bg-[#101622] min-h-screen relative flex flex-col items-center justify-center p-6 text-center">
         
         <div class="max-w-xl w-full space-y-8 animate-in fade-in zoom-in duration-700">
-            <!-- Hero Icon -->
+            <!--Dynamic  Hero Icon -->
             <div class="relative size-32 md:size-48 mx-auto mb-12">
-                <div class="absolute inset-0 bg-primary/20 rounded-full animate-ping"></div>
-                <div class="relative size-full bg-primary text-white rounded-full flex items-center justify-center shadow-2xl shadow-primary/40">
-                    <span class="material-symbols-outlined !text-6xl md:text-8xl font-black">check_circle</span>
+                <div id="hero-ping" class="absolute inset-0 bg-primary/20 rounded-full animate-ping"></div>
+                <div id="hero-circle" class="relative size-full bg-primary text-white rounded-full flex items-center justify-center shadow-2xl shadow-primary/40">
+                    <span id="hero-icon" class="material-symbols-outlined !text-6xl md:text-8xl font-black">check_circle</span>
                 </div>
             </div>
-
+ 
+            <!--Dynamic Title & Subtitle-->
             <div class="space-y-4">
-                <h1 class="text-4xl md:text-7xl font-black italic tracking-tight leading-none">Booking<br/>Confirmed!</h1>
-                <p class="text-gray-500 text-lg md:text-xl font-medium max-w-sm mx-auto">Your viewing is scheduled. You'll receive a confirmation SMS in a few seconds.</p>
+                <h1 id="status-title" class="text-4xl md:text-7xl font-black italic tracking-tight leading-none">Booking<br/>Confirmed!</h1>
+                <p id="status-message" class="text-gray-500 text-lg md:text-xl font-medium max-w-sm mx-auto">Your viewing is scheduled. You'll receive a confirmation SMS in a few seconds.</p>
             </div>
 
-            <!-- Receipt Card -->
-            <div class="bg-gray-50 dark:bg-gray-800/50 p-8 rounded-[40px] border border-gray-100 dark:border-gray-800 space-y-6 shadow-sm">
-                <div class="flex justify-between items-center text-sm md:text-lg">
-                    <span class="text-gray-400 font-bold uppercase tracking-widest text-[10px]">Property</span>
-                    <span class="font-black italic">Silver Towers Unit 4B</span>
-                </div>
-                <div class="flex justify-between items-center text-sm md:text-lg border-t border-gray-100 dark:border-gray-700 pt-6">
-                    <span class="text-gray-400 font-bold uppercase tracking-widest text-[10px]">Schedule</span>
-                    <span class="font-black italic">Tue, Oct 24th • 10:30 AM</span>
-                </div>
-                <div class="flex justify-between items-center text-sm md:text-lg border-t border-gray-100 dark:border-gray-700 pt-6">
-                    <span class="text-gray-400 font-bold uppercase tracking-widest text-[10px]">Agent</span>
-                    <div class="flex items-center gap-3">
-                        <span class="font-black italic">Sarah Johnson</span>
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuEATf7dZYNF-h_g3rZE-xxG7ykTdRZFUG6PiEwuhbQeRUfwPQkHmvj8Ltl3hcUF-iTKvo02OOnqk6ipPT7UPSrQmSTpiUBfbt4VlVxBJJoBslFpPaeVjHb83PU-pzyJMnu4a1vO671EaEGBXgPgwc5xl2NqqBVZAdQUynXGt5bSymKFwz-iCx-YuCm45pKTfJ9ihGVcthBX__cFtvHQ8Rgx-xySw4UzDB0lFyx7MiDYdF9TueVB2yTOPY2p-fzDE1-_6xS3A6HR8" class="size-8 rounded-full border-2 border-primary">
-                    </div>
-                </div>
+            <!-- Dynamic Details | Receipt Card(completely replaced per state) -->
+            <div id="details-card" class="bg-gray-50 dark:bg-gray-800/50 p-6 md:p-8 rounded-[32px] md:rounded-[40px] border border-gray-100 dark:border-gray-800 space-y-5 shadow-sm text-left" >
+                <!--Rows injected by success.js-->
+
             </div>
 
             <div class="pt-8 space-y-4">
@@ -67,5 +55,48 @@
 
         <div class="absolute bottom-12 text-gray-400 text-[10px] font-bold uppercase tracking-[0.4em]">Rentify Technologies &copy; 2026</div>
     </div>
+    <script src="rentify-api.js"></script>
+    <script>
+        (function () {
+            // --- Success Page Dynamic Content ---
+            const params = new URLSearchParams(window.location.search);
+            const type = params.get('type');
+
+            if (type === 'verification') {
+                // Update title and body text for verification success
+                const h1 = document.querySelector('h1');
+                if (h1) h1.innerHTML = 'Identity<br/>Verified!';
+
+                const bodyP = document.querySelector('p.text-gray-500');
+                if (bodyP) bodyP.textContent = 'Your documents have been processed. Your verification status will be updated shortly.';
+
+                // Hide the receipt card (booking-specific)
+                const receiptCard = document.querySelector('.bg-gray-50.dark\\:bg-gray-800\\/50.p-8.rounded-\\[40px\\]');
+                if (receiptCard) receiptCard.style.display = 'none';
+
+            } else if (type === 'booking') {
+                // Populate booking receipt with URL params
+                const property = params.get('property') || 'Property';
+                const date = params.get('date') || '';
+                const time = params.get('time') || '';
+
+                // Property value
+                const rows = document.querySelectorAll('.bg-gray-50 .flex.justify-between');
+                if (rows[0]) {
+                    const val = rows[0].querySelector('span:last-child');
+                    if (val) val.textContent = decodeURIComponent(property);
+                }
+
+                // Schedule value
+                if (rows[1]) {
+                    const val = rows[1].querySelector('span:last-child');
+                    if (val) {
+                        const schedule = [decodeURIComponent(date), decodeURIComponent(time)].filter(Boolean).join(' • ');
+                        if (schedule) val.textContent = schedule;
+                    }
+                }
+            }
+        })();
+    </script>
 </body>
 </html>
