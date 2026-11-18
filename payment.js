@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             iconWrapMpesa: document.getElementById("icon-wrap-mmpesa"),
             iconWrapCard: document.getElementById("icon-wrap-card"),
-            textWrapMpe
+            textWrapMpesa
         }
 
 })
