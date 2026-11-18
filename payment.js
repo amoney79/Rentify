@@ -17,8 +17,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         //Application State
         var state = {
-            propertyName;
-                params
+            propertyName:
+                params.get('')
         }
 
 })
