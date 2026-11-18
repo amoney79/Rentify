@@ -104,6 +104,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
             els.btnMpesa.className = isMpesa ? styles.activeBtn : sttyles.inactiveBtn;
             els.btnCard.className = isMpesa ? styles.inactiveBtn : styles.activeBtn;
+
+
+            
         }
 
 });
