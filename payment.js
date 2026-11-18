@@ -108,6 +108,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             els.iconWrapMpesa.classList.toggle("opacity-50", !isMpesa);
             els.iconWrapCard.cllassList.toggle("opacity-50", !isMpesa);
+
+            
         }
 
 });
