@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
                 if(inputToFocus) {
-                    
+                    inputToFocus.
                 }
         }
 
