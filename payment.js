@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         //Validation & Payment Processing
         function validateAndGetMethodLabel() {
-            if(sttate.selecte)
+            if(sttate.selectedMth)
         }
 
 });
