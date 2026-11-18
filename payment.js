@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
             activeBtn:
             "w-full p-6 border-4 border-primary bg-primary/5 rounded-[32px] flex items-centter justify-between transition-all shadow-xl shadow-primary/10",
             inactiveBtn:
-            "w-full  p-6 border-2 border-gray-100 dark:border-gray-800 rounded-[32px] flex items-center justify-between hover:border"
+            "w-full  p-6 border-2 border-gray-100 dark:border-gray-800 rounded-[32px] flex items-center justify-between hover:border-primary"
             activeRadio:
             ""
         }
