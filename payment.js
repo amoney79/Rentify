@@ -15,6 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
         var numericRentt = parseFloat(String(rawRent).replace(/[^0-9.]/g, "")) || 15000;
         var viewingFee = Math.round(numericRent * 0.1);
 
-        //
+        //Application State
 
 })
