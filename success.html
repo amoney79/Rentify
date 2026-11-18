@@ -86,6 +86,16 @@
                     </div>
                 `).join('');
             }
+
+            //PAYMENT SUCCESS & RECEIPT
+            if(type === 'payment') {
+                document.title = 'Rentify - Payment Receipt';
+                document.className = 'relative size- full bg-emerald-600 text-whhite rounded-full flex items-center justify-center shaddow-2xl shadow-emerald-600/40';
+                heroPing.className = 'absolute insect-0 bg-emerald-500/20 rounded-full animatte-ping';
+                heroIcon.textContent = 'receipt_long';
+
+                
+            }
         })
     </script>
 </body>
