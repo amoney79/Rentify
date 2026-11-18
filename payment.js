@@ -16,6 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
         var viewingFee = Math.round(numericRent * 0.1);
 
         //Application State
-        var state = 
+        var state = {
+            []
+        }
 
 })
