@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
         //cache DOM elements
         var els = {
             propSubtitle: document.getElementById("property-suntitle"),
-            displayAmount: document.ggetElementById
+            displayAmount: document.ggetElementById()
         }
 
 })
