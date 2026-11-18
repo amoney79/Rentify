@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         //cache DOM elements
         var els = {
-            propSubtitle: document.getBy
+            propSubtitle: document.getElementBy
         }
 
 })
