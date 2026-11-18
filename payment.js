@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
             var isMpesa = method === "mpesa";
 
             els.btnMpesa.className = isMpesa ? styles.activeBtn : sttyles.inactiveBtn;
-            els.btnCard.className = isMpesa ? stt
+            els.btnCard.className = isMpesa ? styles.
         }
 
 });
