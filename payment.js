@@ -87,7 +87,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     els.errorMsg.classList.remove("hidden");
                 }
 
-                if(inputToFocus)
+                if(inputToFocus) {
+                    
+                }
         }
 
 });
