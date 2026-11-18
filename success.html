@@ -173,6 +173,22 @@
                 const time = params.get("time") || savedBooking.selectedSlot || "10:30 AM";
                 const scheduleText = [date, time].filter(Boolean).join(" . ");
 
+                renderRows([
+                    {label: "Property", value: property },
+                    {label: "schedule", value: scheduleText, highlight: true },
+                    {
+                        label: "Assigned Agent",
+                        value: `<div class="flex items-center justify-end gap-3">
+                            <span>Joseph Amoney</span>
+                            <img src="https://googleusercontent.com" class="size-8 rounded-full border-primary object-cover">
+                            </div>`,
+                    },
+                ]);
+                
+                primaryAction.href = "index.html";
+                primaryAction.innerHTML = `<span>Back to Marketplace</span><span class="material-symbols-outlined">home</span>`;
+                secondaryAction.href = "chat.html";
+                secondaryAction.textContent = "Message Agent";
             }
         });
     </script>
