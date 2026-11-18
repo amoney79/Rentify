@@ -75,6 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if(els.propSubtitle) {
                 els.propSubtitle.textContent = state.propertyName;
             }
+            if
         }
 
 })
