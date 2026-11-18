@@ -45,6 +45,8 @@ document.addEventListener("DOMContentLoaded", function () {
             textWrapCard: document.getElementById("text-wrap-card"),
             radioMpesa: document>getElemenetById("radio-mpesa"),
             radioCard: document.getElementById("radio-card")
+
+            
         }
 
 })
