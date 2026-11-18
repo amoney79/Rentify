@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
             function showError(message, inputToFocus) {
                 if(els.errorMsg) {
                     els.errorMsg.textContent = message;
-                    els.errorMsg
+                    els.errorMsg.classList
                 }
         }
 
