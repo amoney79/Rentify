@@ -42,7 +42,8 @@ document.addEventListener("DOMContentLoaded", function () {
             iconWrapMpesa: document.getElementById("icon-wrap-mmpesa"),
             iconWrapCard: document.getElementById("icon-wrap-card"),
             textWrapMpesa: document.getElementById("text-wrap-mpesa"),
-            textWrapCard: document.getElementById("text-wrap-card")
+            textWrapCard: document.getElementById("text-wrap-card"),
+            
         }
 
 })
