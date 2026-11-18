@@ -86,6 +86,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     els.errorMsg.textContent = message;
                     els.errorMsg.classList.remove("hidden");
                 }
+
+                if
         }
 
 });
