@@ -91,6 +91,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     inputToFocus.focus();
                 }
         }
-        function clearError()
+        function clearError() {
+            if()
+        }
 
 });
