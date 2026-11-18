@@ -71,6 +71,6 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
         // UI Helper Functions
-        function
+        function renderS
 
 })
