@@ -19,7 +19,8 @@ document.addEventListener("DOMContentLoaded", function () {
         var state = {
             propertyName:
                 params.get("property") ||
-                savedBooking.pr
+                savedBooking.property ||
+                s
         }
 
 })
