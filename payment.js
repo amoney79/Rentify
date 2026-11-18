@@ -23,7 +23,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 selectedProperty.title ||
                 "Silver Towers Unit 4B",
                 
-            formattedRent: "KES " + numericRent.tolocaleString("en-KE")
+            formattedRent: "KES " + numericRent.tolocaleString("en-KE"),
+            
         }
 
 })
