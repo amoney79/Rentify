@@ -63,7 +63,10 @@
             //supports ?type=payment | ?type==schedule(or booking) | ?type=landlord |?type=verification
             const type =(params.get('type') || 'schedule').toLowerCase();
 
-            //fallback
+            //fallback to saved localStorage state if URL params aren't passed
+            const savedBooking = JSON.parse(localStorage.getItem('rentifyBooking') || '{}');
+
+            
         })
     </script>
 </body>
