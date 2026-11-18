@@ -75,6 +75,17 @@
             const detailsCard = document.getElementById('detail-card');
             const primaryAction = document.getElementById('primary-action');
             const secondaryAction = document.getElementById('secondary-action');
+
+            //Helper to build clean, responsive receipt rows
+            function renderRows(row) {
+                dettailsCard.style.display = 'block';
+                detailsCard.innerHTML = rows.map((row, index) => `
+                    <div class="flex justify-between items-center gap-4 text-sm md:text-lg ${index > 0 ? 'border-t border-gray-200/70 dark:border-gray-700 pt-5' : ''}">
+                        <span class="text-gray-400 font-bold uppercase tracking-widest text-[10px] shrink-0">${row.label}</span>
+                        <div class="font-black italic text-right ${row.highlight ? 'text-primary text-lg md:text-xl' : ''}">${row.value}</div>
+                    </div>
+                `).join('');
+            }
         })
     </script>
 </body>
