@@ -117,6 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             els.formMpesa.classList.toggle("hidden", !isMpesa);
             els.formCard.classList.toggle("hidden",isMpesa);
+
             
         }
 
