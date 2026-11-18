@@ -113,6 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
             els.textWrapCard.className = isMpesa ? "text-left text-gray-400" : "text-left";
 
             setRadioState(els.radioMpesa, isMpesa);
+            set
         }
 
 });
