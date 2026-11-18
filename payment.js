@@ -26,6 +26,8 @@ document.addEventListener("DOMContentLoaded", function () {
             formattedRent: "KES " + numericRent.tolocaleString("en-KE"),
             amountText: "KES " + viewingFee.tolocaleString("en-KE"),
             selectedMethod: "mpesa"
-        }
+        };
+
+        
 
 })
