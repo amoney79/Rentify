@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             phoneInput: document.getElementById("phone-input"),
             cardNameInput: document.getElementById("card-name-input"),
-            cardNumberInput: document.getElemenetById("card-number")
+            cardNumberInput: document.getElemenetById("card-number-iinput")
         }
 
 })
