@@ -28,6 +28,6 @@ document.addEventListener("DOMContentLoaded", function () {
             selectedMethod: "mpesa"
         };
 
-        //cache DOM 
+        //cache DOM elements
 
 })
