@@ -60,7 +60,8 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
         var styles = {
-            activeBt
+            activeBtn:
+            
         }
 
 })
