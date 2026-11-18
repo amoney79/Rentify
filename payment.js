@@ -96,5 +96,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 els.errorMsg.classList.add("hidden");
             }
         }
+        
 
 });
