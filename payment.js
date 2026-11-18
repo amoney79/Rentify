@@ -70,6 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
             "size-8 border-2 border-gray-200 dark:border-gray-700 rounded-full flex items-center justify-center shrink-0"
         };
 
-        // UI 
+        // UI Helper Functions
+        
 
 })
