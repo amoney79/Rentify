@@ -43,7 +43,8 @@ document.addEventListener("DOMContentLoaded", function () {
             iconWrapCard: document.getElementById("icon-wrap-card"),
             textWrapMpesa: document.getElementById("text-wrap-mpesa"),
             textWrapCard: document.getElementById("text-wrap-card"),
-            radioMpesa: document>getElemenetById("")
+            radioMpesa: document>getElemenetById("radio-mpes
+                ")
         }
 
 })
