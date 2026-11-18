@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 params.get("property") ||
                 savedBooking.property ||
                 selectedProperty.title ||
-                "SilverTo"
+                "SilverTowers"
         }
 
 })
