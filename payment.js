@@ -66,7 +66,8 @@ document.addEventListener("DOMContentLoaded", function () {
             "w-full  p-6 border-2 border-gray-100 dark:border-gray-800 rounded-[32px] flex items-center justify-between hover:border-primary transition-all",
             activeRadio:
             "size-8 border-4 border-primary rounded-full flex items-center justify-center shrink-0",
-            
+            inactiveRadio:
+            ""
         }
 
 })
