@@ -96,6 +96,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 els.errorMsg.classList.add("hidden");
             }
         }
-        function selectMetthod()
+        function selectMetthod(method) {
+            
+        }
 
 });
