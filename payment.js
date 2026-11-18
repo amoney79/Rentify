@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
             textWrapMpesa: document.getElementById("text-wrap-mpesa"),
             textWrapCard: document.getElementById("text-wrap-card"),
             radioMpesa: document>getElemenetById("radio-mpesa"),
-            radioCard: document.getElementById("radio-card")
+            radioCard: document.getElementById("radio-card"),
 
             phoneInput: document.get
         }
