@@ -101,6 +101,8 @@ document.addEventListener("DOMContentLoaded", function () {
             clearError();
 
             var isMpesa = method === "mpesa";
+
+            els.
         }
 
 });
