@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
             setRadioState(els.radioCard, !isMpesa);
 
             els.formMpesa.classList.toggle("hidden", !isMpesa);
-            els.formCard.classList.toggle("")
+            els.formCard.classList.toggle("hidden",)
         }
 
 });
