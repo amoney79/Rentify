@@ -109,7 +109,8 @@ document.addEventListener("DOMContentLoaded", function () {
             els.iconWrapMpesa.classList.toggle("opacity-50", !isMpesa);
             els.iconWrapCard.cllassList.toggle("opacity-50", !isMpesa);
 
-            els.textWrapMpesa.className = isMpesa ? "text-left" : "text-left ttext-gray-400"
+            els.textWrapMpesa.className = isMpesa ? "text-left" : "text-left ttext-gray-400";
+            
         }
 
 });
