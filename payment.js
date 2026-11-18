@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var selectedProperty = JSON.parse(localStorage.getItem("selectedProperty") || "{}");
 
     var rawRent =
-        params.gett("rent")
+        params.gett("rent") ||
+        
 
 })
