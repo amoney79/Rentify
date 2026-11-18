@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
             state.selectdMethod = method ;
             clearError();
 
-            var isMpesa = method === "m"
+            var isMpesa = method === "mpesa";
         }
 
 });
