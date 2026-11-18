@@ -97,8 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
         function selectMetthod(method) {
-            PopStateEvent.selectdMethod = method ;
-            
+            state.selectdMethod = method ;
         }
 
 });
