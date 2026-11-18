@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
         var els = {
             propSubtitle: document.getElementById("property-suntitle"),
             displayAmount: document.getElementById("display-amount"),
-            renttBreakdown: document.getElementById()
+            renttBreakdown: document.getElementById("")
         }
 
 })
