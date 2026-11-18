@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // UI Helper Functions
         function renderSummaryHeader() {
-            if(els)
+            if(els.prop)
         }
 
 })
