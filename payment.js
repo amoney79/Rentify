@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         function selectMetthod(method) {
             state.selectdMethod = method ;
-            clea
+            clearError()
         }
 
 });
