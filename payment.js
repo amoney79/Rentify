@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         function clearError() {
             if(els.errorMsg) {
-                els.errorMsg.classList.add("hidden")
+                els.errorMsg.classList.add("hidden");
             }
         }
 
