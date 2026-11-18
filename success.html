@@ -116,9 +116,15 @@
                 secondaryAction.href = '#';
                 secondaryAction.textContent = 'Download PDF Receipt';
                 secondaryAction.onclick = (e) => {e.preventDefault(); window.print(); };
-                
+
+                //LANDLORD APPLICATION(AWAITING APPROVAL)
+            } else if (type === 'landlord' || type === 'application') {
+                document.title = 'Rentify - Appication Submitted';
+                heroCircle.className = 'relative size-full bg-amber-500 text-white rounded-full flex items-center justtify-center shadow-amber-500/40';
+                heroPing.className = 'absolute insect-0 bg-amber-400/20 rounded-full animate-ping';
+                heroIcon.textContent = 'hourglass-top';
             }
-        })
+        });
     </script>
 </body>
 </html>
