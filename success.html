@@ -42,9 +42,9 @@
             <!-- Dynamic Details | Receipt Card(completely replaced per state) -->
             <div id="details-card" class="bg-gray-50 dark:bg-gray-800/50 p-6 md:p-8 rounded-[32px] md:rounded-[40px] border border-gray-100 dark:border-gray-800 space-y-5 shadow-sm text-left" >
                 <!--Rows injected by success.js-->
-
             </div>
 
+            <!--Dynamic Action Buttons-->
             <div class="pt-8 space-y-4">
                 <a href="index.html" class="w-full bg-primary text-white font-black py-5 rounded-[24px] shadow-2xl shadow-primary/40 flex items-center justify-center gap-2 hover:scale-[1.05] transition-all text-xl">
                     Back to Marketplace <span class="material-symbols-outlined">home</span>
@@ -57,46 +57,7 @@
     </div>
     <script src="rentify-api.js"></script>
     <script>
-        (function () {
-            // --- Success Page Dynamic Content ---
-            const params = new URLSearchParams(window.location.search);
-            const type = params.get('type');
-
-            if (type === 'verification') {
-                // Update title and body text for verification success
-                const h1 = document.querySelector('h1');
-                if (h1) h1.innerHTML = 'Identity<br/>Verified!';
-
-                const bodyP = document.querySelector('p.text-gray-500');
-                if (bodyP) bodyP.textContent = 'Your documents have been processed. Your verification status will be updated shortly.';
-
-                // Hide the receipt card (booking-specific)
-                const receiptCard = document.querySelector('.bg-gray-50.dark\\:bg-gray-800\\/50.p-8.rounded-\\[40px\\]');
-                if (receiptCard) receiptCard.style.display = 'none';
-
-            } else if (type === 'booking') {
-                // Populate booking receipt with URL params
-                const property = params.get('property') || 'Property';
-                const date = params.get('date') || '';
-                const time = params.get('time') || '';
-
-                // Property value
-                const rows = document.querySelectorAll('.bg-gray-50 .flex.justify-between');
-                if (rows[0]) {
-                    const val = rows[0].querySelector('span:last-child');
-                    if (val) val.textContent = decodeURIComponent(property);
-                }
-
-                // Schedule value
-                if (rows[1]) {
-                    const val = rows[1].querySelector('span:last-child');
-                    if (val) {
-                        const schedule = [decodeURIComponent(date), decodeURIComponent(time)].filter(Boolean).join(' • ');
-                        if (schedule) val.textContent = schedule;
-                    }
-                }
-            }
-        })();
+        
     </script>
 </body>
 </html>
