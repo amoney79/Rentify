@@ -11,5 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
         selecttedProperty.rent ||
         selectedProperty.price ||
         "15000";
+        
 
 })
