@@ -57,7 +57,14 @@
     </div>
     <script src="rentify-api.js"></script>
     <script>
-        
+        (function () {
+            const params = new URLSearchParams(window.location.search);
+
+            //supports ?type=payment | ?type==schedule(or booking) | ?type=landlord |?type=verification
+            const type =(params.get('type') || 'schedule').toLowerCase();
+
+            //fallback
+        })
     </script>
 </body>
 </html>
