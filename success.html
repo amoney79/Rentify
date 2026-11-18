@@ -130,6 +130,19 @@
                 const applicant = params.get('name') || 'Landlord Partner';
                 const property = params.get('property') || 'New Property Listing';
                 const appId = params.get('appId') || 'App-' + Math.floor(10000 + Math.random()* 900000);
+
+                renderRows([
+                    {label: 'Application ID', value: appId },
+                    {label: 'Applicant', value: applicant },
+                    {label: 'Property / Portfolio', value: property },
+                    {
+                        label: 'Current Status',
+                        value: `<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs not-italic font-bold bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300">
+                            <span class="size-2 rounded-full bg-amber-500 animate-pulse"></span>Awaiting Approval
+                            </span>`       
+                    },
+                    {lable: 'Est. Review Time', value: '24 - 48 Hours'}
+                ]);
                 
             }
         });
