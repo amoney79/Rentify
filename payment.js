@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
             propertyName:
                 params.get("property") ||
                 savedBooking.property ||
-                selectedProper
+                selectedProperty.t
         }
 
 })
