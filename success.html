@@ -127,6 +127,9 @@
                 statusTitle.innerHTML = 'Application<br/>Submitted!';
                 statusMessage.textContent = 'Your LandLord onboarding & property listing are currently under Review by our Verification team.';
 
+                const applicant = params.get('name') || 'Landlord Partner';
+                const property = params.get('property') || 'New Property Listing';
+                const appId = params.get('appId') || 'App-' + Math.floor(10000 + Math.random()* 900000);
                 
             }
         });
