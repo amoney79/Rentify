@@ -78,8 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if(els.displayAmount) {
                 els.displayAmount.textContent = state.amountText;
             }
-            if(els.entBreakdown) {
-                els.renttBreakdown.textContent = 
+           
             }
         }
 
