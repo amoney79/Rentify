@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
            
             }
 
-            function showError(message, inputTo)
+            function showError(message, inputToFocus) 
         }
 
 });
