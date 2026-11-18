@@ -112,8 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     };
     //DOM Elements
-    const dataCells = document.querySelectorAll("grid-colors-7> div.cursor-pointer");
-    const 
+    const dataCells = document.querySelectorAll("grid-colors-7> div.cursor-pointer"); 
     });
 
     // --- County to Sublocations Dataset ---
@@ -669,4 +668,3 @@ document.addEventListener('DOMContentLoaded', () => {
         updateSlider();
     }
     updateBedroomDisplay();
-});
