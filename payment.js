@@ -10,6 +10,6 @@ document.addEventListener("DOMContentLoaded", function () {
         savedBooking.rent ||
         selecttedProperty.rent ||
         selectedProperty.price ||
-        "15000"
+        "15000";
 
 })
