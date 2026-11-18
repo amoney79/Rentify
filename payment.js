@@ -29,6 +29,8 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
         //cache DOM elements
-        var els = {}
+        var els = {
+            
+        }
 
 })
