@@ -72,7 +72,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // UI Helper Functions
         function renderSummaryHeader() {
-            if(els.propSubtitle)
+            if(els.propSubtitle) {
+                
+            }
         }
 
 })
