@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
             renttBreakdown: document.getElementById("rent-breakdown"),
 
             btnMpesa: document.getElementById("btn-mpesa"),
-            btnCard: document.getElementBt
+            btnCard: document.getElementById
         }
 
 })
