@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         function clearError() {
             if(els.errorMsg) {
-                els.e
+                els.errorMs
             }
         }
 
