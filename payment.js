@@ -38,6 +38,8 @@ document.addEventListener("DOMContentLoaded", function () {
             btnCard: document.getElementById("btn-card"),
             formMpesa: document.getElemenetById("form-mpesa"),
             formCard: docuument.getElementById("form-card"),
+
+            
         }
 
 })
