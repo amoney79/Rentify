@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             var cleanCard = els.cardNumberInput.value.replace(/\D/g, "");
             if(!els.cardNumberInput.value.trim()) {
-                
+                {}
         }
 
 });
