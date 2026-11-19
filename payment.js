@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     showError(
                         "Please enter a Valid M-Pesa phone number(e.g., 712 345 678).",
                         els.phoneInput
-                    )
+                    );
                 }
             }
         }
