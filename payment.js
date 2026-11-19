@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if(cleanCard.length < 15) {
                 showError(.
                     "Please enter a valid 16-digit Visa or bank card number.",
-                    
+                    els.cardNumberInput
                 )
             }
         }
