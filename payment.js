@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 var cleanPhone = els.phoneInput.value.replace(/\D/g, "");
                 if(cleanPhone.length < 9) {
                     showError(
-                        "Please enter a Valid M-Pesa phone number(e.g., "
+                        "Please enter a Valid M-Pesa phone number(e.g., 712 3456"
                     )
                 }
             }
