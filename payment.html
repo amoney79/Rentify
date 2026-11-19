@@ -22,7 +22,7 @@
         }
     </script>
     <script src="app.js" defer></script>
-    <script>src="payment.js"</script>
+    <script src="payment.js" defer></script>
 </head>
 
 <body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-gray-100 min-h-screen">
@@ -46,6 +46,7 @@
                 <div class="relative inline-block px-12 py-8 bg-primary/5 rounded-[48px] border-2 border-primary/20">
                     <h1 id="display-amount" class="text-6xl md:text-8xl font-black text-primary italic leading-none">KES 150</h1>
                 </div>
+                <p id="property-subtitle" class="text-sm font-bold text-gray-500"></p>
             </div>
 
             <!--Payment Methods Selector-->
@@ -57,21 +58,21 @@
                     <button type="button" id="btn-mpesa"
                         class="w-full p-6 border-4 border-primary bg-primary/5 rounded-[32px] flex items-center justify-between group transition-all shadow-2xl shadow-primary/10">
                         <div class="flex items-center gap-6">
-                            <div
+                            <div id="icon-wrap-mpesa"
                                 class="size-16 bg-green-500 rounded-2xl flex items-center justify-center text-white shadow-lg">
                                 <span class="material-symbols-outlined !text-3xl">smartphone</span></div>
-                            <div class="text-left">
+                            <div id="text-wrap-mpesa" class="text-left">
                                 <p class="text-xl font-black italic">M-Pesa Mobile Money</p>
                                 <p class="text-sm text-gray-500 font-medium tracking-tight">Instant Confirmation</p>
                             </div>
-                        </div id="text-wrap-mpesa" class="text-left">
-                        <div class="size-8 border-4 border-primary rounded-full flex items-center justify-center">
+                        </div>
+                        <div id="radio-mpesa" class="size-8 border-4 border-primary rounded-full flex items-center justify-center">
                             <div class="size-3 bg-primary rounded-full animate-pulse"></div>
                         </div>
                     </button>
 
                     <!--Visa /Bank card Option-->
-                    <button
+                    <button type="button" id="btn-card"
                         class="w-full p-6 border-2 border-gray-100 dark:border-gray-800 rounded-[32px] flex items-center justify-between hover:border-primary transition-all group">
                         <div class="flex items-center gap-6">
                             <div id="icon-wrap-card"
@@ -88,63 +89,57 @@
             </div>
 
             <!--Dynamic Payment Details Form-->
-            <div class="bg-gray-50 dark:bg-gray-800/400 p-6 md:p-8 rounded-[32px] border border-gray-100 dark:border-gray-800 space-y-5">
-
-                <!--Mpesa Input fields-->
-                <div id="form-mpesa" classd="space-y-4">
-                    <div class="flex items-center justify-between">
-                        <label for="mpesa-phone" class="text-xs font-black uppercase tracking-widest text-gray-500">M-Pesa Phone Number</label>
-                        <span class="text-[11px] font-bold text-green-600 bg-green-100 dark:bg-green-900/30 dark:text-green-400 px-2.5 py-0.5 rounded-full">Safaricom</span>
-                    </div>
-                    <div class="relative flex ittems-center">
-                        <span class="absolute left-4 font-black text-gray-500 text-base select-none">+254</span>
-                        <input id="mpesa-phone" type="tel" maxlength="10" placeholder="712 345 678"
-                            class="w-full pl-16 pr-4 py-6 rounded-2xl border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 font-bold text-lg focus:border-primary focus:ring-0">
-                    </div>
-                    <p class="text-xs text-gray-400">You will receive an M-Pesa PIN prompt on your phone imediately after nitializing payment</p>
-                </div>
-
-                <!--Visa / Bank Input fields-->
-                <div id="form-card" class="hidden space-y-4">
-                    <div>
-                        <label for="card-name" class="block text-xs font-black uppercase tracking-widest txt-gray-500 mb-2">Cardholder Name</label>
-                        <input id="card-name" type="text" placeholder="JANE DOE"
-                        class="w-full px-4 py-3.5 rounded-2xl border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 font-bold uppercase focue:border-primary focus:ring-0">
-                    </div>
-
-                    <div>
-                        <label for="card-number" class="block text-xs font-black uppercase tracking-widest text-gray-500 mb-2">Card Number</label>
+            <form id="payment-form" class="space-y-6" novalidate>
+                <div class="bg-gray-50 dark:bg-gray-800/40 p-6 md:p-8 rounded-[32px] border border-gray-100 dark:border-gray-800 space-y-5">
+                    <div id="form-mpesa" class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <label for="phone-input" class="text-xs font-black uppercase tracking-widest text-gray-500">M-Pesa Phone Number</label>
+                            <span class="text-[11px] font-bold text-green-600 bg-green-100 dark:bg-green-900/30 dark:text-green-400 px-2.5 py-0.5 rounded-full">Safaricom</span>
+                        </div>
                         <div class="relative flex items-center">
-                            <input id="card-number" type="type" inputmode="numeric" maxlength="19" placeholder="5423 .... .... 8890"
-                            class="w-full px-4 py-3.5 rounded-2xl border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 font-bold text-lg tracking-wider focus:border-primary focus:ring-0">
-                            <span class="absolute right-4 text-xs font-black uppercase tracking-widest text-blue-600">VISA</span>
+                            <span class="absolute left-4 font-black text-gray-500 text-base select-none">+254</span>
+                            <input id="phone-input" type="tel" inputmode="tel" maxlength="11" autocomplete="tel-national" placeholder="712 345 678"
+                                class="w-full pl-16 pr-4 py-6 rounded-2xl border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 font-bold text-lg focus:border-primary focus:ring-0">
+                        </div>
+                        <p class="text-xs text-gray-400">You will receive an M-Pesa PIN prompt on your phone after starting the payment.</p>
+                    </div>
+
+                    <div id="form-card" class="hidden space-y-4">
+                        <div>
+                            <label for="card-name-input" class="block text-xs font-black uppercase tracking-widest text-gray-500 mb-2">Cardholder Name</label>
+                            <input id="card-name-input" type="text" autocomplete="cc-name" placeholder="JANE DOE"
+                                class="w-full px-4 py-3.5 rounded-2xl border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 font-bold uppercase focus:border-primary focus:ring-0">
+                        </div>
+                        <div>
+                            <label for="card-number-input" class="block text-xs font-black uppercase tracking-widest text-gray-500 mb-2">Card Number</label>
+                            <input id="card-number-input" type="text" inputmode="numeric" autocomplete="cc-number" maxlength="19" placeholder="5423 0000 0000 8890"
+                                class="w-full px-4 py-3.5 rounded-2xl border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 font-bold text-lg tracking-wider focus:border-primary focus:ring-0">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label for="card-expiry-input" class="block text-xs font-black uppercase tracking-widest text-gray-500 mb-2">Expiry Date</label>
+                                <input id="card-expiry-input" type="text" inputmode="numeric" autocomplete="cc-exp" maxlength="5" placeholder="MM/YY"
+                                    class="w-full px-4 py-3.5 rounded-2xl border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 font-bold text-center focus:border-primary focus:ring-0">
+                            </div>
+                            <div>
+                                <label for="card-cvv-input" class="block text-xs font-black uppercase tracking-widest text-gray-500 mb-2">CVV / CVC</label>
+                                <input id="card-cvv-input" type="password" inputmode="numeric" autocomplete="cc-csc" maxlength="4" placeholder="•••"
+                                    class="w-full px-4 py-3.5 rounded-2xl border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 font-bold text-center focus:border-primary focus:ring-0">
+                            </div>
                         </div>
                     </div>
-
-                    <div class="grid grid-cols-2 gap-4">
-                        <div>
-                        <label for="card-expiry" class="block text-xs font-black uppercase tracking-widest text-gray-500 mb-2">Expiry Date</label>
-                        <input id="card-expiry" type="text" inputmode="numeric" maxlength="5" placeholder="MM/YY"
-                        class="w-full px-4 py-3.5 rounded-2xl border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 font-bold text-center focus:border-primary focus:ring-0">
-                    </div>
-                </div>
-                <div>
-                    <label for="card-cvv" class="block ttext-xs font-black uppercase tracking-widest text-gray-500 mb-2">CVV /CVC</label>
-                    <input id="card-cvv" type="password" inputmode="numeric" maxlength="4" placeholder="..."
-                    class="w-full px-4 py-3.5 rounded-2xl border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 font-bold text-center focus:border-primary focus:ring-0">
-                </div>
+                    <p id="error-msg" class="hidden text-sm font-bold text-red-600" role="alert" aria-live="polite"></p>
                 </div>
 
-            </div>
-
-            <div
-                class="fixed md:relative bottom-0 left-0 right-0 p-6 bg-white/90 dark:bg-[#101622]/90 backdrop-blur-xl md:bg-transparent md:p-0">
-                <a href="success.html"
-                    class="w-full bg-primary text-white font-black py-5 rounded-[24px] shadow-2xl shadow-primary/40 flex items-center justify-center gap-2 hover:scale-[1.02] transition-all text-xl">Pay
-                    now with M-Pesa</a>
-                <p class="text-center text-[10px] font-bold text-gray-400 uppercase mt-4 tracking-widest">PCI-DSS
-                    Compliant • 256-bit Encryption</p>
-            </div>
+                <div class="fixed md:relative bottom-0 left-0 right-0 p-6 bg-white/90 dark:bg-[#101622]/90 backdrop-blur-xl md:bg-transparent md:p-0">
+                    <button id="pay-submit-btn" type="submit"
+                        class="w-full bg-primary text-white font-black py-5 rounded-[24px] shadow-2xl shadow-primary/40 flex items-center justify-center gap-2 hover:scale-[1.02] transition-all text-xl disabled:opacity-70 disabled:cursor-wait">
+                        <span id="pay-btn-text">Pay with M-Pesa</span>
+                        <span id="pay-btn-icon" class="material-symbols-outlined">arrow_forward</span>
+                    </button>
+                    <p class="text-center text-[10px] font-bold text-gray-400 uppercase mt-4 tracking-widest">PCI-DSS Compliant • 256-bit Encryption</p>
+                </div>
+            </form>
         </main>
     </div>
 </body>
