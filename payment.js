@@ -140,7 +140,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 return null;
             }
             if(cleanCard.length < 15) {
-                showError()
+                showError(.
+                    ""
+                )
             }
         }
 
