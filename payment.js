@@ -189,7 +189,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 }, 1600);
             }
-            
+            //Bind Event Listeners
+            function bindEvents() {
+                els.bttnMpesa.addEventListener("click", function(){
+                    selectMetthod("mpesa");
+                })
+            }
 
         }
 
