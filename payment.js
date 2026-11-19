@@ -165,6 +165,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 clearError();
                 var methodLabel = validateAndGetMethodLabel();
                 if(!methodLabel) return;
+
+                //Lock button & show processing state
+                els.payBtn.disabled = true;
+                els.payBtnIcon.textContent = "sync";
+                els.payBtnIcon.classList.add("animate-spin");
+                els.payBtnText.textContent = 
+                    state.selectedMethod === "mpesa" ? "Check your phone for M-pesa PIN..." : "Authorizing Card...";
+
+                
             }
 
         }
