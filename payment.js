@@ -146,7 +146,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 );
                 return null;
             }
-            
+            if(els.cardExpiryInput.valu.length < 5) {
+                showError(
+                    "Please enter a valid expiry dte(MM/YY).",
+                    els.btnCard.cardExpiryInput
+                );
+            }
+
         }
 
 });
