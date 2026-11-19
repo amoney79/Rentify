@@ -198,7 +198,13 @@ document.addEventListener("DOMContentLoaded", function () {
                     selectMethod("card");
                 });
 
-                
+                els.phoneInput.addEventListener("input", function(e) {
+                    e.target.value = e.target.valu.replace(/[^\d\s]/g, "");
+                });
+                els.cardNumberInput.addEventListener("input", function(e) {
+                    var digits = e.target.value.replace(/\D/g, "").slice(0, 16);
+                    e.target.value = digits.replace(/(\d{4})(?=\d)/g, "KES 100 ");
+                });
             }
 
         }
