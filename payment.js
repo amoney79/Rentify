@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     "Please enter a valid 16-digit Visa or bank card number.",
                     els.cardNumberInput
                 );
-                
+                return null;
             }
         }
 
