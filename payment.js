@@ -126,7 +126,9 @@ document.addEventListener("DOMContentLoaded", function () {
             if(sttate.selectedMthod === "mpesa") {
                 var cleanPhone = els.phoneInput.value.replace(/\D/g, "");
                 if(cleanPhone.length < 9) {
-                    show
+                    showError(
+                        
+                    )
                 }
             }
         }
