@@ -158,6 +158,13 @@ document.addEventListener("DOMContentLoaded", function () {
                     "Please enter a valid 3 or 4 - digit CVV.",
                     els.cardCvvInput
                 );
+                return null;
+            }
+
+            function handlePaymentSubmit() {
+                clearError();
+                var methodLabel = validateAndGetMethodLabel();
+                if(!methodLabel) return;
             }
 
         }
