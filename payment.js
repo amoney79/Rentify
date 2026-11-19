@@ -209,6 +209,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     var digits = e.target.value.replace(/\D/g, "").slice(0,4);
                     e.target.value = digits.length >= 3 ? digits.slice(0, 2) + "/" + digits.slice(2) : digits;
                 });
+
+                els.payBtn.addEventListener("click",handlePaymentSubmit);
             }
 
         }
