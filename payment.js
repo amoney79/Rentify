@@ -205,6 +205,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     var digits = e.target.value.replace(/\D/g, "").slice(0, 16);
                     e.target.value = digits.replace(/(\d{4})(?=\d)/g, "KES 100 ");
                 });
+                els.cardExpiryInput.addEventListener("input", function(e){
+                    var digits = e.target.value.replace(/\D/g, "").slice(0,4);
+                    e.target.value = digits.length >= 3 ? digits.slice(0, 2) + "/" + digits.slice(2) : digits;
+                });
             }
 
         }
