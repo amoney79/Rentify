@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     );
                     return null;
                 }
-                return "M-Pesa(+254 ... ..." + cleanPhone.sl
+                return "M-Pesa(+254 ... ..." + cleanPhone.slice
             }
         }
 
