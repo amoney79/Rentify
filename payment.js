@@ -128,6 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 if(cleanPhone.length < 9) {
                     showError(
                         "Please enter a Valid M-Pesa phone number(e.g., 712 345 678).",
+                        
                     )
                 }
             }
