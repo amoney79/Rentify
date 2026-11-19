@@ -149,7 +149,14 @@ document.addEventListener("DOMContentLoaded", function () {
             if(els.cardExpiryInput.valu.length < 5) {
                 showError(
                     "Please enter a valid expiry dte(MM/YY).",
-                    els.btnCard.cardExpiryInput
+                    els.cardExpiryInput
+                );
+                return null;
+            }
+            if(els.cardCvvInput.valu.length < 3) {
+                showError(
+                    "Please enter a valid 3 or 4 - digit CVV.",
+                    els.cardCvvInput
                 );
             }
 
