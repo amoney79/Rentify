@@ -213,6 +213,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 els.payBtn.addEventListener("click",handlePaymentSubmit);
             }
 
+            //Initialize page
+            renderSummaryHeader();
+            selectMethod("mpesa");
+            bindEvents();
+
         }
 
 });
