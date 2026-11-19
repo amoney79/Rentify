@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 showError("Please enter the cardholder name.", els.cardNameInput);
                 return null;
             }
-            
+            if()
         }
 
 });
