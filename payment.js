@@ -130,6 +130,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         "Please enter a Valid M-Pesa phone number(e.g., 712 345 678).",
                         els.phoneInput
                     );
+                    re
                 }
             }
         }
