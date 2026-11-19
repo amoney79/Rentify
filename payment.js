@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
                 return "M-Pesa(+254 ... ..." + cleanPhone.slice(-3) + ")";
             }
-            var cleanCard = els.
+            var cleanCard = els.cardNumberInput.value
         }
 
 });
