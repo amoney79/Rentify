@@ -125,7 +125,9 @@ document.addEventListener("DOMContentLoaded", function () {
         function validateAndGetMethodLabel() {
             if(sttate.selectedMthod === "mpesa") {
                 var cleanPhone = els.phoneInput.value.replace(/\D/g, "");
-                if(cleanPhone.length < 9) {}
+                if(cleanPhone.length < 9) {
+                    
+                }
             }
         }
 
