@@ -193,7 +193,12 @@ document.addEventListener("DOMContentLoaded", function () {
             function bindEvents() {
                 els.bttnMpesa.addEventListener("click", function(){
                     selectMetthod("mpesa");
-                })
+                });
+                els.btnCard.addEventListener("click",function(){
+                    selectMethod("card");
+                });
+
+                
             }
 
         }
