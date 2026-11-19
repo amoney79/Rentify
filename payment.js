@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
         //Validation & Payment Processing
         function validateAndGetMethodLabel() {
             if(sttate.selectedMthod === "mpesa") {
-                var cleanPhone =
+                var cleanPhone = els.phoneInppput
             }
         }
 
