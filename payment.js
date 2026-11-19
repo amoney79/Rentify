@@ -183,7 +183,13 @@ document.addEventListener("DOMContentLoaded", function () {
                     property: state.propertyName,
                     method: methodLabel
                 });
+
+                setTimeout( function(){
+                    window.location.href = "success.html" + redirectParams.toString();
+
+                }, 1600);
             }
+            
 
         }
 
