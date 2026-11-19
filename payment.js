@@ -16,7 +16,9 @@ document.addEventListener("DOMContentLoaded", function () {
         savedBooking.rent ||
         selectedProperty.rent ||
         selectedProperty.price ||
-        "15000";
+        "1500";
+
+
     var numericRent = parseFloat(String(rawRent).replace(/[^0-9.]/g, "")) || 15000;
     var viewingFee = Math.round(numericRent * 0.1);
     var state = {
