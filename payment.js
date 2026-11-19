@@ -173,7 +173,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 els.payBtnText.textContent = 
                     state.selectedMethod === "mpesa" ? "Check your phone for M-pesa PIN..." : "Authorizing Card...";
 
-                
+                var txPrefix = state.selectedMethod === "mpesa" ? "MPESA-" : "VISA-";
+                var txId = txPrefix + Math.random().toString(36).substring(2,8).toUpperCase();
+
+                var redirectParams = new URLSearchParams ({
+                    type: "payment",
+                    amount: state.amountText,
+                    txId: txId ,
+                    property: state.propertyName,
+                    method: methodLabel
+                });
             }
 
         }
