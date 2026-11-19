@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 var cleanPhone = els.phoneInput.value.replace(/\D/g, "");
                 if(cleanPhone.length < 9) {
                     showError(
-                        "Pleas"
+                        "Please enter a Valid M-P"
                     )
                 }
             }
