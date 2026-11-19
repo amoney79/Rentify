@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     );
                     return null;
                 }
-                return "M-Pesa("
+                return "M-Pesa(+254 ... ..."
             }
         }
 
