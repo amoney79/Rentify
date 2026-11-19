@@ -21,7 +21,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     var numericRent = parseFloat(String(rawRent).replace(/[^0-9.]/g, "")) || 15000;
     var viewingFee = Math.round(numericRent * 0.1);
+
+    //Application state(Localhost)
     var state = {
+        apiBaseUrl: window.RENTIFY_API_URL || "http://localhost:8080/api/payments",
         propertyName:
             params.get("property") ||
             savedBooking.property ||
