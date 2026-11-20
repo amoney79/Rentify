@@ -31,6 +31,12 @@ document.addEventListener("DOMContentLoaded", function () {
         prevMonthBtn: document.getElementById("pre-month-btn"),
         nextMonthBtn: document.getElementById("next-month-btn"),
         slotBtns: document.getElementById("slot-btn"),
-        summaryDate: document.getElementById("summary-date")
+        summaryDate: document.getElementById("summary-date"),
+        summaryTime: document.getElementsByName("summary-time"),
+        summaryFee: document.getElementById("summary-fee"),
+        mobileSchedule: document.getElementById("mobile-bar-schedule"),,
+        mobileFee: document.getElementById("mobile-bar-fee"),
+        confirmDesktop: document.getElementById("confiirm-btn-desktop"),
+        confirmMobile: document.getElementById("confirm-btn-mobiile")
     }
 });
