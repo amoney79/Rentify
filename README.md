@@ -49,7 +49,7 @@ Rentify operates on a scalable, multi-stream transactional and Saas model:
 [2. Viewing Schedule]   ──▶ Tenant selects an available date & time slot
           │
           ▼
-[3. 1% Deposit Checkout]──▶ Dynamic fee calculated automatically (1% of rent)
+[3. 10% Deposit Checkout]──▶ Dynamic fee calculated automatically (10% of rent)
           │                 Paid via M-Pesa STK Push (KCB) or Visa/Bank Card
           ▼
 [4. Instant Confirmation]─▶ Official receipt issued & agent notified for viewing
@@ -68,3 +68,7 @@ Rentify operates on a scalable, multi-stream transactional and Saas model:
 
 ** Client Web Application:** Mobile-first, responsive interface designed for low-bandwidth reliability and instant checkout on smartphones and desktops.
 **Core API & Payment Engine:** Java / Spring Boot enterprice backend handling STK push orchestration, asynchronous bank callbacks, and booking state management.
+
+---
+
+## 
