@@ -18,6 +18,18 @@ document.addEventListener("DOMContentLoaded", function () {
         propertyName: propertyName,
         numericRent: numericRent,
         formattedFee: formattedFee,
-        ViewYear: defaultDate.getFullYear();
+        ViewYear: defaultDate.getFullYear(),
+        viewMonth: defaultDate.getMonth(),
+        selectedDate: defaultDate,
+        selectedSlot: "09:000 AM"
+    };
+
+    var els = {
+        headerProp:document.getElementById("header-property-name"),
+        monthLabeb: document.getElementById("calendar-month-label"),
+        calendarGrid: document.getElementById("calendar-grid"),
+        prevMonthBtn: document.getElementById("pre-month-btn"),
+        nextMonthBtn: document.getElementById(next-month-btn),
+        
     }
 });
