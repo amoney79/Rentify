@@ -29,7 +29,8 @@ document.addEventListener("DOMContentLoaded", function () {
         monthLabeb: document.getElementById("calendar-month-label"),
         calendarGrid: document.getElementById("calendar-grid"),
         prevMonthBtn: document.getElementById("pre-month-btn"),
-        nextMonthBtn: document.getElementById(next-month-btn),
-        
+        nextMonthBtn: document.getElementById("next-month-btn"),
+        slotBtns: document.getElementById("slot-btn"),
+        summaryDate: document.getElementById("summary-date")
     }
 });
