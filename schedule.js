@@ -38,5 +38,14 @@ document.addEventListener("DOMContentLoaded", function () {
         mobileFee: document.getElementById("mobile-bar-fee"),
         confirmDesktop: document.getElementById("confiirm-btn-desktop"),
         confirmMobile: document.getElementById("confirm-btn-mobiile")
+    };
+
+    function formatLongDate(dateObj) {
+        return dateObj.toLocaleDateString("en-US", {
+            weekday: "short",
+            month: "short",
+            day: "numeric",
+            year: "numeric"
+        })
     }
 });
