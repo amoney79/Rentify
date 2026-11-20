@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
         summaryDate: document.getElementById("summary-date"),
         summaryTime: document.getElementsByName("summary-time"),
         summaryFee: document.getElementById("summary-fee"),
-        mobileSchedule: document.getElementById("mobile-bar-schedule"),,
+        mobileSchedule: document.getElementById("mobile-bar-schedule"),
         mobileFee: document.getElementById("mobile-bar-fee"),
         confirmDesktop: document.getElementById("confiirm-btn-desktop"),
         confirmMobile: document.getElementById("confirm-btn-mobiile")
@@ -46,6 +46,13 @@ document.addEventListener("DOMContentLoaded", function () {
             month: "short",
             day: "numeric",
             year: "numeric"
-        })
+        });
+    }
+
+    function formatShortDate(dateObj) {
+        return dateObj.toLocaleDateString('en-US', {
+            month:"short",
+            day: "numeric"
+        });
     }
 });
