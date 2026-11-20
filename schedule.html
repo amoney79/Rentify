@@ -47,7 +47,25 @@
         <main class="flex-1 max-w-5xl mx-auto w-full px-4 py-6 md:p-10 pb-36 md:pb space-y-12 pb-32">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
 
-                
+                <!-- Left Column: Interactive Calendar Card -->
+                <section class="lg:col-span-7 bg-white dark:bg-gray-800/60 p-5 sm:p-8 rounded-[32px] md:rounded-[40px] border border-gray-100 dark:border-gray-800 shadow-sm">
+                    <div class="flex items-center justify-between mb-6">
+                        <div>
+                            <p class="text-[10px] font-black uppercase tracking-widest text-gray-400">Step 1 of 2</p>
+                            <h2 id="calendar-month-label" class="text-xl md:text-2xl font-black mt-0.5">November 2026</h2>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button type="button" id="prev-month-btn" aria-label="Previous Month"
+                                class="size-10 flex items-center justify-center rounded-xl border border-gray-200 dark:border-gray-700 hover:border-primary hover:text-primary transition-colors">
+                                <span class="material-symbols-outlined text-lg">chevron_left</span>
+                            </button>
+                            <button type="button" id="next-month-btn" aria-label="Next Month"
+                                class="size-10 flex items-center justify-center rounded-xl border border-gray-200 dark:border-gray-700 hover:border-primary hover:text-primary transition-colors">
+                                <span class="material-symbols-outlined text-lg">chevron_right</span>
+                            </button>
+                        </div>
+                    </div>
+
                 <!-- Calendar Card -->
                 <div
                     class="bg-white dark:bg-gray-800 p-8 rounded-[40px] border border-gray-100 dark:border-gray-800 shadow-sm">
