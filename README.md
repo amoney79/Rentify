@@ -7,22 +7,12 @@
 
 <!-- Technology Stack Badges -->
 <p>
-<<<<<<< HEAD
-  <img src="https://img.shields.io/badge/:badgeContent
-  " alt="HTML5" />
-  <img src="https://img.shields.io/badge/github-repo-blue?logo=Tailwind CSS" alt="Tailwind CSS" />
-  <img src="https://shields.io" alt="JavaScript" />
-  <img src="https://shields.io" alt="Spring Boot" />
-  <img src="https://shields.io" alt="M-Pesa KCB Buni" />
-  <img src="https://shields.io" alt="Visa & Card" />
-=======
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="Tailwind CSS" />
   <img src="https://img.shields.io/badge/JavaScript-ES2025-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
   <img src="https://img.shields.io/badge/Spring_Boot-3.5.6-6DB33F?style=for-the-badge&logo=springboot&logoColor=white" alt="Spring Boot" />
   <img src="https://img.shields.io/badge/M--Pesa_KCB_Buni-Payments-00A651?style=for-the-badge&logo=safaricom&logoColor=white" alt="M-Pesa KCB Buni" />
   <img src="https://img.shields.io/badge/Visa_&_Card-Payments-1A1F71?style=for-the-badge&logo=visa&logoColor=white" alt="Visa & Card" />
->>>>>>> ef55b35527cb4597bbb28a3b37e8f4a43b3a5508
 </p>
 
 <!-- Business Status Badges -->
