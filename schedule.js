@@ -13,4 +13,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     var  defaultDate = new Date(today);
     defaultDate.setDate(today.getDate() +1 );
+
+    var state = {
+        propertyName: propertyName,
+        numericRent: numericRent,
+        formattedFee: formattedFee,
+        ViewYear: defaultDate.getFullYear();
+    }
 });
