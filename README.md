@@ -9,7 +9,7 @@
 <p>
   <img src="https://img.shields.io/badge/:badgeContent
   " alt="HTML5" />
-  <img src="https://shields.io" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/github-repo-blue?logo=Tailwind CSS" alt="Tailwind CSS" />
   <img src="https://shields.io" alt="JavaScript" />
   <img src="https://shields.io" alt="Spring Boot" />
   <img src="https://shields.io" alt="M-Pesa KCB Buni" />
@@ -48,7 +48,7 @@ In fast-growing Kenyan residential and coastal rental markets—from Nairobi to 
 
 > **Note for Repository Setup:** Place your UI screenshots inside an `assets/` folder in your project root using the filenames below to render them automatically.
 
-| 1. Schedule Viewing | 2. Dynamic 1% Checkout | 3. Instant Digital Receipt |
+| 1. Schedule Viewing | 2. Dynamic 10% Checkout | 3. Instant Digital Receipt |
 | :---: | :---: | :---: |
 | <img src="assets/screen-schedule.png" alt="Schedule Viewing UI" width="260" /> | <img src="assets/screen-payment.png" alt="M-Pesa and Card Checkout UI" width="260" /> | <img src="assets/screen-receipt.png" alt="Payment Receipt UI" width="260" /> |
 | *Interactive calendar & time-slot picker* | *Auto-calculated 1% fee via M-Pesa or Visa* | *Print-ready PDF receipt & booking confirmation* |
