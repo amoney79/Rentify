@@ -63,4 +63,8 @@ document.addEventListener("DOMContentLoaded", function () {
             d1.getDate() === d2.getDate
         );
     }
+
+    function renderCalendar (){
+        var firstDatOfMonth = new Date(state.ViewYear, state.viewMonth, 1);
+    }
 });
