@@ -10,4 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     var today = new Date();
     today.setHours(0, 0, 0, 0);
+
+    var  defaultDate = new Date(today);
+    defaultDate.setDate(today.getDate() +1 );
 });
