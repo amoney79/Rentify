@@ -7,7 +7,7 @@
 
 <!-- Technology Stack Badges -->
 <p>
-  <img src="https://img.shields.io/badge/
+  <img src="[https://img.shields.io/badge/HTML5-orange](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
   " alt="HTML5" />
   <img src="https://shields.io" alt="Tailwind CSS" />
   <img src="https://shields.io" alt="JavaScript" />
