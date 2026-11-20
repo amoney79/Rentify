@@ -66,5 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function renderCalendar (){
         var firstDatOfMonth = new Date(state.ViewYear, state.viewMonth, 1);
+        var daysInMonth = new Date(state.ViewYear, state.viewMonth + 1, 0).getDate();
     }
 });
