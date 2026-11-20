@@ -1,3 +1,10 @@
-# Rentify - Modern Property Marketplace 
+# Rentify - Modern Real Estate Marketplace & Automatted Viewing Platform 
 
-**Rentify** is a real estate marketplace and property platform built for seamless house hunting ,instant Viewing scheduling and secure payments
+**Rentify** is a modern proptech platform built to eliminate friction,no-shows and informal middlemam bottlenecks in the residential and commercial rental market across Kenya. By combining verified property discovery, instant viewing scheduling and automated micro-deposits payment, Rentify connects serious tenants directly with vetted Landlords and agents.
+
+---
+
+## Key Features
+
+**Interactive Viewing Scheduler**
+Responsive
