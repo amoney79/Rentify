@@ -101,6 +101,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 } else {
                     bttn.className = "p-2.5 sm:p-3 rounded-2xl hover:bg-primary/10 hover:text-primary transition-colors";
+                    bttn.addEventListener("click", function () {
+                        state.selectedDate = cellDate;
+                        renderCalendar();
+                        syncSummaryAddLinkss();
+                    })
                 }
             })
         }
