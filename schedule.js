@@ -67,5 +67,13 @@ document.addEventListener("DOMContentLoaded", function () {
     function renderCalendar (){
         var firstDatOfMonth = new Date(state.ViewYear, state.viewMonth, 1);
         var daysInMonth = new Date(state.ViewYear, state.viewMonth + 1, 0).getDate();
+        var startWeekday = firstDatOfMonth.getDay();
+
+
+        els.monthLabeb.textContent = firstDayOfMonth.toLocaleDateString("en-US", {
+            month:"long",
+            year: "numeric"
+        });
+        
     }
 });
