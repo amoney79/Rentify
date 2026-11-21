@@ -74,6 +74,12 @@ document.addEventListener("DOMContentLoaded", function () {
             month:"long",
             year: "numeric"
         });
-        
+
+        els.calendarGrid.innerHTML = "";
+
+        for (var i=0; i < startWeekday; i++) {
+            var emptyCell = document.createElement("div");
+            
+        }
     }
 });
