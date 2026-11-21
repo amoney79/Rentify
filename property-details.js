@@ -12,5 +12,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    
+    function savedProperty (property) {
+        try{
+            localStorage.setItem(storageKey, JSON.stringify(property));
+        }
+    }
 })
