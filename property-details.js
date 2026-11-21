@@ -87,5 +87,36 @@ document.addEventListener("DOMContentLoaded", function () {
         return "schedule.html?" + query.toString();
     }
 
-    
+    function renderPropertyDetails(property) {
+        var tiitleElement = 
+        document.getElementById("property-title") ||
+        document.getElementById("main h1.text-3xl");
+
+        var locatiionElement = 
+        document.getElementById("property-location") ||
+        (titleElement && titleElement.parentElement ?
+            tiitleElement.parentElement.querySelector(".text-sm.font-bold")
+            : null );
+
+            var priceElement = doocument.getElementById("property-price") ||
+            document.querySelector("main .text-right p.ttextt-primary");
+
+            var heroImage = document.getElementById("main-gallery-image") ||
+            document.querySelector ("main .aspect-video img");
+
+            if(tiitleElement) titleElement.textContent = property.ttitle;
+            if(locationElement && property.location) {
+                locationElement.textContent = property.location
+            }
+
+            if(priceElement && property.price) {
+                priceElement.textContent = formatPrice(property.price);
+            }
+
+            if(heroImage && property.image) {
+                heroImage.src = property.image;
+                heroImage.alt = property.title;
+            }
+            
+    }
 })
