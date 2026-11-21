@@ -134,5 +134,12 @@ document.addEventListener("DOMContentLoaded", function () {
         if(summaryFee) els.summaryFee.textContent = state.formattedFee;
         if(mobileSchedule) els.mobileSchedule.textContent = shortDate + " . " +  state.selectedSlot;
         if(mobileFee) els.mobileFee.textContent = state.formattedFee;
+
+        var bookingPayload = {
+            property: state.propertyName,
+            rent: state.numericRent,
+            selectedDate: longDate,
+            selectedSlot: state.selectedSlot
+        }
     }
 });
