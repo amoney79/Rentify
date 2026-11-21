@@ -180,4 +180,6 @@ document.addEventListener("DOMContentLoaded", function () {
             selectSlot(btn);
         });
     });
+    renderCalendar();
+    syncSummaryAddLinks();
 });
