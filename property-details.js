@@ -179,7 +179,19 @@ document.addEventListener("DOMContentLoaded", function () {
                     savedProperty.title ||
                     currentTitle,
                     price: 
-                    parsePrice()
+                    parsePrice(params.get("rent") || params.get("price")) ||
+                    Number(savedProperty.price ||savedProperty.rent) ||
+                    parsePrice(currentPriceElement ? currentPriceElement.textContent : "" ) ||
+                    120000,
+                    location:
+                    params.get("location") ||
+                    savedProperty.location || 
+                    "",
+                    image: 
+                    params.get("image") ||
+                    savedProperty.image ||
+                    ""
+                };
+                property.rent = property.price;
+                renderPropertyDetails(property);
             });
-    }
-});
