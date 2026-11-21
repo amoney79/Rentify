@@ -82,5 +82,12 @@ document.addEventListener("DOMContentLoaded", function () {
             emptyCell.className = "p-2.5";
             els.calendarGrid.appendChild(emptyCell);
         }
+
+        for (var day=1; day<=daysInMonth; day++) {
+            (function (dayNum) {
+                var cellDate = new Date(state.ViewYear, state.viewMonth, dayNum);
+                var isPast = cellDate < today;
+            })
+        }
     }
 });
