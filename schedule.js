@@ -88,6 +88,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 var cellDate = new Date(state.ViewYear, state.viewMonth, dayNum);
                 var isPast = cellDate < today;
                 var isSelected = isSameDay(cellDate, state.selectedDate);
+
+                var bttn = document.createElement("button");
+                bttn.type = "button"
             })
         }
     }
