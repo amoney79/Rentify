@@ -178,6 +178,6 @@ document.addEventListener("DOMContentLoaded", function () {
     els.slotBtns.forEach(function(btn) {
         btn.addEventListener("click", function() {
             selectSlot(btn);
-        })
-    })
+        });
+    });
 });
