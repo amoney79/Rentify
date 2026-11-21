@@ -105,8 +105,10 @@ document.addEventListener("DOMContentLoaded", function () {
                         state.selectedDate = cellDate;
                         renderCalendar();
                         syncSummaryAddLinkss();
-                    })
+                    });
                 }
+
+                els.calendarGrid.appendChild(btn);
             })
         }
     }
