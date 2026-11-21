@@ -126,5 +126,13 @@ document.addEventListener("DOMContentLoaded", function () {
     function syncSummaryAddLinks () {
         var longDate = formatLongDate(state.selectedDate);
         var shortDate = formatShortDate(state.selectedDate);
+
+
+        if(els.headerProp) els.headerProp.textContent = state.propertyName;
+        if (els.summaryDate) els.summaryDate.textContent = longDate;
+        if(els.summaryTime) els.summaryTime.textContent = state.selectedSlot;
+        if(summaryFee) els.summaryFee.textContent = state.formattedFee;
+        if(mobileSchedule) els.mobileSchedule.textContent = shortDate + " . " +  state.selectedSlot;
+        if(mobileFee) els.mobileFee.textContent = state.formattedFee;
     }
 });
