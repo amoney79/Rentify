@@ -1,43 +1,43 @@
 document.addEventListener("DOMContentLoaded", function () {
     var params = new URLSearchParams(window.location.search);
-    var savedProperty = JSON.parse(localStorage.getItem("selectdProperty") || "{}");
+    var savedProperty = JSON.parse(localStorage.getItem("selectedProperty") || "{}");
 
     var propertyName = params.get("property") || savedProperty.title || "Silver Towers Unit 4B";
     var rawRent = params.get("rent") || savedProperty.rent || savedProperty.price || "15000";
     var numericRent = parseFloat(String(rawRent).replace(/[^0-9.]/g, "")) || 15000;
-    var viewingFee = Math.round(numericRent * 0.1);
+    var viewingFee = Math.round(numericRent * 0.01);
     var formattedFee = "KES " + viewingFee.toLocaleString("en-KE");
 
     var today = new Date();
     today.setHours(0, 0, 0, 0);
 
-    var  defaultDate = new Date(today);
-    defaultDate.setDate(today.getDate() +1 );
+    var defaultDate = new Date(today);
+    defaultDate.setDate(today.getDate() + 1);
 
     var state = {
         propertyName: propertyName,
         numericRent: numericRent,
         formattedFee: formattedFee,
-        ViewYear: defaultDate.getFullYear(),
+        viewYear: defaultDate.getFullYear(),
         viewMonth: defaultDate.getMonth(),
         selectedDate: defaultDate,
-        selectedSlot: "09:000 AM"
+        selectedSlot: "09:00 AM"
     };
 
     var els = {
-        headerProp:document.getElementById("header-property-name"),
-        monthLabeb: document.getElementById("calendar-month-label"),
+        headerProp: document.getElementById("header-property-name"),
+        monthLabel: document.getElementById("calendar-month-label"),
         calendarGrid: document.getElementById("calendar-grid"),
-        prevMonthBtn: document.getElementById("pre-month-btn"),
+        prevMonthBtn: document.getElementById("prev-month-btn"),
         nextMonthBtn: document.getElementById("next-month-btn"),
-        slotBtns: document.getElementById("slot-btn"),
+        slotBtns: document.querySelectorAll(".slot-btn"),
         summaryDate: document.getElementById("summary-date"),
-        summaryTime: document.getElementsByName("summary-time"),
+        summaryTime: document.getElementById("summary-time"),
         summaryFee: document.getElementById("summary-fee"),
         mobileSchedule: document.getElementById("mobile-bar-schedule"),
         mobileFee: document.getElementById("mobile-bar-fee"),
-        confirmDesktop: document.getElementById("confiirm-btn-desktop"),
-        confirmMobile: document.getElementById("confirm-btn-mobiile")
+        confirmDesktop: document.getElementById("confirm-btn-desktop"),
+        confirmMobile: document.getElementById("confirm-btn-mobile")
     };
 
     function formatLongDate(dateObj) {
@@ -50,66 +50,64 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function formatShortDate(dateObj) {
-        return dateObj.toLocaleDateString('en-US', {
-            month:"short",
+        return dateObj.toLocaleDateString("en-US", {
+            month: "short",
             day: "numeric"
         });
     }
 
-    function iisSameDay(d1, d2) {
+    function isSameDay(d1, d2) {
         return (
-            d1.getFullYear()  === d2.getFullYear() && 
+            d1.getFullYear() === d2.getFullYear() &&
             d1.getMonth() === d2.getMonth() &&
-            d1.getDate() === d2.getDate
+            d1.getDate() === d2.getDate()
         );
     }
 
-    function renderCalendar (){
-        var firstDatOfMonth = new Date(state.ViewYear, state.viewMonth, 1);
-        var daysInMonth = new Date(state.ViewYear, state.viewMonth + 1, 0).getDate();
-        var startWeekday = firstDatOfMonth.getDay();
+    function renderCalendar() {
+        var firstDayOfMonth = new Date(state.viewYear, state.viewMonth, 1);
+        var daysInMonth = new Date(state.viewYear, state.viewMonth + 1, 0).getDate();
+        var startWeekday = firstDayOfMonth.getDay();
 
-
-        els.monthLabeb.textContent = firstDayOfMonth.toLocaleDateString("en-US", {
-            month:"long",
+        els.monthLabel.textContent = firstDayOfMonth.toLocaleDateString("en-US", {
+            month: "long",
             year: "numeric"
         });
 
         els.calendarGrid.innerHTML = "";
 
-        for (var i=0; i < startWeekday; i++) {
+        for (var i = 0; i < startWeekday; i++) {
             var emptyCell = document.createElement("div");
             emptyCell.className = "p-2.5";
             els.calendarGrid.appendChild(emptyCell);
         }
 
-        for (var day=1; day<=daysInMonth; day++) {
+        for (var day = 1; day <= daysInMonth; day++) {
             (function (dayNum) {
-                var cellDate = new Date(state.ViewYear, state.viewMonth, dayNum);
+                var cellDate = new Date(state.viewYear, state.viewMonth, dayNum);
                 var isPast = cellDate < today;
                 var isSelected = isSameDay(cellDate, state.selectedDate);
 
-                var bttn = document.createElement("button");
-                bttn.type = "button";
-                bttn.ttextContent = String(dayNum);
+                var btn = document.createElement("button");
+                btn.type = "button";
+                btn.textContent = String(dayNum);
 
-                if(isPastt) {
-                    bttn.disabled = true;
-                    bttn.className = "p-2.5 sm:p-3 rounded-2xl text-gray-300 dark:text-gray-600 cursor-not-allowed";
+                if (isPast) {
+                    btn.disabled = true;
+                    btn.className = "p-2.5 sm:p-3 rounded-2xl text-gray-300 dark:text-gray-600 cursor-not-allowed";
                 } else if (isSelected) {
-                    bttn.className = "p-2.5 sm:p-3 rounded-2xl bg-primary text-white font-black shadow-md shadow-primary/30 ring-2 ring-primary/30 transition-all";
-
+                    btn.className = "p-2.5 sm:p-3 rounded-2xl bg-primary text-white font-black shadow-md shadow-primary/30 ring-2 ring-primary/30 transition-all";
                 } else {
-                    bttn.className = "p-2.5 sm:p-3 rounded-2xl hover:bg-primary/10 hover:text-primary transition-colors";
-                    bttn.addEventListener("click", function () {
+                    btn.className = "p-2.5 sm:p-3 rounded-2xl hover:bg-primary/10 hover:text-primary transition-colors";
+                    btn.addEventListener("click", function () {
                         state.selectedDate = cellDate;
                         renderCalendar();
-                        syncSummaryAddLinks();
+                        syncSummaryAndLinks();
                     });
                 }
 
                 els.calendarGrid.appendChild(btn);
-            }) (day) ;
+            })(day);
         }
     }
 
@@ -120,20 +118,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
         slotBtn.className = "slot-btn p-4 rounded-2xl border-2 border-primary bg-primary/10 text-primary font-black text-sm sm:text-base transition-all";
         state.selectedSlot = slotBtn.getAttribute("data-slot");
-        syncSummaryAddLinks();
+        syncSummaryAndLinks();
     }
 
-    function syncSummaryAddLinks () {
+    function syncSummaryAndLinks() {
         var longDate = formatLongDate(state.selectedDate);
         var shortDate = formatShortDate(state.selectedDate);
 
-
-        if(els.headerProp) els.headerProp.textContent = state.propertyName;
+        if (els.headerProp) els.headerProp.textContent = state.propertyName;
         if (els.summaryDate) els.summaryDate.textContent = longDate;
-        if(els.summaryTime) els.summaryTime.textContent = state.selectedSlot;
-        if(summaryFee) els.summaryFee.textContent = state.formattedFee;
-        if(mobileSchedule) els.mobileSchedule.textContent = shortDate + " . " +  state.selectedSlot;
-        if(mobileFee) els.mobileFee.textContent = state.formattedFee;
+        if (els.summaryTime) els.summaryTime.textContent = state.selectedSlot;
+        if (els.summaryFee) els.summaryFee.textContent = state.formattedFee;
+        if (els.mobileSchedule) els.mobileSchedule.textContent = shortDate + " • " + state.selectedSlot;
+        if (els.mobileFee) els.mobileFee.textContent = state.formattedFee;
 
         var bookingPayload = {
             property: state.propertyName,
@@ -141,45 +138,44 @@ document.addEventListener("DOMContentLoaded", function () {
             selectedDate: longDate,
             selectedSlot: state.selectedSlot
         };
-
         localStorage.setItem("rentifyBooking", JSON.stringify(bookingPayload));
 
-        var paymentParams = new URLSearchParams ({
+        var paymentParams = new URLSearchParams({
             property: state.propertyName,
             rent: String(state.numericRent),
             date: longDate,
             time: state.selectedSlot
         });
+        var targetUrl = "payment.html?" + paymentParams.toString();
 
-        var targeturl = "payment.html?" + paymentParams.toString();
-        
-        if(els.confirmDesktop) els.confirmDesktop.href = targeturl;
-        if(els.confirmMobile) els.confirmMobile.href = targeturl;
+        if (els.confirmDesktop) els.confirmDesktop.href = targetUrl;
+        if (els.confirmMobile) els.confirmMobile.href = targetUrl;
     }
 
-    els.prevMontthBtn.addEventListener("click", function () {
+    els.prevMonthBtn.addEventListener("click", function () {
         state.viewMonth -= 1;
-        if(state.viewMonth < 0) {
-            state.viewMonth = 11 ;
+        if (state.viewMonth < 0) {
+            state.viewMonth = 11;
             state.viewYear -= 1;
         }
-        renderCalendar() ;
+        renderCalendar();
     });
 
-    els.nextMonthBtn.adddEventListener("click", function() {
+    els.nextMonthBtn.addEventListener("click", function () {
         state.viewMonth += 1;
-        if(state.viewMonth > 11) {
+        if (state.viewMonth > 11) {
             state.viewMonth = 0;
             state.viewYear += 1;
         }
         renderCalendar();
     });
 
-    els.slotBtns.forEach(function(btn) {
-        btn.addEventListener("click", function() {
+    els.slotBtns.forEach(function (btn) {
+        btn.addEventListener("click", function () {
             selectSlot(btn);
         });
     });
+
     renderCalendar();
-    syncSummaryAddLinks();
+    syncSummaryAndLinks();
 });
