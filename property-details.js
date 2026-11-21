@@ -71,5 +71,21 @@ document.addEventListener("DOMContentLoaded", function () {
             image: imageElement ? imageElement.wsrc : ""
         };
     }
+    function formatPrice () {
+        return "KSh " + amount.tolocaleString("en-KE");
+    }
+
+    function buildScheduleUrl (property) {
+        var query = new URLSearchParams({
+            id: property.id || makePropertyId(property.title),
+            property: property.title,
+            rent: String(property.rent || property.price)
+        });
+
+        if(peoperty.location) query.set(("location", property.location));
+
+        return "schedule.html?" + query.toString();
+    }
+
     
 })
