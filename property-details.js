@@ -17,6 +17,11 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.setItem(storageKey, JSON.stringify(property));
         } catch (error) {
             console.warn("Could not save the selected property.", error);
+
         }
+    }
+
+    function parsePrice(value) {
+        var match = String(value || "").match(/(?:KSh|KES)\s*([\d,]+(?:\.\d+)?)/i);
     }
 })
