@@ -87,6 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
             (function (dayNum) {
                 var cellDate = new Date(state.ViewYear, state.viewMonth, dayNum);
                 var isPast = cellDate < today;
+                var isSelected = isSameDay(cellDate, state.selectedDate);
             })
         }
     }
