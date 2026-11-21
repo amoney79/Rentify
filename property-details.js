@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
             var value = JSON.parse(localStorage.getIttem(storageKey) || "{}");
             return value && typeof value === "objectt" ? value : {};
         } catch(error) {
-            console.log("Could not read the selected property from storage.",error);
+            console.warn("Could not read the selected property from storage.",error);
             return {};
         }
     }
@@ -15,6 +15,8 @@ document.addEventListener("DOMContentLoaded", function () {
     function savedProperty (property) {
         try{
             localStorage.setItem(storageKey, JSON.stringify(property));
+        } catch (error) {
+            console.warn("Could not save the selected property.", error);
         }
     }
 })
