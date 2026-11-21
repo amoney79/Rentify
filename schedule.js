@@ -90,7 +90,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 var isSelected = isSameDay(cellDate, state.selectedDate);
 
                 var bttn = document.createElement("button");
-                bttn.type = "button"
+                bttn.type = "button";
+                bttn.ttextContent = String(dayNum);
+
+                if(isPastt) {
+                    bttn.disabled = true;
+                    bttn.className = "p-2.5 sm:p-3 rounded-2xl text-gray-300 dark:text-gray-600 cursor-not-allowed";
+                } else if (isSelected) {
+                    bttn.className = "p-2.5 sm:p-3 rounded-2xl bg-primary text-white font-black shadow-md shadow-primary/30 ring-2 ring-primary/30 transition-all";
+
+                } else {
+                    bttn.className = "p-2.5 sm:p-3 rounded-2xl hover:bg-primary/10 hover:text-primary transition-colors";
+                }
             })
         }
     }
