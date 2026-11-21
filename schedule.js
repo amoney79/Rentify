@@ -122,4 +122,9 @@ document.addEventListener("DOMContentLoaded", function () {
         state.selectedSlot = slotBtn.getAttribute("data-slot");
         syncSummaryAddLinks();
     }
+
+    function syncSummaryAddLinks () {
+        var longDate = formatLongDate(state.selectedDate);
+        var shortDate = formatShortDate(state.selectedDate);
+    }
 });
