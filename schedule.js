@@ -104,12 +104,22 @@ document.addEventListener("DOMContentLoaded", function () {
                     bttn.addEventListener("click", function () {
                         state.selectedDate = cellDate;
                         renderCalendar();
-                        syncSummaryAddLinkss();
+                        syncSummaryAddLinks();
                     });
                 }
 
                 els.calendarGrid.appendChild(btn);
             }) (day) ;
         }
+    }
+
+    function selectSlot(slotBtn) {
+        els.slotBtns.forEach(function (btn) {
+            btn.className = "slot-btn p-4 rounded-2xl border-2 border-gray-100 dark:border-gray-700 font-bold text-sm sm:text-base hover:border-primary transition-all";
+        });
+
+        slotBtn.className = "slot-btn p-4 rounded-2xl border-2 border-primary bg-primary/10 text-primary font-black text-sm sm:text-base transition-all";
+        state.selectedSlot = slotBtn.getAttribute("data-slot");
+        syncSummaryAddLinks();
     }
 });
