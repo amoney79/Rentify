@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var propertyName = params.get("property") || savedProperty.title || "Silver Towers Unit 4B";
     var rawRent = params.get("rent") || savedProperty.rent || savedProperty.price || "15000";
     var numericRent = parseFloat(String(rawRent).replace(/[^0-9.]/g, "")) || 15000;
-    var viewingFee = Math.round(numericRent * 0.01);
+    var viewingFee = Math.round(numericRent * 0.1);
     var formattedFee = "KES " + viewingFee.toLocaleString("en-KE");
 
     var today = new Date();
