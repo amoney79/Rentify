@@ -154,6 +154,23 @@ document.addEventListener("DOMContentLoaded", function () {
         var targeturl = "payment.html?" + paymentParams.toString();
         
         if(els.confirmDesktop) els.confirmDesktop.href = targeturl;
-
+        if(els.confirmMobile) els.confirmMobile.href = targeturl;
     }
+
+    els.prevMontthBtn.addEventListener("click", function () {
+        state.viewMonth -= 1;
+        if(state.viewMonth < 0) {
+            state.viewMonth = 11 ;
+            state.viewYear -= 1;
+        }
+        renderCalendar() ;
+    });
+
+    els.nextMonthBtn.adddEventListener("click", function() {
+        state.viewMonth += 1;
+        if(state.viewMonth > 11) {
+            state.viewMonth = 0;
+            state.viewYear += 1;
+        }
+    })
 });
