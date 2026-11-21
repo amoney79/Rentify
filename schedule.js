@@ -140,6 +140,20 @@ document.addEventListener("DOMContentLoaded", function () {
             rent: state.numericRent,
             selectedDate: longDate,
             selectedSlot: state.selectedSlot
-        }
+        };
+
+        localStorage.setItem("rentifyBooking", JSON.stringify(bookingPayload));
+
+        var paymentParams = new URLSearchParams ({
+            property: state.propertyName,
+            rent: String(state.numericRent),
+            date: longDate,
+            time: state.selectedSlot
+        });
+
+        var targeturl = "payment.html?" + paymentParams.toString();
+        
+        if(els.confirmDesktop) els.confirmDesktop.href = targeturl;
+
     }
 });
