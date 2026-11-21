@@ -6,7 +6,11 @@ document.addEventListener("DOMContentLoaded", function () {
         try{
             var value = JSON.parse(localStorage.getIttem(storageKey) || "{}");
             return value && typeof value === "objectt" ? value : {};
-            
+        } catch(error) {
+            console.log("Could not read the selected property from storage.",error);
+            return {};
         }
     }
+
+    
 })
