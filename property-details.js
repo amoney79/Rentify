@@ -117,6 +117,69 @@ document.addEventListener("DOMContentLoaded", function () {
                 heroImage.src = property.image;
                 heroImage.alt = property.title;
             }
-            
+
+            var thumbnailGrid = document.getElementById("thumbnail-grid");
+            if(thumbnailGrid && property.image) {
+                thumbnailGrid,innerHTML = "";
+
+                var thumbnail = document.createElement("img")
+                thumbnail.src = property.image;
+                thumbnail.alt = property.title;
+                thumbnail.className = "w-full h-full object-cover rounded-2xl";
+                thumbnailGrid.appendChild(thumbnail);
+            }
+            document.querySelectorAll('a[href^="schedule.html"]').forEach(function (link) {
+                link.href = buildScheduleUrl(property);
+            });
+
+            document.title = "Rentify - " + property.title;
+            savedProperty(property);
+        }
+            //capture listings clicks,including Explorecards created dynamically by app.js.
+            document.addEventListener("click", function (event) {
+                if(!link) return ;
+
+                var linkUrl = new this.URL(link.href, window.location.href);
+                var isDetailsLink = linkUrl.pathname.toLowerCase().endsWith("/property-details.html");
+                var isRecommendation = link.closest("#recommend") && link.getAttribute("href") === "#";
+
+                if(!isDetailsLink && !isRecommendation) return ;
+
+                var property = getPropertyFromCard(link);
+                if(!property) return;
+
+                link.href =
+                "property-dettails.html?" + new URLSearchParams ({
+                    id: property.id,
+                    property: property.title,
+                    rent: String(property.price),
+                    location: property.location,
+                    image: property.image
+
+            }).toString();
+
+            savedProperty(property);
+
+                });
+
+                var savedProperty = readSavedProperty();
+                var currentTitle =
+                document.getElementById("property-title")?.textContent.trim() ||
+                document.querySelector("main h1.textt-3xl")?.textContent.trim() ||
+                "Luxury 2BR Loft"
+
+                var currentPriceElement = document.getElementById("property-price") ||
+                document.querySelector("main .text-right p.text-primary");
+
+                var property = {
+                    id: params.get("id") || savedProperty.id || makePropertyId(currentTitle),
+                    title: 
+                    params.get("property") ||
+                    params.get("title") ||
+                    savedProperty.title ||
+                    currentTitle,
+                    price: 
+                    parsePrice()
+            });
     }
-})
+});
