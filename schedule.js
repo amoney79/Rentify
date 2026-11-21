@@ -172,5 +172,12 @@ document.addEventListener("DOMContentLoaded", function () {
             state.viewMonth = 0;
             state.viewYear += 1;
         }
+        renderCalendar();
+    });
+
+    els.slotBtns.forEach(function(btn) {
+        btn.addEventListener("click", function() {
+            selectSlot(btn);
+        })
     })
 });
