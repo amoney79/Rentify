@@ -65,7 +65,11 @@ document.addEventListener("DOMContentLoaded", function () {
         return {
             id: card.dataset.makePropertyId || makePropertyId(title),
             title: title,
-            
-        }
+            price: price,
+            rent: price,
+            location: location,
+            image: imageElement ? imageElement.wsrc : ""
+        };
     }
+    
 })
