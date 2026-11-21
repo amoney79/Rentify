@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         for (var i=0; i < startWeekday; i++) {
             var emptyCell = document.createElement("div");
-            
+            emptyCell.className = "p-2.5";
         }
     }
 });
