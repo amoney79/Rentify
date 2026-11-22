@@ -47,7 +47,7 @@ In fast-growing Kenyan residential and coastal rental markets—from Nairobi to 
 | 1. Schedule Viewing | 2. Dynamic 10% Checkout | 3. Instant Digital Receipt |
 | :---: | :---: | :---: |
 | <img src="assets/screen-schedule.png" alt="Schedule Viewing UI" width="260" /> | <img src="assets/screen-payment.png" alt="M-Pesa and Card Checkout UI" width="260" /> | <img src="assets/screen-receipt.png" alt="Payment Receipt UI" width="260" /> |
-| *Interactive calendar & time-slot picker* | *Auto-calculated 1% fee via M-Pesa or Visa* | *Print-ready PDF receipt & booking confirmation* |
+| *Interactive calendar & time-slot picker* | *Auto-calculated 10% fee via M-Pesa or Visa* | *Print-ready PDF receipt & booking confirmation* |
 
 ---
 

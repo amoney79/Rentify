@@ -31,7 +31,8 @@ document.addEventListener("DOMContentLoaded", function () {
             selectedProperty.title ||
             "Silver Towers Unit 4B",
         amountText: "KES " + viewingFee.toLocaleString("en-KE"),
-        selectedMethod: "mpesa"
+        selectedMethod: "mpesa",
+        pendingMpesa: null
     };
 
     var els = {
@@ -117,10 +118,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function validatePayment() {
         if (state.selectedMethod === "mpesa") {
+
             var phone = els.phoneInput.value.replace(/\D/g, "");
-            if (phone.charAt(0) === "0" && phone.length === 10) {
+
+            if (phone.startsWith("254") && phone.length === 12) {
+                phone = phone.substring(3);
+            } else if (phone.startsWith("0") && phone.length === 10) {
                 phone = phone.substring(1);
             }
+
             if (!/^[17]\d{8}$/.test(phone)) {
                 showError(
                     "Enter a valid M-Pesa number, such as 712 345 678.",
@@ -128,9 +134,32 @@ document.addEventListener("DOMContentLoaded", function () {
                 );
                 return null;
             }
-            return "M-Pesa (+254 ••• ••• " + phone.slice(-3) + ")";
+            return "254" + phone ;
         }
-
+        async function readApiRespone(response) {
+            var result;
+            try{
+                result = await response.json();
+            } catch(error) {
+                throw new Error("The payment server returned aan invalid response.");
+            }
+            if (!response.ok) {
+                throw new Error(result.message || "The payment request could not be completed.");
+            }
+            return result;
+        }
+        function wait (milliseconds) {
+            return new Promise (function (resolve) {
+                window.setTimeout(resolve, milliseconds);
+            });
+        }
+        function resetPayBButton() {
+            els.payBtn.disabled = false ;
+            els.payBtnIcon.classList.remove("animate-spin");
+            els.payBtnIcon.textContent = "arrow_forward";
+            els.payBtnText.textContent = "Pay " + state.amountText + " with M-Pesa";
+        }
+            
         if (!els.cardNameInput.value.trim()) {
             showError("Enter the cardholder name.", els.cardNameInput);
             return null;
@@ -174,9 +203,38 @@ document.addEventListener("DOMContentLoaded", function () {
         return "Card •••• " + cardNumber.slice(-4);
     }
 
-    function handlePaymentSubmit(event) {
+    async function handlePaymentSubmit(event) {
         event.preventDefault();
         clearError();
+
+        //The backend's / card endpoint is not implementedyet
+
+        if(state.selectedMethod !== "mpesa") {
+            showError("card payments are not available yet. Choose M-Pesa to continue");
+            return;
+        }
+        var phoneNumber = validatePayment();
+        if(!phoneNumber) return;
+
+        els.payBtn.disabled = true;
+        els.payBtnIcon.textContent = "sync";
+        els.payBtnIcon.classList.add("animatte-spin");
+        els.payBtnText.textContent = "Sending M-Pesa prompt...";
+
+        var apiBaseUrl = state.apiBaseUrl.replace(/\/$/, "");
+        try{
+            //start the STK Push. The baackend must keep the provider credentials secret.
+            var startResponse = await fetch(apiBBaseUrl + "/pay", {
+                method: "Post",
+                headers: { "Content-type": "application/json" },
+                body: JSON.stringify({
+                    amount: viewingFee,
+                    phoneNumber: phoneNumber
+                })
+            });
+            var startResult = await readApiRespone(startResponse);
+            var reference = startResult.reference;
+        }
 
         var methodLabel = validatePayment();
         if (!methodLabel) {
