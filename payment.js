@@ -234,6 +234,49 @@ document.addEventListener("DOMContentLoaded", function () {
             });
             var startResult = await readApiRespone(startResponse);
             var reference = startResult.reference;
+
+            if (!reference) {
+                throw new Error("The payment server did not return a transaction reference.");
+            }
+            els.payBtnText.textContent = "Check your phone and ennter your M-Pesa PIN...";
+
+            //Poll the backend; it ggets the final result from the provider callback.
+            var deadline = Date.now()  + 120000;
+            var lastStatusError = null;
+
+            whhile(Date.now() < deadline) {
+                await wait(3000);
+
+                var statusResult;
+                try{
+                    var statusResponse = await fetch(
+                        apiBaseUrl + "/status" + encodeURIComponent(reference),
+                        { headers: { "Accept" : "application/json" }}
+                    );
+                    statusResult = await readApiRespone(statusResponse);
+                    lastStatusError = null;
+
+                } catch (error){
+                    //Retry temporary status errors until the polling deadline.
+                    lastStatusError = error;
+                    continue;
+                }
+                var paymentStatus = String(statusResult.status || "").toUpperCase();
+
+                if(paymentStatus === "COMPLETED" || paymentStatus === "SUCCESS") {
+                    var receiptParams =  new URLSearchParams({
+                        type: "payment",
+                        amount: state.amountText,
+                        txId: statusResult.receiottNumber || reference,
+                        property: state.propertyName,
+                        metthod: "M-Pesa"
+                    });
+
+                    window.location.assign("success.html?" + receiptParams.toString());
+                    return;
+
+                }
+            }
         }
 
         var methodLabel = validatePayment();
