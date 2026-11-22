@@ -44,8 +44,6 @@ In fast-growing Kenyan residential and coastal rental markets—from Nairobi to 
 
 ## 📸 Platform Experience & Visual Assets
 
-> **Note for Repository Setup:** Place your UI screenshots inside an `assets/` folder in your project root using the filenames below to render them automatically.
-
 | 1. Schedule Viewing | 2. Dynamic 10% Checkout | 3. Instant Digital Receipt |
 | :---: | :---: | :---: |
 | <img src="assets/screen-schedule.png" alt="Schedule Viewing UI" width="260" /> | <img src="assets/screen-payment.png" alt="M-Pesa and Card Checkout UI" width="260" /> | <img src="assets/screen-receipt.png" alt="Payment Receipt UI" width="260" /> |
@@ -98,7 +96,7 @@ Rentify combines high-frequency micro-transactions with recurring B2B real estat
 ```mermaid
 flowchart LR
     A[🏘️ Browse Property] --> B[📅 Pick Date & Slot]
-    B --> C{💳 Checkout: 1% of Rent}
+    B --> C{💳 Checkout: 10% of Rent}
     C -->|M-Pesa| D[📲 KCB Buni STK Push]
     C -->|Bank Card| E[💳 Visa / Card Auth]
     D --> F[✅ Unified Success & PDF Receipt]
@@ -117,7 +115,7 @@ flowchart LR
 
 ## 🗺️ Strategic Roadmap
 
-- [x] **Phase 1 — Core Marketplace & Checkout:** Property discovery, interactive scheduler, dynamic 1% fee calculator, KCB M-Pesa STK Push, Visa checkout, and unified receipt engine.
+- [x] **Phase 1 — Core Marketplace & Checkout:** Property discovery, interactive scheduler, dynamic 10% fee calculator, KCB M-Pesa STK Push, Visa checkout, and unified receipt engine.
 - [ ] **Phase 2 — Automated B2C Refunds:** Instant M-Pesa deposit refund triggered upon GPS/agent check-in at the viewing.
 - [ ] **Phase 3 — Digital Leasing & Rent Collection:** Automated monthly rent invoicing, reminders, and landlord payout dashboards.
 - [ ] **Phase 4 — Regional Expansion:** Scaling landlord partnerships across Nairobi, Mombasa, Malindi, Kisumu, and Nakuru.
