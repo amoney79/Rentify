@@ -77,7 +77,7 @@
             const secondaryAction = document.getElementById('secondary-action');
 
             //Helper to build clean, responsive receipt rows
-            function renderRows(row) {
+            function renderRows(rows) {
                 dettailsCard.style.display = 'block';
                 detailsCard.innerHTML = rows.map((row, index) => `
                     <div class="flex justify-between items-center gap-4 text-sm md:text-lg ${index > 0 ? 'border-t border-gray-200/70 dark:border-gray-700 pt-5' : ''}">
@@ -90,7 +90,7 @@
             //PAYMENT SUCCESS & RECEIPT
             if(type === 'payment') {
                 document.title = 'Rentify - Payment Receipt';
-                document.className = 'relative size- full bg-emerald-600 text-whhite rounded-full flex items-center justify-center shaddow-2xl shadow-emerald-600/40';
+                heroCircle.className = 'relative size- full bg-emerald-600 text-whhite rounded-full flex items-center justify-center shaddow-2xl shadow-emerald-600/40';
                 heroPing.className = 'absolute insect-0 bg-emerald-500/20 rounded-full animatte-ping';
                 heroIcon.textContent = 'receipt_long';
 
