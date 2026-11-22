@@ -117,216 +117,155 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function validatePayment() {
-        if (state.selectedMethod === "mpesa") {
+        var phone = els.phoneInput.value.replace(/\D/g, "");
 
-            var phone = els.phoneInput.value.replace(/\D/g, "");
+        if (phone.startsWith("254") && phone.length === 12) {
+            phone = phone.substring(3);
+        } else if (phone.startsWith("0") && phone.length === 10) {
+            phone = phone.substring(1);
+        }
 
-            if (phone.startsWith("254") && phone.length === 12) {
-                phone = phone.substring(3);
-            } else if (phone.startsWith("0") && phone.length === 10) {
-                phone = phone.substring(1);
-            }
-
-            if (!/^[17]\d{8}$/.test(phone)) {
-                showError(
-                    "Enter a valid M-Pesa number, such as 712 345 678.",
-                    els.phoneInput
-                );
-                return null;
-            }
-            return "254" + phone ;
-        }
-        async function readApiRespone(response) {
-            var result;
-            try{
-                result = await response.json();
-            } catch(error) {
-                throw new Error("The payment server returned aan invalid response.");
-            }
-            if (!response.ok) {
-                throw new Error(result.message || "The payment request could not be completed.");
-            }
-            return result;
-        }
-        function wait (milliseconds) {
-            return new Promise (function (resolve) {
-                window.setTimeout(resolve, milliseconds);
-            });
-        }
-        function resetPayBButton() {
-            els.payBtn.disabled = false ;
-            els.payBtnIcon.classList.remove("animate-spin");
-            els.payBtnIcon.textContent = "arrow_forward";
-            els.payBtnText.textContent = "Pay " + state.amountText + " with M-Pesa";
-        }
-            
-        if (!els.cardNameInput.value.trim()) {
-            showError("Enter the cardholder name.", els.cardNameInput);
+        if (!/^[17]\d{8}$/.test(phone)) {
+            showError(
+                "Enter a valid M-Pesa number, such as 712 345 678.",
+                els.phoneInput
+            );
             return null;
         }
 
-        var cardNumber = els.cardNumberInput.value.replace(/\D/g, "");
-        if (!/^\d{15,16}$/.test(cardNumber)) {
-            showError("Enter a valid 15- or 16-digit card number.", els.cardNumberInput);
-            return null;
+        return "254" + phone;
+    }
+
+    async function readApiResponse(response) {
+        var result;
+
+        try {
+            result = await response.json();
+        } catch (error) {
+            throw new Error("The payment server returned an invalid response.");
         }
 
-        var expiry = els.cardExpiryInput.value;
-        var expiryParts = expiry.split("/");
-        var expiryMonth = Number(expiryParts[0]);
-        var expiryYear = Number(expiryParts[1]);
-        if (
-            !/^\d{2}\/\d{2}$/.test(expiry) ||
-            expiryMonth < 1 ||
-            expiryMonth > 12 ||
-            expiryYear < 0
-        ) {
-            showError("Enter a valid expiry date in MM/YY format.", els.cardExpiryInput);
-            return null;
+        if (!response.ok) {
+            throw new Error(result.message || "The payment request could not be completed.");
         }
 
-        var now = new Date();
-        var fullExpiryYear = 2000 + expiryYear;
-        if (
-            fullExpiryYear < now.getFullYear() ||
-            (fullExpiryYear === now.getFullYear() && expiryMonth < now.getMonth() + 1)
-        ) {
-            showError("This card has expired. Enter a valid expiry date.", els.cardExpiryInput);
-            return null;
-        }
+        return result;
+    }
 
-        if (!/^\d{3,4}$/.test(els.cardCvvInput.value)) {
-            showError("Enter a valid 3- or 4-digit security code.", els.cardCvvInput);
-            return null;
-        }
+    function wait(milliseconds) {
+        return new Promise(function (resolve) {
+            window.setTimeout(resolve, milliseconds);
+        });
+    }
 
-        return "Card •••• " + cardNumber.slice(-4);
+    function resetPayButton() {
+        els.payBtn.disabled = false;
+        els.payBtnIcon.classList.remove("animate-spin");
+        els.payBtnIcon.textContent = "arrow_forward";
+        els.payBtnText.textContent = "Pay " + state.amountText + " with M-Pesa";
     }
 
     async function handlePaymentSubmit(event) {
         event.preventDefault();
         clearError();
 
-        //The backend's / card endpoint is not implementedyet
-
-        if(state.selectedMethod !== "mpesa") {
-            showError("card payments are not available yet. Choose M-Pesa to continue");
+        if (state.selectedMethod !== "mpesa") {
+            showError("Card payments are not available yet. Choose M-Pesa to continue.");
             return;
         }
+
         var phoneNumber = validatePayment();
-        if(!phoneNumber) return;
+        if (!phoneNumber) return;
 
         els.payBtn.disabled = true;
         els.payBtnIcon.textContent = "sync";
-        els.payBtnIcon.classList.add("animatte-spin");
+        els.payBtnIcon.classList.add("animate-spin");
         els.payBtnText.textContent = "Sending M-Pesa prompt...";
 
         var apiBaseUrl = state.apiBaseUrl.replace(/\/$/, "");
-        try{
-            //start the STK Push. The baackend must keep the provider credentials secret.
-            var startResponse = await fetch(apiBBaseUrl + "/pay", {
-                method: "Post",
-                headers: { "Content-type": "application/json" },
+
+        try {
+            var startResponse = await fetch(apiBaseUrl + "/pay", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     amount: viewingFee,
                     phoneNumber: phoneNumber
                 })
             });
-            var startResult = await readApiRespone(startResponse);
+            var startResult = await readApiResponse(startResponse);
             var reference = startResult.reference;
 
             if (!reference) {
                 throw new Error("The payment server did not return a transaction reference.");
             }
-            els.payBtnText.textContent = "Check your phone and ennter your M-Pesa PIN...";
 
-            //Poll the backend; it ggets the final result from the provider callback.
-            var deadline = Date.now()  + 120000;
+            els.payBtnText.textContent = "Check your phone and enter your M-Pesa PIN...";
+
+            var deadline = Date.now() + 120000;
             var lastStatusError = null;
 
-            while(Date.now() < deadline) {
+            while (Date.now() < deadline) {
                 await wait(3000);
 
                 var statusResult;
-                try{
+                try {
                     var statusResponse = await fetch(
-                        apiBaseUrl + "/status" + encodeURIComponent(reference),
-                        { headers: { "Accept" : "application/json" }}
+                        apiBaseUrl + "/status/" + encodeURIComponent(reference),
+                        { headers: { "Accept": "application/json" } }
                     );
-                    statusResult = await readApiRespone(statusResponse);
+                    statusResult = await readApiResponse(statusResponse);
                     lastStatusError = null;
-
-                } catch (error){
-                    //Retry temporary status errors until the polling deadline.
+                } catch (error) {
                     lastStatusError = error;
                     continue;
                 }
+
                 var paymentStatus = String(statusResult.status || "").toUpperCase();
 
-                if(paymentStatus === "COMPLETED" || paymentStatus === "SUCCESS") {
-                    var receiptParams =  new URLSearchParams({
+                if (paymentStatus === "COMPLETED" || paymentStatus === "SUCCESS") {
+                    var receiptParams = new URLSearchParams({
                         type: "payment",
                         amount: state.amountText,
-                        txId: statusResult.receiottNumber || reference,
+                        txId: statusResult.receiptNumber || reference,
                         property: state.propertyName,
-                        metthod: "M-Pesa"
+                        method: "M-Pesa"
                     });
 
                     window.location.assign("success.html?" + receiptParams.toString());
                     return;
                 }
-                if(
+
+                if (
                     paymentStatus === "FAILED" ||
                     paymentStatus === "CANCELLED" ||
                     paymentStatus === "CANCELED"
                 ) {
-                    throw new Error("The M-Pesa payment failed or was cancelled. Youu can try again.");
-
+                    throw new Error("The M-Pesa payment failed or was cancelled. You can try again.");
                 }
-                if(paymentStatus !== "PENDING") {
-                    throw new Error('The server returned an unexpected payment status: " + paymentStatus');
 
+                if (paymentStatus !== "PENDING") {
+                    throw new Error(
+                        "The server returned an unexpected payment status: " + paymentStatus
+                    );
+                }
+
+                els.payBtnText.textContent = "Waiting for M-Pesa confirmation...";
             }
-            els.payBtnText.textContent = "Waiting for  M-Pesa confirmmation...";
-        }
-         if(lastStatusError) {
+
+            if (lastStatusError) {
+                throw new Error(
+                    "We could not confirm the payment status. Check your M-Pesa messages or contact support before retrying."
+                );
+            }
+
             throw new Error(
-                "We could not confirm the payment status.Check your M-Pesa messages or contact support before retrying."
+                "Payment is still pending. Check your M-Pesa messages before retrying to avoid paying twice."
             );
-        } 
-        throw new error(
-            "Payment is still pending.Check your M-Pesa messages or contact support before retrying. "
-        );
-    } catch (error) {
-        showError(error.message || "Could not process the payment. Please try again.");
-        resetPayBButton();
-    }
-        var methodLabel = validatePayment();
-        if (!methodLabel) {
-            return;
+        } catch (error) {
+            showError(error.message || "Could not process the payment. Please try again.");
+            resetPayButton();
         }
-
-        els.payBtn.disabled = true;
-        els.payBtnIcon.textContent = "sync";
-        els.payBtnIcon.classList.add("animate-spin");
-        els.payBtnText.textContent =
-            state.selectedMethod === "mpesa"
-                ? "Check your phone for the M-Pesa PIN prompt..."
-                : "Authorizing card...";
-
-        var redirectParams = new URLSearchParams({
-            type: "payment",
-            amount: state.amountText,
-            txId:
-                (state.selectedMethod === "mpesa" ? "MPESA-" : "CARD-") +
-                Math.random().toString(36).substring(2, 8).toUpperCase(),
-            property: state.propertyName,
-            method: methodLabel
-        });
-
-        window.setTimeout(function () {
-            window.location.assign("success.html?" + redirectParams.toString());
-        }, 1200);
     }
 
     els.btnMpesa.addEventListener("click", function () {
