@@ -88,6 +88,18 @@ document.addEventListener("DOMContentLoaded", function () {
         return "schedule.html?" + query.toString();
     }
 
+    function buildDetailsUrl(property) {
+        var query = new URLSearchParams({
+            id: property.id,
+            property: property.title,
+            rent: String(property.price),
+            location: property.location,
+            image: property.image
+        });
+
+        return "property-details.html?" + query.toString();
+    }
+
     function renderPropertyDetails(property) {
         var titleElement = document.getElementById("property-title") ||
             document.querySelector("main h1.text-3xl");
@@ -136,6 +148,12 @@ document.addEventListener("DOMContentLoaded", function () {
         saveProperty(property);
     }
 
+    // Keep home-page listing links specific even when opened in a new tab.
+    document.querySelectorAll("#property-listings a[href]").forEach(function (link) {
+        var property = getPropertyFromCard(link);
+        if (property) link.href = buildDetailsUrl(property);
+    });
+
     // Capture listing clicks, including Explore cards created dynamically by app.js.
     document.addEventListener("click", function (event) {
         var link = event.target.closest("a");
@@ -146,20 +164,16 @@ document.addEventListener("DOMContentLoaded", function () {
         var isRecommendation = link.closest("#recommend") && link.getAttribute("href") === "#";
 
         if (!isDetailsLink && !isRecommendation) return;
+        if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
 
         var card = link.closest("article") || link.closest(".property-card") || link;
         var property = getPropertyFromCard(card);
         if (!property) return;
 
-        link.href = "property-details.html?" + new URLSearchParams({
-            id: property.id,
-            property: property.title,
-            rent: String(property.price),
-            location: property.location,
-            image: property.image
-        }).toString();
-
+        event.preventDefault();
+        link.href = buildDetailsUrl(property);
         saveProperty(property);
+        window.location.assign(link.href);
     });
 
     var storedProperty = readSavedProperty();

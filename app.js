@@ -613,7 +613,13 @@ document.addEventListener('DOMContentLoaded', () => {
             noResultsMsg?.classList.add('hidden');
             filtered.forEach(item => {
                 const card = document.createElement('a');
-                card.href = 'property-details.html';
+                card.href = 'property-details.html?' + new URLSearchParams({
+                    id: String(item.id),
+                    property: item.title,
+                    rent: String(item.price),
+                    location: item.location,
+                    image: item.image
+                }).toString();
                 card.className = 'flex flex-col bg-white dark:bg-gray-800 rounded-3xl overflow-hidden border border-gray-100 dark:border-gray-800 group hover:shadow-xl transition-all';
                 card.innerHTML = `
                     <div class="aspect-[16/10] relative overflow-hidden">
