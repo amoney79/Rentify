@@ -244,7 +244,7 @@ document.addEventListener("DOMContentLoaded", function () {
             var deadline = Date.now()  + 120000;
             var lastStatusError = null;
 
-            whhile(Date.now() < deadline) {
+            while(Date.now() < deadline) {
                 await wait(3000);
 
                 var statusResult;
@@ -274,11 +274,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     window.location.assign("success.html?" + receiptParams.toString());
                     return;
+                }
+                if(
+                    paymentStatus === "FAILED" ||
+                    paymentStatus === "CANCELLED" ||
+                    paymentStatus === "CANCELED"
+                ) {
+                    throw new Error("The M-Pesa payment failed or was cancelled. Youu can try again.");
 
                 }
-            }
-        }
+                if(paymentStatus !== "PENDING") {
+                    throw new Error('The server returned an unexpected payment status: " + paymentStatus');
 
+            }
+            els.payBtnText.textContent = "Waiting for  M-Pesa confirmmation...";
+        }
+         if(lastStatusError) {
+            throw new Error(
+                "We could not confirm the payment status.Check your M-Pesa messages or contact support before retrying."
+            );
+        } 
+        throw new error(
+            "Payment is still pending.Check your M-Pesa messages or contact support before retrying. "
+        );
+    } catch (error) {
+        showError(error.message || "Could not process the payment. Please try again.");
+        resetPayBButton();
+    }
         var methodLabel = validatePayment();
         if (!methodLabel) {
             return;
