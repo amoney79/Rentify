@@ -46,10 +46,10 @@
 
             <!--Dynamic Action Buttons-->
             <div class="pt-8 space-y-4">
-                <a href="index.html" class="w-full bg-primary text-white font-black py-5 rounded-[24px] shadow-2xl shadow-primary/40 flex items-center justify-center gap-2 hover:scale-[1.05] transition-all text-xl">
+                <a id="primary-action" href="index.html" class="w-full bg-primary text-white font-black py-5 rounded-[24px] shadow-2xl shadow-primary/40 flex items-center justify-center gap-2 hover:scale-[1.05] transition-all text-xl">
                     Back to Marketplace <span class="material-symbols-outlined">home</span>
                 </a>
-                <a href="chat.html" class="block text-primary font-black uppercase tracking-widest text-xs hover:underline">Message Agent</a>
+                <a id="secondary-action" href="chat.html" class="block text-primary font-black uppercase tracking-widest text-xs hover:underline">Message Agent</a>
             </div>
         </div>
 
@@ -67,12 +67,12 @@
             const savedBooking = JSON.parse(localStorage.getItem('rentifyBooking') || '{}');
 
             //DOM targets
-            const heroPing = document.getElementElementById('hero-ping');
+            const heroPing = document.getElementById('hero-ping');
             const heroCircle = document.getElementById('hero-circle');
             const heroIcon = document.getElementById('hero-icon');
             const statusTitle = document.getElementById('status-title');
             const statusMessage = document.getElementById('status-message');
-            const detailsCard = document.getElementById('detail-card');
+            const detailsCard = document.getElementById('details-card');
             const primaryAction = document.getElementById('primary-action');
             const secondaryAction = document.getElementById('secondary-action');
 
@@ -190,7 +190,7 @@
                 secondaryAction.href = "chat.html";
                 secondaryAction.textContent = "Message Agent";
             }
-        });
+        })();
     </script>
 </body>
 </html>
