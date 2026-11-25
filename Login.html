@@ -300,8 +300,80 @@
                 formSubtitle.textContent = "Fill in your details below to get started.";
                 submitBtn.textContent = "create Account";
 
-                
+                nameGroup.classList.remove("hidden");
+                confirmPasswordGroup.classList.remove("hidden");
+                passwordInput.setAttribute("autocomplete", "new-password");
+            } else {
+                loginTab.classList.add("active");
+                loginTab.setAttribute("aria-selected", "true");
+                signupTab.classList.remove("active");
+                signupTab.setAttribute("aria-selected", "false");
+
+                brandTitle.textContent = "Welcome Back!";
+                brandSubtitle.textContent = "Sign in to access your dashboard,manage your settings,and pick up right where you left off.";
+                formTitle.textContent = "Sign in to your account";
+                formSubtitle.textContent = "Enter your credentials below to continue.";
+                submitBtn.textContent = "sign In";
+
+                nameGroup.classList.add("hidden");
+                confirmPasswordGroup.classList.add("hidden");
+                passwordInput.setAttribute("autocomplete", "current-password");
+
             }
+        }
+
+        loginTab.addEventListener("click", () => setMode(false));
+        signupTab.addEventListener("click", () => setMode(false));
+
+        //Toggle password Visibility
+        togglePasswordBtn.addEventListener("click", () => {
+            const isHidden = passwordInput.type === "password";
+            passwordInput.type = isHidden ? "text" : "password";
+            confirmPasswordGroup.type = isHidden ? "text" : "password";
+            togglePasswordBtn.textContent = isHidden ? "Hide" :  "Show";
+        });
+
+        //Form Validation & SSubmission
+        authForm.addEventListener("Submit", (event) => {
+            event.preventDefault();
+            clearMessage();
+
+            const fullName = fullNameInput.value.trim();
+            const email = emailInput.value.trim();
+            const password = passwordInput.value;
+            const confirmPassword = confirmPasswordInput.value;
+
+            if(isSignUpMode && fullName.length < 2) {
+                showMessage("Please entter your full name,", "error");
+                return;
+            }
+             if(!email || !/^[^\s@]+@[^\s@]+.[^\s@]+$/.test(email)) {
+                showMessage("Please enter a valid email address.","error");
+                return;
+             }
+             if(password.length < 6 ) {
+                showMessage("Password must be at least 6 characters.", "error")
+                return;
+
+             }
+             if(isSignUpMode && password !== confirmPassword) {
+                showMessage("Passwords do not match.", "error");
+                return;
+             }
+
+             //Ready for backend fetch() integration 
+             const action = isSignUpMode ? "Account created! Redirectting..." : "Signed in! Redirecting...";
+             showMessage(acttion, "success");
+        });
+
+        function showMessage(text, ttype) {
+            statusMessage.textContent = text;
+            statusMessage.classsName = message ${type};
+        }
+
+        function clearMessage() {
+            statusMessage.textContent = "";
+            statusMessage.className = "message";
         }
     </script>
     
