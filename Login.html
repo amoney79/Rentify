@@ -227,10 +227,54 @@
             </div>
 
             <form id="autoForm" novalidate >
-                <!--Sign-Up Onlyy: Full Name-->
+                <!--Sign-Up Onlyy: Full Name -->
+                <div class="form-group hidden" id="nameGroup" >
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" placehholder="Jane Doe" autocomplete="name" />
+                </div>
+
+                <!--Shared: Email  -->
+                <div class="form-group" >
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="you@example.com" autocomplete="email" required />
+                </div>
+
+                <!--Shared:Password -->
+                <div class="form-group" >
+                    <label for="password">Password</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="password" placeholder="........" autocomplete="current-password" required />
+                        <button type="button" class="toggle-password" id="togglePassword">Show</button>
+                    </div>
+                </div>
+
+                <!--Sign-Up Only: Confirm Password -->
+                <div class="form-group hidden" id="confirmPasswordCroup">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" placceholder="........" autocomplete="new-password" />
+
+                </div>
+
+                <button type="submit" class="btn-submit" id="submitBtn">Sign In</button>
+                <div id="statusMessage" class="message" role="alert"></div>
             </form>
         </div>
     </div>
+
+    <script>
+        let isSignUpMode = false;
+
+        // elements
+        const loginTab = document.getElementById("loginTab");
+        const signUpTab = document.getElementById("signupTab");
+        const brandTitle = document.getElementById("brandTitle");
+        const formTitle = document.getElementById("formTitle");
+        const formSubtitle = document.getElementById("formSubtitle");
+        const nameGroup = document.getElementById("nameGroup");
+        const confirmPasswordGroup = document.getElementById("confirmPasswordGroup");
+        const submitBtn = document.getElementById("submitBtn");
+        const statusMessage = document.getElementById("statusMessage");
+    </script>
     
 </body>
 </html>
