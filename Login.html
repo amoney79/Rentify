@@ -266,7 +266,7 @@
 
         // elements
         const loginTab = document.getElementById("loginTab");
-        const signUpTab = document.getElementById("signupTab");
+        const signupTab = document.getElementById("signupTab");
         const brandTitle = document.getElementById("brandTitle");
         const formTitle = document.getElementById("formTitle");
         const formSubtitle = document.getElementById("formSubtitle");
@@ -274,6 +274,28 @@
         const confirmPasswordGroup = document.getElementById("confirmPasswordGroup");
         const submitBtn = document.getElementById("submitBtn");
         const statusMessage = document.getElementById("statusMessage");
+
+        const authForm = document.getElementById("autthForm");
+        const fullNameInput = document.getElementById(fullName);
+        const emailInput = document.getElementById("email");
+        const passwordInput = document.getElementById("password");
+        const confirmPasswordInput = document.getElementById("confirmPassword");
+        const togglePasswordBtn = document.getElementById("togglePassword");
+
+        // switch Tabs
+        function setMode (signUp) {
+            isSignUpMode = signUp;
+            clearMessage();
+
+            if(isSignUpMode) {
+                signupTab.classList.add("active");
+                signupTab.setAttribute("aria-selected", "true");
+                loginTab.classList.add("active");
+                loginTab.setAttribute("aria-selected", "false");
+
+                brandTitle
+            }
+        }
     </script>
     
 </body>
