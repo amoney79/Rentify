@@ -447,6 +447,12 @@
                 }
             }
 
+            const sigInBtn = document.getElementById("signBtn");
+            const userProfileBadge = document.getElementById("userProfileBadge");
+            const userNameDisplay = document.getElementById("userNameDisplay");
+            const userRoleDisplay = document.getElementById("userRoleDisplay");
+            const
+
             async function loadUserProfile() {
                 // 1. Try loading from localStorage first for immediate render
                 const cached = typeof RentifyAPI !== 'undefined' ? RentifyAPI.getCurrentUser() : null;
