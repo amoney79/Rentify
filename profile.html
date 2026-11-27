@@ -451,7 +451,16 @@
             const userProfileBadge = document.getElementById("userProfileBadge");
             const userNameDisplay = document.getElementById("userNameDisplay");
             const userRoleDisplay = document.getElementById("userRoleDisplay");
-            const
+            const userInitial = document.getElementById("userInitial");
+            const signOutBtn = document.getElementById("signOutBtn");
+
+            function loadUserSession() {
+                const savedUser = JSON.parse(localStorage.getItem("rentidyuser"));
+            
+                if(savedUser && savedUser.name) {
+                    //hide siggn In button, shhow uuser info
+                }
+            }
 
             async function loadUserProfile() {
                 // 1. Try loading from localStorage first for immediate render
